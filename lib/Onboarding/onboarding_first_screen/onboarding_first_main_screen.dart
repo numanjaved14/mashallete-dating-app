@@ -19,7 +19,7 @@ class _OnBoardingFirstMainScreenState extends State<OnBoardingFirstMainScreen> {
           child: Column(
             children: [
               const SizedBox(
-                height: 50,
+                height: 100,
               ),
               SizedBox(
                 height: 50,
@@ -28,12 +28,12 @@ class _OnBoardingFirstMainScreenState extends State<OnBoardingFirstMainScreen> {
                   children: [
                     Container(
                       width: MediaQuery.of(context).size.width * 0.8,
-                      height: 2,
+                      height: 2.5,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(
                             10,
                           ),
-                          color: blueColor),
+                          color: blueColor.withOpacity(0.5)),
                     )
                   ],
                 ),
