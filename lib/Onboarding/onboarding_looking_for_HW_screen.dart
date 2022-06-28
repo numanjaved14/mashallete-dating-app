@@ -1,21 +1,18 @@
+import 'package:dating_app/Utilities/app_utils.dart';
 import 'package:flutter/material.dart';
 
 import '../Constants/app_constants.dart';
-import '../Utilities/app_utils.dart';
 
-class OnBoardingDateOfBirthScreen extends StatefulWidget {
-  const OnBoardingDateOfBirthScreen({Key? key}) : super(key: key);
+class OnBoardingLookingForScreen extends StatefulWidget {
+  const OnBoardingLookingForScreen({Key? key}) : super(key: key);
 
   @override
-  State<OnBoardingDateOfBirthScreen> createState() =>
-      _OnBoardingDateOfBirthScreenState();
+  State<OnBoardingLookingForScreen> createState() =>
+      _OnBoardingLookingForScreenState();
 }
 
-class _OnBoardingDateOfBirthScreenState
-    extends State<OnBoardingDateOfBirthScreen> {
-  var monthController = TextEditingController();
-  var dayController = TextEditingController();
-  var yearController = TextEditingController();
+class _OnBoardingLookingForScreenState
+    extends State<OnBoardingLookingForScreen> {
   var utils = AppUtils();
   @override
   Widget build(BuildContext context) {
@@ -27,7 +24,7 @@ class _OnBoardingDateOfBirthScreenState
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(
-              height: 100,
+              height: 120,
             ),
             SizedBox(
               height: 50,
@@ -74,36 +71,33 @@ class _OnBoardingDateOfBirthScreenState
               height: 10,
             ),
             Text(
-              "What's your date of \nbirth?",
+              "What are your looking for?",
               style: utils.largeHeadingTextStyle(
                 color: Colors.black,
               ),
             ),
             const SizedBox(
-              height: 20,
+              height: 25,
             ),
-            Row(
-              children: [
-                utils.textField(
-                    controller: monthController,
-                    width: MediaQuery.of(context).size.width * 0.15,
-                    hintText: "MM"),
-                SizedBox(
-                  width: 10,
-                ),
-                utils.textField(
-                    controller: dayController,
-                    width: MediaQuery.of(context).size.width * 0.15,
-                    hintText: "DD"),
-                SizedBox(
-                  width: 10,
-                ),
-                utils.textField(
-                    controller: yearController,
-                    width: MediaQuery.of(context).size.width * 0.2,
-                    hintText: "YYYY"),
-              ],
+            utils.bigButton(
+                width: MediaQuery.of(context).size.width * 0.9,
+                containerColor: Colors.grey[200],
+                text: "A Husband",
+                fontWeight: FontWeight.w500,
+                height: 50.0,
+                shadowColors: Colors.white,
+                borderRadius: 20.0),
+            const SizedBox(
+              height: 25,
             ),
+            utils.bigButton(
+                width: MediaQuery.of(context).size.width * 0.9,
+                containerColor: Colors.grey[200],
+                text: "A Wife",
+                shadowColors: Colors.white,
+                fontWeight: FontWeight.w500,
+                height: 50.0,
+                borderRadius: 20.0),
             const SizedBox(
               height: 25,
             ),
@@ -113,18 +107,11 @@ class _OnBoardingDateOfBirthScreenState
               children: [
                 Row(
                   children: const [
-                    Icon(
-                      Icons.lock,
-                      color: blueColor,
-                    ),
-                    SizedBox(
-                      width: 5,
-                    ),
                     Text(
-                      "We'll never share this with anyone",
+                      "Skip for now",
                       style: TextStyle(
                         fontSize: 15,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.bold,
                         color: blueColor,
                       ),
                     ),
@@ -132,7 +119,7 @@ class _OnBoardingDateOfBirthScreenState
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, confirmAgeScreenRoute);
+                    Navigator.pushNamed(context, onBoardingLocationScreenRoute);
                   },
                   child: Container(
                     width: 60,

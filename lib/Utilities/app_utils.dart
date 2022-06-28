@@ -83,6 +83,14 @@ class AppUtils {
     );
   }
 
+  extraSmallHeadingTextStyle({color}) {
+    return TextStyle(
+      fontSize: 13,
+      fontWeight: FontWeight.bold,
+      color: color,
+    );
+  }
+
   mediumHeadingTextStyle({color}) {
     return TextStyle(
       fontSize: 20,

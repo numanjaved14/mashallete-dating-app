@@ -11,3 +11,9 @@ const onBoardingPhoneVerificationScreenRoute =
     "/onBoardingPhoneVerificationScreenRoute";
 const onBoardingNameScreenRoute = "/onBoardingNameScreenRoute";
 const onBoardingDateOfBirthScreenRoute = "/onBoardingDateOfBirthScreenRoute";
+const onBoardingLocationScreenRoute = "/onBoardingLocationScreenRoute";
+const welcomeNameScreenRoute = "/welcomeNameScreenRoute";
+const onBoardingLookingForScreenRoute = "/onBoardingLookingForScreenRoute";
+const confirmAgeScreenRoute = "/confirmAgeScreenRoute";
+const onBoardingNotificationsScreenRoute =
+    "/onBoardingNotificationsScreenRoute";

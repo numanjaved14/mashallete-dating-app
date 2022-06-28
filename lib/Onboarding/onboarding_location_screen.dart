@@ -1,21 +1,18 @@
+import 'package:dating_app/Constants/app_constants.dart';
 import 'package:flutter/material.dart';
 
-import '../Constants/app_constants.dart';
 import '../Utilities/app_utils.dart';
 
-class OnBoardingDateOfBirthScreen extends StatefulWidget {
-  const OnBoardingDateOfBirthScreen({Key? key}) : super(key: key);
+class OnBoardingLocationScreen extends StatefulWidget {
+  const OnBoardingLocationScreen({Key? key}) : super(key: key);
 
   @override
-  State<OnBoardingDateOfBirthScreen> createState() =>
-      _OnBoardingDateOfBirthScreenState();
+  State<OnBoardingLocationScreen> createState() =>
+      _OnBoardingLocationScreenState();
 }
 
-class _OnBoardingDateOfBirthScreenState
-    extends State<OnBoardingDateOfBirthScreen> {
-  var monthController = TextEditingController();
-  var dayController = TextEditingController();
-  var yearController = TextEditingController();
+class _OnBoardingLocationScreenState extends State<OnBoardingLocationScreen> {
+  var locationController = TextEditingController();
   var utils = AppUtils();
   @override
   Widget build(BuildContext context) {
@@ -27,7 +24,7 @@ class _OnBoardingDateOfBirthScreenState
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(
-              height: 100,
+              height: 120,
             ),
             SizedBox(
               height: 50,
@@ -74,35 +71,18 @@ class _OnBoardingDateOfBirthScreenState
               height: 10,
             ),
             Text(
-              "What's your date of \nbirth?",
+              "Where do you live?",
               style: utils.largeHeadingTextStyle(
                 color: Colors.black,
               ),
             ),
             const SizedBox(
-              height: 20,
+              height: 25,
             ),
-            Row(
-              children: [
-                utils.textField(
-                    controller: monthController,
-                    width: MediaQuery.of(context).size.width * 0.15,
-                    hintText: "MM"),
-                SizedBox(
-                  width: 10,
-                ),
-                utils.textField(
-                    controller: dayController,
-                    width: MediaQuery.of(context).size.width * 0.15,
-                    hintText: "DD"),
-                SizedBox(
-                  width: 10,
-                ),
-                utils.textField(
-                    controller: yearController,
-                    width: MediaQuery.of(context).size.width * 0.2,
-                    hintText: "YYYY"),
-              ],
+            utils.textField(
+              controller: locationController,
+              width: MediaQuery.of(context).size.width * 0.9,
+              hintText: "Location",
             ),
             const SizedBox(
               height: 25,
@@ -113,27 +93,18 @@ class _OnBoardingDateOfBirthScreenState
               children: [
                 Row(
                   children: const [
-                    Icon(
-                      Icons.lock,
-                      color: blueColor,
-                    ),
-                    SizedBox(
-                      width: 5,
-                    ),
                     Text(
-                      "We'll never share this with anyone",
+                      "Skip for now",
                       style: TextStyle(
                         fontSize: 15,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.bold,
                         color: blueColor,
                       ),
                     ),
                   ],
                 ),
                 GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(context, confirmAgeScreenRoute);
-                  },
+                  onTap: () {},
                   child: Container(
                     width: 60,
                     height: 60,

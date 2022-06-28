@@ -1,21 +1,18 @@
+import 'package:dating_app/Utilities/app_utils.dart';
 import 'package:flutter/material.dart';
 
 import '../Constants/app_constants.dart';
-import '../Utilities/app_utils.dart';
 
-class OnBoardingDateOfBirthScreen extends StatefulWidget {
-  const OnBoardingDateOfBirthScreen({Key? key}) : super(key: key);
+class OnBoardingNotificationsScreen extends StatefulWidget {
+  const OnBoardingNotificationsScreen({Key? key}) : super(key: key);
 
   @override
-  State<OnBoardingDateOfBirthScreen> createState() =>
-      _OnBoardingDateOfBirthScreenState();
+  State<OnBoardingNotificationsScreen> createState() =>
+      _OnBoardingNotificationsScreenState();
 }
 
-class _OnBoardingDateOfBirthScreenState
-    extends State<OnBoardingDateOfBirthScreen> {
-  var monthController = TextEditingController();
-  var dayController = TextEditingController();
-  var yearController = TextEditingController();
+class _OnBoardingNotificationsScreenState
+    extends State<OnBoardingNotificationsScreen> {
   var utils = AppUtils();
   @override
   Widget build(BuildContext context) {
@@ -74,36 +71,33 @@ class _OnBoardingDateOfBirthScreenState
               height: 10,
             ),
             Text(
-              "What's your date of \nbirth?",
+              "Never miss out on a \nmessage!",
               style: utils.largeHeadingTextStyle(
                 color: Colors.black,
               ),
             ),
             const SizedBox(
-              height: 20,
+              height: 25,
             ),
-            Row(
-              children: [
-                utils.textField(
-                    controller: monthController,
-                    width: MediaQuery.of(context).size.width * 0.15,
-                    hintText: "MM"),
-                SizedBox(
-                  width: 10,
-                ),
-                utils.textField(
-                    controller: dayController,
-                    width: MediaQuery.of(context).size.width * 0.15,
-                    hintText: "DD"),
-                SizedBox(
-                  width: 10,
-                ),
-                utils.textField(
-                    controller: yearController,
-                    width: MediaQuery.of(context).size.width * 0.2,
-                    hintText: "YYYY"),
-              ],
+            utils.bigButton(
+                width: MediaQuery.of(context).size.width * 0.9,
+                containerColor: Colors.grey[200],
+                text: "Enable Notifications",
+                fontWeight: FontWeight.w500,
+                height: 50.0,
+                shadowColors: Colors.white,
+                borderRadius: 20.0),
+            const SizedBox(
+              height: 25,
             ),
+            utils.bigButton(
+                width: MediaQuery.of(context).size.width * 0.9,
+                containerColor: Colors.grey[200],
+                text: "Disable Notifications",
+                shadowColors: Colors.white,
+                fontWeight: FontWeight.w500,
+                height: 50.0,
+                borderRadius: 20.0),
             const SizedBox(
               height: 25,
             ),
@@ -113,26 +107,14 @@ class _OnBoardingDateOfBirthScreenState
               children: [
                 Row(
                   children: const [
-                    Icon(
-                      Icons.lock,
-                      color: blueColor,
-                    ),
-                    SizedBox(
-                      width: 5,
-                    ),
                     Text(
-                      "We'll never share this with anyone",
-                      style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w600,
-                        color: blueColor,
-                      ),
+                      "",
                     ),
                   ],
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, confirmAgeScreenRoute);
+                    Navigator.pushNamed(context, welcomeNameScreenRoute);
                   },
                   child: Container(
                     width: 60,
