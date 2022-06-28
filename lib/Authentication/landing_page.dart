@@ -88,8 +88,7 @@ class _LandingScreenState extends State<LandingScreen> {
                 alignment: Alignment.center,
                 child: utils.bigButton(
                     onTap: () {
-                      Navigator.pushNamed(
-                          context, onBoardingFirstMainScreenRoute);
+                      Navigator.pushNamed(context, onBoardingPhoneScreenRoute);
                     },
                     width: MediaQuery.of(context).size.width * 0.7,
                     height: 55.0,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pinput/pinput.dart';
 import '../Constants/app_constants.dart';
 
 class AppUtils {
@@ -11,7 +12,7 @@ class AppUtils {
 
   mediumTitleTextStyle({color}) {
     return TextStyle(
-      fontSize: 16,
+      fontSize: 17,
       color: color,
     );
   }
@@ -60,7 +61,7 @@ class AppUtils {
 
   largeHeadingTextStyle({color}) {
     return TextStyle(
-      fontSize: 20,
+      fontSize: 24,
       fontWeight: FontWeight.w600,
       color: color,
     );
@@ -136,35 +137,25 @@ class AppUtils {
     );
   }
 
-  textField({controller, hintText}) {
-    return Container(
+  textField({controller, hintText, width}) {
+    return SizedBox(
+      width: width,
       height: 50,
-      decoration: BoxDecoration(
-          color: Colors.white,
-          boxShadow: const [
-            BoxShadow(
-              offset: Offset(0, 1),
-              blurRadius: 5,
-              spreadRadius: 0,
-              color: Colors.grey,
-            ),
-          ],
-          borderRadius: BorderRadius.circular(10)),
-      child: TextField(
-        cursorColor: blueColor,
+      child: TextFormField(
         controller: controller,
-        keyboardType: TextInputType.emailAddress,
-        style: const TextStyle(fontSize: 14, color: Colors.black),
         decoration: InputDecoration(
-          border: InputBorder.none,
-          hintText: hintText,
-          hintStyle: TextStyle(
-              color: Colors.grey.withOpacity(0.3),
-              fontSize: 18,
-              fontWeight: FontWeight.w600),
-          contentPadding:
-              const EdgeInsets.symmetric(vertical: 0.0, horizontal: 20.0),
-        ),
+            contentPadding: const EdgeInsets.only(top: 5, left: 15),
+            hintText: hintText,
+            border: InputBorder.none,
+            hintStyle: const TextStyle(color: Colors.grey),
+            focusedBorder: OutlineInputBorder(
+              borderSide: const BorderSide(color: blueColor, width: 2.0),
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderSide: const BorderSide(color: Colors.grey, width: 2.0),
+              borderRadius: BorderRadius.circular(10.0),
+            )),
       ),
     );
   }
@@ -522,4 +513,30 @@ class AppUtils {
       ),
     );
   }
+
+  final focusedPinTheme = PinTheme(
+    width: 78,
+    height: 78,
+    textStyle: TextStyle(
+        fontSize: 38,
+        color: Color.fromRGBO(30, 60, 87, 1),
+        fontWeight: FontWeight.w400),
+    decoration: BoxDecoration(
+      border: Border.all(color: blueColor),
+      borderRadius: BorderRadius.circular(20),
+    ),
+  );
+
+  final defaultPinTheme = PinTheme(
+    width: 78,
+    height: 78,
+    textStyle: TextStyle(
+        fontSize: 38,
+        color: Color.fromRGBO(30, 60, 87, 1),
+        fontWeight: FontWeight.w400),
+    decoration: BoxDecoration(
+      border: Border.all(color: Colors.grey),
+      borderRadius: BorderRadius.circular(20),
+    ),
+  );
 }

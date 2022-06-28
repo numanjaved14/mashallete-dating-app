@@ -1,8 +1,11 @@
+import 'package:dating_app/Onboarding/onboarding_dob_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:mashalatte/Onboarding/onboarding_first_screen/onboarding_first_main_screen.dart';
 import 'Authentication/landing_page.dart';
 import 'Authentication/splash_screen.dart';
 import 'Constants/app_constants.dart';
+import 'Onboarding/onboarding_name_screen.dart';
+import 'Onboarding/onboarding_phone_screen.dart';
+import 'Onboarding/onboarding_phone_verification_screen.dart';
 
 Future<void> main() async {
   runApp(const MyApp());
@@ -20,8 +23,12 @@ class MyApp extends StatelessWidget {
       routes: {
         splashRoute: (context) => const SplashScreen(),
         landingScreenRoute: (context) => const LandingScreen(),
-        onBoardingFirstMainScreenRoute: (context) =>
-            const OnBoardingFirstMainScreen(),
+        onBoardingPhoneVerificationScreenRoute: (context) =>
+            const OnBoardingPhoneVerificationScreen(),
+        onBoardingPhoneScreenRoute: (context) => const OnBoardingPhoneScreen(),
+        onBoardingDateOfBirthScreenRoute: (context) =>
+            const OnBoardingDateOfBirthScreen(),
+        onBoardingNameScreenRoute: (context) => const OnBoardingNameScreen(),
       },
     );
   }
