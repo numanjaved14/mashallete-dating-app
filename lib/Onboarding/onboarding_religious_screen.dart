@@ -1,18 +1,17 @@
-import 'package:dating_app/Constants/app_constants.dart';
 import 'package:flutter/material.dart';
 
+import '../Constants/app_constants.dart';
 import '../Utilities/app_utils.dart';
 
-class OnBoardingLocationScreen extends StatefulWidget {
-  const OnBoardingLocationScreen({Key? key}) : super(key: key);
+class OnBoardingReligiousScreen extends StatefulWidget {
+  const OnBoardingReligiousScreen({Key? key}) : super(key: key);
 
   @override
-  State<OnBoardingLocationScreen> createState() =>
-      _OnBoardingLocationScreenState();
+  State<OnBoardingReligiousScreen> createState() =>
+      _OnBoardingReligiousScreenState();
 }
 
-class _OnBoardingLocationScreenState extends State<OnBoardingLocationScreen> {
-  var locationController = TextEditingController();
+class _OnBoardingReligiousScreenState extends State<OnBoardingReligiousScreen> {
   var utils = AppUtils();
   @override
   Widget build(BuildContext context) {
@@ -71,7 +70,7 @@ class _OnBoardingLocationScreenState extends State<OnBoardingLocationScreen> {
               height: 10,
             ),
             Text(
-              "Where do you live?",
+              "How religious are you?",
               style: utils.largeHeadingTextStyle(
                 color: Colors.black,
               ),
@@ -79,11 +78,36 @@ class _OnBoardingLocationScreenState extends State<OnBoardingLocationScreen> {
             const SizedBox(
               height: 25,
             ),
-            utils.textField(
-              controller: locationController,
-              width: MediaQuery.of(context).size.width * 0.9,
-              hintText: "Location",
+            utils.bigButton(
+                width: MediaQuery.of(context).size.width * 0.9,
+                containerColor: Colors.grey[200],
+                text: "Very Religious",
+                fontWeight: FontWeight.w500,
+                height: 50.0,
+                shadowColors: Colors.white,
+                borderRadius: 20.0),
+            const SizedBox(
+              height: 25,
             ),
+            utils.bigButton(
+                width: MediaQuery.of(context).size.width * 0.9,
+                containerColor: Colors.grey[200],
+                text: "Somewhat Religious",
+                fontWeight: FontWeight.w500,
+                height: 50.0,
+                shadowColors: Colors.white,
+                borderRadius: 20.0),
+            const SizedBox(
+              height: 25,
+            ),
+            utils.bigButton(
+                width: MediaQuery.of(context).size.width * 0.9,
+                containerColor: Colors.grey[200],
+                text: "Not Religious",
+                shadowColors: Colors.white,
+                fontWeight: FontWeight.w500,
+                height: 50.0,
+                borderRadius: 20.0),
             const SizedBox(
               height: 25,
             ),
@@ -94,10 +118,7 @@ class _OnBoardingLocationScreenState extends State<OnBoardingLocationScreen> {
                 Row(
                   children: [
                     GestureDetector(
-                      onTap: () {
-                        Navigator.pushNamed(
-                            context, onBoardingEthnicityScreenRoute);
-                      },
+                      onTap: () {},
                       child: const Text(
                         "Skip for now",
                         style: TextStyle(
@@ -110,10 +131,7 @@ class _OnBoardingLocationScreenState extends State<OnBoardingLocationScreen> {
                   ],
                 ),
                 GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(
-                        context, onBoardingEthnicityScreenRoute);
-                  },
+                  onTap: () {},
                   child: Container(
                     width: 60,
                     height: 60,

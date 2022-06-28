@@ -1,18 +1,18 @@
-import 'package:dating_app/Constants/app_constants.dart';
 import 'package:flutter/material.dart';
 
+import '../Constants/app_constants.dart';
 import '../Utilities/app_utils.dart';
 
-class OnBoardingLocationScreen extends StatefulWidget {
-  const OnBoardingLocationScreen({Key? key}) : super(key: key);
+class OnBoardingEthnicityScreen extends StatefulWidget {
+  const OnBoardingEthnicityScreen({Key? key}) : super(key: key);
 
   @override
-  State<OnBoardingLocationScreen> createState() =>
-      _OnBoardingLocationScreenState();
+  State<OnBoardingEthnicityScreen> createState() =>
+      _OnBoardingEthnicityScreenState();
 }
 
-class _OnBoardingLocationScreenState extends State<OnBoardingLocationScreen> {
-  var locationController = TextEditingController();
+class _OnBoardingEthnicityScreenState extends State<OnBoardingEthnicityScreen> {
+  var ethnicityController = TextEditingController();
   var utils = AppUtils();
   @override
   Widget build(BuildContext context) {
@@ -71,7 +71,7 @@ class _OnBoardingLocationScreenState extends State<OnBoardingLocationScreen> {
               height: 10,
             ),
             Text(
-              "Where do you live?",
+              "What is your ethnicity?",
               style: utils.largeHeadingTextStyle(
                 color: Colors.black,
               ),
@@ -80,9 +80,19 @@ class _OnBoardingLocationScreenState extends State<OnBoardingLocationScreen> {
               height: 25,
             ),
             utils.textField(
-              controller: locationController,
+              controller: ethnicityController,
               width: MediaQuery.of(context).size.width * 0.9,
-              hintText: "Location",
+              hintText: "Search",
+            ),
+            const SizedBox(
+              height: 25,
+            ),
+            Wrap(
+              alignment: WrapAlignment.start,
+              children: [
+                utils.ethnicityWidget(icon1: Icons.flag, text: "Ethnicity 1"),
+                utils.ethnicityWidget(icon1: Icons.flag, text: "Ethnicity 2"),
+              ],
             ),
             const SizedBox(
               height: 25,
@@ -96,7 +106,7 @@ class _OnBoardingLocationScreenState extends State<OnBoardingLocationScreen> {
                     GestureDetector(
                       onTap: () {
                         Navigator.pushNamed(
-                            context, onBoardingEthnicityScreenRoute);
+                            context, onBoardingReligiousScreenRoute);
                       },
                       child: const Text(
                         "Skip for now",
@@ -112,7 +122,7 @@ class _OnBoardingLocationScreenState extends State<OnBoardingLocationScreen> {
                 GestureDetector(
                   onTap: () {
                     Navigator.pushNamed(
-                        context, onBoardingEthnicityScreenRoute);
+                        context, onBoardingReligiousScreenRoute);
                   },
                   child: Container(
                     width: 60,

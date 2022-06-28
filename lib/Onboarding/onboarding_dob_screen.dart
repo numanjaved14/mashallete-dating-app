@@ -88,14 +88,14 @@ class _OnBoardingDateOfBirthScreenState
                     controller: monthController,
                     width: MediaQuery.of(context).size.width * 0.15,
                     hintText: "MM"),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 utils.textField(
                     controller: dayController,
                     width: MediaQuery.of(context).size.width * 0.15,
                     hintText: "DD"),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 utils.textField(

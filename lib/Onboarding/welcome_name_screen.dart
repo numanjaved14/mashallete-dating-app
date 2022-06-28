@@ -24,7 +24,7 @@ class _WelcomeNameScreenState extends State<WelcomeNameScreen> {
             const SizedBox(
               height: 130,
             ),
-            Text(
+            const Text(
               "Welcome Aadil!",
               style: TextStyle(
                 fontSize: 30,
@@ -48,7 +48,7 @@ class _WelcomeNameScreenState extends State<WelcomeNameScreen> {
               height: 150,
               color: Colors.grey[300],
             ),
-            Spacer(
+            const Spacer(
               flex: 4,
             ),
             Align(

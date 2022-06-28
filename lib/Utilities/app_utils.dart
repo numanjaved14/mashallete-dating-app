@@ -525,7 +525,7 @@ class AppUtils {
   final focusedPinTheme = PinTheme(
     width: 78,
     height: 78,
-    textStyle: TextStyle(
+    textStyle: const TextStyle(
         fontSize: 38,
         color: Color.fromRGBO(30, 60, 87, 1),
         fontWeight: FontWeight.w400),
@@ -538,7 +538,7 @@ class AppUtils {
   final defaultPinTheme = PinTheme(
     width: 78,
     height: 78,
-    textStyle: TextStyle(
+    textStyle: const TextStyle(
         fontSize: 38,
         color: Color.fromRGBO(30, 60, 87, 1),
         fontWeight: FontWeight.w400),
@@ -547,4 +547,39 @@ class AppUtils {
       borderRadius: BorderRadius.circular(20),
     ),
   );
+
+  ethnicityWidget({icon1, text}) {
+    return Container(
+      margin: const EdgeInsets.all(5),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30),
+          color: Colors.white,
+          border: Border.all(color: Colors.grey.withOpacity(0.5), width: 1.5)),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(
+            icon1,
+            color: Colors.grey,
+            size: 20,
+          ),
+          const SizedBox(
+            width: 10,
+          ),
+          Text(
+            text,
+            style: extraSmallTitleTextStyle(),
+          ),
+          const SizedBox(
+            width: 15,
+          ),
+          Text(
+            "x",
+            style: smallTitleTextStyle(color: Colors.grey),
+          )
+        ],
+      ),
+    );
+  }
 }

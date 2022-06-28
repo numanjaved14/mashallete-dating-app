@@ -166,7 +166,7 @@ class _ConfirmAgeScreenState extends State<ConfirmAgeScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 25),
+                    padding: const EdgeInsets.symmetric(horizontal: 25),
                     width: MediaQuery.of(context).size.width * 0.8,
                     height: 300,
                     decoration: BoxDecoration(
@@ -218,7 +218,7 @@ class _ConfirmAgeScreenState extends State<ConfirmAgeScreen> {
                             text: "I confirm that I am 26 years old.",
                             fontSize: 15,
                             borderRadius: 30.0),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         GestureDetector(

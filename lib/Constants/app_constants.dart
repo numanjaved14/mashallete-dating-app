@@ -7,13 +7,16 @@ const blueColor = Color(0xff3776FF);
 const splashRoute = "/";
 const landingScreenRoute = "/landingScreenRoute";
 const onBoardingPhoneScreenRoute = "/onBoardingFirstMainScreenRoute";
-const onBoardingPhoneVerificationScreenRoute =
-    "/onBoardingPhoneVerificationScreenRoute";
 const onBoardingNameScreenRoute = "/onBoardingNameScreenRoute";
 const onBoardingDateOfBirthScreenRoute = "/onBoardingDateOfBirthScreenRoute";
+const onBoardingEthnicityScreenRoute = "/onBoardingEthnicityScreenRoute";
+const onBoardingReligiousScreenRoute = "/onBoardingReligiousScreenRoute";
+const onBoardingInterestsScreenRoute = "/onBoardingReligiousScreenRoute";
 const onBoardingLocationScreenRoute = "/onBoardingLocationScreenRoute";
 const welcomeNameScreenRoute = "/welcomeNameScreenRoute";
 const onBoardingLookingForScreenRoute = "/onBoardingLookingForScreenRoute";
 const confirmAgeScreenRoute = "/confirmAgeScreenRoute";
 const onBoardingNotificationsScreenRoute =
     "/onBoardingNotificationsScreenRoute";
+const onBoardingPhoneVerificationScreenRoute =
+    "/onBoardingPhoneVerificationScreenRoute";

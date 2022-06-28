@@ -1,6 +1,5 @@
-import 'package:dating_app/Utilities/app_utils.dart';
 import 'package:flutter/material.dart';
-
+import '../Utilities/app_utils.dart';
 import '../Constants/app_constants.dart';
 
 class OnBoardingLookingForScreen extends StatefulWidget {
@@ -106,13 +105,19 @@ class _OnBoardingLookingForScreenState
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
-                  children: const [
-                    Text(
-                      "Skip for now",
-                      style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
-                        color: blueColor,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(
+                            context, onBoardingLocationScreenRoute);
+                      },
+                      child: const Text(
+                        "Skip for now",
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color: blueColor,
+                        ),
                       ),
                     ),
                   ],
