@@ -112,7 +112,7 @@ class _OnBoardingAddPhotosScreenState extends State<OnBoardingAddPhotosScreen> {
             const SizedBox(
               height: 20,
             ),
-            Container(
+            SizedBox(
               width: MediaQuery.of(context).size.width,
               child: Align(
                 alignment: Alignment.center,
@@ -121,7 +121,11 @@ class _OnBoardingAddPhotosScreenState extends State<OnBoardingAddPhotosScreen> {
                     for (int i = 0; i < 6; i++)
                       utils.addPhotosWidget(
                         onTap: () {
-                          enabled = true;
+                          if (enabled == true) {
+                            enabled = false;
+                          } else {
+                            enabled = true;
+                          }
                           setState(() {});
                         },
                         enabled: enabled,
@@ -142,7 +146,10 @@ class _OnBoardingAddPhotosScreenState extends State<OnBoardingAddPhotosScreen> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    if (enabled) {}
+                    if (enabled) {
+                      Navigator.pushNamed(
+                          context, onBoardingPhotoVerificationScreenRoute);
+                    }
                   },
                   child: Container(
                     width: 60,

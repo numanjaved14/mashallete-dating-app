@@ -628,7 +628,7 @@ class AppUtils {
             Positioned(
               bottom: 0,
               child: DottedBorder(
-                dashPattern: [4, 4],
+                dashPattern: const [4, 4],
                 color: Colors.black,
                 strokeWidth: 1,
                 borderType: BorderType.RRect,
@@ -647,7 +647,7 @@ class AppUtils {
                           "assets/background.png",
                           fit: BoxFit.cover,
                         )
-                      : Icon(
+                      : const Icon(
                           Icons.photo,
                           color: Colors.grey,
                           size: 20,
@@ -672,7 +672,7 @@ class AppUtils {
                     )
                   ],
                 ),
-                padding: EdgeInsets.all(3),
+                padding: const EdgeInsets.all(3),
                 child: const Center(
                   child: Text(
                     "X",

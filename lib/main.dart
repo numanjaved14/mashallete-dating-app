@@ -10,11 +10,16 @@ import 'package:flutter/material.dart';
 import 'Authentication/landing_page.dart';
 import 'Authentication/splash_screen.dart';
 import 'Constants/app_constants.dart';
+import 'GroundRules/ground_rule_one_screen.dart';
+import 'GroundRules/ground_rule_three_screen.dart';
+import 'GroundRules/ground_rule_two_screen.dart';
 import 'Onboarding/onboarding_confirm_dob_screen.dart';
 import 'Onboarding/onboarding_ethnicity_screen.dart';
 import 'Onboarding/onboarding_name_screen.dart';
 import 'Onboarding/onboarding_phone_screen.dart';
 import 'Onboarding/onboarding_phone_verification_screen.dart';
+import 'Onboarding/onboarding_photo_verification_screen.dart';
+import 'Onboarding/onboarding_thank_you_screen.dart';
 import 'Onboarding/onboarding_welcome_screen.dart';
 
 Future<void> main() async {
@@ -57,6 +62,13 @@ class MyApp extends StatelessWidget {
             const OnBoardingLookingGoodScreen(),
         onBoardingAddPhotosScreenRoute: (context) =>
             const OnBoardingAddPhotosScreen(),
+        onBoardingPhotoVerificationScreenRoute: (context) =>
+            const OnBoardingPhotoVerificationScreen(),
+        onBoardingThankYouScreenRoute: (context) =>
+            const OnBoardingThankYouScreen(),
+        groundRuleOneScreenRoute: (context) => const GroundRuleOneScreen(),
+        groundRuleTwoScreenRoute: (context) => const GroundRuleTwoScreen(),
+        groundRuleThreeScreenRoute: (context) => const GroundRuleThreeScreen(),
       },
     );
   }

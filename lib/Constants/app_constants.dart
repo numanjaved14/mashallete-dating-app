@@ -11,6 +11,10 @@ const onBoardingNameScreenRoute = "/onBoardingNameScreenRoute";
 const onBoardingDateOfBirthScreenRoute = "/onBoardingDateOfBirthScreenRoute";
 const onBoardingEthnicityScreenRoute = "/onBoardingEthnicityScreenRoute";
 const onBoardingReligiousScreenRoute = "/onBoardingReligiousScreenRoute";
+const onBoardingThankYouScreenRoute = "/onBoardingThankYouScreenRoute";
+const groundRuleOneScreenRoute = "/groundRuleOneScreenRoute";
+const groundRuleTwoScreenRoute = "/groundRuleTwoScreenRoute";
+const groundRuleThreeScreenRoute = "/groundRuleThreeScreenRoute";
 const onBoardingLookingGoodScreenRoute = "/onBoardingLookingGoodScreenRoute";
 const onBoardingInterestsScreenRoute = "/onBoardingInterestsScreenRoute";
 const onBoardingLocationScreenRoute = "/onBoardingLocationScreenRoute";
@@ -22,3 +26,5 @@ const onBoardingNotificationsScreenRoute =
 const onBoardingPhoneVerificationScreenRoute =
     "/onBoardingPhoneVerificationScreenRoute";
 const onBoardingAddPhotosScreenRoute = "/onBoardingAddPhotosScreenRoute";
+const onBoardingPhotoVerificationScreenRoute =
+    "/onBoardingPhotoVerificationScreenRoute";
