@@ -118,7 +118,10 @@ class _OnBoardingReligiousScreenState extends State<OnBoardingReligiousScreen> {
                 Row(
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushNamed(
+                            context, onBoardingInterestsScreenRoute);
+                      },
                       child: const Text(
                         "Skip for now",
                         style: TextStyle(
@@ -131,7 +134,10 @@ class _OnBoardingReligiousScreenState extends State<OnBoardingReligiousScreen> {
                   ],
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(
+                        context, onBoardingInterestsScreenRoute);
+                  },
                   child: Container(
                     width: 60,
                     height: 60,

@@ -1,4 +1,5 @@
 import 'package:dating_app/Onboarding/onboarding_dob_screen.dart';
+import 'package:dating_app/Onboarding/onboarding_interests_screen.dart';
 import 'package:dating_app/Onboarding/onboarding_location_screen.dart';
 import 'package:dating_app/Onboarding/onboarding_looking_for_h_w_screen.dart';
 import 'package:dating_app/Onboarding/onboarding_notifications_screen.dart';
@@ -29,6 +30,8 @@ class MyApp extends StatelessWidget {
       initialRoute: splashRoute,
       routes: {
         splashRoute: (context) => const SplashScreen(),
+        onBoardingInterestsScreenRoute: (context) =>
+            const OnBoardingInterestsScreen(),
         landingScreenRoute: (context) => const LandingScreen(),
         onBoardingReligiousScreenRoute: (context) =>
             const OnBoardingReligiousScreen(),

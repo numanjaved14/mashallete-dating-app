@@ -582,4 +582,31 @@ class AppUtils {
       ),
     );
   }
+
+  interestsWidget({text}) {
+    return Container(
+      margin: const EdgeInsets.all(5),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30),
+          color: Colors.white,
+          border: Border.all(color: Colors.grey.withOpacity(0.5), width: 1.5)),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Image.asset(
+            "assets/like.png",
+            scale: 35,
+          ),
+          const SizedBox(
+            width: 15,
+          ),
+          Text(
+            text,
+            style: extraSmallTitleTextStyle(),
+          ),
+        ],
+      ),
+    );
+  }
 }
