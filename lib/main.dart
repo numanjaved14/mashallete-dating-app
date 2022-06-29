@@ -13,7 +13,7 @@ import 'Onboarding/onboarding_ethnicity_screen.dart';
 import 'Onboarding/onboarding_name_screen.dart';
 import 'Onboarding/onboarding_phone_screen.dart';
 import 'Onboarding/onboarding_phone_verification_screen.dart';
-import 'Onboarding/welcome_name_screen.dart';
+import 'Onboarding/onboarding_welcome_screen.dart';
 
 Future<void> main() async {
   runApp(const MyApp());
