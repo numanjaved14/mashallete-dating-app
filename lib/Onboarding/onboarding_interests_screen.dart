@@ -12,6 +12,19 @@ class OnBoardingInterestsScreen extends StatefulWidget {
 }
 
 class _OnBoardingInterestsScreenState extends State<OnBoardingInterestsScreen> {
+  List selected1 = [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ];
+  List selected2 = [false, false, false, false, false];
+  List selected3 = [false, false, false, false, false];
   List arts = [
     "Acting",
     "Art Galleries",
@@ -22,6 +35,22 @@ class _OnBoardingInterestsScreenState extends State<OnBoardingInterestsScreen> {
     "Fashion",
     "Film Making",
     "Painting",
+  ];
+
+  List community = [
+    "Activism",
+    "Art Galleries",
+    "Politics",
+    "Spending time with friends",
+    "Volunteering"
+  ];
+
+  List valueAndTraits = [
+    "Road Trips",
+    "Road Trips",
+    "Road Trips",
+    "Road Trips",
+    "Road Trips"
   ];
 
   var utils = AppUtils();
@@ -101,7 +130,101 @@ class _OnBoardingInterestsScreenState extends State<OnBoardingInterestsScreen> {
               Wrap(
                 children: [
                   for (int i = 0; i < 9; i++)
-                    utils.interestsWidget(text: arts[i]),
+                    utils.interestsWidget(
+                      text: arts[i],
+                      selected: selected1[i],
+                      onTap: () {
+                        for (int j = 0; j < selected1.length; j++) {
+                          selected1[j] = false;
+                          selected1[i] = true;
+                          setState(() {});
+                        }
+                      },
+                    ),
+                ],
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Row(
+                children: [
+                  Text(
+                    "Show less",
+                    style: utils.extraSmallHeadingTextStyle(color: blueColor),
+                  ),
+                  const Icon(
+                    Icons.keyboard_arrow_up_outlined,
+                    size: 20,
+                    color: blueColor,
+                  )
+                ],
+              ),
+              const SizedBox(
+                height: 25,
+              ),
+              Text(
+                "Community",
+                style: utils.smallHeadingTextStyle(color: Colors.black),
+              ),
+              const SizedBox(
+                height: 25,
+              ),
+              Wrap(
+                children: [
+                  for (int i = 0; i < 5; i++)
+                    utils.interestsWidget(
+                      text: community[i],
+                      selected: selected2[i],
+                      onTap: () {
+                        for (int j = 0; j < selected2.length; j++) {
+                          selected2[j] = false;
+                          selected2[i] = true;
+                          setState(() {});
+                        }
+                      },
+                    ),
+                ],
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Row(
+                children: [
+                  Text(
+                    "Show less",
+                    style: utils.extraSmallHeadingTextStyle(color: blueColor),
+                  ),
+                  const Icon(
+                    Icons.keyboard_arrow_up_outlined,
+                    size: 20,
+                    color: blueColor,
+                  )
+                ],
+              ),
+              const SizedBox(
+                height: 25,
+              ),
+              Text(
+                "Value and Traits",
+                style: utils.smallHeadingTextStyle(color: Colors.black),
+              ),
+              const SizedBox(
+                height: 25,
+              ),
+              Wrap(
+                children: [
+                  for (int i = 0; i < valueAndTraits.length; i++)
+                    utils.interestsWidget(
+                      text: valueAndTraits[i],
+                      selected: selected3[i],
+                      onTap: () {
+                        for (int j = 0; j < selected3.length; j++) {
+                          selected3[j] = false;
+                          selected3[i] = true;
+                          setState(() {});
+                        }
+                      },
+                    ),
                 ],
               ),
               const SizedBox(
