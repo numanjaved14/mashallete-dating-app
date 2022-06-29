@@ -31,21 +31,33 @@ class _OnBoardingNotificationsScreenState
               child: Stack(
                 alignment: Alignment.center,
                 children: [
-                  Container(
-                    width: MediaQuery.of(context).size.width * 0.8,
-                    height: 4,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: blueColor.withOpacity(0.4),
-                    ),
+                  Row(
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.65,
+                        height: 4,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: blueColor,
+                        ),
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.0,
+                        height: 4,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: blueColor.withOpacity(0.4),
+                        ),
+                      ),
+                    ],
                   ),
                   Positioned(
                     top: 0,
                     bottom: 0,
-                    left: MediaQuery.of(context).size.width * 0.0,
+                    left: MediaQuery.of(context).size.width * 0.65,
                     child: Container(
                       color: Colors.white,
-                      padding: const EdgeInsets.all(3),
+                      padding: const EdgeInsets.all(2),
                       child: Container(
                         width: 50,
                         height: 50,
@@ -54,11 +66,11 @@ class _OnBoardingNotificationsScreenState
                           shape: BoxShape.circle,
                           border: Border.all(
                             color: blueColor,
-                            width: 2.5,
+                            width: 2,
                           ),
                         ),
                         child: Image.asset(
-                          "assets/telephone.png",
+                          "assets/bell.png",
                           scale: 1.3,
                         ),
                       ),

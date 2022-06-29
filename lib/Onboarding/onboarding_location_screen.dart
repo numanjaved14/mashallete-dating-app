@@ -31,21 +31,33 @@ class _OnBoardingLocationScreenState extends State<OnBoardingLocationScreen> {
               child: Stack(
                 alignment: Alignment.center,
                 children: [
-                  Container(
-                    width: MediaQuery.of(context).size.width * 0.8,
-                    height: 4,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: blueColor.withOpacity(0.4),
-                    ),
+                  Row(
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.13,
+                        height: 4,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: blueColor,
+                        ),
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.6,
+                        height: 4,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: blueColor.withOpacity(0.4),
+                        ),
+                      ),
+                    ],
                   ),
                   Positioned(
                     top: 0,
                     bottom: 0,
-                    left: MediaQuery.of(context).size.width * 0.0,
+                    left: MediaQuery.of(context).size.width * 0.13,
                     child: Container(
                       color: Colors.white,
-                      padding: const EdgeInsets.all(3),
+                      padding: const EdgeInsets.all(2),
                       child: Container(
                         width: 50,
                         height: 50,
@@ -54,11 +66,11 @@ class _OnBoardingLocationScreenState extends State<OnBoardingLocationScreen> {
                           shape: BoxShape.circle,
                           border: Border.all(
                             color: blueColor,
-                            width: 2.5,
+                            width: 2,
                           ),
                         ),
                         child: Image.asset(
-                          "assets/telephone.png",
+                          "assets/home.png",
                           scale: 1.3,
                         ),
                       ),
@@ -79,10 +91,31 @@ class _OnBoardingLocationScreenState extends State<OnBoardingLocationScreen> {
             const SizedBox(
               height: 25,
             ),
-            utils.textField(
-              controller: locationController,
+            SizedBox(
               width: MediaQuery.of(context).size.width * 0.9,
-              hintText: "Location",
+              height: 50,
+              child: TextFormField(
+                controller: locationController,
+                decoration: InputDecoration(
+                    prefixIcon: const Icon(
+                      Icons.location_on,
+                      color: blueColor,
+                    ),
+                    contentPadding: const EdgeInsets.only(top: 5, left: 15),
+                    hintText: "Location",
+                    border: InputBorder.none,
+                    hintStyle: const TextStyle(color: Colors.grey),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide:
+                          const BorderSide(color: blueColor, width: 1.5),
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide:
+                          const BorderSide(color: Colors.grey, width: 1.5),
+                      borderRadius: BorderRadius.circular(10.0),
+                    )),
+              ),
             ),
             const SizedBox(
               height: 25,

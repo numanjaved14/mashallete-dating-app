@@ -30,7 +30,7 @@ class _OnBoardingLookingGoodScreenState
               "Looking good, Aadil!",
               style: TextStyle(
                 fontSize: 30,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w500,
               ),
             ),
             const SizedBox(

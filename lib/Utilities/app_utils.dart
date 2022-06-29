@@ -146,6 +146,63 @@ class AppUtils {
     );
   }
 
+  bigButtonWithIcon(
+      {width,
+      height,
+      borderColor,
+      onTap,
+      borderWidth,
+      borderRadius,
+      containerColor,
+      text,
+      shadowColors,
+      textColor,
+      fontSize,
+      image,
+      fontWeight}) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: width,
+        height: height,
+        padding: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          border: Border.all(
+              color: borderColor ?? Colors.transparent,
+              width: borderWidth == null ? 2 : borderWidth.toDouble()),
+          borderRadius: BorderRadius.circular(borderRadius ?? 0),
+          color: containerColor ?? Colors.white,
+          boxShadow: [
+            BoxShadow(
+              offset: const Offset(0, 0),
+              color: shadowColors ?? Colors.black.withOpacity(0.2),
+              blurRadius: 4,
+            )
+          ],
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              text.toString(),
+              style: TextStyle(
+                  color: textColor ?? Colors.black,
+                  fontSize: fontSize == null ? 13.0 : fontSize.toDouble(),
+                  fontWeight: fontWeight ?? FontWeight.bold),
+            ),
+            const SizedBox(
+              width: 10,
+            ),
+            Image.asset(
+              image,
+              scale: 30,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   textField({controller, hintText, width}) {
     return SizedBox(
       width: width,
@@ -158,11 +215,11 @@ class AppUtils {
             border: InputBorder.none,
             hintStyle: const TextStyle(color: Colors.grey),
             focusedBorder: OutlineInputBorder(
-              borderSide: const BorderSide(color: blueColor, width: 2.0),
+              borderSide: const BorderSide(color: blueColor, width: 1.5),
               borderRadius: BorderRadius.circular(10.0),
             ),
             enabledBorder: OutlineInputBorder(
-              borderSide: const BorderSide(color: Colors.grey, width: 2.0),
+              borderSide: const BorderSide(color: Colors.grey, width: 1.5),
               borderRadius: BorderRadius.circular(10.0),
             )),
       ),

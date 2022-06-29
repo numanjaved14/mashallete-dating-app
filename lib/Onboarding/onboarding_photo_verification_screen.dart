@@ -33,21 +33,33 @@ class _OnBoardingPhotoVerificationScreenState
               child: Stack(
                 alignment: Alignment.center,
                 children: [
-                  Container(
-                    width: MediaQuery.of(context).size.width * 0.8,
-                    height: 4,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: blueColor.withOpacity(0.4),
-                    ),
+                  Row(
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.65,
+                        height: 4,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: blueColor,
+                        ),
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.0,
+                        height: 4,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: blueColor.withOpacity(0.4),
+                        ),
+                      ),
+                    ],
                   ),
                   Positioned(
                     top: 0,
                     bottom: 0,
-                    left: MediaQuery.of(context).size.width * 0.0,
+                    left: MediaQuery.of(context).size.width * 0.65,
                     child: Container(
                       color: Colors.white,
-                      padding: const EdgeInsets.all(3),
+                      padding: const EdgeInsets.all(2),
                       child: Container(
                         width: 50,
                         height: 50,
@@ -56,11 +68,11 @@ class _OnBoardingPhotoVerificationScreenState
                           shape: BoxShape.circle,
                           border: Border.all(
                             color: blueColor,
-                            width: 2.5,
+                            width: 2,
                           ),
                         ),
                         child: Image.asset(
-                          "assets/telephone.png",
+                          "assets/camera.png",
                           scale: 1.3,
                         ),
                       ),
@@ -72,10 +84,11 @@ class _OnBoardingPhotoVerificationScreenState
             const SizedBox(
               height: 10,
             ),
-            Text(
+            const Text(
               "You're too good to be \ntrue!",
-              style: utils.largeHeadingTextStyle(
-                color: Colors.black,
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.w500,
               ),
             ),
             const SizedBox(

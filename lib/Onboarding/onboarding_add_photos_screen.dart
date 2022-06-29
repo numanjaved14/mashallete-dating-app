@@ -59,7 +59,7 @@ class _OnBoardingAddPhotosScreenState extends State<OnBoardingAddPhotosScreen> {
                           ),
                         ),
                         child: Image.asset(
-                          "assets/telephone.png",
+                          "assets/photos.png",
                           scale: 1.3,
                         ),
                       ),
@@ -92,14 +92,14 @@ class _OnBoardingAddPhotosScreenState extends State<OnBoardingAddPhotosScreen> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     const Text(
-                      "profile. Don't be afraid to smile.",
+                      "profile. Don't be afraid to smile!",
                       style: TextStyle(
                         fontSize: 17,
                         color: Colors.black,
                       ),
                     ),
                     const SizedBox(
-                      width: 10,
+                      width: 5,
                     ),
                     Image.asset(
                       "assets/smile.png",
@@ -160,9 +160,9 @@ class _OnBoardingAddPhotosScreenState extends State<OnBoardingAddPhotosScreen> {
                           : Colors.grey.withOpacity(0.5),
                       shape: BoxShape.circle,
                     ),
-                    child: const Icon(
+                    child: Icon(
                       Icons.arrow_forward_ios_outlined,
-                      color: Colors.white,
+                      color: enabled == true ? Colors.white : Colors.grey[600],
                     ),
                   ),
                 ),

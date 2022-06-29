@@ -57,7 +57,7 @@ class _OnBoardingLookingForScreenState
                           ),
                         ),
                         child: Image.asset(
-                          "assets/telephone.png",
+                          "assets/temp.png",
                           scale: 1.3,
                         ),
                       ),
@@ -78,25 +78,27 @@ class _OnBoardingLookingForScreenState
             const SizedBox(
               height: 25,
             ),
-            utils.bigButton(
+            utils.bigButtonWithIcon(
                 width: MediaQuery.of(context).size.width * 0.9,
                 containerColor: Colors.grey[200],
                 text: "A Husband",
                 fontWeight: FontWeight.w500,
                 height: 50.0,
                 shadowColors: Colors.white,
-                borderRadius: 20.0),
+                borderRadius: 20.0,
+                image: "assets/husband.png"),
             const SizedBox(
               height: 25,
             ),
-            utils.bigButton(
+            utils.bigButtonWithIcon(
                 width: MediaQuery.of(context).size.width * 0.9,
                 containerColor: Colors.grey[200],
                 text: "A Wife",
                 shadowColors: Colors.white,
                 fontWeight: FontWeight.w500,
                 height: 50.0,
-                borderRadius: 20.0),
+                borderRadius: 20.0,
+                image: "assets/wife.png"),
             const SizedBox(
               height: 25,
             ),

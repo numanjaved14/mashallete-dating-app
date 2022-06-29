@@ -54,7 +54,7 @@ class _OnBoardingPhoneScreenState extends State<OnBoardingPhoneScreen> {
                           shape: BoxShape.circle,
                           border: Border.all(
                             color: blueColor,
-                            width: 2.5,
+                            width: 2,
                           ),
                         ),
                         child: Image.asset(
@@ -102,7 +102,7 @@ class _OnBoardingPhoneScreenState extends State<OnBoardingPhoneScreen> {
               children: [
                 Container(
                   width: 100,
-                  height: 50,
+                  height: 48,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10),

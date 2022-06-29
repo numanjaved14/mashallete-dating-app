@@ -34,21 +34,33 @@ class _OnBoardingDateOfBirthScreenState
               child: Stack(
                 alignment: Alignment.center,
                 children: [
-                  Container(
-                    width: MediaQuery.of(context).size.width * 0.8,
-                    height: 4,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: blueColor.withOpacity(0.4),
-                    ),
+                  Row(
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.43,
+                        height: 4,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: blueColor,
+                        ),
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.3,
+                        height: 4,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: blueColor.withOpacity(0.4),
+                        ),
+                      ),
+                    ],
                   ),
                   Positioned(
                     top: 0,
                     bottom: 0,
-                    left: MediaQuery.of(context).size.width * 0.0,
+                    left: MediaQuery.of(context).size.width * 0.43,
                     child: Container(
                       color: Colors.white,
-                      padding: const EdgeInsets.all(3),
+                      padding: const EdgeInsets.all(2),
                       child: Container(
                         width: 50,
                         height: 50,
@@ -57,11 +69,11 @@ class _OnBoardingDateOfBirthScreenState
                           shape: BoxShape.circle,
                           border: Border.all(
                             color: blueColor,
-                            width: 2.5,
+                            width: 2,
                           ),
                         ),
                         child: Image.asset(
-                          "assets/telephone.png",
+                          "assets/cake.png",
                           scale: 1.3,
                         ),
                       ),
@@ -82,18 +94,25 @@ class _OnBoardingDateOfBirthScreenState
             const SizedBox(
               height: 20,
             ),
+            Text(
+              "This cannot be changed later. ",
+              style: utils.mediumTitleTextStyle(color: Colors.black),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
             Row(
               children: [
                 utils.textField(
                     controller: monthController,
-                    width: MediaQuery.of(context).size.width * 0.15,
+                    width: MediaQuery.of(context).size.width * 0.13,
                     hintText: "MM"),
                 const SizedBox(
                   width: 10,
                 ),
                 utils.textField(
                     controller: dayController,
-                    width: MediaQuery.of(context).size.width * 0.15,
+                    width: MediaQuery.of(context).size.width * 0.13,
                     hintText: "DD"),
                 const SizedBox(
                   width: 10,
