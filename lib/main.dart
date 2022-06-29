@@ -1,7 +1,9 @@
+import 'package:dating_app/Onboarding/onboarding_add_photos_screen.dart';
 import 'package:dating_app/Onboarding/onboarding_dob_screen.dart';
 import 'package:dating_app/Onboarding/onboarding_interests_screen.dart';
 import 'package:dating_app/Onboarding/onboarding_location_screen.dart';
 import 'package:dating_app/Onboarding/onboarding_looking_for_h_w_screen.dart';
+import 'package:dating_app/Onboarding/onboarding_looking_good_screen.dart';
 import 'package:dating_app/Onboarding/onboarding_notifications_screen.dart';
 import 'package:dating_app/Onboarding/onboarding_religious_screen.dart';
 import 'package:flutter/material.dart';
@@ -51,6 +53,10 @@ class MyApp extends StatelessWidget {
         onBoardingDateOfBirthScreenRoute: (context) =>
             const OnBoardingDateOfBirthScreen(),
         onBoardingNameScreenRoute: (context) => const OnBoardingNameScreen(),
+        onBoardingLookingGoodScreenRoute: (context) =>
+            const OnBoardingLookingGoodScreen(),
+        onBoardingAddPhotosScreenRoute: (context) =>
+            const OnBoardingAddPhotosScreen(),
       },
     );
   }

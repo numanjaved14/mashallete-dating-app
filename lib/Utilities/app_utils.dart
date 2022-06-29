@@ -1,3 +1,4 @@
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
 import '../Constants/app_constants.dart';
@@ -608,6 +609,78 @@ class AppUtils {
               text,
               style: extraSmallTitleTextStyle(
                   color: selected == true ? Colors.white : Colors.black),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  addPhotosWidget({onTap, enabled}) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: 110,
+        height: 130,
+        margin: const EdgeInsets.all(5),
+        child: Stack(
+          children: [
+            Positioned(
+              bottom: 0,
+              child: DottedBorder(
+                dashPattern: [4, 4],
+                color: Colors.black,
+                strokeWidth: 1,
+                borderType: BorderType.RRect,
+                radius: const Radius.circular(12),
+                strokeCap: StrokeCap.round,
+                child: Container(
+                  width: 100,
+                  height: 120,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(
+                      12,
+                    ),
+                  ),
+                  child: enabled == true
+                      ? Image.asset(
+                          "assets/background.png",
+                          fit: BoxFit.cover,
+                        )
+                      : Icon(
+                          Icons.photo,
+                          color: Colors.grey,
+                          size: 20,
+                        ),
+                ),
+              ),
+            ),
+            Positioned(
+              right: 0,
+              top: 0,
+              child: Container(
+                width: 25,
+                height: 25,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey,
+                      offset: Offset(0, 1),
+                      blurRadius: 1,
+                    )
+                  ],
+                ),
+                padding: EdgeInsets.all(3),
+                child: const Center(
+                  child: Text(
+                    "X",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.black),
+                  ),
+                ),
+              ),
             ),
           ],
         ),

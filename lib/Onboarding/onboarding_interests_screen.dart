@@ -249,7 +249,10 @@ class _OnBoardingInterestsScreenState extends State<OnBoardingInterestsScreen> {
                   Row(
                     children: [
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushNamed(
+                              context, onBoardingLookingGoodScreenRoute);
+                        },
                         child: const Text(
                           "Skip for now",
                           style: TextStyle(
@@ -262,7 +265,10 @@ class _OnBoardingInterestsScreenState extends State<OnBoardingInterestsScreen> {
                     ],
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(
+                          context, onBoardingLookingGoodScreenRoute);
+                    },
                     child: Container(
                       width: 60,
                       height: 60,
