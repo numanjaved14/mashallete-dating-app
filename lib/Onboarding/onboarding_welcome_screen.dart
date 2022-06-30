@@ -35,7 +35,7 @@ class _WelcomeNameScreenState extends State<WelcomeNameScreen> {
               height: 20,
             ),
             Text(
-              "Let's get to know you a little \nbetter ",
+              "Let's get to know you a little \nbetter.",
               textAlign: TextAlign.center,
               style: utils.mediumTitleTextStyle(
                   color: Colors.black.withOpacity(0.8)),

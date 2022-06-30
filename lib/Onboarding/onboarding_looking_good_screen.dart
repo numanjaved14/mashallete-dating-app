@@ -37,7 +37,7 @@ class _OnBoardingLookingGoodScreenState
               height: 20,
             ),
             Text(
-              "Let's see what we're workinh \nwith here. ",
+              "Let's see what we're working \nwith here. ",
               textAlign: TextAlign.center,
               style: utils.mediumTitleTextStyle(
                   color: Colors.black.withOpacity(0.8)),

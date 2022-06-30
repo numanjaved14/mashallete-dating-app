@@ -59,7 +59,7 @@ class _GroundRuleThreeScreenState extends State<GroundRuleThreeScreen> {
                   ),
                   child: Center(
                     child: Image.asset(
-                      "assets/time.png",
+                      "assets/screenshot.png",
                       scale: 3,
                       color: Colors.grey.withOpacity(0.6),
                     ),

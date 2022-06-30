@@ -191,7 +191,7 @@ class AppUtils {
                   fontWeight: fontWeight ?? FontWeight.bold),
             ),
             const SizedBox(
-              width: 10,
+              width: 2,
             ),
             Image.asset(
               image,
@@ -612,7 +612,7 @@ class AppUtils {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
           color: Colors.white,
-          border: Border.all(color: Colors.grey.withOpacity(0.5), width: 1.5)),
+          border: Border.all(color: Colors.grey.withOpacity(0.4), width: 1.5)),
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -634,7 +634,7 @@ class AppUtils {
           ),
           Text(
             "x",
-            style: smallTitleTextStyle(color: Colors.grey),
+            style: smallTitleTextStyle(color: Colors.grey.withOpacity(0.7)),
           )
         ],
       ),
