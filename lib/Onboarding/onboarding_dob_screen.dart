@@ -350,7 +350,7 @@ class _OnBoardingDateOfBirthScreenState
                             boxShadow: [
                               BoxShadow(
                                   color: Colors.grey.withOpacity(0.5),
-                                  offset: Offset(0, 1),
+                                  offset: const Offset(0, 1),
                                   blurRadius: 10)
                             ],
                             borderRadius: BorderRadius.circular(20),
