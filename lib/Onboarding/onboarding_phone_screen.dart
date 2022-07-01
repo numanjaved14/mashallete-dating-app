@@ -107,8 +107,7 @@ class _OnBoardingPhoneScreenState extends State<OnBoardingPhoneScreen> {
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
-                      color: Colors.black,
-                    ),
+                        color: Colors.black.withOpacity(0.4), width: 1.5),
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -154,7 +153,7 @@ class _OnBoardingPhoneScreenState extends State<OnBoardingPhoneScreen> {
                       "We'll never share this with anyone",
                       style: TextStyle(
                         fontSize: 15,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w700,
                         color: blueColor,
                       ),
                     ),

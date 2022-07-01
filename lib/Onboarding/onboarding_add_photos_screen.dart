@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../Constants/app_constants.dart';
 import '../Utilities/app_utils.dart';
 
@@ -14,7 +13,7 @@ class OnBoardingAddPhotosScreen extends StatefulWidget {
 class _OnBoardingAddPhotosScreenState extends State<OnBoardingAddPhotosScreen> {
   var phoneNumberController = TextEditingController();
   var utils = AppUtils();
-  bool enabled = false;
+  List<bool> enabled = [false, false, false, false, false, false];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,14 +84,14 @@ class _OnBoardingAddPhotosScreenState extends State<OnBoardingAddPhotosScreen> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
-                  "Add at least one photo to showcase in your ",
+                  "Add at least one photo to showcase in your profile. ",
                   style: utils.mediumTitleTextStyle(color: Colors.black),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     const Text(
-                      "profile. Don't be afraid to smile!",
+                      "Don't be afraid to smile!",
                       style: TextStyle(
                         fontSize: 17,
                         color: Colors.black,
@@ -112,7 +111,7 @@ class _OnBoardingAddPhotosScreenState extends State<OnBoardingAddPhotosScreen> {
             const SizedBox(
               height: 20,
             ),
-            SizedBox(
+            Container(
               width: MediaQuery.of(context).size.width,
               child: Align(
                 alignment: Alignment.center,
@@ -121,14 +120,14 @@ class _OnBoardingAddPhotosScreenState extends State<OnBoardingAddPhotosScreen> {
                     for (int i = 0; i < 6; i++)
                       utils.addPhotosWidget(
                         onTap: () {
-                          if (enabled == true) {
-                            enabled = false;
+                          if (enabled[i] == true) {
+                            enabled[i] = false;
                           } else {
-                            enabled = true;
+                            enabled[i] = true;
                           }
                           setState(() {});
                         },
-                        enabled: enabled,
+                        enabled: enabled[i],
                       ),
                   ],
                 ),
@@ -146,7 +145,12 @@ class _OnBoardingAddPhotosScreenState extends State<OnBoardingAddPhotosScreen> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    if (enabled) {
+                    if (enabled[0] == true ||
+                        enabled[1] == true ||
+                        enabled[2] == true ||
+                        enabled[3] == true ||
+                        enabled[4] == true ||
+                        enabled[5] == true) {
                       Navigator.pushNamed(
                           context, onBoardingPhotoVerificationScreenRoute);
                     }
@@ -155,14 +159,16 @@ class _OnBoardingAddPhotosScreenState extends State<OnBoardingAddPhotosScreen> {
                     width: 60,
                     height: 60,
                     decoration: BoxDecoration(
-                      color: enabled == true
+                      color: enabled.contains(true)
                           ? blueColor
                           : Colors.grey.withOpacity(0.5),
                       shape: BoxShape.circle,
                     ),
                     child: Icon(
                       Icons.arrow_forward_ios_outlined,
-                      color: enabled == true ? Colors.white : Colors.grey[600],
+                      color: enabled.contains(true)
+                          ? Colors.white
+                          : Colors.grey[600],
                     ),
                   ),
                 ),

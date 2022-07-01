@@ -88,7 +88,7 @@ class _OnBoardingLookingForScreenState
                 borderRadius: 20.0,
                 image: "assets/husband.png"),
             const SizedBox(
-              height: 25,
+              height: 16,
             ),
             utils.bigButtonWithIcon(
                 width: MediaQuery.of(context).size.width * 0.9,

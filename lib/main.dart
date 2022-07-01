@@ -7,13 +7,13 @@ import 'package:dating_app/Onboarding/onboarding_looking_good_screen.dart';
 import 'package:dating_app/Onboarding/onboarding_notifications_screen.dart';
 import 'package:dating_app/Onboarding/onboarding_religious_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'Authentication/landing_page.dart';
 import 'Authentication/splash_screen.dart';
 import 'Constants/app_constants.dart';
 import 'GroundRules/ground_rule_one_screen.dart';
 import 'GroundRules/ground_rule_three_screen.dart';
 import 'GroundRules/ground_rule_two_screen.dart';
-import 'Onboarding/onboarding_confirm_dob_screen.dart';
 import 'Onboarding/onboarding_ethnicity_screen.dart';
 import 'Onboarding/onboarding_name_screen.dart';
 import 'Onboarding/onboarding_phone_screen.dart';
@@ -33,6 +33,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'MashaLatte',
+      theme: ThemeData.light().copyWith(
+          textTheme: GoogleFonts.latoTextTheme(Theme.of(context).textTheme)),
       debugShowCheckedModeBanner: false,
       initialRoute: splashRoute,
       routes: {
@@ -49,7 +51,6 @@ class MyApp extends StatelessWidget {
             const OnBoardingLocationScreen(),
         onBoardingLookingForScreenRoute: (context) =>
             const OnBoardingLookingForScreen(),
-        confirmAgeScreenRoute: (context) => const ConfirmAgeScreen(),
         onBoardingPhoneVerificationScreenRoute: (context) =>
             const OnBoardingPhoneVerificationScreen(),
         onBoardingPhoneScreenRoute: (context) => const OnBoardingPhoneScreen(),

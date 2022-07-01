@@ -145,7 +145,7 @@ class _OnBoardingPhoneVerificationScreenState
                       "We'll never share this with anyone",
                       style: TextStyle(
                         fontSize: 15,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w700,
                         color: blueColor,
                       ),
                     ),

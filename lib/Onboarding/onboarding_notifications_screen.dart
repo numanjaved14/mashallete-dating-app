@@ -100,7 +100,7 @@ class _OnBoardingNotificationsScreenState
                 shadowColors: Colors.white,
                 borderRadius: 20.0),
             const SizedBox(
-              height: 25,
+              height: 16,
             ),
             utils.bigButton(
                 width: MediaQuery.of(context).size.width * 0.9,

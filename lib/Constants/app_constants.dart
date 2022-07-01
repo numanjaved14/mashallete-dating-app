@@ -20,7 +20,6 @@ const onBoardingInterestsScreenRoute = "/onBoardingInterestsScreenRoute";
 const onBoardingLocationScreenRoute = "/onBoardingLocationScreenRoute";
 const welcomeNameScreenRoute = "/welcomeNameScreenRoute";
 const onBoardingLookingForScreenRoute = "/onBoardingLookingForScreenRoute";
-const confirmAgeScreenRoute = "/confirmAgeScreenRoute";
 const onBoardingNotificationsScreenRoute =
     "/onBoardingNotificationsScreenRoute";
 const onBoardingPhoneVerificationScreenRoute =

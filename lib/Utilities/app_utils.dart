@@ -203,7 +203,7 @@ class AppUtils {
     );
   }
 
-  textField({controller, hintText, width}) {
+  textField({controller, hintText, width, fontSize}) {
     return SizedBox(
       width: width,
       height: 50,
@@ -213,7 +213,30 @@ class AppUtils {
             contentPadding: const EdgeInsets.only(top: 5, left: 15),
             hintText: hintText,
             border: InputBorder.none,
-            hintStyle: const TextStyle(color: Colors.grey),
+            hintStyle: TextStyle(color: Colors.grey, fontSize: fontSize),
+            focusedBorder: OutlineInputBorder(
+              borderSide: const BorderSide(color: blueColor, width: 1.5),
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderSide: const BorderSide(color: Colors.grey, width: 1.5),
+              borderRadius: BorderRadius.circular(10.0),
+            )),
+      ),
+    );
+  }
+
+  textFieldDOB({controller, hintText, width, fontSize}) {
+    return SizedBox(
+      width: width,
+      height: 50,
+      child: TextFormField(
+        controller: controller,
+        textAlign: TextAlign.center,
+        decoration: InputDecoration(
+            hintText: hintText,
+            border: InputBorder.none,
+            hintStyle: TextStyle(color: Colors.grey, fontSize: fontSize),
             focusedBorder: OutlineInputBorder(
               borderSide: const BorderSide(color: blueColor, width: 1.5),
               borderRadius: BorderRadius.circular(10.0),
@@ -645,7 +668,7 @@ class AppUtils {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        margin: const EdgeInsets.all(5),
+        margin: const EdgeInsets.only(top: 5, right: 5, bottom: 5),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
             color: selected == true ? blueColor : Colors.white,
@@ -677,68 +700,77 @@ class AppUtils {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 110,
-        height: 130,
-        margin: const EdgeInsets.all(5),
+        width: 115,
+        height: 135,
+        margin: const EdgeInsets.only(right: 10, bottom: 15),
         child: Stack(
           children: [
             Positioned(
               bottom: 0,
-              child: DottedBorder(
-                dashPattern: const [4, 4],
-                color: Colors.black,
-                strokeWidth: 1,
-                borderType: BorderType.RRect,
-                radius: const Radius.circular(12),
-                strokeCap: StrokeCap.round,
-                child: Container(
-                  width: 100,
-                  height: 120,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(
-                      12,
-                    ),
-                  ),
-                  child: enabled == true
-                      ? Image.asset(
-                          "assets/background.png",
-                          fit: BoxFit.cover,
-                        )
-                      : const Icon(
+              child: enabled == false
+                  ? DottedBorder(
+                      dashPattern: const [4, 4],
+                      color: Colors.black.withOpacity(0.6),
+                      strokeWidth: 1,
+                      borderType: BorderType.RRect,
+                      radius: const Radius.circular(12),
+                      strokeCap: StrokeCap.round,
+                      child: Container(
+                        width: 105,
+                        height: 123,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(
+                            12,
+                          ),
+                        ),
+                        child: const Icon(
                           Icons.photo,
                           color: Colors.grey,
                           size: 20,
                         ),
-                ),
-              ),
-            ),
-            Positioned(
-              right: 0,
-              top: 0,
-              child: Container(
-                width: 25,
-                height: 25,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey,
-                      offset: Offset(0, 1),
-                      blurRadius: 1,
+                      ),
                     )
-                  ],
-                ),
-                padding: const EdgeInsets.all(3),
-                child: const Center(
-                  child: Text(
-                    "X",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.black),
-                  ),
-                ),
-              ),
+                  : Container(
+                      width: 110,
+                      height: 128,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage("assets/background.png"),
+                            fit: BoxFit.cover),
+                        borderRadius: BorderRadius.circular(
+                          16,
+                        ),
+                      ),
+                    ),
             ),
+            enabled == true
+                ? Positioned(
+                    right: 0,
+                    top: 0,
+                    child: Container(
+                      width: 25,
+                      height: 25,
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey,
+                            offset: Offset(0, 1),
+                            blurRadius: 1,
+                          )
+                        ],
+                      ),
+                      padding: const EdgeInsets.all(3),
+                      child: const Center(
+                          child: Icon(
+                        Icons.close,
+                        color: Colors.black,
+                        size: 20,
+                      )),
+                    ),
+                  )
+                : Container(),
           ],
         ),
       ),
