@@ -88,7 +88,7 @@ class _OnBoardingReligiousScreenState extends State<OnBoardingReligiousScreen> {
               ),
             ),
             const SizedBox(
-              height: 25,
+              height: 30,
             ),
             utils.bigButton(
                 width: MediaQuery.of(context).size.width * 0.9,

@@ -56,7 +56,7 @@ class _OnBoardingPhotoVerificationScreenState
                   Positioned(
                     top: 0,
                     bottom: 0,
-                    left: MediaQuery.of(context).size.width * 0.65,
+                    left: MediaQuery.of(context).size.width * 0.60,
                     child: Container(
                       color: Colors.white,
                       padding: const EdgeInsets.all(2),
@@ -87,7 +87,7 @@ class _OnBoardingPhotoVerificationScreenState
             const Text(
               "You're too good to be \ntrue!",
               style: TextStyle(
-                fontSize: 24,
+                fontSize: 27,
                 fontWeight: FontWeight.w500,
               ),
             ),

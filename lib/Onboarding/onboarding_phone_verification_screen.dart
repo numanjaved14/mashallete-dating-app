@@ -84,10 +84,11 @@ class _OnBoardingPhoneVerificationScreenState
             const SizedBox(
               height: 10,
             ),
-            Text(
+            const Text(
               "Enter your verification \ncode.",
-              style: utils.largeHeadingTextStyle(
-                color: Colors.black,
+              style: TextStyle(
+                fontSize: 28,
+                fontWeight: FontWeight.w600,
               ),
             ),
             const SizedBox(
@@ -95,12 +96,8 @@ class _OnBoardingPhoneVerificationScreenState
             ),
             Row(
               children: [
-                Image.asset(
-                  "assets/selfie.png",
-                  scale: 6,
-                ),
                 Text(
-                  "sent to 5555 5555 5555. ",
+                  "Sent to 5555 5555 5555. ",
                   style: utils.mediumTitleTextStyle(color: Colors.black),
                 ),
                 const Text(
@@ -114,7 +111,7 @@ class _OnBoardingPhoneVerificationScreenState
               ],
             ),
             const SizedBox(
-              height: 20,
+              height: 35,
             ),
             SizedBox(
               width: MediaQuery.of(context).size.width,

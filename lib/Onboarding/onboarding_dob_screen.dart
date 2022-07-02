@@ -88,10 +88,11 @@ class _OnBoardingDateOfBirthScreenState
                   const SizedBox(
                     height: 10,
                   ),
-                  Text(
+                  const Text(
                     "What's your date of \nbirth?",
-                    style: utils.largeHeadingTextStyle(
-                      color: Colors.black,
+                    style: TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                   const SizedBox(
@@ -102,13 +103,13 @@ class _OnBoardingDateOfBirthScreenState
                     style: utils.mediumTitleTextStyle(color: Colors.black),
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 30,
                   ),
                   Row(
                     children: [
                       utils.textFieldDOB(
                           controller: monthController,
-                          width: MediaQuery.of(context).size.width * 0.13,
+                          width: MediaQuery.of(context).size.width * 0.16,
                           hintText: "MM",
                           fontSize: 15.0),
                       const SizedBox(
@@ -116,7 +117,7 @@ class _OnBoardingDateOfBirthScreenState
                       ),
                       utils.textFieldDOB(
                           controller: dayController,
-                          width: MediaQuery.of(context).size.width * 0.13,
+                          width: MediaQuery.of(context).size.width * 0.16,
                           hintText: "DD",
                           fontSize: 15.0),
                       const SizedBox(
@@ -124,7 +125,7 @@ class _OnBoardingDateOfBirthScreenState
                       ),
                       utils.textFieldDOB(
                           controller: yearController,
-                          width: MediaQuery.of(context).size.width * 0.2,
+                          width: MediaQuery.of(context).size.width * 0.23,
                           hintText: "YYYY",
                           fontSize: 15.0),
                     ],
@@ -259,24 +260,24 @@ class _OnBoardingDateOfBirthScreenState
                         ),
                       ),
                       const SizedBox(
-                        height: 20,
+                        height: 30,
                       ),
                       Row(
                         children: [
                           utils.textField(
-                              width: MediaQuery.of(context).size.width * 0.15,
+                              width: MediaQuery.of(context).size.width * 0.16,
                               hintText: "MM"),
                           const SizedBox(
                             width: 10,
                           ),
                           utils.textField(
-                              width: MediaQuery.of(context).size.width * 0.15,
+                              width: MediaQuery.of(context).size.width * 0.16,
                               hintText: "DD"),
                           const SizedBox(
                             width: 10,
                           ),
                           utils.textField(
-                              width: MediaQuery.of(context).size.width * 0.2,
+                              width: MediaQuery.of(context).size.width * 0.23,
                               hintText: "YYYY"),
                         ],
                       ),

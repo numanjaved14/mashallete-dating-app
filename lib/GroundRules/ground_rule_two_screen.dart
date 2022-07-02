@@ -100,12 +100,12 @@ class _GroundRuleTwoScreenState extends State<GroundRuleTwoScreen> {
             const SizedBox(
               height: 10,
             ),
-            Text(
+            const Text(
               "If you are inactive for more than 10 days. Your profile will be invisible until you log back in.",
-              style: utils.mediumTitleTextStyle(color: Colors.black),
+              style: TextStyle(fontSize: 17, height: 1.5),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.4,
+              height: MediaQuery.of(context).size.height * 0.37,
             ),
             Align(
               alignment: Alignment.center,

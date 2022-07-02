@@ -54,7 +54,7 @@ class _OnBoardingNotificationsScreenState
                   Positioned(
                     top: 0,
                     bottom: 0,
-                    left: MediaQuery.of(context).size.width * 0.65,
+                    left: MediaQuery.of(context).size.width * 0.60,
                     child: Container(
                       color: Colors.white,
                       padding: const EdgeInsets.all(2),
@@ -82,10 +82,11 @@ class _OnBoardingNotificationsScreenState
             const SizedBox(
               height: 10,
             ),
-            Text(
+            const Text(
               "Never miss out on a \nmessage!",
-              style: utils.largeHeadingTextStyle(
-                color: Colors.black,
+              style: TextStyle(
+                fontSize: 28,
+                fontWeight: FontWeight.w600,
               ),
             ),
             const SizedBox(

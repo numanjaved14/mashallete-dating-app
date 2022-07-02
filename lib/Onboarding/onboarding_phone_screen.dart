@@ -32,7 +32,7 @@ class _OnBoardingPhoneScreenState extends State<OnBoardingPhoneScreen> {
                 alignment: Alignment.center,
                 children: [
                   Container(
-                    width: MediaQuery.of(context).size.width * 0.8,
+                    width: MediaQuery.of(context).size.width * 0.75,
                     height: 4,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
@@ -101,7 +101,7 @@ class _OnBoardingPhoneScreenState extends State<OnBoardingPhoneScreen> {
             Row(
               children: [
                 Container(
-                  width: 100,
+                  width: 110,
                   height: 48,
                   decoration: BoxDecoration(
                     color: Colors.white,
@@ -127,12 +127,13 @@ class _OnBoardingPhoneScreenState extends State<OnBoardingPhoneScreen> {
                   ),
                 ),
                 const SizedBox(
-                  width: 5,
+                  width: 10,
                 ),
                 utils.textField(
                   controller: phoneNumberController,
                   hintText: "Phone Number",
-                  width: MediaQuery.of(context).size.width * 0.65,
+                  fontSize: 17.0,
+                  width: MediaQuery.of(context).size.width * 0.60,
                 ),
               ],
             ),

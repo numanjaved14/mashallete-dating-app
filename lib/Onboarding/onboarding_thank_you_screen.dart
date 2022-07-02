@@ -29,7 +29,7 @@ class _OnBoardingThankYouScreenState extends State<OnBoardingThankYouScreen> {
               "Thanks, Aadil!",
               style: TextStyle(
                 fontSize: 30,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w500,
               ),
             ),
             const SizedBox(
@@ -38,8 +38,10 @@ class _OnBoardingThankYouScreenState extends State<OnBoardingThankYouScreen> {
             Text(
               "While we verify you, let's go \n over some ground rules before \n you get started.",
               textAlign: TextAlign.center,
-              style: utils.mediumTitleTextStyle(
-                  color: Colors.black.withOpacity(0.8)),
+              style: TextStyle(
+                fontSize: 19,
+                color: Colors.black.withOpacity(0.8),
+              ),
             ),
             const Spacer(
               flex: 3,

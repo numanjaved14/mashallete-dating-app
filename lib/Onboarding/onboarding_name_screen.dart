@@ -89,19 +89,21 @@ class _OnBoardingNameScreenState extends State<OnBoardingNameScreen> {
               ),
             ),
             const SizedBox(
-              height: 20,
+              height: 30,
             ),
             utils.textField(
                 controller: firstNameController,
                 width: MediaQuery.of(context).size.width * 0.9,
-                hintText: "First Name"),
+                hintText: "First Name",
+                fontSize: 18.0),
             const SizedBox(
               height: 20,
             ),
             utils.textField(
                 controller: lastNameController,
                 width: MediaQuery.of(context).size.width * 0.9,
-                hintText: "Last Name"),
+                hintText: "Last Name",
+                fontSize: 18.0),
             const SizedBox(
               height: 25,
             ),

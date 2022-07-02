@@ -42,7 +42,7 @@ class _OnBoardingLocationScreenState extends State<OnBoardingLocationScreen> {
                         ),
                       ),
                       Container(
-                        width: MediaQuery.of(context).size.width * 0.6,
+                        width: MediaQuery.of(context).size.width * 0.63,
                         height: 4,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
@@ -104,7 +104,8 @@ class _OnBoardingLocationScreenState extends State<OnBoardingLocationScreen> {
                     contentPadding: const EdgeInsets.only(top: 5, left: 15),
                     hintText: "Location",
                     border: InputBorder.none,
-                    hintStyle: const TextStyle(color: Colors.grey),
+                    hintStyle:
+                        const TextStyle(color: Colors.grey, fontSize: 19),
                     focusedBorder: OutlineInputBorder(
                       borderSide:
                           const BorderSide(color: blueColor, width: 1.5),

@@ -92,10 +92,10 @@ class _OnBoardingEthnicityScreenState extends State<OnBoardingEthnicityScreen> {
               height: 25,
             ),
             utils.textField(
-              controller: ethnicityController,
-              width: MediaQuery.of(context).size.width * 0.9,
-              hintText: "Search",
-            ),
+                controller: ethnicityController,
+                width: MediaQuery.of(context).size.width * 0.9,
+                hintText: "Search",
+                fontSize: 18.0),
             const SizedBox(
               height: 25,
             ),

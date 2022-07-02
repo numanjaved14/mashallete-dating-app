@@ -100,12 +100,12 @@ class _GroundRuleThreeScreenState extends State<GroundRuleThreeScreen> {
             const SizedBox(
               height: 10,
             ),
-            Text(
+            const Text(
               "If you don't message each other for 7 days, we'll unmatch you automatically. Don't worry, we'll send you some reminders!.",
-              style: utils.mediumTitleTextStyle(color: Colors.black),
+              style: TextStyle(fontSize: 17, height: 1.5),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.38,
+              height: MediaQuery.of(context).size.height * 0.37,
             ),
             Align(
               alignment: Alignment.center,

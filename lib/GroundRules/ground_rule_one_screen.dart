@@ -99,12 +99,12 @@ class _GroundRuleOneScreenState extends State<GroundRuleOneScreen> {
             const SizedBox(
               height: 10,
             ),
-            Text(
+            const Text(
               "You should be able to find your special someone without being shared around.",
-              style: utils.mediumTitleTextStyle(color: Colors.black),
+              style: TextStyle(fontSize: 17, height: 1.5),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.4,
+              height: MediaQuery.of(context).size.height * 0.37,
             ),
             Align(
               alignment: Alignment.center,
