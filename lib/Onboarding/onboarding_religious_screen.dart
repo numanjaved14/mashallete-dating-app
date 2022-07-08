@@ -36,7 +36,7 @@ class _OnBoardingReligiousScreenState extends State<OnBoardingReligiousScreen> {
                   ),
                 ),
                 Container(
-                  width: MediaQuery.of(context).size.width * 0.30,
+                  width: MediaQuery.of(context).size.width * 0.187,
                   height: 7,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),

@@ -37,7 +37,7 @@ class _OnBoardingAddPhotosScreenState extends State<OnBoardingAddPhotosScreen> {
                   ),
                 ),
                 Container(
-                  width: MediaQuery.of(context).size.width * 0.20,
+                  width: MediaQuery.of(context).size.width * 0.0625,
                   height: 7,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),

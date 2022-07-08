@@ -37,7 +37,7 @@ class _OnBoardingEthnicityScreenState extends State<OnBoardingEthnicityScreen> {
                   ),
                 ),
                 Container(
-                  width: MediaQuery.of(context).size.width * 0.35,
+                  width: MediaQuery.of(context).size.width * 0.25,
                   height: 7,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),

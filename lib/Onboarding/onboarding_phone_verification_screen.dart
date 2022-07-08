@@ -39,7 +39,7 @@ class _OnBoardingPhoneVerificationScreenState
                   ),
                 ),
                 Container(
-                  width: MediaQuery.of(context).size.width * 0.60,
+                  width: MediaQuery.of(context).size.width * 0.625,
                   height: 7,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),

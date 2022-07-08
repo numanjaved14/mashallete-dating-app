@@ -39,7 +39,7 @@ class _OnBoardingPhotoVerificationScreenState
                   ),
                 ),
                 Container(
-                  width: MediaQuery.of(context).size.width * 0.20,
+                  width: 0,
                   height: 7,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
