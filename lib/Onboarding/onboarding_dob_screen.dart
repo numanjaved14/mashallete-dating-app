@@ -165,7 +165,7 @@ class _OnBoardingDateOfBirthScreenState
                       Row(
                         children: [
                           Container(
-                            width: MediaQuery.of(context).size.width * 0.20,
+                            width: MediaQuery.of(context).size.width * 0.25,
                             height: 7,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),

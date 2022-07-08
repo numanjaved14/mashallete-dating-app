@@ -31,7 +31,7 @@ class _OnBoardingPhoneVerificationScreenState
             Row(
               children: [
                 Container(
-                  width: MediaQuery.of(context).size.width * 0.10,
+                  width: MediaQuery.of(context).size.width * 0.125,
                   height: 7,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),

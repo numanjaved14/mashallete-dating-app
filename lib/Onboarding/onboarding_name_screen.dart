@@ -29,7 +29,7 @@ class _OnBoardingNameScreenState extends State<OnBoardingNameScreen> {
             Row(
               children: [
                 Container(
-                  width: MediaQuery.of(context).size.width * 0.15,
+                  width: MediaQuery.of(context).size.width * 0.187,
                   height: 7,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),

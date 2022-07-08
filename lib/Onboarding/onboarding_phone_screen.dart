@@ -29,7 +29,7 @@ class _OnBoardingPhoneScreenState extends State<OnBoardingPhoneScreen> {
             Row(
               children: [
                 Container(
-                  width: MediaQuery.of(context).size.width * 0.05,
+                  width: MediaQuery.of(context).size.width * 0.0625,
                   height: 7,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),

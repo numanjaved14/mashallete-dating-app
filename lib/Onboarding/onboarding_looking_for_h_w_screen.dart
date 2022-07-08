@@ -28,7 +28,7 @@ class _OnBoardingLookingForScreenState
             Row(
               children: [
                 Container(
-                  width: MediaQuery.of(context).size.width * 0.30,
+                  width: MediaQuery.of(context).size.width * 0.375,
                   height: 7,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
