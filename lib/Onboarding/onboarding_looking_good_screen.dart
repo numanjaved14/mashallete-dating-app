@@ -29,8 +29,8 @@ class _OnBoardingLookingGoodScreenState
             const Text(
               "Looking good, Aadil!",
               style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.w500,
+                fontSize: 32,
+                fontWeight: FontWeight.w900,
               ),
             ),
             const SizedBox(

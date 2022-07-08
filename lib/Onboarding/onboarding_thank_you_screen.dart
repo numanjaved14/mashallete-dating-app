@@ -28,8 +28,8 @@ class _OnBoardingThankYouScreenState extends State<OnBoardingThankYouScreen> {
             const Text(
               "Thanks, Aadil!",
               style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.w500,
+                fontSize: 32,
+                fontWeight: FontWeight.w900,
               ),
             ),
             const SizedBox(
