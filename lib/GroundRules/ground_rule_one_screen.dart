@@ -57,7 +57,7 @@ class _GroundRuleOneScreenState extends State<GroundRuleOneScreen> {
                   ),
                   child: Center(
                     child: Image.asset(
-                      "assets/screenshot.png",
+                      "assets/time.png",
                       scale: 3,
                       color: Colors.grey.withOpacity(0.6),
                     ),
@@ -78,7 +78,7 @@ class _GroundRuleOneScreenState extends State<GroundRuleOneScreen> {
                   ),
                   child: Center(
                     child: Image.asset(
-                      "assets/screenshot.png",
+                      "assets/warning.png",
                       scale: 3,
                       color: Colors.grey.withOpacity(0.6),
                     ),

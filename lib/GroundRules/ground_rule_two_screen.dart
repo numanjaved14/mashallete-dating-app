@@ -79,7 +79,7 @@ class _GroundRuleTwoScreenState extends State<GroundRuleTwoScreen> {
                   ),
                   child: Center(
                     child: Image.asset(
-                      "assets/screenshot.png",
+                      "assets/warning.png",
                       scale: 3,
                       color: Colors.grey.withOpacity(0.6),
                     ),
