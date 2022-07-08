@@ -1,3 +1,4 @@
+import 'package:dating_app/HomeScreens/bottom_navigation_bar_screen.dart';
 import 'package:dating_app/Onboarding/onboarding_add_photos_screen.dart';
 import 'package:dating_app/Onboarding/onboarding_dob_screen.dart';
 import 'package:dating_app/Onboarding/onboarding_interests_screen.dart';
@@ -6,7 +7,9 @@ import 'package:dating_app/Onboarding/onboarding_looking_for_h_w_screen.dart';
 import 'package:dating_app/Onboarding/onboarding_looking_good_screen.dart';
 import 'package:dating_app/Onboarding/onboarding_notifications_screen.dart';
 import 'package:dating_app/Onboarding/onboarding_religious_screen.dart';
+import 'package:dating_app/ProfileScreens/profile_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'Authentication/landing_page.dart';
 import 'Authentication/splash_screen.dart';
@@ -14,6 +17,7 @@ import 'Constants/app_constants.dart';
 import 'GroundRules/ground_rule_one_screen.dart';
 import 'GroundRules/ground_rule_three_screen.dart';
 import 'GroundRules/ground_rule_two_screen.dart';
+import 'HomeScreens/home_screen.dart';
 import 'Onboarding/onboarding_ethnicity_screen.dart';
 import 'Onboarding/onboarding_name_screen.dart';
 import 'Onboarding/onboarding_phone_screen.dart';
@@ -26,8 +30,22 @@ Future<void> main() async {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -70,6 +88,10 @@ class MyApp extends StatelessWidget {
         groundRuleOneScreenRoute: (context) => const GroundRuleOneScreen(),
         groundRuleTwoScreenRoute: (context) => const GroundRuleTwoScreen(),
         groundRuleThreeScreenRoute: (context) => const GroundRuleThreeScreen(),
+        bottomNavigationBarScreenRoute: (context) =>
+            const BottomNavigationBarScreen(),
+        homeScreenRoute: (context) => const HomeScreen(),
+        profileScreenRoute: (context) => const ProfileScreen(),
       },
     );
   }

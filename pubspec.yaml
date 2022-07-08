@@ -38,6 +38,7 @@ dependencies:
   blurrycontainer: ^1.0.2
   dotted_border: ^2.0.0+2
   google_fonts: ^3.0.1
+  percent_indicator: ^4.2.2
 
 dev_dependencies:
   flutter_test:

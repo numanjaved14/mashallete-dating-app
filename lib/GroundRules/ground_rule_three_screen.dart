@@ -105,12 +105,15 @@ class _GroundRuleThreeScreenState extends State<GroundRuleThreeScreen> {
               style: TextStyle(fontSize: 17, height: 1.5),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.37,
+              height: MediaQuery.of(context).size.height * 0.34,
             ),
             Align(
               alignment: Alignment.center,
               child: utils.bigButton(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(
+                        context, bottomNavigationBarScreenRoute);
+                  },
                   width: MediaQuery.of(context).size.width * 0.9,
                   height: 55.0,
                   containerColor: blueColor,
