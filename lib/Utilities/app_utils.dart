@@ -672,9 +672,8 @@ class AppUtils {
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
             color: selected == true ? blueColor : Colors.white,
-            border:
-                Border.all(color: Colors.grey.withOpacity(0.5), width: 1.5)),
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
+            border: Border.all(color: blueColor.withOpacity(.5), width: 1.5)),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -683,7 +682,7 @@ class AppUtils {
               scale: 35,
             ),
             const SizedBox(
-              width: 15,
+              width: 5,
             ),
             Text(
               text,

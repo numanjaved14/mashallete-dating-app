@@ -12,19 +12,7 @@ class OnBoardingInterestsScreen extends StatefulWidget {
 }
 
 class _OnBoardingInterestsScreenState extends State<OnBoardingInterestsScreen> {
-  List selected1 = [
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false
-  ];
-  List selected2 = [false, false, false, false, false];
-  List selected3 = [false, false, false, false, false];
+  List selected1 = [];
   List arts = [
     "Acting",
     "Art Galleries",
@@ -35,25 +23,35 @@ class _OnBoardingInterestsScreenState extends State<OnBoardingInterestsScreen> {
     "Fashion",
     "Film Making",
     "Painting",
-  ];
-
-  List community = [
-    "Activism",
+    "Acting",
     "Art Galleries",
-    "Politics",
-    "Spending time with friends",
-    "Volunteering"
+    "Board Games",
+    "Creative Writing",
+    "DIY",
+    "Design ",
+    "Fashion",
+    "Film Making",
+    "Painting",
+    "Acting",
+    "Art Galleries",
+    "Board Games",
+    "Creative Writing",
+    "DIY",
+    "Design ",
+    "Fashion",
+    "Film Making",
+    "Painting",
   ];
-
-  List valueAndTraits = [
-    "Road Trips",
-    "Road Trips",
-    "Road Trips",
-    "Road Trips",
-    "Road Trips"
-  ];
-
   var utils = AppUtils();
+
+  @override
+  void initState() {
+    for (int i = 0; i < arts.length; i++) {
+      selected1.add(false);
+    }
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,63 +63,30 @@ class _OnBoardingInterestsScreenState extends State<OnBoardingInterestsScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(
-                height: 120,
+                height: 100,
               ),
-              SizedBox(
-                height: 50,
-                child: Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    Row(
-                      children: [
-                        Container(
-                          width: MediaQuery.of(context).size.width * 0.65,
-                          height: 4,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: blueColor,
-                          ),
-                        ),
-                        Container(
-                          width: MediaQuery.of(context).size.width * 0.0,
-                          height: 4,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: blueColor.withOpacity(0.4),
-                          ),
-                        ),
-                      ],
+              Row(
+                children: [
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.50,
+                    height: 7,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: blueColor,
                     ),
-                    Positioned(
-                      top: 0,
-                      bottom: 0,
-                      left: MediaQuery.of(context).size.width * 0.65,
-                      child: Container(
-                        color: Colors.white,
-                        padding: const EdgeInsets.all(2),
-                        child: Container(
-                          width: 50,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            shape: BoxShape.circle,
-                            border: Border.all(
-                              color: blueColor,
-                              width: 2,
-                            ),
-                          ),
-                          child: Image.asset(
-                            "assets/smallIcons.png",
-                            scale: 1.3,
-                          ),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.25,
+                    height: 7,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.grey[200],
+                    ),
+                  ),
+                ],
               ),
               const SizedBox(
-                height: 10,
+                height: 45,
               ),
               Text(
                 "Add your interests",
@@ -132,127 +97,21 @@ class _OnBoardingInterestsScreenState extends State<OnBoardingInterestsScreen> {
               const SizedBox(
                 height: 25,
               ),
-              Text(
-                "Arts and Culture",
-                style: utils.smallHeadingTextStyle(color: Colors.black),
-              ),
-              const SizedBox(
-                height: 25,
-              ),
               Wrap(
                 children: [
-                  for (int i = 0; i < 9; i++)
+                  for (int i = 0; i < arts.length; i++)
                     utils.interestsWidget(
                       text: arts[i],
                       selected: selected1[i],
                       onTap: () {
-                        for (int j = 0; j < selected1.length; j++) {
-                          selected1[j] = false;
+                        if (selected1[i] == false) {
                           selected1[i] = true;
-                          setState(() {});
+                        } else {
+                          selected1[i] = false;
                         }
+                        setState(() {});
                       },
                     ),
-                ],
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Row(
-                children: [
-                  Text(
-                    "Show less",
-                    style: utils.extraSmallHeadingTextStyle(color: blueColor),
-                  ),
-                  const Icon(
-                    Icons.keyboard_arrow_up_outlined,
-                    size: 20,
-                    color: blueColor,
-                  )
-                ],
-              ),
-              const SizedBox(
-                height: 25,
-              ),
-              Text(
-                "Community",
-                style: utils.smallHeadingTextStyle(color: Colors.black),
-              ),
-              const SizedBox(
-                height: 25,
-              ),
-              Wrap(
-                children: [
-                  for (int i = 0; i < 5; i++)
-                    utils.interestsWidget(
-                      text: community[i],
-                      selected: selected2[i],
-                      onTap: () {
-                        for (int j = 0; j < selected2.length; j++) {
-                          selected2[j] = false;
-                          selected2[i] = true;
-                          setState(() {});
-                        }
-                      },
-                    ),
-                ],
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Row(
-                children: [
-                  Text(
-                    "Show less",
-                    style: utils.extraSmallHeadingTextStyle(color: blueColor),
-                  ),
-                  const Icon(
-                    Icons.keyboard_arrow_up_outlined,
-                    size: 20,
-                    color: blueColor,
-                  )
-                ],
-              ),
-              const SizedBox(
-                height: 25,
-              ),
-              Text(
-                "Value and Traits",
-                style: utils.smallHeadingTextStyle(color: Colors.black),
-              ),
-              const SizedBox(
-                height: 25,
-              ),
-              Wrap(
-                children: [
-                  for (int i = 0; i < valueAndTraits.length; i++)
-                    utils.interestsWidget(
-                      text: valueAndTraits[i],
-                      selected: selected3[i],
-                      onTap: () {
-                        for (int j = 0; j < selected3.length; j++) {
-                          selected3[j] = false;
-                          selected3[i] = true;
-                          setState(() {});
-                        }
-                      },
-                    ),
-                ],
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Row(
-                children: [
-                  Text(
-                    "Show less",
-                    style: utils.extraSmallHeadingTextStyle(color: blueColor),
-                  ),
-                  const Icon(
-                    Icons.keyboard_arrow_up_outlined,
-                    size: 20,
-                    color: blueColor,
-                  )
                 ],
               ),
               const SizedBox(

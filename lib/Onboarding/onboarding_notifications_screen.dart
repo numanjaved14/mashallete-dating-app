@@ -26,61 +26,28 @@ class _OnBoardingNotificationsScreenState
             const SizedBox(
               height: 100,
             ),
-            SizedBox(
-              height: 50,
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  Row(
-                    children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.65,
-                        height: 4,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: blueColor,
-                        ),
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.0,
-                        height: 4,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: blueColor.withOpacity(0.4),
-                        ),
-                      ),
-                    ],
+            Row(
+              children: [
+                Container(
+                  width: MediaQuery.of(context).size.width * 0.25,
+                  height: 7,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: blueColor,
                   ),
-                  Positioned(
-                    top: 0,
-                    bottom: 0,
-                    left: MediaQuery.of(context).size.width * 0.60,
-                    child: Container(
-                      color: Colors.white,
-                      padding: const EdgeInsets.all(2),
-                      child: Container(
-                        width: 50,
-                        height: 50,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                            color: blueColor,
-                            width: 2,
-                          ),
-                        ),
-                        child: Image.asset(
-                          "assets/bell.png",
-                          scale: 1.3,
-                        ),
-                      ),
-                    ),
-                  )
-                ],
-              ),
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width * 0.50,
+                  height: 7,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.grey[200],
+                  ),
+                ),
+              ],
             ),
             const SizedBox(
-              height: 10,
+              height: 45,
             ),
             const Text(
               "Never miss out on a \nmessage!",
