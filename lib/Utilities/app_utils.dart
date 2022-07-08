@@ -252,8 +252,8 @@ class AppUtils {
   line({width}) {
     return Container(
       width: width,
-      height: 2,
-      color: Colors.grey,
+      height: 1,
+      color: Colors.grey[300],
     );
   }
 
@@ -771,6 +771,44 @@ class AppUtils {
                     ),
                   )
                 : Container(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  generalRow({iconContainerColor, image, text, context, onTap, scale}) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal: 10),
+        width: MediaQuery.of(context).size.width,
+        height: 50,
+        child: Row(
+          children: [
+            const SizedBox(
+              width: 20,
+            ),
+            Image.asset(
+              image,
+              scale: scale,
+            ),
+            const SizedBox(
+              width: 20,
+            ),
+            Text(
+              text,
+              style: smallHeadingTextStyle(color: Colors.black),
+            ),
+            const Spacer(),
+            const Icon(
+              Icons.arrow_forward_ios_outlined,
+              color: Colors.grey,
+              size: 20,
+            ),
+            const SizedBox(
+              width: 20,
+            ),
           ],
         ),
       ),
