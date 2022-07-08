@@ -1,3 +1,5 @@
+import 'package:dating_app/Authentication/login_with_otp_screen.dart';
+import 'package:dating_app/Authentication/login_with_phone_number_screen.dart';
 import 'package:dating_app/HomeScreens/bottom_navigation_bar_screen.dart';
 import 'package:dating_app/Onboarding/onboarding_add_photos_screen.dart';
 import 'package:dating_app/Onboarding/onboarding_dob_screen.dart';
@@ -92,6 +94,9 @@ class _MyAppState extends State<MyApp> {
             const BottomNavigationBarScreen(),
         homeScreenRoute: (context) => const HomeScreen(),
         profileScreenRoute: (context) => const ProfileScreen(),
+        loginWithPhoneNumberScreenRoute: (context) =>
+            const LoginWithPhoneNumberScreen(),
+        loginWithOtpScreenRoute: (context) => const LoginWithOtpScreen(),
       },
     );
   }

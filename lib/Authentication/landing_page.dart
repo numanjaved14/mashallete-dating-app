@@ -105,9 +105,14 @@ class _LandingScreenState extends State<LandingScreen> {
               const SizedBox(
                 height: 20,
               ),
-              Text(
-                "Sign In",
-                style: utils.smallHeadingTextStyle(color: Colors.white),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, loginWithPhoneNumberScreenRoute);
+                },
+                child: Text(
+                  "Sign In",
+                  style: utils.smallHeadingTextStyle(color: Colors.white),
+                ),
               )
             ],
           ),

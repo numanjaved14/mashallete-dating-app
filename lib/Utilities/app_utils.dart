@@ -609,7 +609,7 @@ class AppUtils {
     textStyle: const TextStyle(
         fontSize: 38,
         color: Color.fromRGBO(30, 60, 87, 1),
-        fontWeight: FontWeight.w400),
+        fontWeight: FontWeight.w900),
     decoration: BoxDecoration(
       border: Border.all(color: blueColor),
       borderRadius: BorderRadius.circular(20),
@@ -622,7 +622,7 @@ class AppUtils {
     textStyle: const TextStyle(
         fontSize: 38,
         color: Color.fromRGBO(30, 60, 87, 1),
-        fontWeight: FontWeight.w400),
+        fontWeight: FontWeight.w600),
     decoration: BoxDecoration(
       border: Border.all(color: Colors.grey),
       borderRadius: BorderRadius.circular(20),
