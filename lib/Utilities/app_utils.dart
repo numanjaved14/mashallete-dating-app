@@ -819,10 +819,10 @@ class AppUtils {
       onTap: onTap,
       child: Container(
         width: double.infinity,
-        padding: const EdgeInsets.symmetric(horizontal: 10),
-        height: 50,
+        padding: const EdgeInsets.symmetric(horizontal: 15),
+        height: 55,
         decoration: BoxDecoration(
-          color: selected == true ? blueColor : Colors.grey.withOpacity(0.2),
+          color: selected == true ? blueColor : Colors.grey.withOpacity(0.15),
           borderRadius: BorderRadius.circular(7),
         ),
         child: Row(

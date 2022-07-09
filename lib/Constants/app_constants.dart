@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 ///colors
 const blueColor = Color(0xff3776FF);
+const orangeColor = Color(0xffF0AD2B);
 
 ///routes for screens
 const splashRoute = "/";

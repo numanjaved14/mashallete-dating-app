@@ -24,7 +24,7 @@ class _PremiumAccessScreenState extends State<PremiumAccessScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const SizedBox(
-              height: 60,
+              height: 50,
             ),
             GestureDetector(
               onTap: () {
@@ -41,7 +41,7 @@ class _PremiumAccessScreenState extends State<PremiumAccessScreen> {
             ),
             Image.asset(
               "assets/crown.png",
-              scale: 2.5,
+              scale: 2.8,
             ),
             const Text(
               "UNLIMITED ACCESS",
@@ -79,7 +79,7 @@ class _PremiumAccessScreenState extends State<PremiumAccessScreen> {
               selected: selected1,
             ),
             const SizedBox(
-              height: 15,
+              height: 20,
             ),
             utils.premiumButton(
               price: "\$39.99",
@@ -95,7 +95,7 @@ class _PremiumAccessScreenState extends State<PremiumAccessScreen> {
               selected: selected2,
             ),
             const SizedBox(
-              height: 15,
+              height: 20,
             ),
             utils.premiumButton(
               price: "\$59.99",
@@ -109,6 +109,62 @@ class _PremiumAccessScreenState extends State<PremiumAccessScreen> {
                 setState(() {});
               },
               selected: selected3,
+            ),
+            const SizedBox(
+              height: 40,
+            ),
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              height: 55,
+              decoration: BoxDecoration(
+                color: orangeColor,
+                borderRadius: BorderRadius.circular(7),
+              ),
+              child: Center(
+                child: Text(
+                  "Try 1 week for free!",
+                  style: utils.smallHeadingTextStyle(color: Colors.white),
+                ),
+              ),
+            ),
+            Spacer(),
+            Text(
+              "Automatic bill after trial ends. By subscribing you accept the \nTerms & Privacy Policy of the service.",
+              style: TextStyle(
+                fontSize: 14,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Already a premium user?",
+                  style: TextStyle(
+                    fontSize: 14,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  "Restore Purchase",
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: blueColor,
+                    fontWeight: FontWeight.w700,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 30,
             ),
           ],
         ),
