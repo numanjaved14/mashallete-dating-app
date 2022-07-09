@@ -11,6 +11,7 @@ class ChatBoxScreen extends StatefulWidget {
 }
 
 class _ChatBoxScreenState extends State<ChatBoxScreen> {
+  bool gif = false;
   var utils = AppUtils();
   @override
   Widget build(BuildContext context) {
@@ -67,7 +68,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                           context: context,
                           messageText:
                               "Hi Umer how is it going. Hope you are doing well!"),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Text(
@@ -84,38 +85,94 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                 ),
               ),
             ),
-            Container(
-              width: double.infinity,
-              height: 50,
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              decoration: BoxDecoration(
-                color: Colors.grey.withOpacity(0.1),
-                borderRadius: BorderRadius.circular(
-                  30,
-                ),
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: TextField(
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: "Message",
-                        hintStyle: TextStyle(
-                          color: Colors.grey[600],
-                          fontSize: 16,
-                        ),
+            gif == false
+                ? Container(
+                    width: double.infinity,
+                    height: 50,
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    decoration: BoxDecoration(
+                      color: Colors.grey.withOpacity(0.1),
+                      borderRadius: BorderRadius.circular(
+                        30,
                       ),
                     ),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: TextField(
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: "Message",
+                              hintStyle: TextStyle(
+                                color: Colors.grey[600],
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Text(
+                          "Send",
+                          style: utils.smallHeadingTextStyle(color: blueColor),
+                        ),
+                      ],
+                    ),
+                  )
+                : Column(
+                    children: [
+                      Container(
+                        width: double.infinity,
+                        height: 100,
+                        padding: const EdgeInsets.symmetric(vertical: 10),
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: [
+                              for (int i = 0; i < 10; i++)
+                                utils.gifContainer(
+                                  image: "assets/boy.png",
+                                ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          const Icon(
+                            Icons.close,
+                            size: 25,
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Container(
+                            height: 50,
+                            width: MediaQuery.of(context).size.width * 0.8,
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
+                            decoration: BoxDecoration(
+                              color: Colors.grey.withOpacity(0.1),
+                              borderRadius: BorderRadius.circular(
+                                30,
+                              ),
+                            ),
+                            child: TextField(
+                              decoration: InputDecoration(
+                                border: InputBorder.none,
+                                hintText: "Search GIFs...",
+                                hintStyle: TextStyle(
+                                  color: Colors.grey[600],
+                                  fontSize: 16,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
-                  Text(
-                    "Send",
-                    style: utils.smallHeadingTextStyle(color: blueColor),
-                  ),
-                ],
-              ),
-            ),
             const SizedBox(
               height: 15,
             ),
@@ -136,16 +193,25 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                 const SizedBox(
                   width: 10,
                 ),
-                Container(
-                  width: 60,
-                  height: 40,
-                  decoration: BoxDecoration(
-                    color: Colors.grey.withOpacity(0.1),
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  child: Image.asset(
-                    "assets/giffy.png",
-                    scale: 0.8,
+                GestureDetector(
+                  onTap: () {
+                    gif = !gif;
+                    setState(() {});
+                  },
+                  child: Container(
+                    width: 60,
+                    height: 40,
+                    decoration: BoxDecoration(
+                      color: gif == true
+                          ? blueColor
+                          : Colors.grey.withOpacity(0.1),
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    child: Image.asset(
+                      "assets/giffy.png",
+                      scale: 0.8,
+                      color: gif == true ? Colors.white : blueColor,
+                    ),
                   ),
                 ),
                 const SizedBox(

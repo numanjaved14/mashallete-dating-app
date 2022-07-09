@@ -1302,4 +1302,15 @@ class AppUtils {
       ),
     );
   }
+
+  gifContainer({image}) {
+    return Container(
+      width: 130,
+      margin: EdgeInsets.symmetric(horizontal: 5),
+      height: 100,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          image: DecorationImage(image: AssetImage(image), fit: BoxFit.cover)),
+    );
+  }
 }
