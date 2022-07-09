@@ -1,5 +1,5 @@
 import 'package:dating_app/Constants/app_constants.dart';
-import 'package:dating_app/HomeScreens/chat_screen.dart';
+import 'package:dating_app/ChatScreens/chat_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

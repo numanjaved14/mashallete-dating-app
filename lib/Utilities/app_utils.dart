@@ -958,137 +958,143 @@ class AppUtils {
     );
   }
 
-  newChatWidget({image, senderName, lastMessage, time}) {
-    return Container(
-      width: double.infinity,
-      height: 70,
-      margin: const EdgeInsets.only(bottom: 20),
-      child: Row(
-        children: [
-          Container(
-            width: 70,
-            height: 70,
-            decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                image: DecorationImage(
-                    image: AssetImage(image), fit: BoxFit.cover)),
-          ),
-          const SizedBox(
-            width: 15,
-          ),
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.start,
+  newChatWidget({image, senderName, lastMessage, time, onTap}) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: double.infinity,
+        height: 70,
+        margin: const EdgeInsets.only(bottom: 20),
+        child: Row(
+          children: [
+            Container(
+              width: 70,
+              height: 70,
+              decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                      image: AssetImage(image), fit: BoxFit.cover)),
+            ),
+            const SizedBox(
+              width: 15,
+            ),
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    senderName,
+                    style: mediumHeadingTextStyle(color: Colors.black),
+                  ),
+                  Text(
+                    lastMessage,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: smallHeadingTextStyle(color: blueColor),
+                  ),
+                ],
+              ),
+            ),
+            Row(
               children: [
-                Text(
-                  senderName,
-                  style: mediumHeadingTextStyle(color: Colors.black),
+                const Icon(
+                  Icons.timer_sharp,
+                  color: blueColor,
+                  size: 19,
+                ),
+                const SizedBox(
+                  width: 5,
                 ),
                 Text(
-                  lastMessage,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
+                  time,
                   style: smallHeadingTextStyle(color: blueColor),
                 ),
               ],
             ),
-          ),
-          Row(
-            children: [
-              const Icon(
-                Icons.timer_sharp,
-                color: blueColor,
-                size: 19,
-              ),
-              const SizedBox(
-                width: 5,
-              ),
-              Text(
-                time,
-                style: smallHeadingTextStyle(color: blueColor),
-              ),
-            ],
-          ),
-          const SizedBox(
-            width: 10,
-          )
-        ],
+            const SizedBox(
+              width: 10,
+            )
+          ],
+        ),
       ),
     );
   }
 
-  oldChatWidget({image, senderName, lastMessage, time, sent}) {
-    return Container(
-      width: double.infinity,
-      height: 70,
-      margin: const EdgeInsets.only(bottom: 20),
-      child: Row(
-        children: [
-          Container(
-            width: 70,
-            height: 70,
-            decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                image: DecorationImage(
-                    image: AssetImage(image), fit: BoxFit.cover)),
-          ),
-          const SizedBox(
-            width: 15,
-          ),
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  senderName,
-                  style: mediumHeadingTextStyle(color: Colors.black),
-                ),
-                Row(
-                  children: [
-                    sent == true
-                        ? const Icon(
-                            CupertinoIcons.arrow_turn_up_left,
-                            size: 15,
-                          )
-                        : Container(),
-                    SizedBox(
-                      width: sent == true ? 5 : 0,
-                    ),
-                    Text(
-                      lastMessage,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: smallTitleTextStyle(),
-                    ),
-                  ],
-                ),
-              ],
+  oldChatWidget({image, senderName, lastMessage, time, sent, onTap}) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: double.infinity,
+        height: 70,
+        margin: const EdgeInsets.only(bottom: 20),
+        child: Row(
+          children: [
+            Container(
+              width: 70,
+              height: 70,
+              decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                      image: AssetImage(image), fit: BoxFit.cover)),
             ),
-          ),
-          sent == true
-              ? Container()
-              : Row(
-                  children: [
-                    const Icon(
-                      Icons.timer_sharp,
-                      color: Colors.grey,
-                      size: 19,
-                    ),
-                    const SizedBox(
-                      width: 5,
-                    ),
-                    Text(
-                      time,
-                      style: smallTitleTextStyle(color: Colors.grey),
-                    ),
-                  ],
-                ),
-          const SizedBox(
-            width: 10,
-          ),
-        ],
+            const SizedBox(
+              width: 15,
+            ),
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    senderName,
+                    style: mediumHeadingTextStyle(color: Colors.black),
+                  ),
+                  Row(
+                    children: [
+                      sent == true
+                          ? const Icon(
+                              CupertinoIcons.arrow_turn_up_left,
+                              size: 15,
+                            )
+                          : Container(),
+                      SizedBox(
+                        width: sent == true ? 5 : 0,
+                      ),
+                      Text(
+                        lastMessage,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: smallTitleTextStyle(),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            sent == true
+                ? Container()
+                : Row(
+                    children: [
+                      const Icon(
+                        Icons.timer_sharp,
+                        color: Colors.grey,
+                        size: 19,
+                      ),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      Text(
+                        time,
+                        style: smallTitleTextStyle(color: Colors.grey),
+                      ),
+                    ],
+                  ),
+            const SizedBox(
+              width: 10,
+            ),
+          ],
+        ),
       ),
     );
   }

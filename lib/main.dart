@@ -17,6 +17,7 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'Authentication/landing_page.dart';
 import 'Authentication/splash_screen.dart';
+import 'ChatScreens/chat_box_screen.dart';
 import 'Constants/app_constants.dart';
 import 'GroundRules/ground_rule_one_screen.dart';
 import 'GroundRules/ground_rule_three_screen.dart';
@@ -95,6 +96,7 @@ class _MyAppState extends State<MyApp> {
         groundRuleThreeScreenRoute: (context) => const GroundRuleThreeScreen(),
         premiumAccessScreenRoute: (context) => const PremiumAccessScreen(),
         preferencesScreenRoute: (context) => const PreferencesScreen(),
+        chatBoxScreenRoute: (context) => const ChatBoxScreen(),
         privacyScreenRoute: (context) => const PrivacyScreen(),
         bottomNavigationBarScreenRoute: (context) =>
             const BottomNavigationBarScreen(),

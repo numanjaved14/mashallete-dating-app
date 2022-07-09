@@ -96,7 +96,10 @@ class _ChatScreenState extends State<ChatScreen> {
                   image: "assets/boy.png",
                   lastMessage: "Start the conversation",
                   senderName: "Sana",
-                  time: "12:20"),
+                  time: "12:20",
+                  onTap: () {
+                    Navigator.pushNamed(context, chatBoxScreenRoute);
+                  }),
               utils.line(width: double.infinity),
               const SizedBox(
                 height: 20,
@@ -105,7 +108,10 @@ class _ChatScreenState extends State<ChatScreen> {
                   image: "assets/boy.png",
                   lastMessage: "Start the conversation",
                   senderName: "Aliza",
-                  time: "12:20"),
+                  time: "12:20",
+                  onTap: () {
+                    Navigator.pushNamed(context, chatBoxScreenRoute);
+                  }),
               const SizedBox(
                 height: 30,
               ),
@@ -137,21 +143,29 @@ class _ChatScreenState extends State<ChatScreen> {
                 height: 50,
               ),
               utils.oldChatWidget(
-                  image: "assets/boy.png",
-                  lastMessage: "Thank you, you as well.",
-                  senderName: "Fatima",
-                  sent: false,
-                  time: "3 days"),
+                image: "assets/boy.png",
+                lastMessage: "Thank you, you as well.",
+                senderName: "Fatima",
+                sent: false,
+                time: "3 days",
+                onTap: () {
+                  Navigator.pushNamed(context, chatBoxScreenRoute);
+                },
+              ),
               utils.line(width: double.infinity),
               const SizedBox(
                 height: 20,
               ),
               utils.oldChatWidget(
-                  image: "assets/boy.png",
-                  lastMessage: "Hi Zara! how's it going?",
-                  senderName: "Zara",
-                  sent: true,
-                  time: ""),
+                image: "assets/boy.png",
+                lastMessage: "Hi Zara! how's it going?",
+                senderName: "Zara",
+                sent: true,
+                time: "",
+                onTap: () {
+                  Navigator.pushNamed(context, chatBoxScreenRoute);
+                },
+              ),
               const SizedBox(
                 height: 20,
               ),
