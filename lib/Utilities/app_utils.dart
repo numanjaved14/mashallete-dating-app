@@ -813,4 +813,77 @@ class AppUtils {
       ),
     );
   }
+
+  premiumButton({price, duration, save, offPrice, onTap, selected}) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        height: 50,
+        decoration: BoxDecoration(
+          color: selected == true ? blueColor : Colors.grey.withOpacity(0.2),
+          borderRadius: BorderRadius.circular(7),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                Container(
+                  width: 25,
+                  height: 25,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: selected == true ? Colors.white : Colors.grey,
+                      width: 0.7,
+                    ),
+                    shape: BoxShape.circle,
+                    color: selected == true ? Colors.white : Colors.transparent,
+                  ),
+                  child: Center(
+                    child: selected == true
+                        ? const Icon(
+                            Icons.check,
+                            color: blueColor,
+                            size: 15,
+                          )
+                        : Container(),
+                  ),
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  duration,
+                  style: smallHeadingTextStyle(
+                      color: selected == true ? Colors.white : Colors.black),
+                )
+              ],
+            ),
+            Row(
+              children: [
+                save == true
+                    ? Text(
+                        offPrice,
+                        style: smallHeadingTextStyle(
+                            color:
+                                selected == true ? Colors.white : Colors.green),
+                      )
+                    : Container(),
+                const SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  price,
+                  style: smallHeadingTextStyle(
+                      color: selected == true ? Colors.white : Colors.black),
+                ),
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
 }

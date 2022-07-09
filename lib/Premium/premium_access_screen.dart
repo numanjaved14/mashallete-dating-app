@@ -10,6 +10,9 @@ class PremiumAccessScreen extends StatefulWidget {
 }
 
 class _PremiumAccessScreenState extends State<PremiumAccessScreen> {
+  var selected1 = false;
+  var selected2 = false;
+  var selected3 = false;
   var utils = AppUtils();
   @override
   Widget build(BuildContext context) {
@@ -58,6 +61,54 @@ class _PremiumAccessScreenState extends State<PremiumAccessScreen> {
                 fontWeight: FontWeight.bold,
               ),
               textAlign: TextAlign.center,
+            ),
+            const SizedBox(
+              height: 50,
+            ),
+            utils.premiumButton(
+              price: "\$3.99",
+              duration: "1 month",
+              save: false,
+              offPrice: "",
+              onTap: () {
+                selected1 = true;
+                selected2 = false;
+                selected3 = false;
+                setState(() {});
+              },
+              selected: selected1,
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            utils.premiumButton(
+              price: "\$39.99",
+              duration: "1 year",
+              save: true,
+              offPrice: "Save 15%!!",
+              onTap: () {
+                selected1 = false;
+                selected2 = true;
+                selected3 = false;
+                setState(() {});
+              },
+              selected: selected2,
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            utils.premiumButton(
+              price: "\$59.99",
+              duration: "1 time purchase",
+              save: false,
+              offPrice: "",
+              onTap: () {
+                selected1 = false;
+                selected2 = false;
+                selected3 = true;
+                setState(() {});
+              },
+              selected: selected3,
             ),
           ],
         ),
