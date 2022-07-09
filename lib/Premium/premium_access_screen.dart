@@ -1,6 +1,5 @@
 import 'package:dating_app/Constants/app_constants.dart';
 import 'package:dating_app/Utilities/app_utils.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class PremiumAccessScreen extends StatefulWidget {
@@ -41,7 +40,7 @@ class _PremiumAccessScreenState extends State<PremiumAccessScreen> {
               "assets/crown.png",
               scale: 2.5,
             ),
-            Text(
+            const Text(
               "UNLIMITED ACCESS",
               style: TextStyle(
                 fontSize: 12,
@@ -49,10 +48,10 @@ class _PremiumAccessScreenState extends State<PremiumAccessScreen> {
                 color: blueColor,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            Text(
+            const Text(
               "Unlock all premium content \nand pro features",
               style: TextStyle(
                 fontSize: 23,

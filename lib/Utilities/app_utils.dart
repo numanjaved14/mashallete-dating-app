@@ -780,7 +780,7 @@ class AppUtils {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 10),
+        margin: const EdgeInsets.symmetric(horizontal: 10),
         width: MediaQuery.of(context).size.width,
         height: 50,
         child: Row(

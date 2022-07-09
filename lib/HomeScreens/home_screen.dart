@@ -48,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         "assets/cupHeart.png",
                         scale: 2,
                       ),
-                      Text(
+                      const Text(
                         "Mashalatte",
                         style: TextStyle(
                           fontSize: 24,
