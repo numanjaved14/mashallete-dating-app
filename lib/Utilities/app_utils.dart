@@ -888,7 +888,7 @@ class AppUtils {
   }
 
   preferencesWidget({text, text2}) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       height: 50,
       child: Row(
@@ -905,10 +905,10 @@ class AppUtils {
                 style:
                     smallTitleTextStyle(color: Colors.black.withOpacity(0.5)),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 5,
               ),
-              Icon(
+              const Icon(
                 Icons.arrow_forward_ios_sharp,
                 size: 15,
                 color: Colors.black,

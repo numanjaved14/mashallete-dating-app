@@ -144,7 +144,7 @@ class _PreferencesScreenState extends State<PreferencesScreen> {
             const SizedBox(
               height: 20,
             ),
-            Container(
+            SizedBox(
               width: MediaQuery.of(context).size.width,
               child: CupertinoRangeSlider(
                 thumbColor: blueColor,
