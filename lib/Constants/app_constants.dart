@@ -14,6 +14,7 @@ const onBoardingReligiousScreenRoute = "/onBoardingReligiousScreenRoute";
 const loginWithPhoneNumberScreenRoute = "/loginWithPhoneNumberScreenRoute";
 const loginWithOtpScreenRoute = "/loginWithOtpScreenRoute";
 const onBoardingThankYouScreenRoute = "/onBoardingThankYouScreenRoute";
+const premiumAccessScreenRoute = "/premiumAccessScreenRoute";
 const groundRuleOneScreenRoute = "/groundRuleOneScreenRoute";
 const groundRuleTwoScreenRoute = "/groundRuleTwoScreenRoute";
 const profileScreenRoute = "/profileScreenRoute";

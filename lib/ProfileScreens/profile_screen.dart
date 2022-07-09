@@ -150,7 +150,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
             scale: 4.0,
             context: context,
             iconContainerColor: Colors.blue,
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, premiumAccessScreenRoute);
+            },
             text: "Premium",
             image: "assets/electricCharge.png",
           ),
