@@ -1010,7 +1010,7 @@ class AppUtils {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             width: 10,
           )
         ],
@@ -1076,7 +1076,7 @@ class AppUtils {
                       color: Colors.grey,
                       size: 19,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 5,
                     ),
                     Text(
@@ -1085,7 +1085,7 @@ class AppUtils {
                     ),
                   ],
                 ),
-          SizedBox(
+          const SizedBox(
             width: 10,
           ),
         ],
