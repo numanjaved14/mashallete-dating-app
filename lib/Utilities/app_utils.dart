@@ -1291,7 +1291,7 @@ class AppUtils {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 5,
           ),
           Text(
@@ -1306,7 +1306,7 @@ class AppUtils {
   gifContainer({image}) {
     return Container(
       width: 130,
-      margin: EdgeInsets.symmetric(horizontal: 5),
+      margin: const EdgeInsets.symmetric(horizontal: 5),
       height: 100,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
