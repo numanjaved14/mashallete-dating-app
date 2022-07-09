@@ -43,7 +43,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                 ),
                 Text(
                   "More",
-                  style: utils.mediumHeadingTextStyle(),
+                  style: utils.smallHeadingTextStyle(),
                 ),
               ],
             ),
@@ -51,22 +51,45 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
               height: 30,
             ),
             Expanded(
-              child: Container(
-                color: Colors.red,
+              child: SizedBox(
                 width: double.infinity,
                 child: SingleChildScrollView(
                   child: Column(
-                    children: [],
+                    children: [
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Text(
+                        "Today 2:58 PM",
+                        style: utils.smallTitleTextStyle(),
+                      ),
+                      utils.otherPersonChatContainer(
+                          context: context,
+                          messageText:
+                              "Hi Umer how is it going. Hope you are doing well!"),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        "Today 2:58 PM",
+                        style: utils.smallTitleTextStyle(),
+                      ),
+                      utils.myChatContainer(
+                          context: context,
+                          messageText:
+                              "Hi Umer how is it going. Hope you are doing well!"),
+                      utils.audioMessage(context: context, time: "2:30"),
+                    ],
                   ),
                 ),
               ),
             ),
             Container(
               width: double.infinity,
-              height: 40,
+              height: 50,
               padding: const EdgeInsets.symmetric(horizontal: 20),
               decoration: BoxDecoration(
-                color: Colors.grey[200],
+                color: Colors.grey.withOpacity(0.1),
                 borderRadius: BorderRadius.circular(
                   30,
                 ),
@@ -80,7 +103,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                         border: InputBorder.none,
                         hintText: "Message",
                         hintStyle: TextStyle(
-                          color: Colors.grey[700],
+                          color: Colors.grey[600],
                           fontSize: 16,
                         ),
                       ),
@@ -99,25 +122,25 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
             Row(
               children: [
                 Container(
-                  width: 70,
-                  height: 50,
+                  width: 60,
+                  height: 40,
                   decoration: BoxDecoration(
-                    color: Colors.grey[200],
+                    color: Colors.grey.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(30),
                   ),
                   child: Image.asset(
                     "assets/audioVideo.png",
-                    scale: 1.5,
+                    scale: 1.7,
                   ),
                 ),
                 const SizedBox(
                   width: 10,
                 ),
                 Container(
-                  width: 70,
-                  height: 50,
+                  width: 60,
+                  height: 40,
                   decoration: BoxDecoration(
-                    color: Colors.grey[200],
+                    color: Colors.grey.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(30),
                   ),
                   child: Image.asset(
@@ -129,10 +152,10 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                   width: 10,
                 ),
                 Container(
-                  width: 70,
-                  height: 50,
+                  width: 60,
+                  height: 40,
                   decoration: BoxDecoration(
-                    color: Colors.grey[200],
+                    color: Colors.grey.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(25),
                   ),
                   child: Image.asset(

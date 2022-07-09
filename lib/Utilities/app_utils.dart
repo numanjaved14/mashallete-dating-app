@@ -1,3 +1,4 @@
+import 'package:audio_wave/audio_wave.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -1095,6 +1096,209 @@ class AppUtils {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  otherPersonChatContainer({context, messageText}) {
+    return Container(
+      margin: const EdgeInsets.only(top: 12),
+      child: Align(
+        alignment: Alignment.centerLeft,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Container(
+              width: 30,
+              height: 30,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/boy.png"),
+                  fit: BoxFit.cover,
+                ),
+                shape: BoxShape.circle,
+              ),
+            ),
+            const SizedBox(
+              width: 15,
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width * 0.7,
+              padding: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: blueColor.withOpacity(0.05),
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(7),
+                  topRight: Radius.circular(7),
+                  bottomRight: Radius.circular(7),
+                ),
+              ),
+              child: Text(
+                messageText,
+                style: mediumTitleTextStyle(),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  myChatContainer({context, messageText}) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        const SizedBox(
+          width: 15,
+        ),
+        Container(
+          margin: const EdgeInsets.only(top: 12),
+          width: MediaQuery.of(context).size.width * 0.7,
+          padding: const EdgeInsets.all(15),
+          decoration: const BoxDecoration(
+            color: blueColor,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+              bottomLeft: Radius.circular(20),
+            ),
+          ),
+          child: Text(
+            messageText,
+            style: mediumTitleTextStyle(color: Colors.white),
+          ),
+        ),
+      ],
+    );
+  }
+
+  audioMessage({context, time}) {
+    return Align(
+      alignment: Alignment.centerRight,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          Container(
+            margin: const EdgeInsets.only(top: 12),
+            padding: const EdgeInsets.all(15),
+            decoration: const BoxDecoration(
+              color: blueColor,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(30),
+                topRight: Radius.circular(30),
+                bottomLeft: Radius.circular(30),
+              ),
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  width: 25,
+                  height: 25,
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.2),
+                    shape: BoxShape.circle,
+                  ),
+                  child: const Center(
+                    child: Icon(
+                      Icons.pause,
+                      size: 15,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                AudioWave(
+                  height: 22,
+                  width: 88,
+                  animationLoop: 1,
+                  spacing: 2.5,
+                  bars: [
+                    AudioWaveBar(
+                      color: Colors.white,
+                      heightFactor: 0.4,
+                    ),
+                    AudioWaveBar(
+                      color: Colors.white,
+                      heightFactor: 0.53,
+                    ),
+                    AudioWaveBar(
+                      color: Colors.white,
+                      heightFactor: 0.43,
+                    ),
+                    AudioWaveBar(
+                      color: Colors.white,
+                      heightFactor: 0.48,
+                    ),
+                    AudioWaveBar(
+                      color: Colors.white,
+                      heightFactor: 0.79,
+                    ),
+                    AudioWaveBar(
+                      color: Colors.white,
+                      heightFactor: 0.39,
+                    ),
+                    AudioWaveBar(
+                      color: Colors.white.withOpacity(0.5),
+                      heightFactor: 0.49,
+                    ),
+                    AudioWaveBar(
+                      color: Colors.white.withOpacity(0.5),
+                      heightFactor: 0.38,
+                    ),
+                    AudioWaveBar(
+                      color: Colors.white.withOpacity(0.5),
+                      heightFactor: 0.19,
+                    ),
+                    AudioWaveBar(
+                      color: Colors.white.withOpacity(0.5),
+                      heightFactor: 0.1,
+                    ),
+                    AudioWaveBar(
+                      color: Colors.white.withOpacity(0.5),
+                      heightFactor: 0.79,
+                    ),
+                    AudioWaveBar(
+                      color: Colors.white.withOpacity(0.5),
+                      heightFactor: 0.49,
+                    ),
+                    AudioWaveBar(
+                      color: Colors.white.withOpacity(0.5),
+                      heightFactor: 0.33,
+                    ),
+                    AudioWaveBar(
+                      color: Colors.white.withOpacity(0.5),
+                      heightFactor: 0.43,
+                    ),
+                    AudioWaveBar(
+                      color: Colors.white.withOpacity(0.5),
+                      heightFactor: 0.28,
+                    ),
+                    AudioWaveBar(
+                      color: Colors.white.withOpacity(0.5),
+                      heightFactor: 0.19,
+                    ),
+                    AudioWaveBar(
+                      color: Colors.white.withOpacity(0.5),
+                      heightFactor: 0.1,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          Text(
+            time,
+            style: extraSmallTitleTextStyle(),
+          ),
+        ],
       ),
     );
   }

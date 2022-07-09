@@ -40,6 +40,7 @@ dependencies:
   google_fonts: ^3.0.1
   percent_indicator: ^4.2.2
   cupertino_range_slider_improved: ^2.0.1
+  audio_wave: ^0.1.4
 
 dev_dependencies:
   flutter_test:
