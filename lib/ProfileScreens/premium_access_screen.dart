@@ -128,8 +128,8 @@ class _PremiumAccessScreenState extends State<PremiumAccessScreen> {
                 ),
               ),
             ),
-            Spacer(),
-            Text(
+            const Spacer(),
+            const Text(
               "Automatic bill after trial ends. By subscribing you accept the \nTerms & Privacy Policy of the service.",
               style: TextStyle(
                 fontSize: 14,
@@ -141,7 +141,7 @@ class _PremiumAccessScreenState extends State<PremiumAccessScreen> {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
+              children: const [
                 Text(
                   "Already a premium user?",
                   style: TextStyle(

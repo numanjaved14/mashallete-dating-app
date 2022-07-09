@@ -138,7 +138,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
             scale: 4.0,
             context: context,
             iconContainerColor: Colors.blue,
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, preferencesScreenRoute);
+            },
             text: "Preferences",
             image: "assets/settings.png",
           ),

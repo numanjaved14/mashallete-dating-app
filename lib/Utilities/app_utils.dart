@@ -886,4 +886,37 @@ class AppUtils {
       ),
     );
   }
+
+  preferencesWidget({text, text2}) {
+    return Container(
+      width: double.infinity,
+      height: 50,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            text,
+            style: smallHeadingTextStyle(),
+          ),
+          Row(
+            children: [
+              Text(
+                text2,
+                style:
+                    smallTitleTextStyle(color: Colors.black.withOpacity(0.5)),
+              ),
+              SizedBox(
+                width: 5,
+              ),
+              Icon(
+                Icons.arrow_forward_ios_sharp,
+                size: 15,
+                color: Colors.black,
+              )
+            ],
+          )
+        ],
+      ),
+    );
+  }
 }

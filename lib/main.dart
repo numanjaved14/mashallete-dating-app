@@ -9,6 +9,7 @@ import 'package:dating_app/Onboarding/onboarding_looking_for_h_w_screen.dart';
 import 'package:dating_app/Onboarding/onboarding_looking_good_screen.dart';
 import 'package:dating_app/Onboarding/onboarding_notifications_screen.dart';
 import 'package:dating_app/Onboarding/onboarding_religious_screen.dart';
+import 'package:dating_app/ProfileScreens/preferences_screen.dart';
 import 'package:dating_app/ProfileScreens/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -27,7 +28,7 @@ import 'Onboarding/onboarding_phone_verification_screen.dart';
 import 'Onboarding/onboarding_photo_verification_screen.dart';
 import 'Onboarding/onboarding_thank_you_screen.dart';
 import 'Onboarding/onboarding_welcome_screen.dart';
-import 'Premium/premium_access_screen.dart';
+import 'ProfileScreens/premium_access_screen.dart';
 
 Future<void> main() async {
   runApp(const MyApp());
@@ -92,6 +93,7 @@ class _MyAppState extends State<MyApp> {
         groundRuleTwoScreenRoute: (context) => const GroundRuleTwoScreen(),
         groundRuleThreeScreenRoute: (context) => const GroundRuleThreeScreen(),
         premiumAccessScreenRoute: (context) => const PremiumAccessScreen(),
+        preferencesScreenRoute: (context) => const PreferencesScreen(),
         bottomNavigationBarScreenRoute: (context) =>
             const BottomNavigationBarScreen(),
         homeScreenRoute: (context) => const HomeScreen(),

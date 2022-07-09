@@ -64,6 +64,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.5"
+  cupertino_range_slider_improved:
+    dependency: "direct main"
+    description:
+      name: cupertino_range_slider_improved
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.1"
   dotted_border:
     dependency: "direct main"
     description:
