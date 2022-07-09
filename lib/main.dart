@@ -10,6 +10,7 @@ import 'package:dating_app/Onboarding/onboarding_looking_good_screen.dart';
 import 'package:dating_app/Onboarding/onboarding_notifications_screen.dart';
 import 'package:dating_app/Onboarding/onboarding_religious_screen.dart';
 import 'package:dating_app/ProfileScreens/preferences_screen.dart';
+import 'package:dating_app/ProfileScreens/privacy_screen.dart';
 import 'package:dating_app/ProfileScreens/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -94,6 +95,7 @@ class _MyAppState extends State<MyApp> {
         groundRuleThreeScreenRoute: (context) => const GroundRuleThreeScreen(),
         premiumAccessScreenRoute: (context) => const PremiumAccessScreen(),
         preferencesScreenRoute: (context) => const PreferencesScreen(),
+        privacyScreenRoute: (context) => const PrivacyScreen(),
         bottomNavigationBarScreenRoute: (context) =>
             const BottomNavigationBarScreen(),
         homeScreenRoute: (context) => const HomeScreen(),

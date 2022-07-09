@@ -22,6 +22,7 @@ const profileScreenRoute = "/profileScreenRoute";
 const groundRuleThreeScreenRoute = "/groundRuleThreeScreenRoute";
 const onBoardingLookingGoodScreenRoute = "/onBoardingLookingGoodScreenRoute";
 const preferencesScreenRoute = "/preferencesScreenRoute";
+const privacyScreenRoute = "/privacyScreenRoute";
 const onBoardingInterestsScreenRoute = "/onBoardingInterestsScreenRoute";
 const onBoardingLocationScreenRoute = "/onBoardingLocationScreenRoute";
 const welcomeNameScreenRoute = "/welcomeNameScreenRoute";

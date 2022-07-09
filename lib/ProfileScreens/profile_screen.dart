@@ -125,7 +125,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
           utils.generalRow(
             context: context,
             iconContainerColor: Colors.blue,
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, privacyScreenRoute);
+            },
             text: "Privacy Settings",
             image: "assets/lockOpen.png",
             scale: 4.0,

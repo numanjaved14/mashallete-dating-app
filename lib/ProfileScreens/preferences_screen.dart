@@ -31,9 +31,14 @@ class _PreferencesScreenState extends State<PreferencesScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Icon(
-                  Icons.arrow_back_ios,
-                  size: 25,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Icon(
+                    Icons.arrow_back_ios,
+                    size: 25,
+                  ),
                 ),
                 Text(
                   "Preferences",
