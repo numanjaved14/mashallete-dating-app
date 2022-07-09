@@ -11,6 +11,11 @@ class PrivacyScreen extends StatefulWidget {
 class _PrivacyScreenState extends State<PrivacyScreen> {
   var utils = AppUtils();
   var val1 = false;
+  var val2 = false;
+  var val3 = false;
+  var val4 = false;
+  var val5 = false;
+  var val6 = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,42 +64,42 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
             utils.privacyWidget(
                 text2: "You'll see message content in notifications.",
                 text1: "Show Message Preview",
-                value: val1,
+                value: val2,
                 onChanged: (value) {
-                  val1 = value;
+                  val2 = value;
                   setState(() {});
                 }),
             utils.privacyWidget(
                 text2: "You will only be shown to people you like.",
                 text1: "Stealth Mode",
-                value: val1,
+                value: val3,
                 onChanged: (value) {
-                  val1 = value;
+                  val3 = value;
                   setState(() {});
                 }),
             utils.privacyWidget(
                 text2: "Prevent others from seeing if you're online.",
                 text1: "Hide Online Status",
-                value: val1,
+                value: val4,
                 onChanged: (value) {
-                  val1 = value;
+                  val4 = value;
                   setState(() {});
                 }),
             utils.privacyWidget(
                 text2: "Hide your location on your profile.",
                 text1: "Hide Location",
-                value: val1,
+                value: val5,
                 onChanged: (value) {
-                  val1 = value;
+                  val5 = value;
                   setState(() {});
                 }),
             utils.privacyWidget(
                 text2:
                     "You will only be shown to people who are \nwithin your set preference parameters.",
                 text1: "Visibility",
-                value: val1,
+                value: val6,
                 onChanged: (value) {
-                  val1 = value;
+                  val6 = value;
                   setState(() {});
                 }),
           ],

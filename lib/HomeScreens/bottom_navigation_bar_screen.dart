@@ -1,4 +1,5 @@
 import 'package:dating_app/Constants/app_constants.dart';
+import 'package:dating_app/HomeScreens/chat_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -18,8 +19,7 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
     const HomeScreen(),
     const Text('Profile Page',
         style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
-    const Text('Profile Page',
-        style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
+    const ChatScreen(),
   ];
 
   void _onItemTapped(int index) {
@@ -82,6 +82,7 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
           ],
           currentIndex: _selectedIndex,
           type: BottomNavigationBarType.fixed,
+          backgroundColor: Colors.white,
           onTap: _onItemTapped,
           elevation: 0,
         ),
