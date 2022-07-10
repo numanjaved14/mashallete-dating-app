@@ -27,74 +27,75 @@ class _ProfileEditTabBarScreenState extends State<ProfileEditTabBarScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.white,
         body: Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: Column(
-        children: [
-          const SizedBox(
-            height: 80,
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 80,
+              ),
+              SizedBox(
+                width: double.infinity,
+                height: 50,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Cancel",
+                      style: utils.smallHeadingTextStyle(),
+                    ),
+                    const Text(
+                      "Sana",
+                      style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "Done",
+                      style: utils.smallHeadingTextStyle(color: blueColor),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                width: double.infinity,
+                height: 35,
+                decoration: BoxDecoration(
+                    color: Colors.grey[200],
+                    borderRadius: BorderRadius.circular(5)),
+                child: TabBar(
+                  controller: _controller,
+                  unselectedLabelStyle: const TextStyle(color: Colors.black),
+                  unselectedLabelColor: Colors.black,
+                  indicator: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5), // Creates border
+                      color: blueColor),
+                  tabs: const [
+                    Text(
+                      "Edit",
+                      style: TextStyle(fontSize: 16),
+                    ),
+                    Text(
+                      "Preview",
+                      style: TextStyle(fontSize: 16),
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                child: TabBarView(
+                  controller: _controller,
+                  children: const [
+                    EditProfileScreen(),
+                    PreviewEditProfileScreen(),
+                  ],
+                ),
+              ),
+            ],
           ),
-          SizedBox(
-            width: double.infinity,
-            height: 50,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Cancel",
-                  style: utils.smallHeadingTextStyle(),
-                ),
-                const Text(
-                  "Sana",
-                  style: TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text(
-                  "Done",
-                  style: utils.smallHeadingTextStyle(color: blueColor),
-                ),
-              ],
-            ),
-          ),
-          Container(
-            width: double.infinity,
-            height: 35,
-            decoration: BoxDecoration(
-                color: Colors.grey[200],
-                borderRadius: BorderRadius.circular(5)),
-            child: TabBar(
-              controller: _controller,
-              unselectedLabelStyle: const TextStyle(color: Colors.black),
-              unselectedLabelColor: Colors.black,
-              indicator: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5), // Creates border
-                  color: blueColor),
-              tabs: const [
-                Text(
-                  "Edit",
-                  style: TextStyle(fontSize: 16),
-                ),
-                Text(
-                  "Preview",
-                  style: TextStyle(fontSize: 16),
-                ),
-              ],
-            ),
-          ),
-          Expanded(
-            child: TabBarView(
-              controller: _controller,
-              children: const [
-                EditProfileScreen(),
-                PreviewEditProfileScreen(),
-              ],
-            ),
-          ),
-        ],
-      ),
-    ));
+        ));
   }
 }
