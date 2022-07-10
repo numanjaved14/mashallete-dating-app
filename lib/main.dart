@@ -11,6 +11,7 @@ import 'package:dating_app/Onboarding/onboarding_notifications_screen.dart';
 import 'package:dating_app/Onboarding/onboarding_religious_screen.dart';
 import 'package:dating_app/ProfileScreens/preferences_screen.dart';
 import 'package:dating_app/ProfileScreens/privacy_screen.dart';
+import 'package:dating_app/ProfileScreens/profile_edit_tab_bar_screen.dart';
 import 'package:dating_app/ProfileScreens/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -98,6 +99,8 @@ class _MyAppState extends State<MyApp> {
         preferencesScreenRoute: (context) => const PreferencesScreen(),
         chatBoxScreenRoute: (context) => const ChatBoxScreen(),
         privacyScreenRoute: (context) => const PrivacyScreen(),
+        editProfileTabBarScreenRoute: (context) =>
+            const ProfileEditTabBarScreen(),
         bottomNavigationBarScreenRoute: (context) =>
             const BottomNavigationBarScreen(),
         homeScreenRoute: (context) => const HomeScreen(),

@@ -1484,12 +1484,12 @@ class AppUtils {
         children: [
           Row(
             children: [
-              Icon(
+              const Icon(
                 CupertinoIcons.heart_fill,
                 size: 20,
                 color: blueColor,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 5,
               ),
               Text(
@@ -1498,12 +1498,12 @@ class AppUtils {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
           Text(
             about,
-            style: TextStyle(fontSize: 17, wordSpacing: 2.0),
+            style: const TextStyle(fontSize: 17, wordSpacing: 2.0),
           ),
         ],
       ),
@@ -1513,7 +1513,7 @@ class AppUtils {
   promptTitleWidget({promptTitle, promptBody}) {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.all(15),
+      padding: const EdgeInsets.all(15),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -1525,24 +1525,24 @@ class AppUtils {
                 scale: 3,
                 color: Colors.black,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 8,
               ),
               Text(
                 promptTitle,
-                style: TextStyle(
+                style: const TextStyle(
                     fontSize: 17,
                     fontWeight: FontWeight.w900,
                     letterSpacing: 0.1),
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
           Text(
             promptBody,
-            style: TextStyle(fontSize: 17, wordSpacing: 2.0),
+            style: const TextStyle(fontSize: 17, wordSpacing: 2.0),
           ),
         ],
       ),
@@ -1552,15 +1552,15 @@ class AppUtils {
   passionsWidget({title, widget}) {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.all(15),
+      padding: const EdgeInsets.all(15),
       child: Column(
         children: [
           Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
                 fontSize: 17, fontWeight: FontWeight.w900, letterSpacing: 0.1),
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
           widget,

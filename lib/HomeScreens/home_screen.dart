@@ -1,5 +1,6 @@
 import 'package:dating_app/Constants/app_constants.dart';
 import 'package:dating_app/Utilities/app_utils.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -37,196 +38,266 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: SingleChildScrollView(
-        controller: _scrollController,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 70,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushNamed(context, profileScreenRoute);
-                    },
-                    child: Container(
-                      decoration: const BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage(
-                                "assets/boy.png",
-                              ),
-                              fit: BoxFit.cover),
-                          shape: BoxShape.circle),
-                      height: 32,
-                      width: 32,
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset(
-                        "assets/cupHeart.png",
-                        scale: 2,
-                      ),
-                      const Text(
-                        "Mashalatte",
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.w700,
-                          color: blueColor,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    width: 30,
-                  )
-                ],
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              utils.imageBigContainer(
-                  image: "assets/background.png", top: true),
-              const SizedBox(
-                height: 15,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        "Sana Yaseen,",
-                        style: utils.xxLargeHeadingTextStyle(),
-                      ),
-                      const SizedBox(
-                        width: 3,
-                      ),
-                      Text(
-                        "22",
-                        style: utils.xMediumTitleTextStyle(height: 1.7),
-                      )
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      const Icon(
-                        Icons.location_on,
-                        color: blueColor,
-                        size: 15,
-                      ),
-                      const SizedBox(
-                        width: 5,
-                      ),
-                      Text(
-                        "2 mi, US",
-                        style: utils.mediumTitleTextStyle(color: blueColor),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              const Text(
-                "I have passion for art and I'm looking to meet new people in the city!",
-                style: TextStyle(
-                  fontSize: 17,
-                  wordSpacing: 1.5,
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              utils.personalInfoWidget(
-                text1: "5'6\"",
-                image1: "assets/ruler.png",
-                image2: "assets/graduateHat.png",
-                text2: "Bachelors at University of Chicago",
-                image3: "assets/profession.png",
-                text3: "Finance Professional",
-                image4: "assets/infoHome.png",
-                text4: "Los Angeles, CA",
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              utils.imageBigContainer(
-                  image: "assets/background.png", top: false, bottom: false),
-              const SizedBox(
-                height: 30,
-              ),
-              utils.aboutPersonScreen(
-                  name: "Sana",
-                  about:
-                      "Hi, My name is sana and I am a professional flutter developer and I have experience in developing iOS and android applications."),
-              const SizedBox(
-                height: 30,
-              ),
-              utils.promptTitleWidget(
-                  promptTitle: "PROMPT TITLE...",
-                  promptBody:
-                      "This is the first prompt body.This is the first prompt body.This is the first prompt body."),
-              const SizedBox(
-                height: 20,
-              ),
-              utils.imageBigContainer(
-                  image: "assets/background.png", top: false, bottom: false),
-              const SizedBox(
-                height: 15,
-              ),
-              utils.passionsWidget(
-                title: "SANA'S PASSIONS",
-                widget: Wrap(
-                  alignment: WrapAlignment.center,
+      body: SizedBox(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        child: Stack(
+          children: [
+            SingleChildScrollView(
+              controller: _scrollController,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Column(
                   children: [
-                    for (int i = 0; i < arts.length; i++)
-                      utils.interestsHomeWidget(
-                        text: arts[i],
-                        selected: i % 2 == 0 ? true : false,
-                        onTap: () {},
+                    const SizedBox(
+                      height: 70,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, profileScreenRoute);
+                          },
+                          child: Container(
+                            decoration: const BoxDecoration(
+                                image: DecorationImage(
+                                    image: AssetImage(
+                                      "assets/boy.png",
+                                    ),
+                                    fit: BoxFit.cover),
+                                shape: BoxShape.circle),
+                            height: 32,
+                            width: 32,
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              "assets/cupHeart.png",
+                              scale: 2,
+                            ),
+                            const Text(
+                              "Mashalatte",
+                              style: TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.w700,
+                                color: blueColor,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Container(
+                          width: 30,
+                        )
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    utils.imageBigContainer(
+                        image: "assets/background.png", top: true),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Text(
+                              "Sana Yaseen,",
+                              style: utils.xxLargeHeadingTextStyle(),
+                            ),
+                            const SizedBox(
+                              width: 3,
+                            ),
+                            Text(
+                              "22",
+                              style: utils.xMediumTitleTextStyle(height: 1.7),
+                            )
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            const Icon(
+                              Icons.location_on,
+                              color: blueColor,
+                              size: 15,
+                            ),
+                            const SizedBox(
+                              width: 5,
+                            ),
+                            Text(
+                              "2 mi, US",
+                              style:
+                                  utils.mediumTitleTextStyle(color: blueColor),
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    const Text(
+                      "I have passion for art and I'm looking to meet new people in the city!",
+                      style: TextStyle(
+                        fontSize: 17,
+                        wordSpacing: 1.5,
                       ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    utils.personalInfoWidget(
+                      text1: "5'6\"",
+                      image1: "assets/ruler.png",
+                      image2: "assets/graduateHat.png",
+                      text2: "Bachelors at University of Chicago",
+                      image3: "assets/profession.png",
+                      text3: "Finance Professional",
+                      image4: "assets/infoHome.png",
+                      text4: "Los Angeles, CA",
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    utils.imageBigContainer(
+                        image: "assets/background.png",
+                        top: false,
+                        bottom: false),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    utils.aboutPersonScreen(
+                        name: "Sana",
+                        about:
+                            "Hi, My name is sana and I am a professional flutter developer and I have experience in developing iOS and android applications."),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    utils.promptTitleWidget(
+                        promptTitle: "PROMPT TITLE...",
+                        promptBody:
+                            "This is the first prompt body.This is the first prompt body.This is the first prompt body."),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    utils.imageBigContainer(
+                        image: "assets/background.png",
+                        top: false,
+                        bottom: false),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    utils.passionsWidget(
+                      title: "SANA'S PASSIONS",
+                      widget: Wrap(
+                        alignment: WrapAlignment.center,
+                        children: [
+                          for (int i = 0; i < arts.length; i++)
+                            utils.interestsHomeWidget(
+                              text: arts[i],
+                              selected: i % 2 == 0 ? true : false,
+                              onTap: () {},
+                            ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    utils.imageBigContainer(
+                        image: "assets/background.png",
+                        top: false,
+                        bottom: false),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    utils.promptTitleWidget(
+                        promptTitle: "PROMPT TITLE...",
+                        promptBody:
+                            "This is the first prompt body.This is the first prompt body.This is the first prompt body."),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    utils.imageBigContainer(
+                        image: "assets/background.png", bottom: true),
+                    const SizedBox(
+                      height: 25,
+                    ),
+                    GestureDetector(
+                      onTap: _scrollToTop,
+                      child: Text(
+                        "BACK TO THE TOP",
+                        style: utils.smallHeadingTextStyle(color: blueColor),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 35,
+                    ),
                   ],
                 ),
               ),
-              const SizedBox(
-                height: 20,
-              ),
-              utils.imageBigContainer(
-                  image: "assets/background.png", top: false, bottom: false),
-              const SizedBox(
-                height: 10,
-              ),
-              utils.promptTitleWidget(
-                  promptTitle: "PROMPT TITLE...",
-                  promptBody:
-                      "This is the first prompt body.This is the first prompt body.This is the first prompt body."),
-              const SizedBox(
-                height: 20,
-              ),
-              utils.imageBigContainer(
-                  image: "assets/background.png", bottom: true),
-              const SizedBox(
-                height: 25,
-              ),
-              GestureDetector(
-                onTap: _scrollToTop,
-                child: Text(
-                  "BACK TO THE TOP",
-                  style: utils.smallHeadingTextStyle(color: blueColor),
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                width: double.infinity,
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                height: 100,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      width: 70,
+                      height: 70,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.grey.withOpacity(0.4),
+                              offset: const Offset(0, 1),
+                              blurRadius: 6),
+                        ],
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Center(
+                        child: Icon(
+                          Icons.close,
+                          color: Colors.grey,
+                          size: 40,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 70,
+                      height: 70,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.grey.withOpacity(0.4),
+                              offset: const Offset(0, 1),
+                              blurRadius: 6),
+                        ],
+                        shape: BoxShape.circle,
+                      ),
+                      child: Center(
+                        child: Icon(
+                          CupertinoIcons.heart_fill,
+                          color: Colors.red.withOpacity(0.4),
+                          size: 40,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              const SizedBox(
-                height: 35,
-              ),
-            ],
-          ),
+            )
+          ],
         ),
       ),
     );

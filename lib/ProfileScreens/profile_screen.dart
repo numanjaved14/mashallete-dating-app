@@ -114,7 +114,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
           utils.generalRow(
             context: context,
             iconContainerColor: Colors.blue,
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, editProfileTabBarScreenRoute);
+            },
             text: "Edit Profile",
             image: "assets/person.png",
             scale: 2.0,
