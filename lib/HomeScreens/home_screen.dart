@@ -63,7 +63,82 @@ class _HomeScreenState extends State<HomeScreen> {
                     width: 30,
                   )
                 ],
-              )
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              utils.imageBigContainer(
+                  image: "assets/background.png", top: true),
+              const SizedBox(
+                height: 15,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        "Sana Yaseen,",
+                        style: utils.xxLargeHeadingTextStyle(),
+                      ),
+                      const SizedBox(
+                        width: 3,
+                      ),
+                      Text(
+                        "22",
+                        style: utils.xMediumTitleTextStyle(height: 1.7),
+                      )
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      const Icon(
+                        Icons.location_on,
+                        color: blueColor,
+                        size: 15,
+                      ),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      Text(
+                        "2 mi, US",
+                        style: utils.mediumTitleTextStyle(color: blueColor),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              const Text(
+                "I have passion for art and I'm looking to meet new people in the city!",
+                style: TextStyle(
+                  fontSize: 17,
+                  wordSpacing: 1.5,
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              utils.personalInfoWidget(
+                text1: "5'6\"",
+                image1: "assets/ruler.png",
+                image2: "assets/graduateHat.png",
+                text2: "Bachelors at University of Chicago",
+                image3: "assets/profession.png",
+                text3: "Finance Professional",
+                image4: "assets/infoHome.png",
+                text4: "Los Angeles, CA",
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              utils.imageBigContainer(
+                  image: "assets/background.png", top: false, bottom: false),
+              const SizedBox(
+                height: 15,
+              ),
             ],
           ),
         ),

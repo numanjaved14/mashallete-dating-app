@@ -20,6 +20,14 @@ class AppUtils {
     );
   }
 
+  xMediumTitleTextStyle({color, height}) {
+    return TextStyle(
+      fontSize: 23,
+      height: height,
+      color: color,
+    );
+  }
+
   mediumTitleBoldTextStyle({color}) {
     return TextStyle(
       fontSize: 16,
@@ -58,6 +66,14 @@ class AppUtils {
     return TextStyle(
       fontSize: 50,
       fontWeight: FontWeight.w600,
+      color: color,
+    );
+  }
+
+  xxLargeHeadingTextStyle({color}) {
+    return TextStyle(
+      fontSize: 30,
+      fontWeight: FontWeight.w900,
       color: color,
     );
   }
@@ -1309,8 +1325,118 @@ class AppUtils {
       margin: const EdgeInsets.symmetric(horizontal: 5),
       height: 100,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
-          image: DecorationImage(image: AssetImage(image), fit: BoxFit.cover)),
+        borderRadius: BorderRadius.circular(15),
+        image: DecorationImage(
+          image: AssetImage(image),
+          fit: BoxFit.cover,
+        ),
+      ),
+    );
+  }
+
+  imageBigContainer({image, top, bottom}) {
+    return Container(
+      width: double.infinity,
+      height: 400,
+      decoration: BoxDecoration(
+        borderRadius: top == true
+            ? const BorderRadius.only(
+                topRight: Radius.circular(20),
+                topLeft: Radius.circular(20),
+              )
+            : bottom == true
+                ? const BorderRadius.only(
+                    bottomRight: Radius.circular(20),
+                    bottomLeft: Radius.circular(20),
+                  )
+                : BorderRadius.zero,
+        color: Colors.red,
+        image: DecorationImage(
+          image: AssetImage(
+            image,
+          ),
+          fit: BoxFit.cover,
+        ),
+      ),
+    );
+  }
+
+  personalInfoWidget(
+      {image1, text1, image2, text2, image3, text3, image4, text4}) {
+    return Container(
+      padding: const EdgeInsets.only(left: 13),
+      width: double.infinity,
+      height: 180,
+      decoration: BoxDecoration(
+        color: blueColor.withOpacity(0.07),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Image.asset(
+                image1,
+                scale: 3,
+              ),
+              const SizedBox(
+                width: 10,
+              ),
+              Text(
+                text1,
+                style: mediumTitleTextStyle(),
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              Image.asset(
+                image2,
+                scale: 3,
+              ),
+              const SizedBox(
+                width: 10,
+              ),
+              Text(
+                text2,
+                style: mediumTitleTextStyle(),
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              Image.asset(
+                image3,
+                scale: 3,
+              ),
+              const SizedBox(
+                width: 10,
+              ),
+              Text(
+                text3,
+                style: mediumTitleTextStyle(),
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              Image.asset(
+                image4,
+                scale: 3,
+              ),
+              const SizedBox(
+                width: 10,
+              ),
+              Text(
+                text4,
+                style: mediumTitleTextStyle(),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
