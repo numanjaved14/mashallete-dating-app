@@ -10,12 +10,35 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  late ScrollController _scrollController;
+
+  List arts = [
+    "90s Kid",
+    "Self Care",
+    "Hot Yoga",
+    "Writing",
+    "Meditation",
+  ];
   var utils = AppUtils();
+  @override
+  void initState() {
+    _scrollController = ScrollController()..addListener(() {});
+
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose(); // dispose the controller
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
+        controller: _scrollController,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
@@ -132,6 +155,25 @@ class _HomeScreenState extends State<HomeScreen> {
                 text4: "Los Angeles, CA",
               ),
               const SizedBox(
+                height: 30,
+              ),
+              utils.imageBigContainer(
+                  image: "assets/background.png", top: false, bottom: false),
+              const SizedBox(
+                height: 30,
+              ),
+              utils.aboutPersonScreen(
+                  name: "Sana",
+                  about:
+                      "Hi, My name is sana and I am a professional flutter developer and I have experience in developing iOS and android applications."),
+              const SizedBox(
+                height: 30,
+              ),
+              utils.promptTitleWidget(
+                  promptTitle: "PROMPT TITLE...",
+                  promptBody:
+                      "This is the first prompt body.This is the first prompt body.This is the first prompt body."),
+              const SizedBox(
                 height: 20,
               ),
               utils.imageBigContainer(
@@ -139,10 +181,59 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(
                 height: 15,
               ),
+              utils.passionsWidget(
+                title: "SANA'S PASSIONS",
+                widget: Wrap(
+                  alignment: WrapAlignment.center,
+                  children: [
+                    for (int i = 0; i < arts.length; i++)
+                      utils.interestsHomeWidget(
+                        text: arts[i],
+                        selected: i % 2 == 0 ? true : false,
+                        onTap: () {},
+                      ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              utils.imageBigContainer(
+                  image: "assets/background.png", top: false, bottom: false),
+              const SizedBox(
+                height: 10,
+              ),
+              utils.promptTitleWidget(
+                  promptTitle: "PROMPT TITLE...",
+                  promptBody:
+                      "This is the first prompt body.This is the first prompt body.This is the first prompt body."),
+              const SizedBox(
+                height: 20,
+              ),
+              utils.imageBigContainer(
+                  image: "assets/background.png", bottom: true),
+              const SizedBox(
+                height: 25,
+              ),
+              GestureDetector(
+                onTap: _scrollToTop,
+                child: Text(
+                  "BACK TO THE TOP",
+                  style: utils.smallHeadingTextStyle(color: blueColor),
+                ),
+              ),
+              const SizedBox(
+                height: 35,
+              ),
             ],
           ),
         ),
       ),
     );
+  }
+
+  void _scrollToTop() {
+    _scrollController.animateTo(0,
+        duration: const Duration(seconds: 1), curve: Curves.easeInBack);
   }
 }

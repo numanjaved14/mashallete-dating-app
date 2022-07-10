@@ -713,6 +713,37 @@ class AppUtils {
     );
   }
 
+  interestsHomeWidget({text, selected, onTap}) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        margin: const EdgeInsets.only(top: 5, right: 5, bottom: 5),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30),
+          color: selected == true ? blueColor : blueColor.withOpacity(0.05),
+        ),
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Image.asset(
+              "assets/like.png",
+              scale: 35,
+            ),
+            const SizedBox(
+              width: 5,
+            ),
+            Text(
+              text,
+              style: smallTitleTextStyle(
+                  color: selected == true ? Colors.white : Colors.black),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   addPhotosWidget({onTap, enabled}) {
     return GestureDetector(
       onTap: onTap,
@@ -1435,6 +1466,104 @@ class AppUtils {
               ),
             ],
           ),
+        ],
+      ),
+    );
+  }
+
+  aboutPersonScreen({name, about}) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(15),
+      decoration: BoxDecoration(
+        color: blueColor.withOpacity(0.07),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(
+                CupertinoIcons.heart_fill,
+                size: 20,
+                color: blueColor,
+              ),
+              SizedBox(
+                width: 5,
+              ),
+              Text(
+                "About $name",
+                style: mediumHeadingTextStyle(color: blueColor),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          Text(
+            about,
+            style: TextStyle(fontSize: 17, wordSpacing: 2.0),
+          ),
+        ],
+      ),
+    );
+  }
+
+  promptTitleWidget({promptTitle, promptBody}) {
+    return Container(
+      width: double.infinity,
+      padding: EdgeInsets.all(15),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Image.asset(
+                "assets/promptComma.png",
+                scale: 3,
+                color: Colors.black,
+              ),
+              SizedBox(
+                width: 8,
+              ),
+              Text(
+                promptTitle,
+                style: TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.w900,
+                    letterSpacing: 0.1),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          Text(
+            promptBody,
+            style: TextStyle(fontSize: 17, wordSpacing: 2.0),
+          ),
+        ],
+      ),
+    );
+  }
+
+  passionsWidget({title, widget}) {
+    return Container(
+      width: double.infinity,
+      padding: EdgeInsets.all(15),
+      child: Column(
+        children: [
+          Text(
+            title,
+            style: TextStyle(
+                fontSize: 17, fontWeight: FontWeight.w900, letterSpacing: 0.1),
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          widget,
         ],
       ),
     );
