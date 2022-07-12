@@ -54,6 +54,7 @@ class _OnBoardingNotificationsScreenState
               style: TextStyle(
                 fontSize: 28,
                 fontWeight: FontWeight.w600,
+                fontFamily: "ProximaNova",
               ),
             ),
             const SizedBox(

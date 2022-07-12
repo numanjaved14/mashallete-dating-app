@@ -31,6 +31,7 @@ class _OnBoardingLookingGoodScreenState
               style: TextStyle(
                 fontSize: 32,
                 fontWeight: FontWeight.w900,
+                fontFamily: "ProximaNova",
               ),
             ),
             const SizedBox(

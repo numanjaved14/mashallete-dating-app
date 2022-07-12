@@ -276,6 +276,7 @@ class _OnBoardingInterestsScreenState extends State<OnBoardingInterestsScreen> {
                             fontSize: 15,
                             fontWeight: FontWeight.bold,
                             color: blueColor,
+                            fontFamily: "ProximaNova",
                           ),
                         ),
                       ),

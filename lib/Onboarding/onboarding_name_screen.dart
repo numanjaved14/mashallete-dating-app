@@ -93,6 +93,7 @@ class _OnBoardingNameScreenState extends State<OnBoardingNameScreen> {
                         fontSize: 15,
                         fontWeight: FontWeight.w700,
                         color: blueColor,
+                        fontFamily: "ProximaNova",
                       ),
                     ),
                   ],

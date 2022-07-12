@@ -35,9 +35,14 @@ class _LandingScreenState extends State<LandingScreen> {
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.2,
               ),
-              Text(
+              const Text(
                 "Mashalatte",
-                style: utils.extraLargeHeadingTextStyle(color: Colors.white),
+                style: TextStyle(
+                  fontSize: 50,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white,
+                  fontFamily: "ProximaNova",
+                ),
               ),
               const SizedBox(
                 height: 10,
@@ -45,6 +50,7 @@ class _LandingScreenState extends State<LandingScreen> {
               const Text(
                 "Unique tagline.",
                 style: TextStyle(
+                  fontFamily: "ProximaNova",
                   fontSize: 24,
                   fontWeight: FontWeight.w600,
                   color: Colors.white,

@@ -24,6 +24,7 @@ import 'GroundRules/ground_rule_one_screen.dart';
 import 'GroundRules/ground_rule_three_screen.dart';
 import 'GroundRules/ground_rule_two_screen.dart';
 import 'HomeScreens/home_screen.dart';
+import 'HomeScreens/view_profile_screen.dart';
 import 'Onboarding/onboarding_ethnicity_screen.dart';
 import 'Onboarding/onboarding_name_screen.dart';
 import 'Onboarding/onboarding_phone_screen.dart';
@@ -99,6 +100,7 @@ class _MyAppState extends State<MyApp> {
         preferencesScreenRoute: (context) => const PreferencesScreen(),
         chatBoxScreenRoute: (context) => const ChatBoxScreen(),
         privacyScreenRoute: (context) => const PrivacyScreen(),
+        profileViewScreenRoute: (context) => const ViewProfileScreen(),
         editProfileTabBarScreenRoute: (context) =>
             const ProfileEditTabBarScreen(),
         bottomNavigationBarScreenRoute: (context) =>

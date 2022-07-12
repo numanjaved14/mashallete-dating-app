@@ -38,9 +38,14 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                     size: 25,
                   ),
                 ),
-                Text(
-                  "Sana",
-                  style: utils.mediumHeadingTextStyle(),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, profileViewScreenRoute);
+                  },
+                  child: Text(
+                    "Usama",
+                    style: utils.mediumHeadingTextStyle(),
+                  ),
                 ),
                 Text(
                   "More",
@@ -107,6 +112,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                               hintStyle: TextStyle(
                                 color: Colors.grey[600],
                                 fontSize: 16,
+                                fontFamily: "ProximaNova",
                               ),
                             ),
                           ),
@@ -164,6 +170,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                 hintText: "Search GIFs...",
                                 hintStyle: TextStyle(
                                   color: Colors.grey[600],
+                                  fontFamily: "ProximaNova",
                                   fontSize: 16,
                                 ),
                               ),

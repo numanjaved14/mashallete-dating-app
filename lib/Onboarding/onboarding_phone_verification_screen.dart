@@ -56,6 +56,7 @@ class _OnBoardingPhoneVerificationScreenState
               style: TextStyle(
                 fontSize: 28,
                 fontWeight: FontWeight.w600,
+                fontFamily: "ProximaNova",
               ),
             ),
             const SizedBox(
@@ -73,6 +74,7 @@ class _OnBoardingPhoneVerificationScreenState
                       decoration: TextDecoration.underline,
                       fontSize: 16,
                       color: blueColor,
+                      fontFamily: "ProximaNova",
                       fontWeight: FontWeight.w600),
                 ),
               ],
@@ -109,6 +111,7 @@ class _OnBoardingPhoneVerificationScreenState
                       "We'll never share this with anyone",
                       style: TextStyle(
                         fontSize: 15,
+                        fontFamily: "ProximaNova",
                         fontWeight: FontWeight.w700,
                         color: blueColor,
                       ),

@@ -106,6 +106,7 @@ class _OnBoardingReligiousScreenState extends State<OnBoardingReligiousScreen> {
                         style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
+                          fontFamily: "ProximaNova",
                           color: blueColor,
                         ),
                       ),

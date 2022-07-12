@@ -93,6 +93,7 @@ class _PreviewEditProfileScreenState extends State<PreviewEditProfileScreen> {
               "I have passion for art and I'm looking to meet new people in the city!",
               style: TextStyle(
                 fontSize: 17,
+                fontFamily: "ProximaNova",
                 wordSpacing: 1.5,
               ),
             ),

@@ -93,6 +93,7 @@ class _OnBoardingEthnicityScreenState extends State<OnBoardingEthnicityScreen> {
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                           color: blueColor,
+                          fontFamily: "ProximaNova",
                         ),
                       ),
                     ),

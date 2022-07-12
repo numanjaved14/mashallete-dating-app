@@ -97,6 +97,7 @@ class _OnBoardingLookingForScreenState
                         style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
+                          fontFamily: "ProximaNova",
                           color: blueColor,
                         ),
                       ),

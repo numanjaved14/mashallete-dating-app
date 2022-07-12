@@ -96,6 +96,7 @@ class _GroundRuleTwoScreenState extends State<GroundRuleTwoScreen> {
               style: TextStyle(
                 fontSize: 32,
                 fontWeight: FontWeight.w600,
+                fontFamily: "ProximaNova",
               ),
             ),
             const SizedBox(
@@ -103,7 +104,11 @@ class _GroundRuleTwoScreenState extends State<GroundRuleTwoScreen> {
             ),
             const Text(
               "If you are inactive for more than 10 days. Your profile will be invisible until you log back in.",
-              style: TextStyle(fontSize: 17, height: 1.5),
+              style: TextStyle(
+                fontSize: 17,
+                height: 1.5,
+                fontFamily: "ProximaNova",
+              ),
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.37,

@@ -84,6 +84,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             "75%",
                             style: TextStyle(
                               fontSize: 16,
+                              fontFamily: "ProximaNova",
                               fontWeight: FontWeight.bold,
                               height: 1,
                               color: Colors.white,
@@ -104,6 +105,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             "Aadil, 26",
             style: TextStyle(
               fontSize: 32,
+              fontFamily: "ProximaNova",
               fontWeight: FontWeight.w800,
               color: Colors.black,
             ),

@@ -30,6 +30,7 @@ class _OnBoardingThankYouScreenState extends State<OnBoardingThankYouScreen> {
               style: TextStyle(
                 fontSize: 32,
                 fontWeight: FontWeight.w900,
+                fontFamily: "ProximaNova",
               ),
             ),
             const SizedBox(
@@ -39,6 +40,7 @@ class _OnBoardingThankYouScreenState extends State<OnBoardingThankYouScreen> {
               "While we verify you, let's go \n over some ground rules before \n you get started.",
               textAlign: TextAlign.center,
               style: TextStyle(
+                fontFamily: "ProximaNova",
                 fontSize: 19,
                 color: Colors.black.withOpacity(0.8),
               ),

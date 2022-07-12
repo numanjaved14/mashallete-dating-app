@@ -29,6 +29,7 @@ class _WelcomeNameScreenState extends State<WelcomeNameScreen> {
               style: TextStyle(
                 fontSize: 32,
                 fontWeight: FontWeight.w900,
+                fontFamily: "ProximaNova",
               ),
             ),
             const SizedBox(

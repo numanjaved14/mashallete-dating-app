@@ -51,6 +51,7 @@ class _ChatScreenState extends State<ChatScreen> {
                         "Conversations",
                         style: TextStyle(
                           fontSize: 24,
+                          fontFamily: "ProximaNova",
                           fontWeight: FontWeight.w700,
                           color: blueColor,
                         ),
@@ -73,6 +74,7 @@ class _ChatScreenState extends State<ChatScreen> {
                       "Your Turn",
                       style: TextStyle(
                         fontSize: 17,
+                        fontFamily: "ProximaNova",
                         fontWeight: FontWeight.w900,
                       ),
                     ),
@@ -83,6 +85,7 @@ class _ChatScreenState extends State<ChatScreen> {
                       "(2)",
                       style: TextStyle(
                           fontSize: 17,
+                          fontFamily: "ProximaNova",
                           fontWeight: FontWeight.w900,
                           color: Colors.grey),
                     ),
@@ -95,7 +98,7 @@ class _ChatScreenState extends State<ChatScreen> {
               utils.newChatWidget(
                   image: "assets/boy.png",
                   lastMessage: "Start the conversation",
-                  senderName: "Sana",
+                  senderName: "Usama",
                   time: "12:20",
                   onTap: () {
                     Navigator.pushNamed(context, chatBoxScreenRoute);
@@ -123,6 +126,7 @@ class _ChatScreenState extends State<ChatScreen> {
                       "All Conversations",
                       style: TextStyle(
                         fontSize: 17,
+                        fontFamily: "ProximaNova",
                         fontWeight: FontWeight.w900,
                       ),
                     ),
@@ -133,6 +137,7 @@ class _ChatScreenState extends State<ChatScreen> {
                       "(3)",
                       style: TextStyle(
                           fontSize: 17,
+                          fontFamily: "ProximaNova",
                           fontWeight: FontWeight.w900,
                           color: Colors.grey),
                     ),

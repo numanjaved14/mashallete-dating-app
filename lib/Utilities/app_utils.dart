@@ -1,4 +1,5 @@
 import 'package:audio_wave/audio_wave.dart';
+import 'package:blurrycontainer/blurrycontainer.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -10,12 +11,14 @@ class AppUtils {
     return TextStyle(
       fontSize: 18,
       color: color,
+      fontFamily: "ProximaNova",
     );
   }
 
   mediumTitleTextStyle({color}) {
     return TextStyle(
       fontSize: 17,
+      fontFamily: "ProximaNova",
       color: color,
     );
   }
@@ -23,6 +26,7 @@ class AppUtils {
   xMediumTitleTextStyle({color, height}) {
     return TextStyle(
       fontSize: 23,
+      fontFamily: "ProximaNova",
       height: height,
       color: color,
     );
@@ -32,6 +36,7 @@ class AppUtils {
     return TextStyle(
       fontSize: 16,
       color: color,
+      fontFamily: "ProximaNova",
       fontWeight: FontWeight.bold,
     );
   }
@@ -40,17 +45,24 @@ class AppUtils {
     return TextStyle(
       fontSize: 15,
       color: color,
+      fontFamily: "ProximaNova",
     );
   }
 
   smallTitleBoldTextStyle({color}) {
-    return TextStyle(fontSize: 15, color: color, fontWeight: FontWeight.bold);
+    return TextStyle(
+      fontSize: 15,
+      color: color,
+      fontWeight: FontWeight.bold,
+      fontFamily: "ProximaNova",
+    );
   }
 
   extraSmallTitleTextStyle({color}) {
     return TextStyle(
       fontSize: 12,
       color: color,
+      fontFamily: "ProximaNova",
     );
   }
 
@@ -58,6 +70,7 @@ class AppUtils {
     return TextStyle(
       fontSize: 12,
       fontWeight: FontWeight.w600,
+      fontFamily: "ProximaNova",
       color: color,
     );
   }
@@ -66,6 +79,7 @@ class AppUtils {
     return TextStyle(
       fontSize: 50,
       fontWeight: FontWeight.w600,
+      fontFamily: "ProximaNova",
       color: color,
     );
   }
@@ -74,6 +88,7 @@ class AppUtils {
     return TextStyle(
       fontSize: 30,
       fontWeight: FontWeight.w900,
+      fontFamily: "ProximaNova",
       color: color,
     );
   }
@@ -81,6 +96,7 @@ class AppUtils {
   largeHeadingTextStyle({color}) {
     return TextStyle(
       fontSize: 26,
+      fontFamily: "ProximaNova",
       fontWeight: FontWeight.w700,
       color: color,
     );
@@ -89,6 +105,7 @@ class AppUtils {
   largeTitleTextStyle({color}) {
     return TextStyle(
       fontSize: 30,
+      fontFamily: "ProximaNova",
       fontWeight: FontWeight.w400,
       color: color,
     );
@@ -97,6 +114,7 @@ class AppUtils {
   smallHeadingTextStyle({color}) {
     return TextStyle(
       fontSize: 16,
+      fontFamily: "ProximaNova",
       fontWeight: FontWeight.bold,
       color: color,
     );
@@ -106,6 +124,7 @@ class AppUtils {
     return TextStyle(
       fontSize: 13,
       fontWeight: FontWeight.bold,
+      fontFamily: "ProximaNova",
       color: color,
     );
   }
@@ -113,6 +132,7 @@ class AppUtils {
   mediumHeadingTextStyle({color}) {
     return TextStyle(
       fontSize: 20,
+      fontFamily: "ProximaNova",
       fontWeight: FontWeight.bold,
       color: color,
     );
@@ -155,9 +175,11 @@ class AppUtils {
           child: Text(
             text.toString(),
             style: TextStyle(
-                color: textColor ?? Colors.black,
-                fontSize: fontSize == null ? 13.0 : fontSize.toDouble(),
-                fontWeight: fontWeight ?? FontWeight.bold),
+              color: textColor ?? Colors.black,
+              fontSize: fontSize == null ? 13.0 : fontSize.toDouble(),
+              fontWeight: fontWeight ?? FontWeight.bold,
+              fontFamily: "ProximaNova",
+            ),
           ),
         ),
       ),
@@ -204,9 +226,11 @@ class AppUtils {
             Text(
               text.toString(),
               style: TextStyle(
-                  color: textColor ?? Colors.black,
-                  fontSize: fontSize == null ? 13.0 : fontSize.toDouble(),
-                  fontWeight: fontWeight ?? FontWeight.bold),
+                color: textColor ?? Colors.black,
+                fontSize: fontSize == null ? 13.0 : fontSize.toDouble(),
+                fontWeight: fontWeight ?? FontWeight.bold,
+                fontFamily: "ProximaNova",
+              ),
             ),
             const SizedBox(
               width: 2,
@@ -231,7 +255,11 @@ class AppUtils {
             contentPadding: const EdgeInsets.only(top: 5, left: 15),
             hintText: hintText,
             border: InputBorder.none,
-            hintStyle: TextStyle(color: Colors.grey, fontSize: fontSize),
+            hintStyle: TextStyle(
+              color: Colors.grey,
+              fontSize: fontSize,
+              fontFamily: "ProximaNova",
+            ),
             focusedBorder: OutlineInputBorder(
               borderSide: const BorderSide(color: blueColor, width: 1.5),
               borderRadius: BorderRadius.circular(10.0),
@@ -254,7 +282,11 @@ class AppUtils {
         decoration: InputDecoration(
             hintText: hintText,
             border: InputBorder.none,
-            hintStyle: TextStyle(color: Colors.grey, fontSize: fontSize),
+            hintStyle: TextStyle(
+              color: Colors.grey,
+              fontSize: fontSize,
+              fontFamily: "ProximaNova",
+            ),
             focusedBorder: OutlineInputBorder(
               borderSide: const BorderSide(color: blueColor, width: 1.5),
               borderRadius: BorderRadius.circular(10.0),
@@ -516,6 +548,7 @@ class AppUtils {
         text,
         style: const TextStyle(
           fontSize: 15,
+          fontFamily: "ProximaNova",
           color: Colors.black,
         ),
       ),
@@ -574,6 +607,7 @@ class AppUtils {
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
                           fontSize: 16,
+                          fontFamily: "ProximaNova",
                           fontWeight: FontWeight.bold,
                           color: Colors.blue,
                           decoration: TextDecoration.underline),
@@ -603,6 +637,7 @@ class AppUtils {
                       phone,
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
+                          fontFamily: "ProximaNova",
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                           color: Colors.blue,
@@ -625,6 +660,7 @@ class AppUtils {
     width: 78,
     height: 78,
     textStyle: const TextStyle(
+        fontFamily: "ProximaNova",
         fontSize: 38,
         color: Color.fromRGBO(30, 60, 87, 1),
         fontWeight: FontWeight.w900),
@@ -638,6 +674,7 @@ class AppUtils {
     width: 78,
     height: 78,
     textStyle: const TextStyle(
+        fontFamily: "ProximaNova",
         fontSize: 38,
         color: Color.fromRGBO(30, 60, 87, 1),
         fontWeight: FontWeight.w600),
@@ -825,6 +862,87 @@ class AppUtils {
     );
   }
 
+  addPhotosHomeWidget({onTap, enabled}) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: 115,
+        height: 135,
+        margin: const EdgeInsets.only(right: 10, bottom: 15),
+        child: Stack(
+          children: [
+            Positioned(
+              bottom: 0,
+              child: enabled == false
+                  ? DottedBorder(
+                      dashPattern: const [4, 4],
+                      color: Colors.black.withOpacity(0.6),
+                      strokeWidth: 1,
+                      borderType: BorderType.RRect,
+                      radius: const Radius.circular(12),
+                      strokeCap: StrokeCap.round,
+                      child: Container(
+                        width: 105,
+                        height: 123,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(
+                            12,
+                          ),
+                        ),
+                        child: const Icon(
+                          Icons.photo,
+                          color: Colors.grey,
+                          size: 20,
+                        ),
+                      ),
+                    )
+                  : Container(
+                      width: 110,
+                      height: 128,
+                      decoration: BoxDecoration(
+                        image: const DecorationImage(
+                            image: AssetImage("assets/background.png"),
+                            fit: BoxFit.cover),
+                        borderRadius: BorderRadius.circular(
+                          16,
+                        ),
+                      ),
+                    ),
+            ),
+            enabled == true
+                ? Positioned(
+                    right: 0,
+                    top: 0,
+                    child: Container(
+                      width: 25,
+                      height: 25,
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey,
+                            offset: Offset(0, 1),
+                            blurRadius: 1,
+                          )
+                        ],
+                      ),
+                      padding: const EdgeInsets.all(3),
+                      child: const Center(
+                          child: Icon(
+                        Icons.close,
+                        color: blueColor,
+                        size: 20,
+                      )),
+                    ),
+                  )
+                : Container(),
+          ],
+        ),
+      ),
+    );
+  }
+
   generalRow({iconContainerColor, image, text, context, onTap, scale}) {
     return GestureDetector(
       onTap: onTap,
@@ -985,12 +1103,14 @@ class AppUtils {
                 text1,
                 style: const TextStyle(
                   fontSize: 18,
+                  fontFamily: "ProximaNova",
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
                 text2,
                 style: const TextStyle(
+                  fontFamily: "ProximaNova",
                   fontSize: 16,
                 ),
               ),
@@ -1503,7 +1623,11 @@ class AppUtils {
           ),
           Text(
             about,
-            style: const TextStyle(fontSize: 17, wordSpacing: 2.0),
+            style: const TextStyle(
+              fontSize: 17,
+              wordSpacing: 2.0,
+              fontFamily: "ProximaNova",
+            ),
           ),
         ],
       ),
@@ -1532,6 +1656,7 @@ class AppUtils {
                 promptTitle,
                 style: const TextStyle(
                     fontSize: 17,
+                    fontFamily: "ProximaNova",
                     fontWeight: FontWeight.w900,
                     letterSpacing: 0.1),
               ),
@@ -1542,7 +1667,11 @@ class AppUtils {
           ),
           Text(
             promptBody,
-            style: const TextStyle(fontSize: 17, wordSpacing: 2.0),
+            style: const TextStyle(
+              fontSize: 17,
+              wordSpacing: 2.0,
+              fontFamily: "ProximaNova",
+            ),
           ),
         ],
       ),
@@ -1558,12 +1687,135 @@ class AppUtils {
           Text(
             title,
             style: const TextStyle(
-                fontSize: 17, fontWeight: FontWeight.w900, letterSpacing: 0.1),
+              fontSize: 17,
+              fontWeight: FontWeight.w900,
+              letterSpacing: 0.1,
+              fontFamily: "ProximaNova",
+            ),
           ),
           const SizedBox(
             height: 15,
           ),
           widget,
+        ],
+      ),
+    );
+  }
+
+  editProfileWidget({title, body, isColorBlue}) {
+    return Container(
+      width: double.infinity,
+      margin: const EdgeInsets.symmetric(vertical: 10),
+      height: 70,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: "ProximaNova",
+                  letterSpacing: 0.7,
+                ),
+              ),
+              Text(
+                body,
+                style: TextStyle(
+                    fontSize: 15,
+                    fontFamily: "ProximaNova",
+                    color: isColorBlue != null
+                        ? blueColor
+                        : Colors.black.withOpacity(0.7)),
+              ),
+            ],
+          ),
+          const Icon(
+            Icons.arrow_forward_ios_sharp,
+            size: 20,
+            color: Colors.black,
+          ),
+        ],
+      ),
+    );
+  }
+
+  blurredImageContainer({image, name, age}) {
+    return Container(
+      width: 190,
+      height: 280,
+      margin: const EdgeInsets.only(bottom: 10),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(5),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.4),
+            offset: const Offset(0, 1),
+            blurRadius: 2,
+          )
+        ],
+      ),
+      child: Column(
+        children: [
+          Stack(
+            children: [
+              Container(
+                width: 185,
+                height: 230,
+                decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.only(
+                        topRight: Radius.circular(10),
+                        topLeft: Radius.circular(10)),
+                    image: DecorationImage(
+                      image: AssetImage(image),
+                      fit: BoxFit.cover,
+                    )),
+              ),
+              Positioned(
+                top: 0,
+                child: SizedBox(
+                  width: 185,
+                  height: 230,
+                  child: BlurryContainer(
+                    color: Colors.black.withOpacity(0.05),
+                    blur: 5,
+                    elevation: 2,
+                    borderRadius: const BorderRadius.only(
+                        topRight: Radius.circular(10),
+                        topLeft: Radius.circular(10)),
+                    height: 230,
+                    child: Container(),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Row(
+                children: [
+                  Text(
+                    name,
+                    style: mediumHeadingTextStyle(),
+                  ),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  Text(
+                    age,
+                    style: mediumTitleTextStyle(),
+                  )
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );

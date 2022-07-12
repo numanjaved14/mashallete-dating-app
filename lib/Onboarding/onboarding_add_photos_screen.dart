@@ -74,6 +74,7 @@ class _OnBoardingAddPhotosScreenState extends State<OnBoardingAddPhotosScreen> {
                       style: TextStyle(
                         fontSize: 17,
                         color: Colors.black,
+                        fontFamily: "ProximaNova",
                       ),
                     ),
                     const SizedBox(

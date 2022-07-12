@@ -1,16 +1,17 @@
-import 'package:dating_app/Constants/app_constants.dart';
-import 'package:dating_app/Utilities/app_utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+import '../Constants/app_constants.dart';
+import '../Utilities/app_utils.dart';
+
+class ViewProfileScreen extends StatefulWidget {
+  const ViewProfileScreen({Key? key}) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<ViewProfileScreen> createState() => _ViewProfileScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _ViewProfileScreenState extends State<ViewProfileScreen> {
   late ScrollController _scrollController;
 
   List arts = [
@@ -52,50 +53,20 @@ class _HomeScreenState extends State<HomeScreen> {
                     const SizedBox(
                       height: 70,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.pushNamed(context, profileScreenRoute);
-                          },
-                          child: Container(
-                            decoration: const BoxDecoration(
-                                image: DecorationImage(
-                                    image: AssetImage(
-                                      "assets/boy.png",
-                                    ),
-                                    fit: BoxFit.cover),
-                                shape: BoxShape.circle),
-                            height: 32,
-                            width: 32,
-                          ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: const Align(
+                        alignment: Alignment.centerLeft,
+                        child: Icon(
+                          Icons.arrow_back_ios,
+                          size: 30,
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              "assets/cupHeart.png",
-                              scale: 2,
-                            ),
-                            const Text(
-                              "Mashalatte",
-                              style: TextStyle(
-                                fontSize: 24,
-                                fontWeight: FontWeight.w700,
-                                color: blueColor,
-                                fontFamily: "ProximaNova",
-                              ),
-                            ),
-                          ],
-                        ),
-                        Container(
-                          width: 30,
-                        )
-                      ],
+                      ),
                     ),
                     const SizedBox(
-                      height: 20,
+                      height: 30,
                     ),
                     utils.imageBigContainer(
                         image: "assets/background.png", top: true),

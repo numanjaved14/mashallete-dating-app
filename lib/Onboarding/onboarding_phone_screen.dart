@@ -134,6 +134,7 @@ class _OnBoardingPhoneScreenState extends State<OnBoardingPhoneScreen> {
                       style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.w700,
+                        fontFamily: "ProximaNova",
                         color: blueColor,
                       ),
                     ),

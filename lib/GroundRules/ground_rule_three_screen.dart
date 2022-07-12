@@ -96,6 +96,7 @@ class _GroundRuleThreeScreenState extends State<GroundRuleThreeScreen> {
               style: TextStyle(
                 fontSize: 32,
                 fontWeight: FontWeight.w600,
+                fontFamily: "ProximaNova",
               ),
             ),
             const SizedBox(
@@ -103,7 +104,11 @@ class _GroundRuleThreeScreenState extends State<GroundRuleThreeScreen> {
             ),
             const Text(
               "If you don't message each other for 7 days, we'll unmatch you automatically. Don't worry, we'll send you some reminders!.",
-              style: TextStyle(fontSize: 17, height: 1.5),
+              style: TextStyle(
+                fontSize: 17,
+                height: 1.5,
+                fontFamily: "ProximaNova",
+              ),
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.34,

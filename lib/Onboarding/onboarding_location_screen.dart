@@ -71,8 +71,11 @@ class _OnBoardingLocationScreenState extends State<OnBoardingLocationScreen> {
                     contentPadding: const EdgeInsets.only(top: 5, left: 15),
                     hintText: "Location",
                     border: InputBorder.none,
-                    hintStyle:
-                        const TextStyle(color: Colors.grey, fontSize: 19),
+                    hintStyle: const TextStyle(
+                      color: Colors.grey,
+                      fontSize: 19,
+                      fontFamily: "ProximaNova",
+                    ),
                     focusedBorder: OutlineInputBorder(
                       borderSide:
                           const BorderSide(color: blueColor, width: 1.5),
@@ -104,6 +107,7 @@ class _OnBoardingLocationScreenState extends State<OnBoardingLocationScreen> {
                         style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
+                          fontFamily: "ProximaNova",
                           color: blueColor,
                         ),
                       ),

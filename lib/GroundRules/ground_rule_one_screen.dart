@@ -94,6 +94,7 @@ class _GroundRuleOneScreenState extends State<GroundRuleOneScreen> {
               "No Screenshots",
               style: TextStyle(
                 fontSize: 32,
+                fontFamily: "ProximaNova",
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -102,7 +103,11 @@ class _GroundRuleOneScreenState extends State<GroundRuleOneScreen> {
             ),
             const Text(
               "You should be able to find your special someone without being shared around.",
-              style: TextStyle(fontSize: 17, height: 1.5),
+              style: TextStyle(
+                fontSize: 17,
+                height: 1.5,
+                fontFamily: "ProximaNova",
+              ),
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.37,

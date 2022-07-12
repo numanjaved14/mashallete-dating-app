@@ -49,6 +49,7 @@ class _PremiumAccessScreenState extends State<PremiumAccessScreen> {
               style: TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.w900,
+                fontFamily: "ProximaNova",
                 color: blueColor,
               ),
             ),
@@ -60,6 +61,7 @@ class _PremiumAccessScreenState extends State<PremiumAccessScreen> {
               style: TextStyle(
                 fontSize: 23,
                 fontWeight: FontWeight.bold,
+                fontFamily: "ProximaNova",
               ),
               textAlign: TextAlign.center,
             ),
@@ -134,6 +136,7 @@ class _PremiumAccessScreenState extends State<PremiumAccessScreen> {
               "Automatic bill after trial ends. By subscribing you accept the \nTerms & Privacy Policy of the service.",
               style: TextStyle(
                 fontSize: 14,
+                fontFamily: "ProximaNova",
               ),
               textAlign: TextAlign.center,
             ),
@@ -146,6 +149,7 @@ class _PremiumAccessScreenState extends State<PremiumAccessScreen> {
                 Text(
                   "Already a premium user?",
                   style: TextStyle(
+                    fontFamily: "ProximaNova",
                     fontSize: 14,
                   ),
                   textAlign: TextAlign.center,
@@ -157,6 +161,7 @@ class _PremiumAccessScreenState extends State<PremiumAccessScreen> {
                   "Restore Purchase",
                   style: TextStyle(
                     fontSize: 14,
+                    fontFamily: "ProximaNova",
                     color: blueColor,
                     fontWeight: FontWeight.w700,
                   ),

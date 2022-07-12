@@ -56,6 +56,7 @@ class _OnBoardingPhotoVerificationScreenState
               style: TextStyle(
                 fontSize: 27,
                 fontWeight: FontWeight.w500,
+                fontFamily: "ProximaNova",
               ),
             ),
             const SizedBox(

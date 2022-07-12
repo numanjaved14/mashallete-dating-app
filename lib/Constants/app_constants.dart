@@ -25,6 +25,7 @@ const preferencesScreenRoute = "/preferencesScreenRoute";
 const privacyScreenRoute = "/privacyScreenRoute";
 const chatBoxScreenRoute = "/chatBoxScreenRoute";
 const editProfileTabBarScreenRoute = "/editProfileTabBarScreenRoute";
+const profileViewScreenRoute = "/profileViewScreenRoute";
 const onBoardingInterestsScreenRoute = "/onBoardingInterestsScreenRoute";
 const onBoardingLocationScreenRoute = "/onBoardingLocationScreenRoute";
 const welcomeNameScreenRoute = "/welcomeNameScreenRoute";

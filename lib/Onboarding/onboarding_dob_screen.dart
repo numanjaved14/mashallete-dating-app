@@ -60,6 +60,7 @@ class _OnBoardingDateOfBirthScreenState
                     style: TextStyle(
                       fontSize: 28,
                       fontWeight: FontWeight.w600,
+                      fontFamily: "ProximaNova",
                     ),
                   ),
                   const SizedBox(
@@ -118,6 +119,7 @@ class _OnBoardingDateOfBirthScreenState
                             style: TextStyle(
                               fontSize: 15,
                               fontWeight: FontWeight.w700,
+                              fontFamily: "ProximaNova",
                               color: blueColor,
                             ),
                           ),
@@ -233,6 +235,7 @@ class _OnBoardingDateOfBirthScreenState
                                 "We'll never share this with anyone",
                                 style: TextStyle(
                                   fontSize: 15,
+                                  fontFamily: "ProximaNova",
                                   fontWeight: FontWeight.w700,
                                   color: blueColor,
                                 ),
@@ -300,6 +303,7 @@ class _OnBoardingDateOfBirthScreenState
                                   style: TextStyle(
                                     fontSize: 27,
                                     fontWeight: FontWeight.w400,
+                                    fontFamily: "ProximaNova",
                                   ),
                                 ),
                               ),

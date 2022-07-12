@@ -42,20 +42,31 @@ class _ProfileEditTabBarScreenState extends State<ProfileEditTabBarScreen>
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      "Cancel",
-                      style: utils.smallHeadingTextStyle(),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text(
+                        "Cancel",
+                        style: utils.smallHeadingTextStyle(),
+                      ),
                     ),
                     const Text(
-                      "Sana",
+                      "Usama",
                       style: TextStyle(
                         fontSize: 22,
+                        fontFamily: "ProximaNova",
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Text(
-                      "Done",
-                      style: utils.smallHeadingTextStyle(color: blueColor),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text(
+                        "Done",
+                        style: utils.smallHeadingTextStyle(color: blueColor),
+                      ),
                     ),
                   ],
                 ),
@@ -68,7 +79,10 @@ class _ProfileEditTabBarScreenState extends State<ProfileEditTabBarScreen>
                     borderRadius: BorderRadius.circular(5)),
                 child: TabBar(
                   controller: _controller,
-                  unselectedLabelStyle: const TextStyle(color: Colors.black),
+                  unselectedLabelStyle: const TextStyle(
+                    color: Colors.black,
+                    fontFamily: "ProximaNova",
+                  ),
                   unselectedLabelColor: Colors.black,
                   indicator: BoxDecoration(
                       borderRadius: BorderRadius.circular(5), // Creates border
@@ -76,11 +90,17 @@ class _ProfileEditTabBarScreenState extends State<ProfileEditTabBarScreen>
                   tabs: const [
                     Text(
                       "Edit",
-                      style: TextStyle(fontSize: 16),
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontFamily: "ProximaNova",
+                      ),
                     ),
                     Text(
                       "Preview",
-                      style: TextStyle(fontSize: 16),
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontFamily: "ProximaNova",
+                      ),
                     ),
                   ],
                 ),

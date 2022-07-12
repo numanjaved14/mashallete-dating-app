@@ -48,6 +48,7 @@ class _LoginWithOtpScreenState extends State<LoginWithOtpScreen> {
                       decoration: TextDecoration.underline,
                       fontSize: 16,
                       color: blueColor,
+                      fontFamily: "ProximaNova",
                       fontWeight: FontWeight.w600),
                 ),
               ],
@@ -85,6 +86,7 @@ class _LoginWithOtpScreenState extends State<LoginWithOtpScreen> {
                       style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.w700,
+                        fontFamily: "ProximaNova",
                         color: blueColor,
                       ),
                     ),
