@@ -102,42 +102,45 @@ class _HomeScreenState extends State<HomeScreen> {
                     const SizedBox(
                       height: 15,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            Text(
-                              "Usama Majid,",
-                              style: utils.xxLargeHeadingTextStyle(),
-                            ),
-                            const SizedBox(
-                              width: 3,
-                            ),
-                            Text(
-                              "22",
-                              style: utils.xMediumTitleTextStyle(height: 1.7),
-                            )
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            const Icon(
-                              Icons.location_on,
-                              color: blueColor,
-                              size: 15,
-                            ),
-                            const SizedBox(
-                              width: 5,
-                            ),
-                            Text(
-                              "2 mi, US ",
-                              style:
-                                  utils.mediumTitleTextStyle(color: blueColor),
-                            ),
-                          ],
-                        )
-                      ],
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              Text(
+                                "Usama Majid,",
+                                style: utils.xxLargeHeadingTextStyle(),
+                              ),
+                              const SizedBox(
+                                width: 3,
+                              ),
+                              Text(
+                                "22",
+                                style: utils.xMediumTitleTextStyle(height: 1.7),
+                              )
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              const Icon(
+                                Icons.location_on,
+                                color: blueColor,
+                                size: 15,
+                              ),
+                              const SizedBox(
+                                width: 5,
+                              ),
+                              Text(
+                                "2 mi, US",
+                                style: utils.mediumTitleTextStyle(
+                                    color: blueColor),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                     const SizedBox(
                       height: 15,
