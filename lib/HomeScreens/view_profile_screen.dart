@@ -74,7 +74,7 @@ class _ViewProfileScreenState extends State<ViewProfileScreen> {
                       height: 15,
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [

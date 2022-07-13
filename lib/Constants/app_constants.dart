@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 ///colors
 const blueColor = Color(0xff3776FF);
 const orangeColor = Color(0xffF0AD2B);
-var linearGradientBlue = LinearGradient(colors: [
-  const Color(0xff6B7BFA),
-  const Color(0xff3776FF),
+var linearGradientBlue = const LinearGradient(colors: [
+  Color(0xff6B7BFA),
+  Color(0xff3776FF),
 ]);
 
 ///routes for screens
