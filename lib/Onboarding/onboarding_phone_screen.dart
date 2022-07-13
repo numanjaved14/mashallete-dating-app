@@ -32,9 +32,8 @@ class _OnBoardingPhoneScreenState extends State<OnBoardingPhoneScreen> {
                   width: MediaQuery.of(context).size.width * 0.0625,
                   height: 7,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: blueColor,
-                  ),
+                      borderRadius: BorderRadius.circular(10),
+                      gradient: linearGradientBlue),
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width * 0.687,

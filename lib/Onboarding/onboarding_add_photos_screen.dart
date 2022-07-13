@@ -33,7 +33,7 @@ class _OnBoardingAddPhotosScreenState extends State<OnBoardingAddPhotosScreen> {
                   height: 7,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    color: blueColor,
+                    gradient: linearGradientBlue,
                   ),
                 ),
                 Container(

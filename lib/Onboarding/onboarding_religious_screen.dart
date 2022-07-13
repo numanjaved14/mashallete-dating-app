@@ -32,7 +32,7 @@ class _OnBoardingReligiousScreenState extends State<OnBoardingReligiousScreen> {
                   height: 7,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    color: blueColor,
+                    gradient: linearGradientBlue,
                   ),
                 ),
                 Container(

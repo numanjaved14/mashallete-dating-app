@@ -39,7 +39,7 @@ class _OnBoardingDateOfBirthScreenState
                         height: 7,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
-                          color: blueColor,
+                          gradient: linearGradientBlue,
                         ),
                       ),
                       Container(
@@ -302,7 +302,7 @@ class _OnBoardingDateOfBirthScreenState
                                   "Confirm your age",
                                   style: TextStyle(
                                     fontSize: 27,
-                                    fontWeight: FontWeight.w400,
+                                    fontWeight: FontWeight.w600,
                                     fontFamily: "ProximaNova",
                                   ),
                                 ),

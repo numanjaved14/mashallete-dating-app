@@ -68,9 +68,9 @@ class _LikedProfilesScreenState extends State<LikedProfilesScreen> {
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
+                            color: Colors.grey.withOpacity(0.2),
                             offset: const Offset(0, 1),
-                            blurRadius: 5,
+                            blurRadius: 3,
                           ),
                         ]),
                     child: Column(
@@ -112,7 +112,7 @@ class _LikedProfilesScreenState extends State<LikedProfilesScreen> {
                                     width: 5,
                                   ),
                                   Text(
-                                    "2 mi, US",
+                                    "2 mi, US ",
                                     style: utils.mediumTitleTextStyle(
                                         color: blueColor),
                                   ),

@@ -215,7 +215,7 @@ class _OnBoardingInterestsScreenState extends State<OnBoardingInterestsScreen> {
                     height: 7,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: blueColor,
+                      gradient: linearGradientBlue,
                     ),
                   ),
                   Container(

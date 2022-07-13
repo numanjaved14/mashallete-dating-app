@@ -727,7 +727,7 @@ class AppUtils {
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
             color: selected == true ? blueColor : Colors.white,
-            border: Border.all(color: blueColor.withOpacity(.5), width: 1.5)),
+            border: Border.all(color: blueColor.withOpacity(0.5), width: 1.5)),
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -742,7 +742,7 @@ class AppUtils {
             Text(
               text,
               style: extraSmallTitleTextStyle(
-                  color: selected == true ? Colors.white : Colors.black),
+                  color: selected == true ? Colors.white : blueColor),
             ),
           ],
         ),
@@ -773,7 +773,7 @@ class AppUtils {
             Text(
               text,
               style: smallTitleTextStyle(
-                  color: selected == true ? Colors.white : Colors.black),
+                  color: selected == true ? Colors.white : blueColor),
             ),
           ],
         ),
@@ -1752,7 +1752,7 @@ class AppUtils {
       margin: const EdgeInsets.only(bottom: 10),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(5),
+        borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.4),
@@ -1766,7 +1766,7 @@ class AppUtils {
           Stack(
             children: [
               Container(
-                width: 185,
+                width: 190,
                 height: 230,
                 decoration: BoxDecoration(
                     borderRadius: const BorderRadius.only(
@@ -1779,13 +1779,15 @@ class AppUtils {
               ),
               Positioned(
                 top: 0,
+                left: 0,
+                right: 0,
                 child: SizedBox(
-                  width: 185,
+                  width: 190,
                   height: 230,
                   child: BlurryContainer(
-                    color: Colors.black.withOpacity(0.05),
-                    blur: 5,
-                    elevation: 2,
+                    color: Colors.black.withOpacity(0.04),
+                    blur: 3,
+                    elevation: 0,
                     borderRadius: const BorderRadius.only(
                         topRight: Radius.circular(10),
                         topLeft: Radius.circular(10)),

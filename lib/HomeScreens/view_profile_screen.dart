@@ -102,7 +102,7 @@ class _ViewProfileScreenState extends State<ViewProfileScreen> {
                               width: 5,
                             ),
                             Text(
-                              "2 mi, US",
+                              "2 mi, US ",
                               style:
                                   utils.mediumTitleTextStyle(color: blueColor),
                             ),

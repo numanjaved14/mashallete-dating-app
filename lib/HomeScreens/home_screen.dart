@@ -131,7 +131,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               width: 5,
                             ),
                             Text(
-                              "2 mi, US",
+                              "2 mi, US ",
                               style:
                                   utils.mediumTitleTextStyle(color: blueColor),
                             ),
