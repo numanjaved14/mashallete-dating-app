@@ -64,8 +64,8 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: SizedBox(
-                width: 23,
-                height: 23,
+                width: 26,
+                height: 26,
                 child: Image.asset(
                   "assets/homeBottomBar.png",
                   color: _selectedIndex == 0
@@ -77,8 +77,8 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
             ),
             BottomNavigationBarItem(
               icon: SizedBox(
-                width: 23,
-                height: 23,
+                width: 26,
+                height: 26,
                 child: Image.asset(
                   "assets/heartBottomBar.png",
                   color: _selectedIndex == 1
@@ -90,8 +90,8 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
             ),
             BottomNavigationBarItem(
               icon: SizedBox(
-                width: 23,
-                height: 23,
+                width: 26,
+                height: 26,
                 child: Icon(
                   CupertinoIcons.chat_bubble_fill,
                   size: 23,

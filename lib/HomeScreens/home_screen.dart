@@ -170,21 +170,21 @@ class _HomeScreenState extends State<HomeScreen> {
                       text4: "Los Angeles, CA",
                     ),
                     const SizedBox(
-                      height: 30,
+                      height: 15,
                     ),
                     utils.imageBigContainer(
                         image: "assets/background.png",
                         top: false,
                         bottom: false),
                     const SizedBox(
-                      height: 30,
+                      height: 25,
                     ),
                     utils.aboutPersonScreen(
                         name: "Usama",
                         about:
                             "Hi, My name is Usama and I am a professional flutter developer and I have experience in developing iOS and android applications."),
                     const SizedBox(
-                      height: 30,
+                      height: 20,
                     ),
                     utils.promptTitleWidget(
                         promptTitle: "PROMPT TITLE...",
@@ -229,22 +229,26 @@ class _HomeScreenState extends State<HomeScreen> {
                         promptBody:
                             "This is the first prompt body.This is the first prompt body.This is the first prompt body."),
                     const SizedBox(
-                      height: 20,
+                      height: 30,
                     ),
                     utils.imageBigContainer(
                         image: "assets/background.png", bottom: true),
                     const SizedBox(
-                      height: 25,
+                      height: 45,
                     ),
                     GestureDetector(
                       onTap: _scrollToTop,
-                      child: Text(
+                      child: const Text(
                         "BACK TO THE TOP",
-                        style: utils.smallHeadingTextStyle(color: blueColor),
+                        style: TextStyle(
+                            fontSize: 16,
+                            fontFamily: "ProximaNova",
+                            fontWeight: FontWeight.w900,
+                            color: blueColor),
                       ),
                     ),
                     const SizedBox(
-                      height: 35,
+                      height: 45,
                     ),
                   ],
                 ),
@@ -254,7 +258,7 @@ class _HomeScreenState extends State<HomeScreen> {
               alignment: Alignment.bottomCenter,
               child: Container(
                 width: double.infinity,
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 10),
                 height: 100,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

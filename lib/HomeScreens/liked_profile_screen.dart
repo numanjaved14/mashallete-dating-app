@@ -166,16 +166,16 @@ class _LikedProfilesScreenState extends State<LikedProfilesScreen> {
             ),
           ),
           Positioned(
-            left: 20,
-            right: 20,
-            bottom: 10,
+            left: 35,
+            right: 35,
+            bottom: 30,
             child: GestureDetector(
               onTap: () {
                 Navigator.pushNamed(context, premiumAccessScreenRoute);
               },
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.8,
-                height: 80,
+                height: 70,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   boxShadow: [
@@ -185,7 +185,7 @@ class _LikedProfilesScreenState extends State<LikedProfilesScreen> {
                       blurRadius: 3,
                     ),
                   ],
-                  borderRadius: BorderRadius.circular(35),
+                  borderRadius: BorderRadius.circular(50),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -197,14 +197,14 @@ class _LikedProfilesScreenState extends State<LikedProfilesScreen> {
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(25),
                         border: Border.all(
-                          color: Colors.grey,
+                          color: purpleColor.withOpacity(0.3),
                         ),
                       ),
                       child: Center(
                         child: Text(
                           "Learn More",
                           style: utils.extraSmallHeadingTextStyle(
-                            color: blueColor,
+                            color: purpleColor,
                           ),
                         ),
                       ),
@@ -214,7 +214,8 @@ class _LikedProfilesScreenState extends State<LikedProfilesScreen> {
                     ),
                     Text(
                       "Upgrade to premium for unlimited \naccess, swipes and likes.",
-                      style: utils.extraSmallHeadingTextStyle(color: blueColor),
+                      style:
+                          utils.extraSmallHeadingTextStyle(color: purpleColor),
                     )
                   ],
                 ),
