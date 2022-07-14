@@ -116,9 +116,9 @@ class _ViewProfileScreenState extends State<ViewProfileScreen> {
                     const SizedBox(
                       height: 15,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                      child: const Text(
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 12.0),
+                      child: Text(
                         "I have passion for art and I'm looking to meet new people in the city!",
                         style: TextStyle(
                           fontSize: 17,
