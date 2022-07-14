@@ -116,12 +116,15 @@ class _ViewProfileScreenState extends State<ViewProfileScreen> {
                     const SizedBox(
                       height: 15,
                     ),
-                    const Text(
-                      "I have passion for art and I'm looking to meet new people in the city!",
-                      style: TextStyle(
-                        fontSize: 17,
-                        wordSpacing: 1.5,
-                        fontFamily: "ProximaNova",
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                      child: const Text(
+                        "I have passion for art and I'm looking to meet new people in the city!",
+                        style: TextStyle(
+                          fontSize: 17,
+                          wordSpacing: 1.5,
+                          fontFamily: "ProximaNova",
+                        ),
                       ),
                     ),
                     const SizedBox(

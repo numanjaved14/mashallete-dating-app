@@ -16,15 +16,30 @@ class BottomNavigationBarScreen extends StatefulWidget {
 
 class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
   int _selectedIndex = 0;
-  final List _widgetOptions = [
-    const HomeScreen(),
-    const LikedProfilesScreen(),
-    const ChatScreen(),
-  ];
+  // final List _widgetOptions = [
+  //   const HomeScreen(),
+  //   const LikedProfilesScreen(),
+  //   const ChatScreen(),
+  // ];
+  PageController? _pageController;
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController();
+  }
+
+  @override
+  void dispose() {
+    _pageController!.dispose();
+    super.dispose();
+  }
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+      _pageController!.animateToPage(index,
+          duration: const Duration(milliseconds: 500), curve: Curves.easeOut);
     });
   }
 
@@ -32,8 +47,16 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+      body: PageView(
+        controller: _pageController,
+        onPageChanged: (index) {
+          setState(() => _selectedIndex = index);
+        },
+        children: const <Widget>[
+          HomeScreen(),
+          LikedProfilesScreen(),
+          ChatScreen(),
+        ],
       ),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 60),

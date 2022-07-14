@@ -125,7 +125,7 @@ class _LikedProfilesScreenState extends State<LikedProfilesScreen> {
                           height: 15,
                         ),
                         const Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          padding: EdgeInsets.symmetric(horizontal: 12),
                           child: Text(
                             "I have passion for art and I'm looking to meet new people in the city!",
                             style: TextStyle(
@@ -217,6 +217,23 @@ class _LikedProfilesScreenState extends State<LikedProfilesScreen> {
                       style: utils.extraSmallHeadingTextStyle(color: blueColor),
                     )
                   ],
+                ),
+              ),
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              width: double.infinity,
+              height: 35,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Colors.white.withOpacity(0.0),
+                    Colors.white,
+                  ],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
                 ),
               ),
             ),

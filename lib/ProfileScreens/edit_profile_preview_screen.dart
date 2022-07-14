@@ -50,51 +50,57 @@ class _PreviewEditProfileScreenState extends State<PreviewEditProfileScreen> {
             const SizedBox(
               height: 15,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    Text(
-                      "Aadil Nasir,",
-                      style: utils.xxLargeHeadingTextStyle(),
-                    ),
-                    const SizedBox(
-                      width: 3,
-                    ),
-                    Text(
-                      "22",
-                      style: utils.xMediumTitleTextStyle(height: 1.7),
-                    )
-                  ],
-                ),
-                Row(
-                  children: [
-                    const Icon(
-                      Icons.location_on,
-                      color: blueColor,
-                      size: 15,
-                    ),
-                    const SizedBox(
-                      width: 5,
-                    ),
-                    Text(
-                      "2 mi, US ",
-                      style: utils.mediumTitleTextStyle(color: blueColor),
-                    ),
-                  ],
-                )
-              ],
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        "Aadil Nasir,",
+                        style: utils.xxLargeHeadingTextStyle(),
+                      ),
+                      const SizedBox(
+                        width: 3,
+                      ),
+                      Text(
+                        "22",
+                        style: utils.xMediumTitleTextStyle(height: 1.7),
+                      )
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      const Icon(
+                        Icons.location_on,
+                        color: blueColor,
+                        size: 15,
+                      ),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      Text(
+                        "2 mi, US ",
+                        style: utils.mediumTitleTextStyle(color: blueColor),
+                      ),
+                    ],
+                  )
+                ],
+              ),
             ),
             const SizedBox(
               height: 15,
             ),
-            const Text(
-              "I have passion for art and I'm looking to meet new people in the city!",
-              style: TextStyle(
-                fontSize: 17,
-                fontFamily: "ProximaNova",
-                wordSpacing: 1.5,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: const Text(
+                "I have passion for art and I'm looking to meet new people in the city!",
+                style: TextStyle(
+                  fontSize: 17,
+                  fontFamily: "ProximaNova",
+                  wordSpacing: 1.5,
+                ),
               ),
             ),
             const SizedBox(
