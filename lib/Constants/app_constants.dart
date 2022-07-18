@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 const blueColor = Color(0xff3776FF);
 const orangeColor = Color(0xffF0AD2B);
 const purpleColor = Color(0xff5264FA);
+const redColor = Color(0xffFF7575);
 var linearGradientBlue = const LinearGradient(colors: [
   Color(0xff6B7BFA),
   Color(0xff3776FF),
 ]);
+const lightBlueColor = Color(0xff0085FF);
 
 ///routes for screens
 const splashRoute = "/";

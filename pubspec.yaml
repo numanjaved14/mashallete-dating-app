@@ -41,6 +41,7 @@ dependencies:
   percent_indicator: ^4.2.2
   cupertino_range_slider_improved: ^2.0.1
   audio_wave: ^0.1.4
+  audio_waveforms: ^0.1.1
 
 dev_dependencies:
   flutter_test:

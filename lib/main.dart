@@ -15,7 +15,6 @@ import 'package:dating_app/ProfileScreens/profile_edit_tab_bar_screen.dart';
 import 'package:dating_app/ProfileScreens/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'Authentication/landing_page.dart';
 import 'Authentication/splash_screen.dart';
 import 'ChatScreens/chat_box_screen.dart';
@@ -59,8 +58,6 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'MashaLatte',
-      theme: ThemeData.light().copyWith(
-          textTheme: GoogleFonts.latoTextTheme(Theme.of(context).textTheme)),
       debugShowCheckedModeBanner: false,
       initialRoute: splashRoute,
       routes: {
