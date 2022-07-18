@@ -215,8 +215,11 @@ class _HelpAndSupportScreenState extends State<HelpAndSupportScreen> {
             Row(
               children: [
                 Image.asset(
-                  "assets.addText.png",
+                  "assets/addText.png",
                   scale: 3,
+                ),
+                SizedBox(
+                  width: 10,
                 ),
                 Expanded(
                   child: TextField(
