@@ -826,7 +826,6 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                     onChanged: (value) {
                                       setState(() {
                                         val = value;
-                                        print(val);
                                         Navigator.pop(context);
                                         reportDialog();
                                       });
@@ -1028,7 +1027,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                               width: 64,
                               height: 64,
                               decoration: BoxDecoration(
-                                  image: DecorationImage(
+                                  image: const DecorationImage(
                                     image: AssetImage("assets/boy.png"),
                                     fit: BoxFit.cover,
                                   ),
@@ -1036,11 +1035,11 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                   boxShadow: [
                                     BoxShadow(
                                         color: Colors.grey.withOpacity(0.2),
-                                        offset: Offset(0, 1),
+                                        offset: const Offset(0, 1),
                                         blurRadius: 15)
                                   ]),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 15,
                             ),
                             Text(
@@ -1066,7 +1065,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                       color: Colors.grey.withOpacity(0.2),
                                       borderRadius: BorderRadius.circular(35),
                                     ),
-                                    child: Center(
+                                    child: const Center(
                                       child: Text(
                                         "Cancel",
                                         style: TextStyle(
@@ -1078,7 +1077,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                     ),
                                   ),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 20,
                                 ),
                                 GestureDetector(
@@ -1093,7 +1092,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                       color: redColor,
                                       borderRadius: BorderRadius.circular(35),
                                     ),
-                                    child: Center(
+                                    child: const Center(
                                       child: Text(
                                         "Yes, Unmatch",
                                         style: TextStyle(
@@ -1111,7 +1110,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                             const SizedBox(
                               height: 25,
                             ),
-                            Text("This cannot be undone.",
+                            const Text("This cannot be undone.",
                                 style: TextStyle(
                                   fontSize: 13,
                                   color: Colors.grey,

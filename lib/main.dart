@@ -31,6 +31,7 @@ import 'Onboarding/onboarding_phone_verification_screen.dart';
 import 'Onboarding/onboarding_photo_verification_screen.dart';
 import 'Onboarding/onboarding_thank_you_screen.dart';
 import 'Onboarding/onboarding_welcome_screen.dart';
+import 'ProfileScreens/help_and_support_screen.dart';
 import 'ProfileScreens/premium_access_screen.dart';
 
 Future<void> main() async {
@@ -92,6 +93,7 @@ class _MyAppState extends State<MyApp> {
             const OnBoardingThankYouScreen(),
         groundRuleOneScreenRoute: (context) => const GroundRuleOneScreen(),
         groundRuleTwoScreenRoute: (context) => const GroundRuleTwoScreen(),
+        helpAndSupportScreenRoute: (context) => const HelpAndSupportScreen(),
         groundRuleThreeScreenRoute: (context) => const GroundRuleThreeScreen(),
         premiumAccessScreenRoute: (context) => const PremiumAccessScreen(),
         preferencesScreenRoute: (context) => const PreferencesScreen(),

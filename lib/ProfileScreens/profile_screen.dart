@@ -173,7 +173,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
             scale: 4.0,
             context: context,
             iconContainerColor: Colors.blue,
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, helpAndSupportScreenRoute);
+            },
             text: "Help and Support",
             image: "assets/support.png",
           ),
