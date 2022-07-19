@@ -10,6 +10,7 @@ var linearGradientBlue = const LinearGradient(colors: [
   Color(0xff3776FF),
 ]);
 const lightBlueColor = Color(0xff0085FF);
+const extraLightBlueColor = Color(0xffD9E5FF);
 
 ///routes for screens
 const splashRoute = "/";
