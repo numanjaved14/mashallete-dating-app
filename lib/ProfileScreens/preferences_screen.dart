@@ -185,6 +185,22 @@ class _PreferencesScreenState extends State<PreferencesScreen> {
             ),
             utils.line(width: double.infinity),
             utils.preferencesWidget(text: "Verified only", text2: "Yes"),
+            const SizedBox(
+              height: 10,
+            ),
+            utils.line(width: double.infinity),
+            const SizedBox(
+              height: 10,
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, deleteAccountScreenRoute);
+              },
+              child: Text(
+                "Delete Account",
+                style: utils.smallHeadingTextStyle(color: redColor),
+              ),
+            ),
           ],
         ),
       ),

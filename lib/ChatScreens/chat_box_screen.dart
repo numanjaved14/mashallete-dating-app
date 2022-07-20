@@ -1503,6 +1503,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                   GestureDetector(
                                     onTap: () {
                                       Navigator.pop(context);
+                                      incomingVideoCallDialog();
                                     },
                                     child: Container(
                                       width: MediaQuery.of(context).size.width *
@@ -1530,16 +1531,193 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                               const SizedBox(
                                 height: 20,
                               ),
-                              GestureDetector(
-                                onTap: () {
-                                  Navigator.pop(context);
-                                },
-                                child: Text(
-                                  "This can always be enabled later down below.",
-                                  style: utils.extraSmallTitleTextStyle(
-                                    color: Colors.grey,
-                                  ),
+                              Text(
+                                "This can always be enabled later down below.",
+                                style: utils.extraSmallTitleTextStyle(
+                                  color: Colors.grey,
                                 ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: Container(
+                  height: MediaQuery.of(context).size.width * 0.6,
+                  width: double.infinity,
+                  color: Colors.transparent,
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  incomingVideoCallDialog() {
+    showGeneralDialog(
+      context: context,
+      barrierLabel: 'Dialog',
+      transitionDuration: const Duration(milliseconds: 20),
+      pageBuilder: (_, __, ___) {
+        return Scaffold(
+          backgroundColor: Colors.white60.withOpacity(0.3),
+          body: Column(
+            children: [
+              GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: Container(
+                  height: MediaQuery.of(context).size.width * 0.76,
+                  width: double.infinity,
+                  color: Colors.transparent,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: Column(
+                  children: [
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: 260,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 15, right: 20),
+                          child: Column(
+                            children: [
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              SizedBox(
+                                height: 100,
+                                width: double.infinity,
+                                child: Stack(
+                                  alignment: Alignment.center,
+                                  children: [
+                                    Positioned(
+                                      left: 0,
+                                      right: 50,
+                                      child: Container(
+                                        width: 70,
+                                        height: 70,
+                                        decoration: BoxDecoration(
+                                          color: purpleColor.withOpacity(0.4),
+                                          shape: BoxShape.circle,
+                                        ),
+                                        child: Image.asset(
+                                          "assets/videoIcon.png",
+                                          scale: 4,
+                                          color: purpleColor,
+                                        ),
+                                      ),
+                                    ),
+                                    Positioned(
+                                      right: 0,
+                                      left: 50,
+                                      child: Container(
+                                        width: 70,
+                                        height: 70,
+                                        decoration: const BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          image: DecorationImage(
+                                            image: AssetImage(
+                                              "assets/background.png",
+                                            ),
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              const Text(
+                                "Incoming Video Call from Omer",
+                                style: TextStyle(
+                                  fontSize: 22,
+                                  fontFamily: "ProximaNova",
+                                  fontWeight: FontWeight.w900,
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 35,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  GestureDetector(
+                                    onTap: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: Container(
+                                      width: MediaQuery.of(context).size.width *
+                                          0.32,
+                                      height: 50,
+                                      decoration: BoxDecoration(
+                                        color: redColor,
+                                        borderRadius: BorderRadius.circular(35),
+                                      ),
+                                      child: const Center(
+                                        child: Text(
+                                          "Decline",
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            fontFamily: "ProximaNova",
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    width: 20,
+                                  ),
+                                  GestureDetector(
+                                    onTap: () {
+                                      Navigator.pop(context);
+                                      Navigator.pushNamed(
+                                          context, videoCallingScreenRoute);
+                                    },
+                                    child: Container(
+                                      width: MediaQuery.of(context).size.width *
+                                          0.32,
+                                      height: 50,
+                                      decoration: BoxDecoration(
+                                        color: blueColor,
+                                        borderRadius: BorderRadius.circular(35),
+                                      ),
+                                      child: const Center(
+                                        child: Text(
+                                          "Accept",
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            fontFamily: "ProximaNova",
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(
+                                height: 20,
                               ),
                             ],
                           ),

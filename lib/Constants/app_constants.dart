@@ -6,19 +6,35 @@ const orangeColor = Color(0xffF0AD2B);
 const purpleColor = Color(0xff5264FA);
 const redColor = Color(0xffFF7575);
 const greenColor = Color(0xff33D230);
+const lightBlueColor = Color(0xff0085FF);
+const extraLightBlueColor = Color(0xffD9E5FF);
+const darkGreyColor = Color(0xff313131);
+const greyColor = Color(0xffA6A6A6);
+const callButtonBackgroundColor = Color(0xffDDDDDD);
+
+///gradients
 var linearGradientBlue = const LinearGradient(colors: [
   Color(0xff6B7BFA),
   Color(0xff3776FF),
 ]);
-const lightBlueColor = Color(0xff0085FF);
-const extraLightBlueColor = Color(0xffD9E5FF);
+
+var linearGradientGrey = LinearGradient(
+  colors: [
+    const Color(0xff313131),
+    const Color(0xff313131).withOpacity(0.8),
+    const Color(0xff313131),
+  ],
+  begin: Alignment.center,
+);
 
 ///routes for screens
 const splashRoute = "/";
 const landingScreenRoute = "/landingScreenRoute";
+const videoCallingScreenRoute = "/videoCallingScreenRoute";
 const onBoardingPhoneScreenRoute = "/onBoardingFirstMainScreenRoute";
 const onBoardingNameScreenRoute = "/onBoardingNameScreenRoute";
 const onBoardingDateOfBirthScreenRoute = "/onBoardingDateOfBirthScreenRoute";
+const deleteAccountScreenRoute = "/deleteAccountScreenRoute";
 const onBoardingEthnicityScreenRoute = "/onBoardingEthnicityScreenRoute";
 const onBoardingReligiousScreenRoute = "/onBoardingReligiousScreenRoute";
 const loginWithPhoneNumberScreenRoute = "/loginWithPhoneNumberScreenRoute";

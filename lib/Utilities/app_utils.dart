@@ -1980,4 +1980,22 @@ class AppUtils {
       ),
     );
   }
+
+  callSmallButtons({colorOfButton, assetImage, onTap}) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: 45,
+        height: 45,
+        decoration: BoxDecoration(
+          color: colorOfButton,
+          shape: BoxShape.circle,
+        ),
+        child: Image.asset(
+          assetImage,
+          scale: 3.5,
+        ),
+      ),
+    );
+  }
 }

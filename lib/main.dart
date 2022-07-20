@@ -1,5 +1,6 @@
 import 'package:dating_app/Authentication/login_with_otp_screen.dart';
 import 'package:dating_app/Authentication/login_with_phone_number_screen.dart';
+import 'package:dating_app/CallingScreens/video_calling_screen.dart';
 import 'package:dating_app/HomeScreens/bottom_navigation_bar_screen.dart';
 import 'package:dating_app/Onboarding/onboarding_add_photos_screen.dart';
 import 'package:dating_app/Onboarding/onboarding_dob_screen.dart';
@@ -31,6 +32,7 @@ import 'Onboarding/onboarding_phone_verification_screen.dart';
 import 'Onboarding/onboarding_photo_verification_screen.dart';
 import 'Onboarding/onboarding_thank_you_screen.dart';
 import 'Onboarding/onboarding_welcome_screen.dart';
+import 'ProfileScreens/delete_account_screen.dart';
 import 'ProfileScreens/help_and_support_screen.dart';
 import 'ProfileScreens/premium_access_screen.dart';
 
@@ -94,6 +96,8 @@ class _MyAppState extends State<MyApp> {
         groundRuleOneScreenRoute: (context) => const GroundRuleOneScreen(),
         groundRuleTwoScreenRoute: (context) => const GroundRuleTwoScreen(),
         helpAndSupportScreenRoute: (context) => const HelpAndSupportScreen(),
+        videoCallingScreenRoute: (context) => const VideoCallingScreen(),
+        deleteAccountScreenRoute: (context) => const DeleteAccountScreen(),
         groundRuleThreeScreenRoute: (context) => const GroundRuleThreeScreen(),
         premiumAccessScreenRoute: (context) => const PremiumAccessScreen(),
         preferencesScreenRoute: (context) => const PreferencesScreen(),

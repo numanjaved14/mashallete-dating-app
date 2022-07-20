@@ -1,16 +1,16 @@
-import 'package:dating_app/Utilities/app_utils.dart';
 import 'package:flutter/material.dart';
 
 import '../Constants/app_constants.dart';
+import '../Utilities/app_utils.dart';
 
-class HelpAndSupportScreen extends StatefulWidget {
-  const HelpAndSupportScreen({Key? key}) : super(key: key);
+class DeleteAccountScreen extends StatefulWidget {
+  const DeleteAccountScreen({Key? key}) : super(key: key);
 
   @override
-  State<HelpAndSupportScreen> createState() => _HelpAndSupportScreenState();
+  State<DeleteAccountScreen> createState() => _DeleteAccountScreenState();
 }
 
-class _HelpAndSupportScreenState extends State<HelpAndSupportScreen> {
+class _DeleteAccountScreenState extends State<DeleteAccountScreen> {
   var utils = AppUtils();
   Object? val;
 
@@ -254,10 +254,10 @@ class _HelpAndSupportScreenState extends State<HelpAndSupportScreen> {
                     width: MediaQuery.of(context).size.width * 0.9,
                     height: 55.0,
                     containerColor:
-                        val == null ? Colors.grey.withOpacity(0.2) : blueColor,
+                        val == null ? Colors.grey.withOpacity(0.2) : redColor,
                     textColor: val == null ? Colors.black : Colors.white,
                     shadowColors: Colors.white,
-                    text: "Submit",
+                    text: "Submit & Delete Account ",
                     fontSize: 16,
                     borderRadius: 30.0),
               ),
