@@ -148,7 +148,7 @@ class _PreferencesScreenState extends State<PreferencesScreen> {
               ],
             ),
             const SizedBox(
-              height: 20,
+              height: 10,
             ),
             SizedBox(
               width: MediaQuery.of(context).size.width,
@@ -170,27 +170,33 @@ class _PreferencesScreenState extends State<PreferencesScreen> {
                 },
               ),
             ),
-            const SizedBox(
-              height: 10,
-            ),
             utils.line(width: double.infinity),
+            const SizedBox(
+              height: 5,
+            ),
             utils.preferencesWidget(text: "Ethnicity", text2: "Open to All"),
             const SizedBox(
-              height: 10,
+              height: 5,
             ),
             utils.line(width: double.infinity),
+            const SizedBox(
+              height: 5,
+            ),
             utils.preferencesWidget(text: "Flavor", text2: "Choose"),
             const SizedBox(
-              height: 10,
+              height: 5,
             ),
             utils.line(width: double.infinity),
+            const SizedBox(
+              height: 5,
+            ),
             utils.preferencesWidget(text: "Verified only", text2: "Yes"),
             const SizedBox(
-              height: 10,
+              height: 5,
             ),
             utils.line(width: double.infinity),
             const SizedBox(
-              height: 10,
+              height: 15,
             ),
             GestureDetector(
               onTap: () {

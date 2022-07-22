@@ -449,8 +449,9 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                             scale: 5,
                           )
                         : Image.asset(
-                            "assets/audioVideo.png",
-                            scale: 1.7,
+                            "assets/videoIcon.png",
+                            color: blueColor,
+                            scale: 5,
                           ),
                   ),
                 ),

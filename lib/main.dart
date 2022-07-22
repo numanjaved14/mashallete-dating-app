@@ -16,6 +16,7 @@ import 'package:dating_app/ProfileScreens/profile_edit_tab_bar_screen.dart';
 import 'package:dating_app/ProfileScreens/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:page_transition/page_transition.dart';
 import 'Authentication/landing_page.dart';
 import 'Authentication/splash_screen.dart';
 import 'ChatScreens/chat_box_screen.dart';
@@ -63,6 +64,23 @@ class _MyAppState extends State<MyApp> {
       title: 'MashaLatte',
       debugShowCheckedModeBanner: false,
       initialRoute: splashRoute,
+      onGenerateRoute: (settings) {
+        switch (settings.name) {
+          case helpAndSupportScreenRoute:
+            return PageTransition(
+                child: const HelpAndSupportScreen(),
+                type: PageTransitionType.bottomToTop);
+            break;
+          case deleteAccountScreenRoute:
+            return PageTransition(
+              child: const DeleteAccountScreen(),
+              type: PageTransitionType.bottomToTop,
+            );
+            break;
+          default:
+            return null;
+        }
+      },
       routes: {
         splashRoute: (context) => const SplashScreen(),
         onBoardingInterestsScreenRoute: (context) =>
@@ -95,9 +113,9 @@ class _MyAppState extends State<MyApp> {
             const OnBoardingThankYouScreen(),
         groundRuleOneScreenRoute: (context) => const GroundRuleOneScreen(),
         groundRuleTwoScreenRoute: (context) => const GroundRuleTwoScreen(),
-        helpAndSupportScreenRoute: (context) => const HelpAndSupportScreen(),
+        // helpAndSupportScreenRoute: (context) => const HelpAndSupportScreen(),
         videoCallingScreenRoute: (context) => const VideoCallingScreen(),
-        deleteAccountScreenRoute: (context) => const DeleteAccountScreen(),
+        // deleteAccountScreenRoute: (context) => const DeleteAccountScreen(),
         groundRuleThreeScreenRoute: (context) => const GroundRuleThreeScreen(),
         premiumAccessScreenRoute: (context) => const PremiumAccessScreen(),
         preferencesScreenRoute: (context) => const PreferencesScreen(),
