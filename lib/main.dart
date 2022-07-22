@@ -70,13 +70,11 @@ class _MyAppState extends State<MyApp> {
             return PageTransition(
                 child: const HelpAndSupportScreen(),
                 type: PageTransitionType.bottomToTop);
-            break;
           case deleteAccountScreenRoute:
             return PageTransition(
               child: const DeleteAccountScreen(),
               type: PageTransitionType.bottomToTop,
             );
-            break;
           default:
             return null;
         }
