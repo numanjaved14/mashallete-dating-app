@@ -656,7 +656,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.only(left: 15, right: 20),
+                          padding: const EdgeInsets.only(left: 30, right: 15),
                           child: Column(
                             children: [
                               const SizedBox(

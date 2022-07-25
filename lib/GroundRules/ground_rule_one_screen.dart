@@ -38,29 +38,8 @@ class _GroundRuleOneScreenState extends State<GroundRuleOneScreen> {
                   ),
                   child: Center(
                     child: Image.asset(
-                      "assets/screenshot.png",
-                      scale: 2,
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  width: 15,
-                ),
-                Container(
-                  width: 52,
-                  height: 52,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: Colors.grey.withOpacity(0.6),
-                      width: 2,
-                    ),
-                  ),
-                  child: Center(
-                    child: Image.asset(
                       "assets/time.png",
-                      scale: 3,
-                      color: Colors.grey.withOpacity(0.6),
+                      scale: 2,
                     ),
                   ),
                 ),
@@ -91,18 +70,18 @@ class _GroundRuleOneScreenState extends State<GroundRuleOneScreen> {
               height: 25,
             ),
             const Text(
-              "No Screenshots",
+              "Inactive Profiles",
               style: TextStyle(
                 fontSize: 32,
-                fontFamily: "ProximaNova",
                 fontWeight: FontWeight.w600,
+                fontFamily: "ProximaNova",
               ),
             ),
             const SizedBox(
               height: 10,
             ),
             const Text(
-              "You should be able to find your special someone without being shared around.",
+              "If you are inactive for more than 10 days. Your profile will be invisible until you log back in.",
               style: TextStyle(
                 fontSize: 17,
                 height: 1.5,

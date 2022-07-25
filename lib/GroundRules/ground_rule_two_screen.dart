@@ -39,7 +39,7 @@ class _GroundRuleTwoScreenState extends State<GroundRuleTwoScreen> {
                   ),
                   child: Center(
                     child: Image.asset(
-                      "assets/screenshot.png",
+                      "assets/time.png",
                       scale: 3,
                       color: Colors.grey.withOpacity(0.6),
                     ),
@@ -60,29 +60,8 @@ class _GroundRuleTwoScreenState extends State<GroundRuleTwoScreen> {
                   ),
                   child: Center(
                     child: Image.asset(
-                      "assets/time.png",
-                      scale: 2,
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  width: 15,
-                ),
-                Container(
-                  width: 52,
-                  height: 52,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: Colors.grey.withOpacity(0.6),
-                      width: 2,
-                    ),
-                  ),
-                  child: Center(
-                    child: Image.asset(
                       "assets/warning.png",
-                      scale: 3,
-                      color: Colors.grey.withOpacity(0.6),
+                      scale: 2,
                     ),
                   ),
                 ),
@@ -92,7 +71,7 @@ class _GroundRuleTwoScreenState extends State<GroundRuleTwoScreen> {
               height: 25,
             ),
             const Text(
-              "Inactive Profiles",
+              "Expiring Matches",
               style: TextStyle(
                 fontSize: 32,
                 fontWeight: FontWeight.w600,
@@ -103,7 +82,7 @@ class _GroundRuleTwoScreenState extends State<GroundRuleTwoScreen> {
               height: 10,
             ),
             const Text(
-              "If you are inactive for more than 10 days. Your profile will be invisible until you log back in.",
+              "If you don't message each other for 7 days, we'll unmatch you automatically. Don't worry, we'll send you some reminders!.",
               style: TextStyle(
                 fontSize: 17,
                 height: 1.5,
@@ -111,19 +90,20 @@ class _GroundRuleTwoScreenState extends State<GroundRuleTwoScreen> {
               ),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.37,
+              height: MediaQuery.of(context).size.height * 0.34,
             ),
             Align(
               alignment: Alignment.center,
               child: utils.bigButton(
                   onTap: () {
-                    Navigator.pushNamed(context, groundRuleThreeScreenRoute);
+                    Navigator.pushNamed(
+                        context, bottomNavigationBarScreenRoute);
                   },
                   width: MediaQuery.of(context).size.width * 0.9,
                   height: 55.0,
                   containerColor: blueColor,
                   textColor: Colors.white,
-                  text: "I understand",
+                  text: "Get Started",
                   fontSize: 15,
                   borderRadius: 30.0),
             ),

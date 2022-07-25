@@ -83,27 +83,8 @@ class _OnBoardingLookingForScreenState
             ),
             const Spacer(),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Row(
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pushNamed(
-                            context, onBoardingLocationScreenRoute);
-                      },
-                      child: const Text(
-                        "Skip for now",
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: "ProximaNova",
-                          color: blueColor,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
                 GestureDetector(
                   onTap: () {
                     Navigator.pushNamed(context, onBoardingLocationScreenRoute);

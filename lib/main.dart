@@ -114,7 +114,7 @@ class _MyAppState extends State<MyApp> {
         // helpAndSupportScreenRoute: (context) => const HelpAndSupportScreen(),
         videoCallingScreenRoute: (context) => const VideoCallingScreen(),
         // deleteAccountScreenRoute: (context) => const DeleteAccountScreen(),
-        groundRuleThreeScreenRoute: (context) => const GroundRuleThreeScreen(),
+        // groundRuleThreeScreenRoute: (context) => const GroundRuleThreeScreen(),
         premiumAccessScreenRoute: (context) => const PremiumAccessScreen(),
         preferencesScreenRoute: (context) => const PreferencesScreen(),
         chatBoxScreenRoute: (context) => const ChatBoxScreen(),

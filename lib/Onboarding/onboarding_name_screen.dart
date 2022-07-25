@@ -76,28 +76,8 @@ class _OnBoardingNameScreenState extends State<OnBoardingNameScreen> {
             ),
             const Spacer(),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Row(
-                  children: const [
-                    Icon(
-                      Icons.lock,
-                      color: blueColor,
-                    ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Text(
-                      "We'll never share this with anyone",
-                      style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w700,
-                        color: blueColor,
-                        fontFamily: "ProximaNova",
-                      ),
-                    ),
-                  ],
-                ),
                 GestureDetector(
                   onTap: () {
                     Navigator.pushNamed(
