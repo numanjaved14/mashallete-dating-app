@@ -1860,45 +1860,49 @@ class AppUtils {
     );
   }
 
-  editProfileWidget({title, body, isColorBlue}) {
-    return Container(
-      width: double.infinity,
-      margin: const EdgeInsets.symmetric(vertical: 10),
-      height: 70,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                title,
-                style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: "ProximaNova",
-                  letterSpacing: 0.7,
-                ),
-              ),
-              Text(
-                body,
-                style: TextStyle(
-                    fontSize: 15,
+  editProfileWidget({title, body, isColorBlue, margin, color, onTap}) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: double.infinity,
+        margin: EdgeInsets.symmetric(vertical: margin ?? 10),
+        height: 70,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: color ?? Colors.black,
+                    fontWeight: FontWeight.bold,
                     fontFamily: "ProximaNova",
-                    color: isColorBlue != null
-                        ? blueColor
-                        : Colors.black.withOpacity(0.7)),
-              ),
-            ],
-          ),
-          const Icon(
-            Icons.arrow_forward_ios_sharp,
-            size: 20,
-            color: Colors.black,
-          ),
-        ],
+                    letterSpacing: 0.7,
+                  ),
+                ),
+                Text(
+                  body,
+                  style: TextStyle(
+                      fontSize: 15,
+                      fontFamily: "ProximaNova",
+                      color: isColorBlue != null
+                          ? blueColor
+                          : Colors.black.withOpacity(0.7)),
+                ),
+              ],
+            ),
+            const Icon(
+              Icons.arrow_forward_ios_sharp,
+              size: 20,
+              color: Colors.black,
+            ),
+          ],
+        ),
       ),
     );
   }

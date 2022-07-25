@@ -1,6 +1,8 @@
 import 'package:dating_app/Utilities/app_utils.dart';
 import 'package:flutter/material.dart';
 
+import '../Constants/app_constants.dart';
+
 class EditProfileScreen extends StatefulWidget {
   const EditProfileScreen({Key? key}) : super(key: key);
 
@@ -57,27 +59,60 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             const SizedBox(
               height: 20,
             ),
+            // Align(
+            //   alignment: Alignment.centerLeft,
+            //   child: Text(
+            //     "INTERESTS",
+            //     style: utils.extraSmallHeadingTextStyle(color: Colors.grey),
+            //   ),
+            // ),
+            // const SizedBox(
+            //   height: 10,
+            // ),
+            // Wrap(
+            //   alignment: WrapAlignment.center,
+            //   children: [
+            //     for (int i = 0; i < arts.length; i++)
+            //       utils.interestsHomeWidget(
+            //         text: arts[i],
+            //         selected: false,
+            //         onTap: () {},
+            //       ),
+            //   ],
+            // ),
+            // const SizedBox(
+            //   height: 30,
+            // ),
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                "INTERESTS",
+                "ABOUT",
                 style: utils.extraSmallHeadingTextStyle(color: Colors.grey),
               ),
             ),
-            const SizedBox(
-              height: 10,
+            utils.editProfileWidget(
+              title: "Tagline",
+              margin: 0.0,
+              body: "I have passion for art and I am looking to meet...",
+              onTap: () {
+                Navigator.pushNamed(context, editTaglineScreenRoute);
+              },
             ),
-            Wrap(
-              alignment: WrapAlignment.center,
-              children: [
-                for (int i = 0; i < arts.length; i++)
-                  utils.interestsHomeWidget(
-                    text: arts[i],
-                    selected: false,
-                    onTap: () {},
-                  ),
-              ],
+            utils.editProfileWidget(
+              title: "About Me",
+              body: "Lorem Ipsum Dolor Sit",
+              margin: 0.0,
+              onTap: () {
+                Navigator.pushNamed(context, aboutMeEditScreenRoute);
+              },
             ),
+            utils.editProfileWidget(
+                title: "Interests",
+                body: "Acting, Art Galleries, Hockey",
+                margin: 0.0,
+                onTap: () {
+                  Navigator.pushNamed(context, editInterestScreenRoute);
+                }),
             const SizedBox(
               height: 30,
             ),
@@ -89,13 +124,31 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               ),
             ),
             utils.editProfileWidget(
-                title: "Prompt Question 1...", body: "Prompt Answer"),
+                title: "Facts about me that surprises people..",
+                body: "Prompt Answer",
+                onTap: () {
+                  Navigator.pushNamed(context, promptAnswerScreenRoute);
+                }),
             utils.line(),
             utils.editProfileWidget(
-                title: "Prompt Question 2...", body: "Prompt Answer"),
+              title: "Select a prompt",
+              body: "Write your Answer",
+              color: blueColor,
+              isColorBlue: true,
+              onTap: () {
+                Navigator.pushNamed(context, promptQuestionScreenRoute);
+              },
+            ),
             utils.line(),
             utils.editProfileWidget(
-                title: "Prompt Question 3...", body: "Prompt Answer"),
+              title: "Select a prompt",
+              body: "Prompt Answer",
+              color: blueColor,
+              isColorBlue: true,
+              onTap: () {
+                Navigator.pushNamed(context, promptQuestionScreenRoute);
+              },
+            ),
             utils.line(),
             const SizedBox(
               height: 40,

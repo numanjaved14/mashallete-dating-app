@@ -10,10 +10,14 @@ import 'package:dating_app/Onboarding/onboarding_looking_for_h_w_screen.dart';
 import 'package:dating_app/Onboarding/onboarding_looking_good_screen.dart';
 import 'package:dating_app/Onboarding/onboarding_notifications_screen.dart';
 import 'package:dating_app/Onboarding/onboarding_religious_screen.dart';
+import 'package:dating_app/ProfileScreens/edit_interests_screen.dart';
+import 'package:dating_app/ProfileScreens/edit_tagline_screen.dart';
 import 'package:dating_app/ProfileScreens/preferences_screen.dart';
 import 'package:dating_app/ProfileScreens/privacy_screen.dart';
 import 'package:dating_app/ProfileScreens/profile_edit_tab_bar_screen.dart';
 import 'package:dating_app/ProfileScreens/profile_screen.dart';
+import 'package:dating_app/ProfileScreens/prompt_answer_screen.dart';
+import 'package:dating_app/ProfileScreens/prompt_questions_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:page_transition/page_transition.dart';
@@ -32,6 +36,7 @@ import 'Onboarding/onboarding_phone_verification_screen.dart';
 import 'Onboarding/onboarding_photo_verification_screen.dart';
 import 'Onboarding/onboarding_thank_you_screen.dart';
 import 'Onboarding/onboarding_welcome_screen.dart';
+import 'ProfileScreens/about_me_edit_screen.dart';
 import 'ProfileScreens/delete_account_screen.dart';
 import 'ProfileScreens/help_and_support_screen.dart';
 import 'ProfileScreens/premium_access_screen.dart';
@@ -110,6 +115,11 @@ class _MyAppState extends State<MyApp> {
             const OnBoardingThankYouScreen(),
         groundRuleOneScreenRoute: (context) => const GroundRuleOneScreen(),
         groundRuleTwoScreenRoute: (context) => const GroundRuleTwoScreen(),
+        aboutMeEditScreenRoute: (context) => const AboutMeEditScreen(),
+        editTaglineScreenRoute: (context) => const EditTaglineScreen(),
+        promptQuestionScreenRoute: (context) => const PromptQuestionScreen(),
+        promptAnswerScreenRoute: (context) => const PromptAnswerScreen(),
+        editInterestScreenRoute: (context) => const EditInterestScreen(),
         // helpAndSupportScreenRoute: (context) => const HelpAndSupportScreen(),
         videoCallingScreenRoute: (context) => const VideoCallingScreen(),
         // deleteAccountScreenRoute: (context) => const DeleteAccountScreen(),
