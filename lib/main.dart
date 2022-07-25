@@ -22,7 +22,6 @@ import 'Authentication/splash_screen.dart';
 import 'ChatScreens/chat_box_screen.dart';
 import 'Constants/app_constants.dart';
 import 'GroundRules/ground_rule_one_screen.dart';
-import 'GroundRules/ground_rule_three_screen.dart';
 import 'GroundRules/ground_rule_two_screen.dart';
 import 'HomeScreens/home_screen.dart';
 import 'HomeScreens/view_profile_screen.dart';
