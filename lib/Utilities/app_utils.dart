@@ -790,94 +790,171 @@ class AppUtils {
     );
   }
 
-  addPhotosWidget({onTap, enabled}) {
+  addPhotosWidget({onTap, enabled, width}) {
     return GestureDetector(
       onTap: onTap,
-      child: Container(
-        width: 115,
-        height: 135,
-        margin: const EdgeInsets.only(right: 10, bottom: 15),
-        child: Stack(
-          children: [
-            Positioned(
-              bottom: 0,
-              child: enabled == false
-                  ? DottedBorder(
-                      dashPattern: const [4, 4],
-                      color: Colors.black.withOpacity(0.6),
-                      strokeWidth: 1,
-                      borderType: BorderType.RRect,
-                      radius: const Radius.circular(12),
-                      strokeCap: StrokeCap.round,
-                      child: Container(
-                        width: 105,
-                        height: 123,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(
-                            12,
-                          ),
-                        ),
-                        child: const Icon(
-                          Icons.photo,
-                          color: Colors.grey,
-                          size: 20,
-                        ),
-                      ),
-                    )
-                  : Container(
-                      width: 110,
-                      height: 128,
-                      decoration: BoxDecoration(
-                        image: const DecorationImage(
-                            image: AssetImage("assets/background.png"),
-                            fit: BoxFit.cover),
-                        borderRadius: BorderRadius.circular(
-                          16,
-                        ),
-                      ),
-                    ),
-            ),
-            enabled == true
-                ? Positioned(
-                    right: 0,
-                    top: 0,
-                    child: Container(
-                      width: 25,
-                      height: 25,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.white,
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey,
-                            offset: Offset(0, 1),
-                            blurRadius: 1,
+      child: width > 400
+          ? Container(
+              width: 115,
+              height: 135,
+              margin: const EdgeInsets.only(right: 10, bottom: 15),
+              child: Stack(
+                children: [
+                  Positioned(
+                    bottom: 0,
+                    child: enabled == false
+                        ? DottedBorder(
+                            dashPattern: const [4, 4],
+                            color: Colors.black.withOpacity(0.6),
+                            strokeWidth: 1,
+                            borderType: BorderType.RRect,
+                            radius: const Radius.circular(12),
+                            strokeCap: StrokeCap.round,
+                            child: Container(
+                              width: 105,
+                              height: 123,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(
+                                  12,
+                                ),
+                              ),
+                              child: const Icon(
+                                Icons.photo,
+                                color: Colors.grey,
+                                size: 20,
+                              ),
+                            ),
                           )
-                        ],
-                      ),
-                      padding: const EdgeInsets.all(3),
-                      child: const Center(
-                          child: Icon(
-                        Icons.close,
-                        color: Colors.black,
-                        size: 20,
-                      )),
-                    ),
-                  )
-                : Container(),
-          ],
-        ),
-      ),
+                        : Container(
+                            width: 110,
+                            height: 128,
+                            decoration: BoxDecoration(
+                              image: const DecorationImage(
+                                  image: AssetImage("assets/background.png"),
+                                  fit: BoxFit.cover),
+                              borderRadius: BorderRadius.circular(
+                                16,
+                              ),
+                            ),
+                          ),
+                  ),
+                  enabled == true
+                      ? Positioned(
+                          right: 0,
+                          top: 0,
+                          child: Container(
+                            width: 25,
+                            height: 25,
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.white,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey,
+                                  offset: Offset(0, 1),
+                                  blurRadius: 1,
+                                )
+                              ],
+                            ),
+                            padding: const EdgeInsets.all(3),
+                            child: const Center(
+                                child: Icon(
+                              Icons.close,
+                              color: Colors.black,
+                              size: 20,
+                            )),
+                          ),
+                        )
+                      : Container(),
+                ],
+              ),
+            )
+          : Container(
+              width: 110,
+              height: 125,
+              margin: const EdgeInsets.only(right: 5, bottom: 15),
+              child: Stack(
+                children: [
+                  Positioned(
+                    bottom: 0,
+                    child: enabled == false
+                        ? DottedBorder(
+                            dashPattern: const [4, 4],
+                            color: Colors.black.withOpacity(0.6),
+                            strokeWidth: 1,
+                            borderType: BorderType.RRect,
+                            radius: const Radius.circular(12),
+                            strokeCap: StrokeCap.round,
+                            child: Container(
+                              width: 100,
+                              height: 118,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(
+                                  12,
+                                ),
+                              ),
+                              child: const Icon(
+                                Icons.photo,
+                                color: Colors.grey,
+                                size: 20,
+                              ),
+                            ),
+                          )
+                        : Container(
+                            width: 105,
+                            height: 123,
+                            decoration: BoxDecoration(
+                              image: const DecorationImage(
+                                  image: AssetImage("assets/background.png"),
+                                  fit: BoxFit.cover),
+                              borderRadius: BorderRadius.circular(
+                                16,
+                              ),
+                            ),
+                          ),
+                  ),
+                  enabled == true
+                      ? Positioned(
+                          right: 0,
+                          top: 0,
+                          child: Container(
+                            width: 25,
+                            height: 25,
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.white,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey,
+                                  offset: Offset(0, 1),
+                                  blurRadius: 1,
+                                )
+                              ],
+                            ),
+                            padding: const EdgeInsets.all(3),
+                            child: const Center(
+                                child: Icon(
+                              Icons.close,
+                              color: Colors.black,
+                              size: 20,
+                            )),
+                          ),
+                        )
+                      : Container(),
+                ],
+              ),
+            ),
     );
   }
 
-  addPhotosHomeWidget({onTap, enabled}) {
+  addPhotosHomeWidget({onTap, enabled, width}) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 115,
-        height: 135,
-        margin: const EdgeInsets.only(right: 10, bottom: 15),
+        width: width > 400 ? 115 : 110,
+        height: width > 400 ? 135 : 125,
+        margin: EdgeInsets.only(
+            right: width > 400 ? 10 : 3, bottom: width > 400 ? 15 : 10),
         child: Stack(
           children: [
             Positioned(
@@ -891,8 +968,8 @@ class AppUtils {
                       radius: const Radius.circular(12),
                       strokeCap: StrokeCap.round,
                       child: Container(
-                        width: 105,
-                        height: 123,
+                        width: width > 400 ? 105 : 95,
+                        height: width > 400 ? 123 : 113,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(
                             12,
@@ -906,8 +983,8 @@ class AppUtils {
                       ),
                     )
                   : Container(
-                      width: 110,
-                      height: 128,
+                      width: width > 400 ? 110 : 100,
+                      height: width > 400 ? 128 : 118,
                       decoration: BoxDecoration(
                         image: const DecorationImage(
                             image: AssetImage("assets/background.png"),
@@ -1096,7 +1173,7 @@ class AppUtils {
     );
   }
 
-  privacyWidget({text1, text2, value, onChanged}) {
+  privacyWidget({text1, text2, value, onChanged, width}) {
     return Container(
       width: double.infinity,
       margin: const EdgeInsets.symmetric(vertical: 8),
@@ -1110,17 +1187,17 @@ class AppUtils {
             children: [
               Text(
                 text1,
-                style: const TextStyle(
-                  fontSize: 18,
+                style: TextStyle(
+                  fontSize: width > 400 ? 18 : 16,
                   fontFamily: "ProximaNova",
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
                 text2,
-                style: const TextStyle(
+                style: TextStyle(
                   fontFamily: "ProximaNova",
-                  fontSize: 16,
+                  fontSize: width > 400 ? 16 : 14,
                 ),
               ),
             ],
@@ -1907,10 +1984,10 @@ class AppUtils {
     );
   }
 
-  blurredImageContainer({image, name, age}) {
+  blurredImageContainer({image, name, age, width}) {
     return Container(
-      width: 190,
-      height: 280,
+      width: width > 400 ? 190 : 170,
+      height: width > 400 ? 280 : 260,
       margin: const EdgeInsets.only(bottom: 10),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -1928,8 +2005,8 @@ class AppUtils {
           Stack(
             children: [
               Container(
-                width: 190,
-                height: 230,
+                width: width > 400 ? 190 : 170,
+                height: width > 400 ? 230 : 210,
                 decoration: BoxDecoration(
                     borderRadius: const BorderRadius.only(
                         topRight: Radius.circular(10),
@@ -1944,8 +2021,8 @@ class AppUtils {
                 left: 0,
                 right: 0,
                 child: SizedBox(
-                  width: 190,
-                  height: 230,
+                  width: width > 400 ? 190 : 170,
+                  height: width > 400 ? 230 : 210,
                   child: BlurryContainer(
                     color: Colors.black.withOpacity(0.04),
                     blur: 3,

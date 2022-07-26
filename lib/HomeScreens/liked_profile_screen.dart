@@ -14,6 +14,7 @@ class _LikedProfilesScreenState extends State<LikedProfilesScreen> {
   var utils = AppUtils();
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
@@ -151,6 +152,7 @@ class _LikedProfilesScreenState extends State<LikedProfilesScreen> {
                       children: [
                         for (int i = 0; i < 6; i++)
                           utils.blurredImageContainer(
+                            width: width,
                             image: "assets/boy.png",
                             name: "Aadil,",
                             age: "22",
@@ -167,14 +169,15 @@ class _LikedProfilesScreenState extends State<LikedProfilesScreen> {
           ),
           Positioned(
             left: 35,
-            right: 35,
-            bottom: 30,
+            right: width > 400 ? 35 : 20,
+            bottom: width > 400 ? 30 : 20,
             child: GestureDetector(
               onTap: () {
                 Navigator.pushNamed(context, premiumAccessScreenRoute);
               },
               child: Container(
-                width: MediaQuery.of(context).size.width * 0.8,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                 height: 70,
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -209,8 +212,8 @@ class _LikedProfilesScreenState extends State<LikedProfilesScreen> {
                         ),
                       ),
                     ),
-                    const SizedBox(
-                      width: 20,
+                    SizedBox(
+                      width: width > 400 ? 20 : 10,
                     ),
                     Text(
                       "Upgrade to premium for unlimited \naccess, swipes and likes.",

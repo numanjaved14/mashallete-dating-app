@@ -241,7 +241,7 @@ class _EditInterestScreenState extends State<EditInterestScreen> {
                 height: 25,
               ),
               Text(
-                "Choose up to 5 interests to make yourself stand \nout",
+                "Choose up to 10 interests to make yourself stand \nout",
                 style: utils.smallTitleTextStyle(
                   color: Colors.black,
                 ),
@@ -257,7 +257,7 @@ class _EditInterestScreenState extends State<EditInterestScreen> {
                       selected: selected1[i],
                       onTap: () {
                         if (selected1.where((item) => item == true).length <
-                            5) {
+                            10) {
                           if (selected1[i] == false) {
                             selected1[i] = true;
                           } else {

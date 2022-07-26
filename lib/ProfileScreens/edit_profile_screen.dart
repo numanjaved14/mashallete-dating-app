@@ -21,6 +21,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   var utils = AppUtils();
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -49,6 +50,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   children: [
                     for (int i = 0; i < 6; i++)
                       utils.addPhotosHomeWidget(
+                        width: width,
                         onTap: () {},
                         enabled: true,
                       ),

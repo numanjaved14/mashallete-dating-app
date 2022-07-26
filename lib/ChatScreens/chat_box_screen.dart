@@ -125,6 +125,8 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
@@ -159,7 +161,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    optionsDialog();
+                    optionsDialog(width);
                   },
                   child: Text(
                     "More",
@@ -378,8 +380,8 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                           ),
                           Row(
                             children: [
-                              const SizedBox(
-                                width: 10,
+                              SizedBox(
+                                width: width > 400 ? 10 : 5,
                               ),
                               GestureDetector(
                                 onTap: () {
@@ -392,8 +394,8 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                   size: 25,
                                 ),
                               ),
-                              const SizedBox(
-                                width: 10,
+                              SizedBox(
+                                width: width > 400 ? 10 : 5,
                               ),
                               Container(
                                 height: 50,
@@ -431,7 +433,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                   onTap: () {
                     videoCallEnabled == true
                         ? wantsVideoCallDialog()
-                        : enableCallOptionsDialog();
+                        : enableCallOptionsDialog(width);
                   },
                   child: Container(
                     width: 60,
@@ -521,7 +523,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
     );
   }
 
-  optionsDialog() {
+  optionsDialog(width) {
     showGeneralDialog(
       context: context,
       barrierLabel: 'Dialog',
@@ -549,7 +551,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                     GestureDetector(
                       onTap: () {
                         Navigator.pop(context);
-                        unMatchDialog();
+                        unMatchDialog(width);
                       },
                       child: Container(
                         width: MediaQuery.of(context).size.width,
@@ -572,7 +574,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                     GestureDetector(
                       onTap: () {
                         Navigator.pop(context);
-                        reportDialog();
+                        reportDialog(width);
                       },
                       child: Container(
                         width: MediaQuery.of(context).size.width,
@@ -622,7 +624,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
     );
   }
 
-  reportDialog() {
+  reportDialog(width) {
     showGeneralDialog(
       context: context,
       barrierLabel: 'Dialog',
@@ -650,13 +652,15 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                       onTap: () {},
                       child: Container(
                         width: MediaQuery.of(context).size.width,
-                        height: 580,
+                        height: width > 400 ? 580 : 550,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.only(left: 30, right: 15),
+                          padding: EdgeInsets.only(
+                              left: width > 400 ? 30 : 20,
+                              right: width > 400 ? 15 : 10),
                           child: Column(
                             children: [
                               const SizedBox(
@@ -683,7 +687,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                   Text(
                                     "Fake profile or spam",
                                     style: TextStyle(
-                                      fontSize: 18,
+                                      fontSize: width > 400 ? 18 : 16,
                                       fontFamily: "ProximaNova",
                                       color:
                                           val == 1 ? blueColor : Colors.black,
@@ -696,15 +700,15 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                       setState(() {
                                         val = value;
                                         Navigator.pop(context);
-                                        reportDialog();
+                                        reportDialog(width);
                                       });
                                     },
                                     activeColor: blueColor,
                                   ),
                                 ],
                               ),
-                              const SizedBox(
-                                height: 15,
+                              SizedBox(
+                                height: width > 400 ? 15 : 10,
                               ),
                               Row(
                                 mainAxisAlignment:
@@ -713,7 +717,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                   Text(
                                     "Inappropriate messages",
                                     style: TextStyle(
-                                      fontSize: 18,
+                                      fontSize: width > 400 ? 18 : 16,
                                       fontFamily: "ProximaNova",
                                       color:
                                           val == 2 ? blueColor : Colors.black,
@@ -726,15 +730,15 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                       setState(() {
                                         val = value;
                                         Navigator.pop(context);
-                                        reportDialog();
+                                        reportDialog(width);
                                       });
                                     },
                                     activeColor: blueColor,
                                   ),
                                 ],
                               ),
-                              const SizedBox(
-                                height: 15,
+                              SizedBox(
+                                height: width > 400 ? 15 : 10,
                               ),
                               Row(
                                 mainAxisAlignment:
@@ -743,7 +747,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                   Text(
                                     "Inappropriate photo(s)",
                                     style: TextStyle(
-                                      fontSize: 18,
+                                      fontSize: width > 400 ? 18 : 16,
                                       fontFamily: "ProximaNova",
                                       color:
                                           val == 3 ? blueColor : Colors.black,
@@ -756,15 +760,15 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                       setState(() {
                                         val = value;
                                         Navigator.pop(context);
-                                        reportDialog();
+                                        reportDialog(width);
                                       });
                                     },
                                     activeColor: blueColor,
                                   ),
                                 ],
                               ),
-                              const SizedBox(
-                                height: 15,
+                              SizedBox(
+                                height: width > 400 ? 15 : 10,
                               ),
                               Row(
                                 mainAxisAlignment:
@@ -773,7 +777,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                   Text(
                                     "Inappropriate bio",
                                     style: TextStyle(
-                                      fontSize: 18,
+                                      fontSize: width > 400 ? 18 : 16,
                                       fontFamily: "ProximaNova",
                                       color:
                                           val == 4 ? blueColor : Colors.black,
@@ -786,15 +790,15 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                       setState(() {
                                         val = value;
                                         Navigator.pop(context);
-                                        reportDialog();
+                                        reportDialog(width);
                                       });
                                     },
                                     activeColor: blueColor,
                                   ),
                                 ],
                               ),
-                              const SizedBox(
-                                height: 15,
+                              SizedBox(
+                                height: width > 400 ? 15 : 10,
                               ),
                               Row(
                                 mainAxisAlignment:
@@ -803,7 +807,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                   Text(
                                     "Underaged user",
                                     style: TextStyle(
-                                      fontSize: 18,
+                                      fontSize: width > 400 ? 18 : 16,
                                       fontFamily: "ProximaNova",
                                       color:
                                           val == 5 ? blueColor : Colors.black,
@@ -816,15 +820,15 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                       setState(() {
                                         val = value;
                                         Navigator.pop(context);
-                                        reportDialog();
+                                        reportDialog(width);
                                       });
                                     },
                                     activeColor: blueColor,
                                   ),
                                 ],
                               ),
-                              const SizedBox(
-                                height: 15,
+                              SizedBox(
+                                height: width > 400 ? 15 : 10,
                               ),
                               Row(
                                 mainAxisAlignment:
@@ -833,7 +837,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                   Text(
                                     "Offline behaviour",
                                     style: TextStyle(
-                                      fontSize: 18,
+                                      fontSize: width > 400 ? 18 : 16,
                                       fontFamily: "ProximaNova",
                                       color:
                                           val == 6 ? blueColor : Colors.black,
@@ -846,15 +850,15 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                       setState(() {
                                         val = value;
                                         Navigator.pop(context);
-                                        reportDialog();
+                                        reportDialog(width);
                                       });
                                     },
                                     activeColor: blueColor,
                                   ),
                                 ],
                               ),
-                              const SizedBox(
-                                height: 35,
+                              SizedBox(
+                                height: width > 400 ? 35 : 25,
                               ),
                               GestureDetector(
                                 onTap: () {
@@ -1004,7 +1008,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
     );
   }
 
-  unMatchDialog() {
+  unMatchDialog(width) {
     showGeneralDialog(
       context: context,
       barrierLabel: 'Dialog',
@@ -1019,7 +1023,9 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                   Navigator.pop(context);
                 },
                 child: Container(
-                  height: MediaQuery.of(context).size.width * 0.70,
+                  height: width > 400
+                      ? MediaQuery.of(context).size.width * 0.70
+                      : MediaQuery.of(context).size.width * 0.63,
                   width: double.infinity,
                   color: Colors.transparent,
                 ),
@@ -1159,7 +1165,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
     );
   }
 
-  enableCallOptionsDialog() {
+  enableCallOptionsDialog(width) {
     showGeneralDialog(
       context: context,
       barrierLabel: 'Dialog',
@@ -1174,7 +1180,9 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                   Navigator.pop(context);
                 },
                 child: Container(
-                  height: MediaQuery.of(context).size.width * 0.62,
+                  height: width > 400
+                      ? MediaQuery.of(context).size.width * 0.62
+                      : MediaQuery.of(context).size.width * 0.52,
                   width: double.infinity,
                   color: Colors.transparent,
                 ),
@@ -1270,7 +1278,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                 "This option remains private until you're both \nready. Once you're ready, you'll both be able to call \neach other when you'er both online.",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                  fontSize: 15,
+                                  fontSize: width > 400 ? 15 : 13,
                                   color: Colors.black.withOpacity(0.5),
                                   fontFamily: "ProximaNova",
                                   height: 1.5,
@@ -1346,7 +1354,10 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                 },
                                 child: Text(
                                   "I'm not ready yet",
-                                  style: utils.smallHeadingTextStyle(
+                                  style: TextStyle(
+                                    fontSize: width > 400 ? 16 : 14,
+                                    fontFamily: "ProximaNova",
+                                    fontWeight: FontWeight.bold,
                                     color: Colors.red,
                                   ),
                                 ),

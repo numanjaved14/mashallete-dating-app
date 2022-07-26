@@ -40,6 +40,8 @@ class _VideoCallingScreenState extends State<VideoCallingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
+
     return Scaffold(
       body: SizedBox(
         width: MediaQuery.of(context).size.width,
@@ -188,8 +190,8 @@ class _VideoCallingScreenState extends State<VideoCallingScreen> {
             ),
             Positioned(
               bottom: 45,
-              left: 85,
-              right: 85,
+              left: width > 400 ? 85 : 65,
+              right: width > 400 ? 85 : 65,
               child: BlurryContainer(
                 width: 240,
                 height: 65,
@@ -227,8 +229,8 @@ class _VideoCallingScreenState extends State<VideoCallingScreen> {
                     bottom: 125,
                     right: 20,
                     child: Container(
-                      width: 170,
-                      height: 250,
+                      width: width > 400 ? 170 : 140,
+                      height: width > 400 ? 250 : 220,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         image: const DecorationImage(

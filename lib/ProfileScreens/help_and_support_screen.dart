@@ -16,6 +16,7 @@ class _HelpAndSupportScreenState extends State<HelpAndSupportScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -244,8 +245,8 @@ class _HelpAndSupportScreenState extends State<HelpAndSupportScreen> {
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 165,
+              SizedBox(
+                height: width > 400 ? 165 : 90,
               ),
               Align(
                 alignment: Alignment.center,
