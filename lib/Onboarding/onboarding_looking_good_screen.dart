@@ -65,6 +65,7 @@ class _OnBoardingLookingGoodScreenState
                   height: 55.0,
                   containerColor: blueColor,
                   textColor: Colors.white,
+                  shadowColors: Colors.white,
                   text: "Complete your visible profile",
                   fontSize: 15,
                   borderRadius: 30.0),

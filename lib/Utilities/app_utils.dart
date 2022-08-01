@@ -4,6 +4,7 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
+
 import '../Constants/app_constants.dart';
 
 class AppUtils {
@@ -254,12 +255,13 @@ class AppUtils {
     );
   }
 
-  textField({controller, hintText, width, fontSize}) {
+  textField({controller, hintText, width, fontSize, keyboardType, height}) {
     return SizedBox(
       width: width,
-      height: 50,
+      height: height ?? 50,
       child: TextFormField(
         controller: controller,
+        keyboardType: keyboardType,
         decoration: InputDecoration(
             contentPadding: const EdgeInsets.only(top: 5, left: 15),
             hintText: hintText,
@@ -281,16 +283,30 @@ class AppUtils {
     );
   }
 
-  textFieldDOB({controller, hintText, width, fontSize}) {
+  textFieldDOB(
+      {controller,
+      hintText,
+      maxLength,
+      width,
+      fontSize,
+      keyboardType,
+      onChanged,
+      focusNode}) {
     return SizedBox(
       width: width,
       height: 50,
       child: TextFormField(
+        maxLength: maxLength,
+        focusNode: focusNode,
+        onChanged: onChanged,
         controller: controller,
         textAlign: TextAlign.center,
+        keyboardType: keyboardType,
         decoration: InputDecoration(
+            counterText: "",
             hintText: hintText,
             border: InputBorder.none,
+            contentPadding: const EdgeInsets.only(top: 5),
             hintStyle: TextStyle(
               color: Colors.grey,
               fontSize: fontSize,
@@ -793,7 +809,7 @@ class AppUtils {
   addPhotosWidget({onTap, enabled, width}) {
     return GestureDetector(
       onTap: onTap,
-      child: width > 400
+      child: width > 420
           ? Container(
               width: 115,
               height: 135,
@@ -1848,7 +1864,7 @@ class AppUtils {
                 width: 5,
               ),
               Text(
-                "About $name",
+                "ABOUT $name",
                 style: mediumHeadingTextStyle(color: blueColor),
               ),
             ],

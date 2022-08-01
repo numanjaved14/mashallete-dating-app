@@ -14,6 +14,8 @@ class _GroundRuleTwoScreenState extends State<GroundRuleTwoScreen> {
   var utils = AppUtils();
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
@@ -90,7 +92,9 @@ class _GroundRuleTwoScreenState extends State<GroundRuleTwoScreen> {
               ),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.34,
+              height: width > 415
+                  ? MediaQuery.of(context).size.height * 0.34
+                  : MediaQuery.of(context).size.height * 0.30,
             ),
             Align(
               alignment: Alignment.center,

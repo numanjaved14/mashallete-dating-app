@@ -13,6 +13,7 @@ class _GroundRuleOneScreenState extends State<GroundRuleOneScreen> {
   var utils = AppUtils();
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
@@ -70,7 +71,7 @@ class _GroundRuleOneScreenState extends State<GroundRuleOneScreen> {
               height: 25,
             ),
             const Text(
-              "Inactive Profiles",
+              "No Inactive Profiles",
               style: TextStyle(
                 fontSize: 32,
                 fontWeight: FontWeight.w600,
@@ -89,7 +90,9 @@ class _GroundRuleOneScreenState extends State<GroundRuleOneScreen> {
               ),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.37,
+              height: width > 415
+                  ? MediaQuery.of(context).size.height * 0.37
+                  : MediaQuery.of(context).size.height * 0.33,
             ),
             Align(
               alignment: Alignment.center,

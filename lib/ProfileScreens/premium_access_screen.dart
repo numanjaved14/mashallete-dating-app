@@ -115,8 +115,8 @@ class _PremiumAccessScreenState extends State<PremiumAccessScreen> {
                 },
                 selected: selected3,
               ),
-              const SizedBox(
-                height: 40,
+              SizedBox(
+                height: width > 415 ? 40 : 30,
               ),
               Container(
                 width: double.infinity,
@@ -134,12 +134,14 @@ class _PremiumAccessScreenState extends State<PremiumAccessScreen> {
                 ),
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.05,
+                height: width > 415
+                    ? MediaQuery.of(context).size.height * 0.05
+                    : MediaQuery.of(context).size.height * 0.03,
               ),
               Text(
                 "Automatic bill after trial ends. By subscribing you accept the \nTerms & Privacy Policy of the service.",
                 style: TextStyle(
-                  fontSize: width > 400 ? 14 : 12,
+                  fontSize: width > 415 ? 14 : 12,
                   fontFamily: "ProximaNova",
                 ),
                 textAlign: TextAlign.center,
@@ -154,7 +156,7 @@ class _PremiumAccessScreenState extends State<PremiumAccessScreen> {
                     "Already a premium user?",
                     style: TextStyle(
                       fontFamily: "ProximaNova",
-                      fontSize: width > 400 ? 14 : 12,
+                      fontSize: width > 415 ? 14 : 12,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -164,7 +166,7 @@ class _PremiumAccessScreenState extends State<PremiumAccessScreen> {
                   Text(
                     "Restore Purchase",
                     style: TextStyle(
-                      fontSize: width > 400 ? 14 : 12,
+                      fontSize: width > 415 ? 14 : 12,
                       fontFamily: "ProximaNova",
                       color: blueColor,
                       fontWeight: FontWeight.w700,

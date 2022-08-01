@@ -1,7 +1,7 @@
-import '../Utilities/app_utils.dart';
 import 'package:flutter/material.dart';
 
 import '../Constants/app_constants.dart';
+import '../Utilities/app_utils.dart';
 
 class LandingScreen extends StatefulWidget {
   const LandingScreen({Key? key}) : super(key: key);
@@ -15,6 +15,8 @@ class _LandingScreenState extends State<LandingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
+    print(width);
     return Scaffold(
       backgroundColor: Colors.white,
       body: Container(
@@ -64,15 +66,34 @@ class _LandingScreenState extends State<LandingScreen> {
                 children: [
                   Text(
                     "By signing up, you agree to our ",
-                    style: utils.smallTitleTextStyle(color: Colors.white),
+                    style: width > 415
+                        ? utils.smallTitleTextStyle(color: Colors.white)
+                        : TextStyle(
+                            fontSize: 14,
+                            color: Colors.white,
+                            fontFamily: "ProximaNova",
+                          ),
                   ),
                   Text(
                     "Terms of Service.",
-                    style: utils.smallTitleBoldTextStyle(color: Colors.white),
+                    style: width > 415
+                        ? utils.smallTitleBoldTextStyle(color: Colors.white)
+                        : TextStyle(
+                            fontSize: 14,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "ProximaNova",
+                          ),
                   ),
                   Text(
                     " See",
-                    style: utils.smallTitleTextStyle(color: Colors.white),
+                    style: width > 415
+                        ? utils.smallTitleTextStyle(color: Colors.white)
+                        : TextStyle(
+                            fontSize: 14,
+                            color: Colors.white,
+                            fontFamily: "ProximaNova",
+                          ),
                   ),
                 ],
               ),
@@ -84,11 +105,24 @@ class _LandingScreenState extends State<LandingScreen> {
                 children: [
                   Text(
                     "how we keep your data safe in our ",
-                    style: utils.smallTitleTextStyle(color: Colors.white),
+                    style: width > 415
+                        ? utils.smallTitleTextStyle(color: Colors.white)
+                        : TextStyle(
+                            fontSize: 14,
+                            color: Colors.white,
+                            fontFamily: "ProximaNova",
+                          ),
                   ),
                   Text(
                     "Privacy Policy.",
-                    style: utils.smallTitleBoldTextStyle(color: Colors.white),
+                    style: width > 415
+                        ? utils.smallTitleBoldTextStyle(color: Colors.white)
+                        : TextStyle(
+                            fontSize: 14,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "ProximaNova",
+                          ),
                   ),
                 ],
               ),

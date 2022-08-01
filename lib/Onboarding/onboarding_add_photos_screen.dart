@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../Constants/app_constants.dart';
 import '../Utilities/app_utils.dart';
 
@@ -118,9 +119,9 @@ class _OnBoardingAddPhotosScreenState extends State<OnBoardingAddPhotosScreen> {
                 ),
               ),
               SizedBox(
-                height: width > 400
+                height: width > 415
                     ? MediaQuery.of(context).size.height * 0.3
-                    : MediaQuery.of(context).size.height * 0.23,
+                    : MediaQuery.of(context).size.height * 0.20,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

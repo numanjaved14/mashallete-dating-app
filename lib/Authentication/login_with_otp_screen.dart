@@ -42,15 +42,6 @@ class _LoginWithOtpScreenState extends State<LoginWithOtpScreen> {
                   "Sent to 5555 5555 5555. ",
                   style: utils.mediumTitleTextStyle(color: Colors.black),
                 ),
-                const Text(
-                  "Change",
-                  style: TextStyle(
-                      decoration: TextDecoration.underline,
-                      fontSize: 16,
-                      color: blueColor,
-                      fontFamily: "ProximaNova",
-                      fontWeight: FontWeight.w600),
-                ),
               ],
             ),
             const SizedBox(

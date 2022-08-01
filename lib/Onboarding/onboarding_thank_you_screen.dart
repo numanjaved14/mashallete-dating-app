@@ -66,6 +66,7 @@ class _OnBoardingThankYouScreenState extends State<OnBoardingThankYouScreen> {
                   height: 55.0,
                   containerColor: blueColor,
                   textColor: Colors.white,
+                  shadowColors: Colors.white,
                   text: "Continue",
                   fontSize: 15,
                   borderRadius: 30.0),

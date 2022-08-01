@@ -14,11 +14,32 @@ class OnBoardingDateOfBirthScreen extends StatefulWidget {
 
 class _OnBoardingDateOfBirthScreenState
     extends State<OnBoardingDateOfBirthScreen> {
+  FocusNode? focusNode1;
+  FocusNode? focusNode2;
+  FocusNode? focusNode3;
   bool clicked = false;
   var monthController = TextEditingController();
   var dayController = TextEditingController();
   var yearController = TextEditingController();
   var utils = AppUtils();
+  @override
+  void dispose() {
+    focusNode1!.dispose();
+    focusNode2!.dispose();
+    focusNode3!.dispose();
+    // TODO: implement dispose
+    super.dispose();
+  }
+
+  @override
+  void initState() {
+    focusNode1 = FocusNode();
+    focusNode2 = FocusNode();
+    focusNode3 = FocusNode();
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return clicked == false
@@ -77,22 +98,49 @@ class _OnBoardingDateOfBirthScreenState
                     children: [
                       utils.textFieldDOB(
                           controller: monthController,
+                          maxLength: 2,
+                          onChanged: (val) {
+                            if (monthController.text.length == 2) {
+                              focusNode2!.requestFocus();
+                            }
+                            setState(() {});
+                          },
                           width: MediaQuery.of(context).size.width * 0.16,
                           hintText: "MM",
+                          focusNode: focusNode1,
+                          keyboardType: TextInputType.number,
                           fontSize: 15.0),
                       const SizedBox(
                         width: 10,
                       ),
                       utils.textFieldDOB(
                           controller: dayController,
+                          focusNode: focusNode2,
+                          maxLength: 2,
                           width: MediaQuery.of(context).size.width * 0.16,
                           hintText: "DD",
+                          onChanged: (val) {
+                            if (dayController.text.length == 2) {
+                              focusNode3!.requestFocus();
+                            }
+                            setState(() {});
+                          },
+                          keyboardType: TextInputType.number,
                           fontSize: 15.0),
                       const SizedBox(
                         width: 10,
                       ),
                       utils.textFieldDOB(
                           controller: yearController,
+                          focusNode: focusNode3,
+                          maxLength: 4,
+                          onChanged: (val) {
+                            if (yearController.text.length == 4) {
+                              focusNode3!.unfocus();
+                            }
+                            setState(() {});
+                          },
+                          keyboardType: TextInputType.number,
                           width: MediaQuery.of(context).size.width * 0.23,
                           hintText: "YYYY",
                           fontSize: 15.0),
@@ -180,18 +228,21 @@ class _OnBoardingDateOfBirthScreenState
                         children: [
                           utils.textField(
                               width: MediaQuery.of(context).size.width * 0.16,
+                              keyboardType: TextInputType.number,
                               hintText: "MM"),
                           const SizedBox(
                             width: 10,
                           ),
                           utils.textField(
                               width: MediaQuery.of(context).size.width * 0.16,
+                              keyboardType: TextInputType.number,
                               hintText: "DD"),
                           const SizedBox(
                             width: 10,
                           ),
                           utils.textField(
                               width: MediaQuery.of(context).size.width * 0.23,
+                              keyboardType: TextInputType.number,
                               hintText: "YYYY"),
                         ],
                       ),
@@ -302,7 +353,7 @@ class _OnBoardingDateOfBirthScreenState
                                 },
                                 child: Text(
                                   "Edit my birthday",
-                                  style: utils.extraSmallHeadingTextStyle(
+                                  style: utils.smallHeadingTextStyle(
                                       color: blueColor),
                                 ),
                               ),

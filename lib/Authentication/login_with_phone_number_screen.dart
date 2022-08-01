@@ -73,6 +73,7 @@ class _LoginWithPhoneNumberScreenState
                 utils.textField(
                   controller: phoneNumberController,
                   hintText: "Phone Number",
+                  keyboardType: TextInputType.number,
                   fontSize: 17.0,
                   width: MediaQuery.of(context).size.width * 0.60,
                 ),

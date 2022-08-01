@@ -63,6 +63,7 @@ class _WelcomeNameScreenState extends State<WelcomeNameScreen> {
                   height: 55.0,
                   containerColor: blueColor,
                   textColor: Colors.white,
+                  shadowColors: Colors.white,
                   text: "Set your preferences",
                   fontSize: 15,
                   borderRadius: 30.0),
