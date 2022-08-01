@@ -18,6 +18,8 @@ class _OnBoardingPhotoVerificationScreenState
   bool enabled = false;
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
@@ -65,12 +67,17 @@ class _OnBoardingPhotoVerificationScreenState
               "Take a selfie matching the outline below so we can verify your account. ",
               style: utils.mediumTitleTextStyle(color: Colors.black),
             ),
-            const SizedBox(
-              height: 50,
-            ),
             SizedBox(
-              width: MediaQuery.of(context).size.width,
-              child: Image.asset("assets/placeholder.png"),
+              height: width > 414 ? 50 : 30,
+            ),
+            Align(
+              alignment: Alignment.center,
+              child: SizedBox(
+                width: width > 414
+                    ? MediaQuery.of(context).size.width
+                    : MediaQuery.of(context).size.width * 0.8,
+                child: Image.asset("assets/placeholder.png"),
+              ),
             ),
             const SizedBox(
               height: 20,

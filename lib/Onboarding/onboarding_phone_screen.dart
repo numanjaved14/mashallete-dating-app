@@ -111,6 +111,7 @@ class _OnBoardingPhoneScreenState extends State<OnBoardingPhoneScreen> {
                   controller: phoneNumberController,
                   hintText: "Phone Number",
                   fontSize: 17.0,
+                  keyboardType: TextInputType.number,
                   width: MediaQuery.of(context).size.width * 0.57,
                 ),
               ],

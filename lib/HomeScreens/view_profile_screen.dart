@@ -167,7 +167,7 @@ class _ViewProfileScreenState extends State<ViewProfileScreen> {
                       height: 30,
                     ),
                     utils.aboutPersonScreen(
-                        name: "Usama",
+                        name: "USAMA",
                         about:
                             "Hi, My name is Usama and I am a professional flutter developer and I have experience in developing iOS and android applications."),
                     const SizedBox(
