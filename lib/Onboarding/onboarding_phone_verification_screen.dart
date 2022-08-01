@@ -69,7 +69,7 @@ class _OnBoardingPhoneVerificationScreenState
                   style: utils.mediumTitleTextStyle(color: Colors.black),
                 ),
                 GestureDetector(
-                  onTap: (){
+                  onTap: () {
                     Navigator.pop(context);
                   },
                   child: const Text(
