@@ -105,7 +105,7 @@ class _ProfileEditTabBarScreenState extends State<ProfileEditTabBarScreen>
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Expanded(
