@@ -201,3 +201,90 @@
 //     ),
 //   ],
 // ),
+
+// Row(
+//   mainAxisAlignment: MainAxisAlignment.end,
+//   children: [
+//     GestureDetector(
+//       onTap: () {
+//         Navigator.pushNamed(
+//             context, onBoardingEthnicityScreenRoute);
+//       },
+//       child: Container(
+//         width: 60,
+//         height: 60,
+//         decoration: const BoxDecoration(
+//           color: blueColor,
+//           shape: BoxShape.circle,
+//         ),
+//         child: const Icon(
+//           Icons.arrow_forward_ios_outlined,
+//           color: Colors.white,
+//         ),
+//       ),
+//     ),
+//   ],
+// ),
+
+//
+// utils.textField(
+// controller: ethnicityController,
+// width: MediaQuery.of(context).size.width * 0.9,
+// hintText: "Search",
+// fontSize: 18.0),
+// const SizedBox(
+// height: 25,
+// ),
+// Wrap(
+// alignment: WrapAlignment.start,
+// children: [
+// utils.ethnicityWidget(icon1: Icons.flag, text: "Ethnicity 1"),
+// utils.ethnicityWidget(icon1: Icons.flag, text: "Ethnicity 2"),
+// ],
+// ),
+// const SizedBox(
+// height: 25,
+// ),
+
+// Row(
+//   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//   children: [
+//     Row(
+//       children: [
+//         GestureDetector(
+//           onTap: () {
+//             Navigator.pushNamed(
+//                 context, onBoardingInterestsScreenRoute);
+//           },
+//           child: const Text(
+//             "Skip for now",
+//             style: TextStyle(
+//               fontSize: 15,
+//               fontWeight: FontWeight.bold,
+//               fontFamily: "ProximaNova",
+//               color: blueColor,
+//             ),
+//           ),
+//         ),
+//       ],
+//     ),
+//     GestureDetector(
+//       onTap: () {
+//         Navigator.pushNamed(
+//             context, onBoardingInterestsScreenRoute);
+//       },
+//       child: Container(
+//         width: 60,
+//         height: 60,
+//         decoration: const BoxDecoration(
+//           color: blueColor,
+//           shape: BoxShape.circle,
+//         ),
+//         child: const Icon(
+//           Icons.arrow_forward_ios_outlined,
+//           color: Colors.white,
+//         ),
+//       ),
+//     ),
+//   ],
+// ),

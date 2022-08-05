@@ -13,6 +13,9 @@ class OnBoardingEthnicityScreen extends StatefulWidget {
 
 class _OnBoardingEthnicityScreenState extends State<OnBoardingEthnicityScreen> {
   var ethnicityController = TextEditingController();
+  bool val1 = false;
+  bool val2 = false;
+  bool val3 = false;
   var utils = AppUtils();
   @override
   Widget build(BuildContext context) {
@@ -58,65 +61,131 @@ class _OnBoardingEthnicityScreenState extends State<OnBoardingEthnicityScreen> {
             const SizedBox(
               height: 25,
             ),
-            utils.textField(
-                controller: ethnicityController,
-                width: MediaQuery.of(context).size.width * 0.9,
-                hintText: "Search",
-                fontSize: 18.0),
-            const SizedBox(
-              height: 25,
-            ),
-            Wrap(
-              alignment: WrapAlignment.start,
-              children: [
-                utils.ethnicityWidget(icon1: Icons.flag, text: "Ethnicity 1"),
-                utils.ethnicityWidget(icon1: Icons.flag, text: "Ethnicity 2"),
-              ],
-            ),
-            const SizedBox(
-              height: 25,
-            ),
-            const Spacer(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
                   children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pushNamed(
-                            context, onBoardingReligiousScreenRoute);
-                      },
-                      child: const Text(
-                        "Skip for now",
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: blueColor,
-                          fontFamily: "ProximaNova",
-                        ),
-                      ),
+                    Image.asset(
+                      "assets/pakistan.png",
+                      scale: 30,
                     ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text("Pakistani"),
                   ],
                 ),
-                GestureDetector(
+                Checkbox(
+                  value: val1,
+                  onChanged: (val) {
+                    val1 = val!;
+                    setState(() {});
+                  },
+                  activeColor: blueColor,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(3),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            utils.line(width: MediaQuery.of(context).size.width),
+            const SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Image.asset(
+                      "assets/indian-flag.png",
+                      scale: 30,
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text("Indian"),
+                  ],
+                ),
+                Checkbox(
+                  value: val2,
+                  onChanged: (val) {
+                    val2 = val!;
+                    setState(() {});
+                  },
+                  activeColor: blueColor,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(3),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            utils.line(width: MediaQuery.of(context).size.width),
+            const SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Image.asset(
+                      "assets/bangladesh.png",
+                      scale: 30,
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text("Bengali"),
+                  ],
+                ),
+                Checkbox(
+                  value: val3,
+                  onChanged: (val) {
+                    val3 = val!;
+                    setState(() {});
+                  },
+                  activeColor: blueColor,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(3),
+                  ),
+                ),
+              ],
+            ),
+            const Spacer(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Skip for now",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                    fontFamily: "ProximaNova",
+                    color: blueColor,
+                  ),
+                ),
+                utils.gradientBigButton(
                   onTap: () {
                     Navigator.pushNamed(
                         context, onBoardingReligiousScreenRoute);
                   },
-                  child: Container(
-                    width: 60,
-                    height: 60,
-                    decoration: const BoxDecoration(
-                      color: blueColor,
-                      shape: BoxShape.circle,
-                    ),
-                    child: const Icon(
-                      Icons.arrow_forward_ios_outlined,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
+                  width: MediaQuery.of(context).size.width * 0.35,
+                  text: "Continue",
+                  containerColor: blueColor,
+                  textColor: Colors.white,
+                  borderRadius: 8.0,
+                  fontSize: 14.0,
+                  height: 50.0,
+                  shadowColors: Colors.white,
+                )
               ],
             ),
             const SizedBox(

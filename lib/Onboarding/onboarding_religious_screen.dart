@@ -13,6 +13,7 @@ class OnBoardingReligiousScreen extends StatefulWidget {
 
 class _OnBoardingReligiousScreenState extends State<OnBoardingReligiousScreen> {
   var utils = AppUtils();
+  var selected = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,80 +58,142 @@ class _OnBoardingReligiousScreenState extends State<OnBoardingReligiousScreen> {
             const SizedBox(
               height: 30,
             ),
-            utils.bigButton(
-                width: MediaQuery.of(context).size.width * 0.9,
-                containerColor: Colors.grey[200],
-                text: "Very Religious",
-                fontWeight: FontWeight.w500,
-                height: 50.0,
-                shadowColors: Colors.white,
-                borderRadius: 20.0),
-            const SizedBox(
-              height: 16,
+            GestureDetector(
+              onTap: () {
+                selected = 1;
+                setState(() {});
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Very Religious"),
+                  Container(
+                    width: 20,
+                    height: 20,
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          color: selected == 1 ? blueColor : Colors.grey,
+                          width: selected == 1 ? 5 : 1,
+                        )),
+                  )
+                ],
+              ),
             ),
-            utils.bigButton(
-                width: MediaQuery.of(context).size.width * 0.9,
-                containerColor: Colors.grey[200],
-                text: "Somewhat Religious",
-                fontWeight: FontWeight.w500,
-                height: 50.0,
-                shadowColors: Colors.white,
-                borderRadius: 20.0),
             const SizedBox(
-              height: 16,
+              height: 20,
             ),
-            utils.bigButton(
-                width: MediaQuery.of(context).size.width * 0.9,
-                containerColor: Colors.grey[200],
-                text: "Not Religious",
-                shadowColors: Colors.white,
-                fontWeight: FontWeight.w500,
-                height: 50.0,
-                borderRadius: 20.0),
+            utils.line(width: MediaQuery.of(context).size.width),
             const SizedBox(
-              height: 25,
+              height: 20,
+            ),
+            GestureDetector(
+              onTap: () {
+                selected = 2;
+                setState(() {});
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Somewhat Religious"),
+                  Container(
+                    width: 20,
+                    height: 20,
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          color: selected == 2 ? blueColor : Colors.grey,
+                          width: selected == 2 ? 5 : 1,
+                        )),
+                  )
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            utils.line(width: MediaQuery.of(context).size.width),
+            const SizedBox(
+              height: 20,
+            ),
+            GestureDetector(
+              onTap: () {
+                selected = 3;
+                setState(() {});
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Just Practicing"),
+                  Container(
+                    width: 20,
+                    height: 20,
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          color: selected == 3 ? blueColor : Colors.grey,
+                          width: selected == 3 ? 5 : 1,
+                        )),
+                  )
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            utils.line(width: MediaQuery.of(context).size.width),
+            const SizedBox(
+              height: 20,
+            ),
+            GestureDetector(
+              onTap: () {
+                selected = 4;
+                setState(() {});
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Not Religious"),
+                  Container(
+                    width: 20,
+                    height: 20,
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          color: selected == 4 ? blueColor : Colors.grey,
+                          width: selected == 4 ? 5 : 1,
+                        )),
+                  )
+                ],
+              ),
             ),
             const Spacer(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pushNamed(
-                            context, onBoardingInterestsScreenRoute);
-                      },
-                      child: const Text(
-                        "Skip for now",
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: "ProximaNova",
-                          color: blueColor,
-                        ),
-                      ),
-                    ),
-                  ],
+                Text(
+                  "Skip for now",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                    fontFamily: "ProximaNova",
+                    color: blueColor,
+                  ),
                 ),
-                GestureDetector(
+                utils.gradientBigButton(
                   onTap: () {
                     Navigator.pushNamed(
                         context, onBoardingInterestsScreenRoute);
                   },
-                  child: Container(
-                    width: 60,
-                    height: 60,
-                    decoration: const BoxDecoration(
-                      color: blueColor,
-                      shape: BoxShape.circle,
-                    ),
-                    child: const Icon(
-                      Icons.arrow_forward_ios_outlined,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
+                  width: MediaQuery.of(context).size.width * 0.35,
+                  text: "Continue",
+                  containerColor: blueColor,
+                  textColor: Colors.white,
+                  borderRadius: 8.0,
+                  fontSize: 14.0,
+                  height: 50.0,
+                  shadowColors: Colors.white,
+                )
               ],
             ),
             const SizedBox(

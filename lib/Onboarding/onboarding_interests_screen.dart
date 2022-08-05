@@ -260,7 +260,7 @@ class _OnBoardingInterestsScreenState extends State<OnBoardingInterestsScreen> {
                     ],
                   ),
                   const SizedBox(
-                    height: 30,
+                    height: 200,
                   ),
                 ],
               ),
@@ -298,43 +298,29 @@ class _OnBoardingInterestsScreenState extends State<OnBoardingInterestsScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Row(
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.pushNamed(
-                                context, onBoardingLookingGoodScreenRoute);
-                          },
-                          child: const Text(
-                            "Skip for now",
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
-                              color: blueColor,
-                              fontFamily: "ProximaNova",
-                            ),
-                          ),
-                        ),
-                      ],
+                    Text(
+                      "Skip for now",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700,
+                        fontFamily: "ProximaNova",
+                        color: blueColor,
+                      ),
                     ),
-                    GestureDetector(
+                    utils.gradientBigButton(
                       onTap: () {
                         Navigator.pushNamed(
                             context, onBoardingLookingGoodScreenRoute);
                       },
-                      child: Container(
-                        width: 60,
-                        height: 60,
-                        decoration: const BoxDecoration(
-                          color: blueColor,
-                          shape: BoxShape.circle,
-                        ),
-                        child: const Icon(
-                          Icons.arrow_forward_ios_outlined,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
+                      width: MediaQuery.of(context).size.width * 0.35,
+                      text: "Continue",
+                      containerColor: blueColor,
+                      textColor: Colors.white,
+                      borderRadius: 8.0,
+                      fontSize: 14.0,
+                      height: 50.0,
+                      shadowColors: Colors.white,
+                    )
                   ],
                 ),
                 const SizedBox(

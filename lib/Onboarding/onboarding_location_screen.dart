@@ -1,4 +1,5 @@
 import 'package:dating_app/Constants/app_constants.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../Utilities/app_utils.dart';
@@ -61,31 +62,32 @@ class _OnBoardingLocationScreenState extends State<OnBoardingLocationScreen> {
             SizedBox(
               width: MediaQuery.of(context).size.width * 0.9,
               height: 50,
-              child: TextFormField(
-                controller: locationController,
-                decoration: InputDecoration(
-                    prefixIcon: const Icon(
-                      Icons.location_on,
-                      color: blueColor,
-                    ),
-                    contentPadding: const EdgeInsets.only(top: 5, left: 15),
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width,
+                height: 50,
+                child: TextFormField(
+                  showCursor: false,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  controller: locationController,
+                  textAlign: TextAlign.left,
+                  decoration: InputDecoration(
+                    counterText: "",
                     hintText: "Location",
-                    border: InputBorder.none,
-                    hintStyle: const TextStyle(
-                      color: Colors.grey,
-                      fontSize: 19,
+                    hintStyle: TextStyle(
+                      color: Colors.grey[300],
+                      fontSize: 22,
                       fontFamily: "ProximaNova",
                     ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide:
-                          const BorderSide(color: blueColor, width: 1.5),
-                      borderRadius: BorderRadius.circular(10.0),
+                    suffixIcon: Image.asset(
+                      "assets/locationTarget.png",
+                      scale: 4,
                     ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide:
-                          const BorderSide(color: Colors.grey, width: 1.5),
-                      borderRadius: BorderRadius.circular(10.0),
-                    )),
+                  ),
+                ),
               ),
             ),
             const SizedBox(
@@ -93,26 +95,31 @@ class _OnBoardingLocationScreenState extends State<OnBoardingLocationScreen> {
             ),
             const Spacer(),
             Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                GestureDetector(
+                Text(
+                  "Skip for now",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                    fontFamily: "ProximaNova",
+                    color: blueColor,
+                  ),
+                ),
+                utils.gradientBigButton(
                   onTap: () {
                     Navigator.pushNamed(
                         context, onBoardingEthnicityScreenRoute);
                   },
-                  child: Container(
-                    width: 60,
-                    height: 60,
-                    decoration: const BoxDecoration(
-                      color: blueColor,
-                      shape: BoxShape.circle,
-                    ),
-                    child: const Icon(
-                      Icons.arrow_forward_ios_outlined,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
+                  width: MediaQuery.of(context).size.width * 0.35,
+                  text: "Continue",
+                  containerColor: blueColor,
+                  textColor: Colors.white,
+                  borderRadius: 8.0,
+                  fontSize: 14.0,
+                  height: 50.0,
+                  shadowColors: Colors.white,
+                )
               ],
             ),
             const SizedBox(
