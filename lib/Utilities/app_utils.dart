@@ -259,6 +259,7 @@ class AppUtils {
       shadowColors,
       textColor,
       fontSize,
+      imageScale,
       image,
       fontWeight}) {
     return GestureDetector(
@@ -298,7 +299,67 @@ class AppUtils {
             ),
             Image.asset(
               image,
-              scale: 30,
+              scale: imageScale ?? 30,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  bigButtonWithPrefixIcon(
+      {width,
+      height,
+      borderColor,
+      onTap,
+      borderWidth,
+      borderRadius,
+      containerColor,
+      text,
+      shadowColors,
+      textColor,
+      fontSize,
+      imageScale,
+      image,
+      fontWeight}) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: width,
+        height: height,
+        padding: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          border: Border.all(
+              color: borderColor ?? Colors.transparent,
+              width: borderWidth == null ? 2 : borderWidth.toDouble()),
+          borderRadius: BorderRadius.circular(borderRadius ?? 0),
+          color: containerColor ?? Colors.white,
+          boxShadow: [
+            BoxShadow(
+              offset: const Offset(0, 0),
+              color: shadowColors ?? Colors.black.withOpacity(0.2),
+              blurRadius: 4,
+            )
+          ],
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              image,
+              scale: imageScale ?? 30,
+            ),
+            const SizedBox(
+              width: 5,
+            ),
+            Text(
+              text.toString(),
+              style: TextStyle(
+                color: textColor ?? Colors.black,
+                fontSize: fontSize == null ? 13.0 : fontSize.toDouble(),
+                fontWeight: fontWeight ?? FontWeight.bold,
+                fontFamily: "ProximaNova",
+              ),
             ),
           ],
         ),
@@ -380,9 +441,12 @@ class AppUtils {
       hintText,
       maxLength,
       width,
-      fontSize,
+      hintSize,
       keyboardType,
       onChanged,
+      fontSize,
+      bottomPadding,
+      alignText,
       focusNode}) {
     return SizedBox(
       width: width,
@@ -391,22 +455,22 @@ class AppUtils {
         maxLength: maxLength,
         focusNode: focusNode,
         showCursor: false,
-        style: const TextStyle(
+        style: TextStyle(
           color: Colors.black,
-          fontSize: 50,
+          fontSize: fontSize ?? 50,
           fontWeight: FontWeight.bold,
         ),
         onChanged: onChanged,
         controller: controller,
-        textAlign: TextAlign.center,
+        textAlign: alignText ?? TextAlign.center,
         keyboardType: keyboardType,
         decoration: InputDecoration(
           counterText: "",
           hintText: hintText,
-          contentPadding: const EdgeInsets.only(bottom: 20),
+          contentPadding: EdgeInsets.only(bottom: bottomPadding ?? 20),
           hintStyle: TextStyle(
             color: Colors.grey,
-            fontSize: fontSize,
+            fontSize: hintSize,
             fontFamily: "ProximaNova",
           ),
         ),

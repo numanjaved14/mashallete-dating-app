@@ -96,7 +96,7 @@ class _OnBoardingDateOfBirthScreenState
                   ),
                   Row(
                     children: [
-                      utils.textFieldDOB(
+                      utils.otpTextField(
                           controller: monthController,
                           maxLength: 2,
                           onChanged: (val) {
@@ -106,19 +106,22 @@ class _OnBoardingDateOfBirthScreenState
                             setState(() {});
                           },
                           width: MediaQuery.of(context).size.width * 0.16,
-                          hintText: "MM",
+                          hintText: " Month",
                           focusNode: focusNode1,
                           keyboardType: TextInputType.number,
-                          fontSize: 15.0),
+                          fontSize: 22.0,
+                          alignText: TextAlign.start,
+                          bottomPadding: 0.0,
+                          hintSize: 22.0),
                       const SizedBox(
-                        width: 10,
+                        width: 15,
                       ),
-                      utils.textFieldDOB(
+                      utils.otpTextField(
                           controller: dayController,
                           focusNode: focusNode2,
                           maxLength: 2,
                           width: MediaQuery.of(context).size.width * 0.16,
-                          hintText: "DD",
+                          hintText: " Day",
                           onChanged: (val) {
                             if (dayController.text.length == 2) {
                               focusNode3!.requestFocus();
@@ -126,11 +129,14 @@ class _OnBoardingDateOfBirthScreenState
                             setState(() {});
                           },
                           keyboardType: TextInputType.number,
-                          fontSize: 15.0),
+                          fontSize: 22.0,
+                          alignText: TextAlign.start,
+                          bottomPadding: 0.0,
+                          hintSize: 22.0),
                       const SizedBox(
-                        width: 10,
+                        width: 15,
                       ),
-                      utils.textFieldDOB(
+                      utils.otpTextField(
                           controller: yearController,
                           focusNode: focusNode3,
                           maxLength: 4,
@@ -141,9 +147,12 @@ class _OnBoardingDateOfBirthScreenState
                             setState(() {});
                           },
                           keyboardType: TextInputType.number,
-                          width: MediaQuery.of(context).size.width * 0.23,
-                          hintText: "YYYY",
-                          fontSize: 15.0),
+                          width: MediaQuery.of(context).size.width * 0.33,
+                          alignText: TextAlign.start,
+                          hintText: " Year",
+                          fontSize: 22.0,
+                          bottomPadding: 0.0,
+                          hintSize: 22.0),
                     ],
                   ),
                   const SizedBox(
@@ -151,26 +160,94 @@ class _OnBoardingDateOfBirthScreenState
                   ),
                   const Spacer(),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      GestureDetector(
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.lock,
+                            color: blueColor,
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          yearController.text.isEmpty
+                              ? Row(
+                                  children: [
+                                    Text(
+                                      "You are ",
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w700,
+                                        fontFamily: "ProximaNova",
+                                        color: blueColor,
+                                      ),
+                                    ),
+                                    Text(
+                                      "??? ",
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w700,
+                                        fontFamily: "ProximaNova",
+                                        color: blueColor.withOpacity(0.5),
+                                      ),
+                                    ),
+                                    Text(
+                                      "years old.",
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w700,
+                                        fontFamily: "ProximaNova",
+                                        color: blueColor,
+                                      ),
+                                    ),
+                                  ],
+                                )
+                              : Row(
+                                  children: [
+                                    Text(
+                                      "You are ",
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w700,
+                                        fontFamily: "ProximaNova",
+                                        color: blueColor,
+                                      ),
+                                    ),
+                                    Text(
+                                      "26 ",
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w700,
+                                        fontFamily: "ProximaNova",
+                                        color: blueColor,
+                                      ),
+                                    ),
+                                    Text(
+                                      "years old.",
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w700,
+                                        fontFamily: "ProximaNova",
+                                        color: blueColor,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                        ],
+                      ),
+                      utils.gradientBigButton(
                         onTap: () {
                           clicked = true;
                           setState(() {});
                         },
-                        child: Container(
-                          width: 60,
-                          height: 60,
-                          decoration: const BoxDecoration(
-                            color: blueColor,
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Icon(
-                            Icons.arrow_forward_ios_outlined,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
+                        width: MediaQuery.of(context).size.width * 0.3,
+                        text: "Continue",
+                        containerColor: blueColor,
+                        textColor: Colors.white,
+                        borderRadius: 8.0,
+                        shadowColors: Colors.white,
+                      )
                     ],
                   ),
                   const SizedBox(
@@ -226,24 +303,63 @@ class _OnBoardingDateOfBirthScreenState
                       ),
                       Row(
                         children: [
-                          utils.textField(
+                          utils.otpTextField(
+                              controller: monthController,
+                              maxLength: 2,
+                              onChanged: (val) {
+                                if (monthController.text.length == 2) {
+                                  focusNode2!.requestFocus();
+                                }
+                                setState(() {});
+                              },
                               width: MediaQuery.of(context).size.width * 0.16,
+                              hintText: " Month",
+                              focusNode: focusNode1,
                               keyboardType: TextInputType.number,
-                              hintText: "MM"),
+                              fontSize: 22.0,
+                              alignText: TextAlign.start,
+                              bottomPadding: 0.0,
+                              hintSize: 22.0),
                           const SizedBox(
-                            width: 10,
+                            width: 15,
                           ),
-                          utils.textField(
+                          utils.otpTextField(
+                              controller: dayController,
+                              focusNode: focusNode2,
+                              maxLength: 2,
                               width: MediaQuery.of(context).size.width * 0.16,
+                              hintText: " Day",
+                              onChanged: (val) {
+                                if (dayController.text.length == 2) {
+                                  focusNode3!.requestFocus();
+                                }
+                                setState(() {});
+                              },
                               keyboardType: TextInputType.number,
-                              hintText: "DD"),
+                              fontSize: 22.0,
+                              alignText: TextAlign.start,
+                              bottomPadding: 0.0,
+                              hintSize: 22.0),
                           const SizedBox(
-                            width: 10,
+                            width: 15,
                           ),
-                          utils.textField(
-                              width: MediaQuery.of(context).size.width * 0.23,
+                          utils.otpTextField(
+                              controller: yearController,
+                              focusNode: focusNode3,
+                              maxLength: 4,
+                              onChanged: (val) {
+                                if (yearController.text.length == 4) {
+                                  focusNode3!.unfocus();
+                                }
+                                setState(() {});
+                              },
                               keyboardType: TextInputType.number,
-                              hintText: "YYYY"),
+                              width: MediaQuery.of(context).size.width * 0.33,
+                              alignText: TextAlign.start,
+                              hintText: " Year",
+                              fontSize: 22.0,
+                              bottomPadding: 0.0,
+                              hintSize: 22.0),
                         ],
                       ),
                       const SizedBox(
@@ -251,26 +367,94 @@ class _OnBoardingDateOfBirthScreenState
                       ),
                       const Spacer(),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          GestureDetector(
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.lock,
+                                color: blueColor,
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              yearController.text.isEmpty
+                                  ? Row(
+                                      children: [
+                                        Text(
+                                          "You are ",
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w700,
+                                            fontFamily: "ProximaNova",
+                                            color: blueColor,
+                                          ),
+                                        ),
+                                        Text(
+                                          "??? ",
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w700,
+                                            fontFamily: "ProximaNova",
+                                            color: blueColor.withOpacity(0.5),
+                                          ),
+                                        ),
+                                        Text(
+                                          "years old.",
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w700,
+                                            fontFamily: "ProximaNova",
+                                            color: blueColor,
+                                          ),
+                                        ),
+                                      ],
+                                    )
+                                  : Row(
+                                      children: [
+                                        Text(
+                                          "You are ",
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w700,
+                                            fontFamily: "ProximaNova",
+                                            color: blueColor,
+                                          ),
+                                        ),
+                                        Text(
+                                          "26 ",
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w700,
+                                            fontFamily: "ProximaNova",
+                                            color: blueColor,
+                                          ),
+                                        ),
+                                        Text(
+                                          "years old.",
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w700,
+                                            fontFamily: "ProximaNova",
+                                            color: blueColor,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                            ],
+                          ),
+                          utils.gradientBigButton(
                             onTap: () {
-                              clicked = false;
+                              clicked = true;
                               setState(() {});
                             },
-                            child: Container(
-                              width: 60,
-                              height: 60,
-                              decoration: const BoxDecoration(
-                                color: blueColor,
-                                shape: BoxShape.circle,
-                              ),
-                              child: const Icon(
-                                Icons.arrow_forward_ios_outlined,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
+                            width: MediaQuery.of(context).size.width * 0.3,
+                            text: "Continue",
+                            containerColor: blueColor,
+                            textColor: Colors.white,
+                            borderRadius: 8.0,
+                            shadowColors: Colors.white,
+                          )
                         ],
                       ),
                       const SizedBox(
@@ -305,44 +489,53 @@ class _OnBoardingDateOfBirthScreenState
                           child: Column(
                             children: [
                               const SizedBox(
-                                height: 40,
+                                height: 30,
+                              ),
+                              Image.asset(
+                                "assets/confirmBirthdayIcon.png",
+                                scale: 4,
+                              ),
+                              const SizedBox(
+                                height: 30,
                               ),
                               const Align(
-                                alignment: Alignment.centerLeft,
+                                alignment: Alignment.center,
                                 child: Text(
                                   "Confirm your age",
                                   style: TextStyle(
-                                    fontSize: 27,
+                                    fontSize: 20,
                                     fontWeight: FontWeight.w600,
                                     fontFamily: "ProximaNova",
                                   ),
                                 ),
                               ),
                               const SizedBox(
-                                height: 15,
+                                height: 10,
                               ),
                               Text(
-                                "Connecting your account will make it easier to sign in.",
-                                style: utils.mediumTitleTextStyle(
+                                "This cannot be changed later!",
+                                style: utils.smallTitleTextStyle(
                                     color: Colors.black.withOpacity(0.8)),
                               ),
                               const SizedBox(
-                                height: 50,
+                                height: 20,
                               ),
-                              utils.bigButton(
+                              utils.bigButtonWithPrefixIcon(
                                   onTap: () {
                                     Navigator.pushNamed(context,
                                         onBoardingNotificationsScreenRoute);
                                   },
                                   width:
                                       MediaQuery.of(context).size.width * 0.7,
-                                  height: 55.0,
+                                  height: 45.0,
                                   containerColor: blueColor,
                                   textColor: Colors.white,
                                   shadowColors: Colors.white,
                                   text: "I confirm that I am 26 years old.",
                                   fontSize: 15,
-                                  borderRadius: 30.0),
+                                  imageScale: 4.0,
+                                  image: "assets/tick.png",
+                                  borderRadius: 8.0),
                               const SizedBox(
                                 height: 20,
                               ),
@@ -354,7 +547,8 @@ class _OnBoardingDateOfBirthScreenState
                                 child: Text(
                                   "Edit my birthday",
                                   style: utils.smallHeadingTextStyle(
-                                      color: blueColor),
+                                    color: Colors.black.withOpacity(0.7),
+                                  ),
                                 ),
                               ),
                             ],

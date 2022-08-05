@@ -97,7 +97,7 @@ class _LoginWithOtpScreenState extends State<LoginWithOtpScreen> {
                     hintText: " ",
                     focusNode: focusNode1,
                     keyboardType: TextInputType.number,
-                    fontSize: 15.0),
+                    hintSize: 15.0),
                 const SizedBox(
                   width: 10,
                 ),
@@ -114,7 +114,7 @@ class _LoginWithOtpScreenState extends State<LoginWithOtpScreen> {
                       setState(() {});
                     },
                     keyboardType: TextInputType.number,
-                    fontSize: 15.0),
+                    hintSize: 15.0),
                 const SizedBox(
                   width: 10,
                 ),
@@ -131,7 +131,7 @@ class _LoginWithOtpScreenState extends State<LoginWithOtpScreen> {
                     keyboardType: TextInputType.number,
                     width: MediaQuery.of(context).size.width * 0.2,
                     hintText: " ",
-                    fontSize: 15.0),
+                    hintSize: 15.0),
                 const SizedBox(
                   width: 10,
                 ),
@@ -148,7 +148,7 @@ class _LoginWithOtpScreenState extends State<LoginWithOtpScreen> {
                     keyboardType: TextInputType.number,
                     width: MediaQuery.of(context).size.width * 0.2,
                     hintText: " ",
-                    fontSize: 15.0),
+                    hintSize: 15.0),
               ],
             ),
             const SizedBox(

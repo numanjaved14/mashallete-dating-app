@@ -30,6 +30,7 @@ import 'GroundRules/ground_rule_two_screen.dart';
 import 'HomeScreens/home_screen.dart';
 import 'HomeScreens/view_profile_screen.dart';
 import 'Onboarding/onboarding_ethnicity_screen.dart';
+import 'Onboarding/onboarding_men_women_screen.dart';
 import 'Onboarding/onboarding_name_screen.dart';
 import 'Onboarding/onboarding_phone_screen.dart';
 import 'Onboarding/onboarding_phone_verification_screen.dart';
@@ -124,6 +125,8 @@ class _MyAppState extends State<MyApp> {
         promptQuestionScreenRoute: (context) => const PromptQuestionScreen(),
         promptAnswerScreenRoute: (context) => const PromptAnswerScreen(),
         editInterestScreenRoute: (context) => const EditInterestScreen(),
+        onBoardingMenWomenScreenRoute: (context) =>
+            const OnBoardingMenWomenScreen(),
         // helpAndSupportScreenRoute: (context) => const HelpAndSupportScreen(),
         videoCallingScreenRoute: (context) => const VideoCallingScreen(),
         // deleteAccountScreenRoute: (context) => const DeleteAccountScreen(),

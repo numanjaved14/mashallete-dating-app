@@ -56,46 +56,77 @@ class _OnBoardingNameScreenState extends State<OnBoardingNameScreen> {
               ),
             ),
             const SizedBox(
+              height: 10,
+            ),
+            Text(
+              "Your last name is optional and is only shared with your matches.",
+              style: utils.smallTitleTextStyle(
+                color: Colors.black,
+              ),
+            ),
+            const SizedBox(
               height: 30,
             ),
-            utils.textField(
-                controller: firstNameController,
-                width: MediaQuery.of(context).size.width * 0.9,
-                hintText: "First Name",
-                fontSize: 18.0),
+            utils.otpTextField(
+              controller: firstNameController,
+              width: MediaQuery.of(context).size.width * 0.9,
+              hintText: "First Name (Required)",
+              alignText: TextAlign.left,
+              hintSize: 20.0,
+              fontSize: 20.0,
+              bottomPadding: 0.0,
+            ),
             const SizedBox(
               height: 20,
             ),
-            utils.textField(
-                controller: lastNameController,
-                width: MediaQuery.of(context).size.width * 0.9,
-                hintText: "Last Name",
-                fontSize: 18.0),
+            utils.otpTextField(
+              controller: lastNameController,
+              width: MediaQuery.of(context).size.width * 0.9,
+              hintText: "Last Name (Optional)",
+              alignText: TextAlign.left,
+              hintSize: 20.0,
+              fontSize: 20.0,
+              bottomPadding: 0.0,
+            ),
             const SizedBox(
               height: 25,
             ),
             const Spacer(),
             Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                GestureDetector(
+                Row(
+                  children: const [
+                    Icon(
+                      Icons.lock,
+                      color: blueColor,
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      "We'll never share this with anyone",
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500,
+                        fontFamily: "ProximaNova",
+                        color: blueColor,
+                      ),
+                    ),
+                  ],
+                ),
+                utils.gradientBigButton(
                   onTap: () {
                     Navigator.pushNamed(
                         context, onBoardingDateOfBirthScreenRoute);
                   },
-                  child: Container(
-                    width: 60,
-                    height: 60,
-                    decoration: const BoxDecoration(
-                      color: blueColor,
-                      shape: BoxShape.circle,
-                    ),
-                    child: const Icon(
-                      Icons.arrow_forward_ios_outlined,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
+                  width: MediaQuery.of(context).size.width * 0.3,
+                  text: "Continue",
+                  containerColor: blueColor,
+                  textColor: Colors.white,
+                  borderRadius: 8.0,
+                  shadowColors: Colors.white,
+                )
               ],
             ),
             const SizedBox(

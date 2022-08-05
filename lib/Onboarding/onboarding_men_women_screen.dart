@@ -1,17 +1,17 @@
+import 'package:dating_app/Utilities/app_utils.dart';
 import 'package:flutter/material.dart';
-import '../Utilities/app_utils.dart';
+
 import '../Constants/app_constants.dart';
 
-class OnBoardingLookingForScreen extends StatefulWidget {
-  const OnBoardingLookingForScreen({Key? key}) : super(key: key);
+class OnBoardingMenWomenScreen extends StatefulWidget {
+  const OnBoardingMenWomenScreen({Key? key}) : super(key: key);
 
   @override
-  State<OnBoardingLookingForScreen> createState() =>
-      _OnBoardingLookingForScreenState();
+  State<OnBoardingMenWomenScreen> createState() =>
+      _OnBoardingMenWomenScreenState();
 }
 
-class _OnBoardingLookingForScreenState
-    extends State<OnBoardingLookingForScreen> {
+class _OnBoardingMenWomenScreenState extends State<OnBoardingMenWomenScreen> {
   var utils = AppUtils();
   var selected = 0;
   @override
@@ -50,7 +50,7 @@ class _OnBoardingLookingForScreenState
               height: 45,
             ),
             Text(
-              "Who are you looking\nfor?",
+              "What describes you \nbest?",
               style: utils.largeHeadingTextStyle(
                 color: Colors.black,
               ),
@@ -66,7 +66,7 @@ class _OnBoardingLookingForScreenState
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("A Husband"),
+                  Text("Man"),
                   Container(
                     width: 20,
                     height: 20,
@@ -95,7 +95,7 @@ class _OnBoardingLookingForScreenState
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("A Wife"),
+                  Text("Woman"),
                   Container(
                     width: 20,
                     height: 20,
@@ -124,7 +124,8 @@ class _OnBoardingLookingForScreenState
                 ),
                 utils.gradientBigButton(
                   onTap: () {
-                    Navigator.pushNamed(context, onBoardingLocationScreenRoute);
+                    Navigator.pushNamed(
+                        context, onBoardingLookingForScreenRoute);
                   },
                   width: MediaQuery.of(context).size.width * 0.35,
                   text: "Continue",

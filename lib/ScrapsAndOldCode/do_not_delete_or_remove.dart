@@ -100,3 +100,104 @@
 //     ),
 //   ],
 // ),
+
+// Row(
+//   mainAxisAlignment: MainAxisAlignment.end,
+//   children: [
+//     GestureDetector(
+//       onTap: () {
+//
+//       },
+//       child: Container(
+//         width: 60,
+//         height: 60,
+//         decoration: const BoxDecoration(
+//           color: blueColor,
+//           shape: BoxShape.circle,
+//         ),
+//         child: const Icon(
+//           Icons.arrow_forward_ios_outlined,
+//           color: Colors.white,
+//         ),
+//       ),
+//     ),
+//   ],
+// ),
+
+// Row(
+//   children: [
+//     utils.textField(
+//         width: MediaQuery.of(context).size.width * 0.16,
+//         keyboardType: TextInputType.number,
+//         hintText: "MM"),
+//     const SizedBox(
+//       width: 10,
+//     ),
+//     utils.textField(
+//         width: MediaQuery.of(context).size.width * 0.16,
+//         keyboardType: TextInputType.number,
+//         hintText: "DD"),
+//     const SizedBox(
+//       width: 10,
+//     ),
+//     utils.textField(
+//         width: MediaQuery.of(context).size.width * 0.23,
+//         keyboardType: TextInputType.number,
+//         hintText: "YYYY"),
+//   ],
+// ),
+
+// const SizedBox(
+//   height: 35,
+// ),
+// GestureDetector(
+//   onTap: () {
+//     Navigator.pop(context);
+//   },
+//   child: Container(
+//     width:
+//         MediaQuery.of(context).size.width * 0.5,
+//     height: 50,
+//     decoration: BoxDecoration(
+//       color: blueColor,
+//       borderRadius: BorderRadius.circular(35),
+//     ),
+//     child: Center(
+//       child: Text(
+//         "Dismiss",
+//         style: utils.smallHeadingTextStyle(
+//             color: Colors.white),
+//       ),
+//     ),
+//   ),
+// ),
+
+// Row(
+//   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//   children: [
+//     Row(
+//       children: const [
+//         Text(
+//           "",
+//         ),
+//       ],
+//     ),
+//     GestureDetector(
+//       onTap: () {
+//         Navigator.pushNamed(context, welcomeNameScreenRoute);
+//       },
+//       child: Container(
+//         width: 60,
+//         height: 60,
+//         decoration: const BoxDecoration(
+//           color: blueColor,
+//           shape: BoxShape.circle,
+//         ),
+//         child: const Icon(
+//           Icons.arrow_forward_ios_outlined,
+//           color: Colors.white,
+//         ),
+//       ),
+//     ),
+//   ],
+// ),

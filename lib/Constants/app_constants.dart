@@ -48,6 +48,7 @@ const editTaglineScreenRoute = "/editTaglineScreenRoute";
 const promptQuestionScreenRoute = "/promptQuestionScreenRoute";
 const promptAnswerScreenRoute = "/promptAnswerScreenRoute";
 const editInterestScreenRoute = "/editInterestScreenRoute";
+const onBoardingMenWomenScreenRoute = "/onBoardingMenWomenScreenRoute";
 const aboutMeEditScreenRoute = "/aboutMeScreenRoute";
 // const groundRuleThreeScreenRoute = "/groundRuleThreeScreenRoute";
 const onBoardingLookingGoodScreenRoute = "/onBoardingLookingGoodScreenRoute";
