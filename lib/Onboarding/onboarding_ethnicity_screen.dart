@@ -70,10 +70,10 @@ class _OnBoardingEthnicityScreenState extends State<OnBoardingEthnicityScreen> {
                       "assets/pakistan.png",
                       scale: 30,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 5,
                     ),
-                    Text("Pakistani"),
+                    const Text("Pakistani"),
                   ],
                 ),
                 Checkbox(
@@ -105,10 +105,10 @@ class _OnBoardingEthnicityScreenState extends State<OnBoardingEthnicityScreen> {
                       "assets/indian-flag.png",
                       scale: 30,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 5,
                     ),
-                    Text("Indian"),
+                    const Text("Indian"),
                   ],
                 ),
                 Checkbox(
@@ -140,10 +140,10 @@ class _OnBoardingEthnicityScreenState extends State<OnBoardingEthnicityScreen> {
                       "assets/bangladesh.png",
                       scale: 30,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 5,
                     ),
-                    Text("Bengali"),
+                    const Text("Bengali"),
                   ],
                 ),
                 Checkbox(
@@ -163,7 +163,7 @@ class _OnBoardingEthnicityScreenState extends State<OnBoardingEthnicityScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                const Text(
                   "Skip for now",
                   style: TextStyle(
                     fontSize: 16,

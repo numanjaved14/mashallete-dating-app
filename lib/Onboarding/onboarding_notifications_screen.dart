@@ -113,7 +113,7 @@ class _OnBoardingNotificationsScreenState
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
+                      const Text(
                         "Skip for now",
                         style: TextStyle(
                           fontSize: 16,
@@ -246,7 +246,7 @@ class _OnBoardingNotificationsScreenState
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
+                          const Text(
                             "Skip for now",
                             style: TextStyle(
                               fontSize: 16,

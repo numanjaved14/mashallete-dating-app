@@ -66,7 +66,7 @@ class _OnBoardingMenWomenScreenState extends State<OnBoardingMenWomenScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Man"),
+                  const Text("Man"),
                   Container(
                     width: 20,
                     height: 20,
@@ -95,7 +95,7 @@ class _OnBoardingMenWomenScreenState extends State<OnBoardingMenWomenScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Woman"),
+                  const Text("Woman"),
                   Container(
                     width: 20,
                     height: 20,
@@ -113,7 +113,7 @@ class _OnBoardingMenWomenScreenState extends State<OnBoardingMenWomenScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                const Text(
                   "Skip for now",
                   style: TextStyle(
                     fontSize: 16,

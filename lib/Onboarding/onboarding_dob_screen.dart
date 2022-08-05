@@ -164,17 +164,17 @@ class _OnBoardingDateOfBirthScreenState
                     children: [
                       Row(
                         children: [
-                          Icon(
+                          const Icon(
                             Icons.lock,
                             color: blueColor,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 5,
                           ),
                           yearController.text.isEmpty
                               ? Row(
                                   children: [
-                                    Text(
+                                    const Text(
                                       "You are ",
                                       style: TextStyle(
                                         fontSize: 14,
@@ -192,7 +192,7 @@ class _OnBoardingDateOfBirthScreenState
                                         color: blueColor.withOpacity(0.5),
                                       ),
                                     ),
-                                    Text(
+                                    const Text(
                                       "years old.",
                                       style: TextStyle(
                                         fontSize: 14,
@@ -204,7 +204,7 @@ class _OnBoardingDateOfBirthScreenState
                                   ],
                                 )
                               : Row(
-                                  children: [
+                                  children: const [
                                     Text(
                                       "You are ",
                                       style: TextStyle(
@@ -371,17 +371,17 @@ class _OnBoardingDateOfBirthScreenState
                         children: [
                           Row(
                             children: [
-                              Icon(
+                              const Icon(
                                 Icons.lock,
                                 color: blueColor,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 5,
                               ),
                               yearController.text.isEmpty
                                   ? Row(
                                       children: [
-                                        Text(
+                                        const Text(
                                           "You are ",
                                           style: TextStyle(
                                             fontSize: 14,
@@ -399,7 +399,7 @@ class _OnBoardingDateOfBirthScreenState
                                             color: blueColor.withOpacity(0.5),
                                           ),
                                         ),
-                                        Text(
+                                        const Text(
                                           "years old.",
                                           style: TextStyle(
                                             fontSize: 14,
@@ -411,7 +411,7 @@ class _OnBoardingDateOfBirthScreenState
                                       ],
                                     )
                                   : Row(
-                                      children: [
+                                      children: const [
                                         Text(
                                           "You are ",
                                           style: TextStyle(

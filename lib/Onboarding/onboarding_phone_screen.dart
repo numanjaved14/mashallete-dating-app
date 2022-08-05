@@ -244,7 +244,7 @@ class _OnBoardingPhoneScreenState extends State<OnBoardingPhoneScreen> {
                                           "assets/united-states-of-america.png",
                                           scale: 30,
                                         ),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 5,
                                         ),
                                         Text(
@@ -257,11 +257,11 @@ class _OnBoardingPhoneScreenState extends State<OnBoardingPhoneScreen> {
                                   ],
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
                               utils.line(width: double.infinity),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
                               GestureDetector(
@@ -283,7 +283,7 @@ class _OnBoardingPhoneScreenState extends State<OnBoardingPhoneScreen> {
                                           "assets/united-states-of-america.png",
                                           scale: 30,
                                         ),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 5,
                                         ),
                                         Text(
@@ -296,11 +296,11 @@ class _OnBoardingPhoneScreenState extends State<OnBoardingPhoneScreen> {
                                   ],
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
                               utils.line(width: double.infinity),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
                               GestureDetector(
@@ -322,7 +322,7 @@ class _OnBoardingPhoneScreenState extends State<OnBoardingPhoneScreen> {
                                           "assets/united-states-of-america.png",
                                           scale: 30,
                                         ),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 5,
                                         ),
                                         Text(
@@ -335,11 +335,11 @@ class _OnBoardingPhoneScreenState extends State<OnBoardingPhoneScreen> {
                                   ],
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
                               utils.line(width: double.infinity),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
                               GestureDetector(
@@ -361,7 +361,7 @@ class _OnBoardingPhoneScreenState extends State<OnBoardingPhoneScreen> {
                                           "assets/united-states-of-america.png",
                                           scale: 30,
                                         ),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 5,
                                         ),
                                         Text(
@@ -374,11 +374,11 @@ class _OnBoardingPhoneScreenState extends State<OnBoardingPhoneScreen> {
                                   ],
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
                               utils.line(width: double.infinity),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
                               GestureDetector(
@@ -400,7 +400,7 @@ class _OnBoardingPhoneScreenState extends State<OnBoardingPhoneScreen> {
                                           "assets/united-states-of-america.png",
                                           scale: 30,
                                         ),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 5,
                                         ),
                                         Text(
@@ -413,11 +413,11 @@ class _OnBoardingPhoneScreenState extends State<OnBoardingPhoneScreen> {
                                   ],
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
                               utils.line(width: double.infinity),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
                             ],

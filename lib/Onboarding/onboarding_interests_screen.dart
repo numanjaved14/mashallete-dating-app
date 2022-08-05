@@ -298,7 +298,7 @@ class _OnBoardingInterestsScreenState extends State<OnBoardingInterestsScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
+                    const Text(
                       "Skip for now",
                       style: TextStyle(
                         fontSize: 16,

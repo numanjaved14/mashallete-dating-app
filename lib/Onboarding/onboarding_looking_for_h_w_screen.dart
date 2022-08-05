@@ -66,7 +66,7 @@ class _OnBoardingLookingForScreenState
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("A Husband"),
+                  const Text("A Husband"),
                   Container(
                     width: 20,
                     height: 20,
@@ -95,7 +95,7 @@ class _OnBoardingLookingForScreenState
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("A Wife"),
+                  const Text("A Wife"),
                   Container(
                     width: 20,
                     height: 20,
@@ -113,7 +113,7 @@ class _OnBoardingLookingForScreenState
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                const Text(
                   "Skip for now",
                   style: TextStyle(
                     fontSize: 16,

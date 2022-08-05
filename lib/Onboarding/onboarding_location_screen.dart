@@ -1,5 +1,4 @@
 import 'package:dating_app/Constants/app_constants.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../Utilities/app_utils.dart';
@@ -67,7 +66,7 @@ class _OnBoardingLocationScreenState extends State<OnBoardingLocationScreen> {
                 height: 50,
                 child: TextFormField(
                   showCursor: false,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.black,
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
@@ -97,7 +96,7 @@ class _OnBoardingLocationScreenState extends State<OnBoardingLocationScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                const Text(
                   "Skip for now",
                   style: TextStyle(
                     fontSize: 16,

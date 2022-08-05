@@ -234,7 +234,7 @@ class _LoginWithPhoneNumberScreenState
                                           "assets/united-states-of-america.png",
                                           scale: 30,
                                         ),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 5,
                                         ),
                                         Text(
@@ -247,11 +247,11 @@ class _LoginWithPhoneNumberScreenState
                                   ],
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
                               utils.line(width: double.infinity),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
                               GestureDetector(
@@ -273,7 +273,7 @@ class _LoginWithPhoneNumberScreenState
                                           "assets/united-states-of-america.png",
                                           scale: 30,
                                         ),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 5,
                                         ),
                                         Text(
@@ -286,11 +286,11 @@ class _LoginWithPhoneNumberScreenState
                                   ],
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
                               utils.line(width: double.infinity),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
                               GestureDetector(
@@ -312,7 +312,7 @@ class _LoginWithPhoneNumberScreenState
                                           "assets/united-states-of-america.png",
                                           scale: 30,
                                         ),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 5,
                                         ),
                                         Text(
@@ -325,11 +325,11 @@ class _LoginWithPhoneNumberScreenState
                                   ],
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
                               utils.line(width: double.infinity),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
                               GestureDetector(
@@ -351,7 +351,7 @@ class _LoginWithPhoneNumberScreenState
                                           "assets/united-states-of-america.png",
                                           scale: 30,
                                         ),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 5,
                                         ),
                                         Text(
@@ -364,11 +364,11 @@ class _LoginWithPhoneNumberScreenState
                                   ],
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
                               utils.line(width: double.infinity),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
                               GestureDetector(
@@ -390,7 +390,7 @@ class _LoginWithPhoneNumberScreenState
                                           "assets/united-states-of-america.png",
                                           scale: 30,
                                         ),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 5,
                                         ),
                                         Text(
@@ -403,11 +403,11 @@ class _LoginWithPhoneNumberScreenState
                                   ],
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
                               utils.line(width: double.infinity),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
                             ],
