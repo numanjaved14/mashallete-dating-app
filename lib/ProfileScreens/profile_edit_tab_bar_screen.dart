@@ -105,6 +105,9 @@ class _ProfileEditTabBarScreenState extends State<ProfileEditTabBarScreen>
                   ],
                 ),
               ),
+              SizedBox(
+                height: 10,
+              ),
               Expanded(
                 child: TabBarView(
                   controller: _controller,

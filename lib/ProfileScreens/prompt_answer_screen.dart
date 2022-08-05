@@ -65,9 +65,14 @@ class _PromptAnswerScreenState extends State<PromptAnswerScreen> {
                   "Facts about me that surprises people...",
                   style: utils.smallHeadingTextStyle(),
                 ),
-                Image.asset(
-                  "assets/reloadArrow.png",
-                  scale: 4,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, promptQuestionScreenRoute);
+                  },
+                  child: Image.asset(
+                    "assets/reloadArrow.png",
+                    scale: 4,
+                  ),
                 ),
               ],
             ),

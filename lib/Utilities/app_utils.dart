@@ -766,8 +766,11 @@ class AppUtils {
             ),
             Text(
               text,
-              style: extraSmallTitleTextStyle(
-                  color: selected == true ? Colors.white : blueColor),
+              style: TextStyle(
+                fontSize: 14,
+                color: selected == true ? Colors.white : blueColor,
+                fontFamily: "ProximaNova",
+              ),
             ),
           ],
         ),
@@ -1051,6 +1054,7 @@ class AppUtils {
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 10),
         width: MediaQuery.of(context).size.width,
+        color: Colors.white,
         height: 50,
         child: Row(
           children: [
@@ -1394,13 +1398,13 @@ class AppUtils {
             ),
             Container(
               width: MediaQuery.of(context).size.width * 0.7,
-              padding: const EdgeInsets.all(10),
+              padding: const EdgeInsets.all(15),
               decoration: BoxDecoration(
                 color: blueColor.withOpacity(0.05),
                 borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(7),
-                  topRight: Radius.circular(7),
-                  bottomRight: Radius.circular(7),
+                  topLeft: Radius.circular(16),
+                  topRight: Radius.circular(16),
+                  bottomRight: Radius.circular(16),
                 ),
               ),
               child: Text(
@@ -1429,9 +1433,9 @@ class AppUtils {
           decoration: const BoxDecoration(
             color: blueColor,
             borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(20),
-              topRight: Radius.circular(20),
-              bottomLeft: Radius.circular(20),
+              topLeft: Radius.circular(16),
+              topRight: Radius.circular(16),
+              bottomLeft: Radius.circular(16),
             ),
           ),
           child: Text(
@@ -1576,10 +1580,11 @@ class AppUtils {
     return Align(
       alignment: Alignment.centerLeft,
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(
+            margin: EdgeInsets.only(top: 10),
             width: 30,
             height: 30,
             decoration: const BoxDecoration(

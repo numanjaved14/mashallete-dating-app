@@ -220,38 +220,46 @@ class _HelpAndSupportScreenState extends State<HelpAndSupportScreen> {
                 height: 10,
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Image.asset(
-                    "assets/addText.png",
-                    scale: 4,
-                    color: val == 6 ? Colors.blue : Colors.grey,
+                  Padding(
+                    padding: const EdgeInsets.only(top: 15.0),
+                    child: Image.asset(
+                      "assets/addText.png",
+                      scale: 4,
+                      color: val == 6 ? Colors.blue : Colors.grey,
+                    ),
                   ),
                   const SizedBox(
                     width: 10,
                   ),
                   Expanded(
                     child: TextField(
-                      enabled: val == 6 ? true : false,
+                      enabled: val != null ? true : false,
                       decoration: const InputDecoration(
-                        border: InputBorder.none,
-                        hintText: "Leave a description so we can improve",
-                        hintStyle: TextStyle(
-                          fontSize: 18,
-                          fontFamily: "ProximaNova",
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
+                          border: InputBorder.none,
+                          hintText: "Leave a description so we can improve",
+                          hintStyle: TextStyle(
+                            fontSize: 18,
+                            fontFamily: "ProximaNova",
+                            fontWeight: FontWeight.w400,
+                          ),
+                          counterText: ""),
+                      maxLines: 7,
                     ),
                   ),
                 ],
               ),
               SizedBox(
-                height: width > 400 ? 165 : 90,
+                height: width > 415 ? 165 : 30,
               ),
               Align(
                 alignment: Alignment.center,
                 child: utils.bigButton(
-                    onTap: () {},
+                    onTap: () {
+                      thankYouDialog();
+                    },
                     width: MediaQuery.of(context).size.width * 0.9,
                     height: 55.0,
                     containerColor:
@@ -266,6 +274,107 @@ class _HelpAndSupportScreenState extends State<HelpAndSupportScreen> {
           ),
         ),
       ),
+    );
+  }
+
+  thankYouDialog() {
+    showGeneralDialog(
+      context: context,
+      barrierLabel: 'Dialog',
+      transitionDuration: const Duration(milliseconds: 20),
+      pageBuilder: (_, __, ___) {
+        return Scaffold(
+          backgroundColor: Colors.white60.withOpacity(0.3),
+          body: Column(
+            children: [
+              GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: Container(
+                  height: MediaQuery.of(context).size.width * 0.82,
+                  width: double.infinity,
+                  color: Colors.transparent,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: Column(
+                  children: [
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: 220,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 15, right: 20),
+                          child: Column(
+                            children: [
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              Text(
+                                "Thank you!",
+                                style: utils.xMediumHeadingTextStyle(),
+                              ),
+                              const SizedBox(
+                                height: 15,
+                              ),
+                              Text(
+                                "Our team will review your report as \nsoon as possible.",
+                                textAlign: TextAlign.center,
+                                style: utils.mediumTitleTextStyle(),
+                              ),
+                              const SizedBox(
+                                height: 35,
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.5,
+                                  height: 50,
+                                  decoration: BoxDecoration(
+                                    color: blueColor,
+                                    borderRadius: BorderRadius.circular(35),
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      "Dismiss",
+                                      style: utils.smallHeadingTextStyle(
+                                          color: Colors.white),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: Container(
+                  height: MediaQuery.of(context).size.width * 0.7,
+                  width: double.infinity,
+                  color: Colors.transparent,
+                ),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }

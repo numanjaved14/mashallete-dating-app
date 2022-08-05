@@ -106,6 +106,8 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
     purpleColor.withOpacity(0.4),
     purpleColor.withOpacity(0.4),
   ];
+
+  var messageController = TextEditingController();
   @override
   void initState() {
     super.initState();
@@ -210,6 +212,9 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                           ? utils.audioMessageSent(
                               context: context, time: "2:30")
                           : Container(),
+                      const SizedBox(
+                        height: 20,
+                      ),
                     ],
                   ),
                 ),
@@ -231,6 +236,10 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                       children: [
                         Expanded(
                           child: TextField(
+                            controller: messageController,
+                            onChanged: (val) {
+                              setState(() {});
+                            },
                             decoration: InputDecoration(
                               border: InputBorder.none,
                               hintText: "Message",
@@ -244,7 +253,10 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                         ),
                         Text(
                           "Send",
-                          style: utils.smallHeadingTextStyle(color: blueColor),
+                          style: utils.smallHeadingTextStyle(
+                              color: messageController.text.isNotEmpty
+                                  ? blueColor
+                                  : Colors.grey),
                         ),
                       ],
                     ),
@@ -431,9 +443,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    videoCallEnabled == true
-                        ? wantsVideoCallDialog()
-                        : enableCallOptionsDialog(width);
+                    wantsVideoCallDialog();
                   },
                   child: Container(
                     width: 60,
@@ -522,13 +532,30 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
       ),
     );
   }
+  //
+  // Widget _buildNewTransition(
+  //   BuildContext context,
+  //   Animation<double> animation,
+  //   Animation<double> secondaryAnimation,
+  //   Widget child,
+  // ) {
+  //   return ScaleTransition(
+  //     scale: CurvedAnimation(
+  //       parent: animation,
+  //       curve: Curves.ease,
+  //       reverseCurve: Curves.bounceIn,
+  //     ),
+  //     child: child,
+  //   );
+  // }
 
   optionsDialog(width) {
     showGeneralDialog(
       context: context,
       barrierLabel: 'Dialog',
       barrierDismissible: true,
-      transitionDuration: const Duration(milliseconds: 200),
+      // transitionBuilder: _buildNewTransition,
+      transitionDuration: const Duration(milliseconds: 500),
       pageBuilder: (_, __, ___) {
         return Scaffold(
           backgroundColor: Colors.white60.withOpacity(0.3),
@@ -539,7 +566,9 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                   Navigator.pop(context);
                 },
                 child: Container(
-                  height: MediaQuery.of(context).size.width * 1.63,
+                  height: width > 415
+                      ? MediaQuery.of(context).size.width * 1.63
+                      : MediaQuery.of(context).size.width * 1.43,
                   width: double.infinity,
                   color: Colors.transparent,
                 ),
@@ -1595,7 +1624,8 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                padding: const EdgeInsets.symmetric(
+                    horizontal: 20.0, vertical: 20.0),
                 child: Column(
                   children: [
                     GestureDetector(

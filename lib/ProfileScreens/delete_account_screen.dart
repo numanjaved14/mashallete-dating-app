@@ -16,6 +16,8 @@ class _DeleteAccountScreenState extends State<DeleteAccountScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -219,33 +221,39 @@ class _DeleteAccountScreenState extends State<DeleteAccountScreen> {
                 height: 10,
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Image.asset(
-                    "assets/addText.png",
-                    scale: 4,
-                    color: val == 6 ? Colors.blue : Colors.grey,
+                  Padding(
+                    padding: const EdgeInsets.only(top: 15.0),
+                    child: Image.asset(
+                      "assets/addText.png",
+                      scale: 4,
+                      color: val == 6 ? Colors.blue : Colors.grey,
+                    ),
                   ),
                   const SizedBox(
                     width: 10,
                   ),
                   Expanded(
                     child: TextField(
-                      enabled: val == 6 ? true : false,
+                      enabled: val != null ? true : false,
                       decoration: const InputDecoration(
-                        border: InputBorder.none,
-                        hintText: "Leave a description so we can improve",
-                        hintStyle: TextStyle(
-                          fontSize: 18,
-                          fontFamily: "ProximaNova",
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
+                          border: InputBorder.none,
+                          hintText: "Leave a description so we can improve",
+                          hintStyle: TextStyle(
+                            fontSize: 18,
+                            fontFamily: "ProximaNova",
+                            fontWeight: FontWeight.w400,
+                          ),
+                          counterText: ""),
+                      maxLines: 7,
                     ),
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 165,
+              SizedBox(
+                height: width > 415 ? 165 : 30,
               ),
               Align(
                 alignment: Alignment.center,

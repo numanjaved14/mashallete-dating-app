@@ -74,6 +74,10 @@ class _MyAppState extends State<MyApp> {
             return PageTransition(
                 child: const HelpAndSupportScreen(),
                 type: PageTransitionType.bottomToTop);
+          case premiumAccessScreenRoute:
+            return PageTransition(
+                child: const PremiumAccessScreen(),
+                type: PageTransitionType.bottomToTop);
           case deleteAccountScreenRoute:
             return PageTransition(
               child: const DeleteAccountScreen(),
@@ -124,7 +128,6 @@ class _MyAppState extends State<MyApp> {
         videoCallingScreenRoute: (context) => const VideoCallingScreen(),
         // deleteAccountScreenRoute: (context) => const DeleteAccountScreen(),
         // groundRuleThreeScreenRoute: (context) => const GroundRuleThreeScreen(),
-        premiumAccessScreenRoute: (context) => const PremiumAccessScreen(),
         preferencesScreenRoute: (context) => const PreferencesScreen(),
         chatBoxScreenRoute: (context) => const ChatBoxScreen(),
         privacyScreenRoute: (context) => const PrivacyScreen(),

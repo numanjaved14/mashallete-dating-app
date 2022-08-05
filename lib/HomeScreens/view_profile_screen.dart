@@ -71,12 +71,10 @@ class _ViewProfileScreenState extends State<ViewProfileScreen> {
                           onTap: () {
                             Navigator.pop(context);
                           },
-                          child: const Align(
+                          child: Align(
                             alignment: Alignment.centerLeft,
-                            child: Icon(
-                              Icons.keyboard_control_rounded,
-                              size: 35,
-                            ),
+                            child: Text("More",
+                                style: utils.smallHeadingTextStyle()),
                           ),
                         ),
                       ],

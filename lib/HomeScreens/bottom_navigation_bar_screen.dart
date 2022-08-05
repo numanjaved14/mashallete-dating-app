@@ -94,7 +94,7 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
                 height: 26,
                 child: Icon(
                   CupertinoIcons.chat_bubble_fill,
-                  size: 23,
+                  size: 26,
                   color: _selectedIndex == 2
                       ? blueColor
                       : blueColor.withOpacity(0.4),
