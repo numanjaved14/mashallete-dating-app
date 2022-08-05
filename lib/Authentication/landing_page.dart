@@ -16,7 +16,6 @@ class _LandingScreenState extends State<LandingScreen> {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
-    print(width);
     return Scaffold(
       backgroundColor: Colors.white,
       body: Container(
@@ -35,31 +34,26 @@ class _LandingScreenState extends State<LandingScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.2,
+                height: MediaQuery.of(context).size.height * 0.15,
               ),
-              const Text(
-                "Mashalatte",
-                style: TextStyle(
-                  fontSize: 50,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white,
-                  fontFamily: "ProximaNova",
-                ),
+              Image.asset(
+                "assets/mashalatteTextWhite.png",
+                scale: 13,
               ),
               const SizedBox(
-                height: 10,
+                height: 20,
               ),
               const Text(
-                "Unique tagline.",
+                "Here's to the last dating app you'll need.",
                 style: TextStyle(
                   fontFamily: "ProximaNova",
-                  fontSize: 24,
-                  fontWeight: FontWeight.w600,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w400,
                   color: Colors.white,
                 ),
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.45,
+                height: MediaQuery.of(context).size.height * 0.50,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -68,7 +62,7 @@ class _LandingScreenState extends State<LandingScreen> {
                     "By signing up, you agree to our ",
                     style: width > 415
                         ? utils.smallTitleTextStyle(color: Colors.white)
-                        : TextStyle(
+                        : const TextStyle(
                             fontSize: 14,
                             color: Colors.white,
                             fontFamily: "ProximaNova",
@@ -78,7 +72,7 @@ class _LandingScreenState extends State<LandingScreen> {
                     "Terms of Service.",
                     style: width > 415
                         ? utils.smallTitleBoldTextStyle(color: Colors.white)
-                        : TextStyle(
+                        : const TextStyle(
                             fontSize: 14,
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
@@ -89,7 +83,7 @@ class _LandingScreenState extends State<LandingScreen> {
                     " See",
                     style: width > 415
                         ? utils.smallTitleTextStyle(color: Colors.white)
-                        : TextStyle(
+                        : const TextStyle(
                             fontSize: 14,
                             color: Colors.white,
                             fontFamily: "ProximaNova",
@@ -107,7 +101,7 @@ class _LandingScreenState extends State<LandingScreen> {
                     "how we keep your data safe in our ",
                     style: width > 415
                         ? utils.smallTitleTextStyle(color: Colors.white)
-                        : TextStyle(
+                        : const TextStyle(
                             fontSize: 14,
                             color: Colors.white,
                             fontFamily: "ProximaNova",
@@ -117,7 +111,7 @@ class _LandingScreenState extends State<LandingScreen> {
                     "Privacy Policy.",
                     style: width > 415
                         ? utils.smallTitleBoldTextStyle(color: Colors.white)
-                        : TextStyle(
+                        : const TextStyle(
                             fontSize: 14,
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
@@ -129,32 +123,54 @@ class _LandingScreenState extends State<LandingScreen> {
               const SizedBox(
                 height: 20,
               ),
-              Align(
-                alignment: Alignment.center,
-                child: utils.bigButton(
-                    onTap: () {
-                      Navigator.pushNamed(context, onBoardingPhoneScreenRoute);
-                    },
-                    width: MediaQuery.of(context).size.width * 0.7,
-                    height: 55.0,
-                    containerColor: blueColor,
-                    textColor: Colors.white,
-                    text: "Create Account",
-                    fontSize: 15,
-                    borderRadius: 30.0),
+              utils.gradientBigButton(
+                width: double.infinity,
+                textColor: Colors.white,
+                borderRadius: 10.0,
+                height: 50.0,
+                text: "Log In",
+                shadowColors: Colors.white,
+                fontWeight: FontWeight.w900,
+                onTap: () {
+                  Navigator.pushNamed(context, loginWithPhoneNumberScreenRoute);
+                },
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              utils.bigButton(
+                width: double.infinity,
+                textColor: blueColor,
+                containerColor: Colors.white,
+                borderRadius: 10.0,
+                height: 50.0,
+                text: "Sign Up",
+                shadowColors: Colors.white,
+                fontWeight: FontWeight.w900,
+                onTap: () {
+                  Navigator.pushNamed(context, onBoardingPhoneScreenRoute);
+                },
               ),
               const SizedBox(
                 height: 20,
               ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, loginWithPhoneNumberScreenRoute);
-                },
-                child: Text(
-                  "Sign In",
-                  style: utils.smallHeadingTextStyle(color: Colors.white),
-                ),
-              )
+              // Align(
+              //   alignment: Alignment.center,
+              //   child: utils.bigButton(
+              //       onTap: () {
+              //         Navigator.pushNamed(context, onBoardingPhoneScreenRoute);
+              //       },
+              //       width: MediaQuery.of(context).size.width * 0.7,
+              //       height: 55.0,
+              //       containerColor: blueColor,
+              //       textColor: Colors.white,
+              //       text: "Create Account",
+              //       fontSize: 15,
+              //       borderRadius: 30.0),
+              // ),
+              // const SizedBox(
+              //   height: 20,
+              // ),
             ],
           ),
         ),

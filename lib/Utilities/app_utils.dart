@@ -196,6 +196,57 @@ class AppUtils {
     );
   }
 
+  gradientBigButton(
+      {width,
+      height,
+      borderColor,
+      onTap,
+      borderWidth,
+      borderRadius,
+      containerColor,
+      text,
+      shadowColors,
+      textColor,
+      fontSize,
+      fontWeight}) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: width,
+        height: height,
+        padding: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          border: Border.all(
+              color: borderColor ?? Colors.transparent,
+              width: borderWidth == null ? 2 : borderWidth.toDouble()),
+          borderRadius: BorderRadius.circular(borderRadius ?? 0),
+          gradient: const LinearGradient(colors: [
+            blueColor,
+            purpleColor,
+          ]),
+          boxShadow: [
+            BoxShadow(
+              offset: const Offset(0, 0),
+              color: shadowColors ?? Colors.black.withOpacity(0.2),
+              blurRadius: 4,
+            )
+          ],
+        ),
+        child: Center(
+          child: Text(
+            text.toString(),
+            style: TextStyle(
+              color: textColor ?? Colors.black,
+              fontSize: fontSize == null ? 13.0 : fontSize.toDouble(),
+              fontWeight: fontWeight ?? FontWeight.bold,
+              fontFamily: "ProximaNova",
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
   bigButtonWithIcon(
       {width,
       height,
@@ -320,6 +371,45 @@ class AppUtils {
               borderSide: const BorderSide(color: Colors.grey, width: 1.5),
               borderRadius: BorderRadius.circular(10.0),
             )),
+      ),
+    );
+  }
+
+  otpTextField(
+      {controller,
+      hintText,
+      maxLength,
+      width,
+      fontSize,
+      keyboardType,
+      onChanged,
+      focusNode}) {
+    return SizedBox(
+      width: width,
+      height: 50,
+      child: TextFormField(
+        maxLength: maxLength,
+        focusNode: focusNode,
+        showCursor: false,
+        style: const TextStyle(
+          color: Colors.black,
+          fontSize: 50,
+          fontWeight: FontWeight.bold,
+        ),
+        onChanged: onChanged,
+        controller: controller,
+        textAlign: TextAlign.center,
+        keyboardType: keyboardType,
+        decoration: InputDecoration(
+          counterText: "",
+          hintText: hintText,
+          contentPadding: const EdgeInsets.only(bottom: 20),
+          hintStyle: TextStyle(
+            color: Colors.grey,
+            fontSize: fontSize,
+            fontFamily: "ProximaNova",
+          ),
+        ),
       ),
     );
   }
@@ -681,18 +771,14 @@ class AppUtils {
     );
   }
 
-  final focusedPinTheme = PinTheme(
+  final focusedPinTheme = const PinTheme(
     width: 78,
     height: 78,
-    textStyle: const TextStyle(
+    textStyle: TextStyle(
         fontFamily: "ProximaNova",
         fontSize: 38,
         color: Color.fromRGBO(30, 60, 87, 1),
         fontWeight: FontWeight.w900),
-    decoration: BoxDecoration(
-      border: Border.all(color: blueColor),
-      borderRadius: BorderRadius.circular(20),
-    ),
   );
 
   final defaultPinTheme = PinTheme(
@@ -704,7 +790,12 @@ class AppUtils {
         color: Color.fromRGBO(30, 60, 87, 1),
         fontWeight: FontWeight.w600),
     decoration: BoxDecoration(
-      border: Border.all(color: Colors.grey),
+      border: const Border.fromBorderSide(
+        BorderSide(
+          color: Colors.grey,
+          width: 10.0,
+        ),
+      ),
       borderRadius: BorderRadius.circular(20),
     ),
   );
@@ -1584,7 +1675,7 @@ class AppUtils {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(
-            margin: EdgeInsets.only(top: 10),
+            margin: const EdgeInsets.only(top: 10),
             width: 30,
             height: 30,
             decoration: const BoxDecoration(

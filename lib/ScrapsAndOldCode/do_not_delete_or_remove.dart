@@ -24,3 +24,79 @@
 // ),
 // ),
 // )
+
+// Container(
+//   width: 110,
+//   height: 48,
+//   decoration: BoxDecoration(
+//     color: Colors.white,
+//     borderRadius: BorderRadius.circular(10),
+//     border: Border.all(
+//         color: Colors.black.withOpacity(0.4), width: 1.5),
+//   ),
+//   child: Row(
+//     mainAxisAlignment: MainAxisAlignment.center,
+//     children: [
+//       Text(
+//         "US +1",
+//         style: utils.mediumTitleTextStyle(
+//           color: blueColor,
+//         ),
+//       ),
+//       const Icon(
+//         Icons.keyboard_arrow_down_outlined,
+//         color: Colors.black,
+//         size: 30,
+//       )
+//     ],
+//   ),
+// ),
+
+// utils.textField(
+//   controller: phoneNumberController,
+//   hintText: "Phone Number",
+//   keyboardType: TextInputType.number,
+//   fontSize: 17.0,
+//   width: MediaQuery.of(context).size.width * 0.60,
+// ),
+
+// Row(
+//   children: [
+//     Container(
+//       width: 110,
+//       height: 48,
+//       decoration: BoxDecoration(
+//         color: Colors.white,
+//         borderRadius: BorderRadius.circular(10),
+//         border: Border.all(
+//             color: Colors.black.withOpacity(0.4), width: 1.5),
+//       ),
+//       child: Row(
+//         mainAxisAlignment: MainAxisAlignment.center,
+//         children: [
+//           Text(
+//             "US +1",
+//             style: utils.mediumTitleTextStyle(
+//               color: blueColor,
+//             ),
+//           ),
+//           const Icon(
+//             Icons.keyboard_arrow_down_outlined,
+//             color: Colors.black,
+//             size: 30,
+//           )
+//         ],
+//       ),
+//     ),
+//     const SizedBox(
+//       width: 10,
+//     ),
+//     utils.textField(
+//       controller: phoneNumberController,
+//       hintText: "Phone Number",
+//       fontSize: 17.0,
+//       keyboardType: TextInputType.number,
+//       width: MediaQuery.of(context).size.width * 0.57,
+//     ),
+//   ],
+// ),

@@ -79,43 +79,50 @@ class _OnBoardingPhoneScreenState extends State<OnBoardingPhoneScreen> {
             Row(
               children: [
                 Container(
-                  width: 110,
-                  height: 48,
+                  width: 50,
+                  height: 35,
                   decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                        color: Colors.black.withOpacity(0.4), width: 1.5),
+                    color: Colors.grey[300],
+                    borderRadius: BorderRadius.circular(5),
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "US +1",
-                        style: utils.mediumTitleTextStyle(
-                          color: blueColor,
-                        ),
-                      ),
-                      const Icon(
-                        Icons.keyboard_arrow_down_outlined,
+                  child: Center(
+                    child: Text(
+                      "+1",
+                      style: utils.mediumTitleTextStyle(
                         color: Colors.black,
-                        size: 30,
-                      )
-                    ],
+                      ),
+                    ),
                   ),
                 ),
                 const SizedBox(
                   width: 10,
                 ),
-                utils.textField(
-                  controller: phoneNumberController,
-                  hintText: "Phone Number",
-                  fontSize: 17.0,
-                  keyboardType: TextInputType.number,
-                  width: MediaQuery.of(context).size.width * 0.57,
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.7,
+                  child: const TextField(
+                    keyboardType: TextInputType.number,
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.w900,
+                      fontFamily: "ProximaNova",
+                    ),
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: "999 999 9999",
+                      hintStyle: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                        fontFamily: "ProximaNova",
+                      ),
+                    ),
+                  ),
                 ),
               ],
             ),
+            const SizedBox(
+              height: 1,
+            ),
+            utils.line(width: MediaQuery.of(context).size.width),
             const Spacer(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -132,32 +139,26 @@ class _OnBoardingPhoneScreenState extends State<OnBoardingPhoneScreen> {
                     Text(
                       "We'll never share this with anyone",
                       style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w700,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500,
                         fontFamily: "ProximaNova",
                         color: blueColor,
                       ),
                     ),
                   ],
                 ),
-                GestureDetector(
+                utils.gradientBigButton(
                   onTap: () {
                     Navigator.pushNamed(
                         context, onBoardingPhoneVerificationScreenRoute);
                   },
-                  child: Container(
-                    width: 60,
-                    height: 60,
-                    decoration: const BoxDecoration(
-                      color: blueColor,
-                      shape: BoxShape.circle,
-                    ),
-                    child: const Icon(
-                      Icons.arrow_forward_ios_outlined,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
+                  width: MediaQuery.of(context).size.width * 0.3,
+                  text: "Continue",
+                  containerColor: blueColor,
+                  textColor: Colors.white,
+                  borderRadius: 8.0,
+                  shadowColors: Colors.white,
+                )
               ],
             ),
             const SizedBox(

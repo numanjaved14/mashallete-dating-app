@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pinput/pinput.dart';
-
 import '../Constants/app_constants.dart';
 import '../Utilities/app_utils.dart';
 
@@ -15,7 +13,33 @@ class OnBoardingPhoneVerificationScreen extends StatefulWidget {
 class _OnBoardingPhoneVerificationScreenState
     extends State<OnBoardingPhoneVerificationScreen> {
   var phoneNumberController = TextEditingController();
+  var pin4Controller = TextEditingController();
+  var pin3Controller = TextEditingController();
+  var pin2Controller = TextEditingController();
+  var pin1Controller = TextEditingController();
   var utils = AppUtils();
+  FocusNode? focusNode1;
+  FocusNode? focusNode2;
+  FocusNode? focusNode3;
+  FocusNode? focusNode4;
+  @override
+  void dispose() {
+    focusNode1!.dispose();
+    focusNode2!.dispose();
+    focusNode3!.dispose();
+    focusNode4!.dispose();
+    super.dispose();
+  }
+
+  @override
+  void initState() {
+    focusNode1 = FocusNode();
+    focusNode2 = FocusNode();
+    focusNode3 = FocusNode();
+    focusNode4 = FocusNode();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,16 +109,76 @@ class _OnBoardingPhoneVerificationScreenState
               ],
             ),
             const SizedBox(
-              height: 35,
+              height: 55,
             ),
-            SizedBox(
-              width: MediaQuery.of(context).size.width,
-              child: Pinput(
-                focusedPinTheme: utils.focusedPinTheme,
-                defaultPinTheme: utils.defaultPinTheme,
-                length: 4,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              ),
+            Row(
+              children: [
+                utils.otpTextField(
+                    controller: pin1Controller,
+                    maxLength: 1,
+                    onChanged: (val) {
+                      if (pin1Controller.text.length == 1) {
+                        focusNode2!.requestFocus();
+                      }
+                      setState(() {});
+                    },
+                    width: MediaQuery.of(context).size.width * 0.2,
+                    hintText: " ",
+                    focusNode: focusNode1,
+                    keyboardType: TextInputType.number,
+                    fontSize: 15.0),
+                const SizedBox(
+                  width: 10,
+                ),
+                utils.otpTextField(
+                    controller: pin2Controller,
+                    focusNode: focusNode2,
+                    maxLength: 1,
+                    width: MediaQuery.of(context).size.width * 0.2,
+                    hintText: " ",
+                    onChanged: (val) {
+                      if (pin2Controller.text.length == 1) {
+                        focusNode3!.requestFocus();
+                      }
+                      setState(() {});
+                    },
+                    keyboardType: TextInputType.number,
+                    fontSize: 15.0),
+                const SizedBox(
+                  width: 10,
+                ),
+                utils.otpTextField(
+                    controller: pin3Controller,
+                    focusNode: focusNode3,
+                    maxLength: 1,
+                    onChanged: (val) {
+                      if (pin3Controller.text.length == 1) {
+                        focusNode4!.requestFocus();
+                      }
+                      setState(() {});
+                    },
+                    keyboardType: TextInputType.number,
+                    width: MediaQuery.of(context).size.width * 0.2,
+                    hintText: " ",
+                    fontSize: 15.0),
+                const SizedBox(
+                  width: 10,
+                ),
+                utils.otpTextField(
+                    controller: pin4Controller,
+                    focusNode: focusNode4,
+                    maxLength: 1,
+                    onChanged: (val) {
+                      if (pin4Controller.text.length == 1) {
+                        focusNode4!.unfocus();
+                      }
+                      setState(() {});
+                    },
+                    keyboardType: TextInputType.number,
+                    width: MediaQuery.of(context).size.width * 0.2,
+                    hintText: " ",
+                    fontSize: 15.0),
+              ],
             ),
             const SizedBox(
               height: 25,
@@ -115,31 +199,25 @@ class _OnBoardingPhoneVerificationScreenState
                     Text(
                       "We'll never share this with anyone",
                       style: TextStyle(
-                        fontSize: 15,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500,
                         fontFamily: "ProximaNova",
-                        fontWeight: FontWeight.w700,
                         color: blueColor,
                       ),
                     ),
                   ],
                 ),
-                GestureDetector(
+                utils.gradientBigButton(
                   onTap: () {
                     Navigator.pushNamed(context, onBoardingNameScreenRoute);
                   },
-                  child: Container(
-                    width: 60,
-                    height: 60,
-                    decoration: const BoxDecoration(
-                      color: blueColor,
-                      shape: BoxShape.circle,
-                    ),
-                    child: const Icon(
-                      Icons.arrow_forward_ios_outlined,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
+                  width: MediaQuery.of(context).size.width * 0.3,
+                  text: "Continue",
+                  containerColor: blueColor,
+                  textColor: Colors.white,
+                  borderRadius: 8.0,
+                  shadowColors: Colors.white,
+                )
               ],
             ),
             const SizedBox(
