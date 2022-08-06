@@ -156,18 +156,31 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                   onTap: () {
                     Navigator.pushNamed(context, profileViewScreenRoute);
                   },
-                  child: Text(
-                    "Usama",
-                    style: utils.mediumHeadingTextStyle(),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Text(
+                        "Usama",
+                        style: TextStyle(
+                          fontSize: 17,
+                          fontFamily: "ProximaNova",
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        "5:00 minutes left to respond",
+                        style: utils.smallTitleTextStyle(),
+                      ),
+                    ],
                   ),
                 ),
                 GestureDetector(
                   onTap: () {
                     optionsDialog(width);
                   },
-                  child: Text(
-                    "More",
-                    style: utils.smallHeadingTextStyle(),
+                  child: Icon(
+                    Icons.keyboard_control_sharp,
+                    size: 30,
                   ),
                 ),
               ],
@@ -615,8 +628,8 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                         child: Center(
                           child: Text(
                             "Report Sana",
-                            style:
-                                utils.smallHeadingTextStyle(color: Colors.red),
+                            style: utils.smallHeadingTextStyle(
+                                color: darkRedColor),
                           ),
                         ),
                       ),
@@ -688,8 +701,8 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                         ),
                         child: Padding(
                           padding: EdgeInsets.only(
-                              left: width > 400 ? 30 : 20,
-                              right: width > 400 ? 15 : 10),
+                              left: width > 400 ? 20 : 20,
+                              right: width > 400 ? 10 : 10),
                           child: Column(
                             children: [
                               const SizedBox(
@@ -697,7 +710,8 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                               ),
                               Text(
                                 "Report Sana",
-                                style: utils.xMediumHeadingTextStyle(),
+                                style: utils.xMediumHeadingTextStyle(
+                                    color: darkRedColor),
                               ),
                               const SizedBox(
                                 height: 15,
@@ -718,8 +732,9 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                     style: TextStyle(
                                       fontSize: width > 400 ? 18 : 16,
                                       fontFamily: "ProximaNova",
-                                      color:
-                                          val == 1 ? blueColor : Colors.black,
+                                      color: val == 1
+                                          ? darkRedColor
+                                          : Colors.black,
                                     ),
                                   ),
                                   Radio(
@@ -732,7 +747,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                         reportDialog(width);
                                       });
                                     },
-                                    activeColor: blueColor,
+                                    activeColor: darkRedColor,
                                   ),
                                 ],
                               ),
@@ -748,8 +763,9 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                     style: TextStyle(
                                       fontSize: width > 400 ? 18 : 16,
                                       fontFamily: "ProximaNova",
-                                      color:
-                                          val == 2 ? blueColor : Colors.black,
+                                      color: val == 2
+                                          ? darkRedColor
+                                          : Colors.black,
                                     ),
                                   ),
                                   Radio(
@@ -762,7 +778,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                         reportDialog(width);
                                       });
                                     },
-                                    activeColor: blueColor,
+                                    activeColor: darkRedColor,
                                   ),
                                 ],
                               ),
@@ -778,8 +794,9 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                     style: TextStyle(
                                       fontSize: width > 400 ? 18 : 16,
                                       fontFamily: "ProximaNova",
-                                      color:
-                                          val == 3 ? blueColor : Colors.black,
+                                      color: val == 3
+                                          ? darkRedColor
+                                          : Colors.black,
                                     ),
                                   ),
                                   Radio(
@@ -792,7 +809,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                         reportDialog(width);
                                       });
                                     },
-                                    activeColor: blueColor,
+                                    activeColor: darkRedColor,
                                   ),
                                 ],
                               ),
@@ -808,8 +825,9 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                     style: TextStyle(
                                       fontSize: width > 400 ? 18 : 16,
                                       fontFamily: "ProximaNova",
-                                      color:
-                                          val == 4 ? blueColor : Colors.black,
+                                      color: val == 4
+                                          ? darkRedColor
+                                          : Colors.black,
                                     ),
                                   ),
                                   Radio(
@@ -822,7 +840,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                         reportDialog(width);
                                       });
                                     },
-                                    activeColor: blueColor,
+                                    activeColor: darkRedColor,
                                   ),
                                 ],
                               ),
@@ -838,8 +856,9 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                     style: TextStyle(
                                       fontSize: width > 400 ? 18 : 16,
                                       fontFamily: "ProximaNova",
-                                      color:
-                                          val == 5 ? blueColor : Colors.black,
+                                      color: val == 5
+                                          ? darkRedColor
+                                          : Colors.black,
                                     ),
                                   ),
                                   Radio(
@@ -852,7 +871,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                         reportDialog(width);
                                       });
                                     },
-                                    activeColor: blueColor,
+                                    activeColor: darkRedColor,
                                   ),
                                 ],
                               ),
@@ -868,8 +887,9 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                     style: TextStyle(
                                       fontSize: width > 400 ? 18 : 16,
                                       fontFamily: "ProximaNova",
-                                      color:
-                                          val == 6 ? blueColor : Colors.black,
+                                      color: val == 6
+                                          ? darkRedColor
+                                          : Colors.black,
                                     ),
                                   ),
                                   Radio(
@@ -882,31 +902,35 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                         reportDialog(width);
                                       });
                                     },
-                                    activeColor: blueColor,
+                                    activeColor: darkRedColor,
                                   ),
                                 ],
                               ),
                               SizedBox(
                                 height: width > 400 ? 35 : 25,
                               ),
-                              GestureDetector(
-                                onTap: () {
-                                  Navigator.pop(context);
-                                  thankYouDialog();
-                                },
-                                child: Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.5,
-                                  height: 50,
-                                  decoration: BoxDecoration(
-                                    color: blueColor,
-                                    borderRadius: BorderRadius.circular(35),
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      "Submit",
-                                      style: utils.smallHeadingTextStyle(
-                                          color: Colors.white),
+                              Align(
+                                alignment: Alignment.centerLeft,
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.pop(context);
+                                    thankYouDialog();
+                                  },
+                                  child: Container(
+                                    margin: EdgeInsets.only(right: 10),
+                                    width: MediaQuery.of(context).size.width *
+                                        0.85,
+                                    height: 50,
+                                    decoration: BoxDecoration(
+                                      color: darkRedColor,
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        "Report Sana",
+                                        style: utils.smallHeadingTextStyle(
+                                            color: Colors.white),
+                                      ),
                                     ),
                                   ),
                                 ),

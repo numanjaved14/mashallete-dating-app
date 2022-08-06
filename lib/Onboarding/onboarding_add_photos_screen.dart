@@ -103,10 +103,12 @@ class _OnBoardingAddPhotosScreenState extends State<OnBoardingAddPhotosScreen> {
                     children: [
                       for (int i = 0; i < 6; i++)
                         utils.addPhotosWidget(
-                          onTap: () {
+                          onTap: () async {
                             if (enabled[i] == true) {
                               enabled[i] = false;
                             } else {
+                              await Navigator.pushNamed(
+                                  context, editPhotosScreenRoute);
                               enabled[i] = true;
                             }
                             setState(() {});
@@ -126,10 +128,56 @@ class _OnBoardingAddPhotosScreenState extends State<OnBoardingAddPhotosScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    "",
+                  Row(
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Text(
+                                "Tip: ",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w700,
+                                  fontFamily: "ProximaNova",
+                                  color: blueColor,
+                                ),
+                              ),
+                              Text(
+                                "Try to show off your",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                  fontFamily: "ProximaNova",
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Text(
+                            "personality in your photos as",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: "ProximaNova",
+                              color: Colors.black,
+                            ),
+                          ),
+                          Text(
+                            "well!",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: "ProximaNova",
+                              color: Colors.black,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
-                  GestureDetector(
+                  utils.gradientBigButton(
                     onTap: () {
                       if (enabled[0] == true ||
                           enabled[1] == true ||
@@ -141,23 +189,14 @@ class _OnBoardingAddPhotosScreenState extends State<OnBoardingAddPhotosScreen> {
                             context, onBoardingPhotoVerificationScreenRoute);
                       }
                     },
-                    child: Container(
-                      width: 60,
-                      height: 60,
-                      decoration: BoxDecoration(
-                        color: enabled.contains(true)
-                            ? blueColor
-                            : Colors.grey.withOpacity(0.5),
-                        shape: BoxShape.circle,
-                      ),
-                      child: Icon(
-                        Icons.arrow_forward_ios_outlined,
-                        color: enabled.contains(true)
-                            ? Colors.white
-                            : Colors.grey[600],
-                      ),
-                    ),
-                  ),
+                    width: MediaQuery.of(context).size.width * 0.3,
+                    text: "Continue",
+                    enabled: enabled.contains(true) ? false : true,
+                    textColor:
+                        enabled.contains(true) ? Colors.white : Colors.black,
+                    borderRadius: 8.0,
+                    shadowColors: Colors.white,
+                  )
                 ],
               ),
               const SizedBox(

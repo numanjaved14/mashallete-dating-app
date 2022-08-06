@@ -60,7 +60,7 @@ class _PromptQuestionScreenState extends State<PromptQuestionScreen> {
               height: 15,
             ),
             Text(
-              "Prompt question 2...",
+              "Green flags that I look for..",
               style: utils.smallHeadingTextStyle(),
             ),
             const SizedBox(
@@ -71,7 +71,7 @@ class _PromptQuestionScreenState extends State<PromptQuestionScreen> {
               height: 15,
             ),
             Text(
-              "Prompt question 3...",
+              "I want someone who..",
               style: utils.smallHeadingTextStyle(),
             ),
             const SizedBox(
@@ -82,7 +82,7 @@ class _PromptQuestionScreenState extends State<PromptQuestionScreen> {
               height: 15,
             ),
             Text(
-              "Prompt question 4...",
+              "A shower thought I recently had..",
               style: utils.smallHeadingTextStyle(),
             ),
             const SizedBox(
@@ -93,7 +93,7 @@ class _PromptQuestionScreenState extends State<PromptQuestionScreen> {
               height: 15,
             ),
             Text(
-              "Prompt question 5...",
+              "The most spontaneous things I've done..",
               style: utils.smallHeadingTextStyle(),
             ),
             const SizedBox(
@@ -104,7 +104,7 @@ class _PromptQuestionScreenState extends State<PromptQuestionScreen> {
               height: 15,
             ),
             Text(
-              "Prompt question 6...",
+              "My most irrational fear..",
               style: utils.smallHeadingTextStyle(),
             ),
             const SizedBox(
@@ -115,7 +115,7 @@ class _PromptQuestionScreenState extends State<PromptQuestionScreen> {
               height: 15,
             ),
             Text(
-              "Prompt question 7...",
+              "All that I ask for is you..",
               style: utils.smallHeadingTextStyle(),
             ),
             const SizedBox(
@@ -126,7 +126,7 @@ class _PromptQuestionScreenState extends State<PromptQuestionScreen> {
               height: 15,
             ),
             Text(
-              "Prompt question 8...",
+              "My comfort food is..",
               style: utils.smallHeadingTextStyle(),
             ),
             const SizedBox(

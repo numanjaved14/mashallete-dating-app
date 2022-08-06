@@ -22,8 +22,15 @@ class _OnBoardingThankYouScreenState extends State<OnBoardingThankYouScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(
-              height: 130,
+            const Spacer(
+              flex: 2,
+            ),
+            Image.asset(
+              "assets/welcomeFrame.png",
+              scale: 4,
+            ),
+            const Spacer(
+              flex: 2,
             ),
             const Text(
               "Thanks, Aadil!",
@@ -37,42 +44,29 @@ class _OnBoardingThankYouScreenState extends State<OnBoardingThankYouScreen> {
               height: 20,
             ),
             Text(
-              "While we verify you, let's go \n over some ground rules before \n you get started.",
+              "While we verify you, Let's go \nover some ground rules before \nyou get started.",
               textAlign: TextAlign.center,
-              style: TextStyle(
-                fontFamily: "ProximaNova",
-                fontSize: 19,
-                color: Colors.black.withOpacity(0.8),
-              ),
+              style: utils.mediumTitleTextStyle(
+                  color: Colors.black.withOpacity(0.8)),
             ),
-            const Spacer(
-              flex: 3,
-            ),
-            Container(
-              width: 150,
-              height: 150,
-              color: Colors.grey[300],
-            ),
-            const Spacer(
-              flex: 4,
-            ),
+            const Spacer(),
             Align(
               alignment: Alignment.center,
-              child: utils.bigButton(
+              child: utils.gradientBigButton(
                   onTap: () {
                     Navigator.pushNamed(context, groundRuleOneScreenRoute);
                   },
-                  width: MediaQuery.of(context).size.width * 0.7,
+                  width: MediaQuery.of(context).size.width * 0.9,
                   height: 55.0,
                   containerColor: blueColor,
                   textColor: Colors.white,
                   shadowColors: Colors.white,
-                  text: "Continue",
+                  text: "Go over the rules",
                   fontSize: 15,
-                  borderRadius: 30.0),
+                  borderRadius: 10.0),
             ),
             const SizedBox(
-              height: 30,
+              height: 50,
             ),
           ],
         ),

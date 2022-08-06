@@ -10,6 +10,7 @@ const lightBlueColor = Color(0xff0085FF);
 const extraLightBlueColor = Color(0xffD9E5FF);
 const darkGreyColor = Color(0xff313131);
 const greyColor = Color(0xffA6A6A6);
+const darkRedColor = Color(0xffE80046);
 const callButtonBackgroundColor = Color(0xffDDDDDD);
 
 ///gradients
@@ -49,6 +50,7 @@ const promptQuestionScreenRoute = "/promptQuestionScreenRoute";
 const promptAnswerScreenRoute = "/promptAnswerScreenRoute";
 const editInterestScreenRoute = "/editInterestScreenRoute";
 const onBoardingMenWomenScreenRoute = "/onBoardingMenWomenScreenRoute";
+const editPhotosScreenRoute = "/editPhotosScreenRoute";
 const aboutMeEditScreenRoute = "/aboutMeScreenRoute";
 // const groundRuleThreeScreenRoute = "/groundRuleThreeScreenRoute";
 const onBoardingLookingGoodScreenRoute = "/onBoardingLookingGoodScreenRoute";

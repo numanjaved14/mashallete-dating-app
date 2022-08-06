@@ -205,6 +205,7 @@ class AppUtils {
       borderRadius,
       containerColor,
       text,
+      enabled,
       shadowColors,
       textColor,
       fontSize,
@@ -220,10 +221,15 @@ class AppUtils {
               color: borderColor ?? Colors.transparent,
               width: borderWidth == null ? 2 : borderWidth.toDouble()),
           borderRadius: BorderRadius.circular(borderRadius ?? 0),
-          gradient: const LinearGradient(colors: [
-            blueColor,
-            purpleColor,
-          ]),
+          gradient: enabled == true
+              ? LinearGradient(colors: [
+                  Colors.grey.withOpacity(0.5),
+                  Colors.grey.withOpacity(0.5),
+                ])
+              : LinearGradient(colors: [
+                  blueColor,
+                  purpleColor,
+                ]),
           boxShadow: [
             BoxShadow(
               offset: const Offset(0, 0),

@@ -53,30 +53,31 @@ class _OnBoardingPhotoVerificationScreenState
               height: 45,
             ),
             const Text(
-              "You're too good to be \ntrue!",
+              "Let's make sure you're real with a selfie!",
               style: TextStyle(
                 fontSize: 27,
                 fontWeight: FontWeight.w600,
                 fontFamily: "ProximaNova",
               ),
             ),
-            const SizedBox(
-              height: 20,
-            ),
-            Text(
-              "Take a selfie matching the outline below so we can verify your account. ",
-              style: utils.mediumTitleTextStyle(color: Colors.black),
-            ),
             SizedBox(
-              height: width > 414 ? 50 : 30,
+              height: 20,
             ),
             Align(
               alignment: Alignment.center,
-              child: SizedBox(
+              child: Container(
+                height: 500,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(
+                        "assets/background.png",
+                      ),
+                      fit: BoxFit.cover,
+                    ),
+                    borderRadius: BorderRadius.circular(20.0)),
                 width: width > 414
                     ? MediaQuery.of(context).size.width
                     : MediaQuery.of(context).size.width * 0.8,
-                child: Image.asset("assets/placeholder.png"),
               ),
             ),
             const SizedBox(

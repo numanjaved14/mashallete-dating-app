@@ -29,6 +29,7 @@ import 'GroundRules/ground_rule_one_screen.dart';
 import 'GroundRules/ground_rule_two_screen.dart';
 import 'HomeScreens/home_screen.dart';
 import 'HomeScreens/view_profile_screen.dart';
+import 'Onboarding/onboarding_edit_photos_screen.dart';
 import 'Onboarding/onboarding_ethnicity_screen.dart';
 import 'Onboarding/onboarding_men_women_screen.dart';
 import 'Onboarding/onboarding_name_screen.dart';
@@ -121,6 +122,7 @@ class _MyAppState extends State<MyApp> {
         groundRuleOneScreenRoute: (context) => const GroundRuleOneScreen(),
         groundRuleTwoScreenRoute: (context) => const GroundRuleTwoScreen(),
         aboutMeEditScreenRoute: (context) => const AboutMeEditScreen(),
+        editPhotosScreenRoute: (context) => const EditPhotosScreen(),
         editTaglineScreenRoute: (context) => const EditTaglineScreen(),
         promptQuestionScreenRoute: (context) => const PromptQuestionScreen(),
         promptAnswerScreenRoute: (context) => const PromptAnswerScreen(),
