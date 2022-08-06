@@ -129,7 +129,6 @@ class _LandingScreenState extends State<LandingScreen> {
                 borderRadius: 10.0,
                 height: 50.0,
                 text: "Log In",
-                shadowColors: Colors.white,
                 fontWeight: FontWeight.w900,
                 onTap: () {
                   Navigator.pushNamed(context, loginWithPhoneNumberScreenRoute);
@@ -145,7 +144,6 @@ class _LandingScreenState extends State<LandingScreen> {
                 borderRadius: 10.0,
                 height: 50.0,
                 text: "Sign Up",
-                shadowColors: Colors.white,
                 fontWeight: FontWeight.w900,
                 onTap: () {
                   Navigator.pushNamed(context, onBoardingPhoneScreenRoute);

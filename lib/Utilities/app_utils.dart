@@ -992,10 +992,9 @@ class AppUtils {
                                   12,
                                 ),
                               ),
-                              child: const Icon(
-                                Icons.photo,
-                                color: Colors.grey,
-                                size: 20,
+                              child: Image.asset(
+                                "assets/addImageIcon.png",
+                                scale: 5,
                               ),
                             ),
                           )

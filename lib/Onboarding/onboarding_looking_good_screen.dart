@@ -23,11 +23,18 @@ class _OnBoardingLookingGoodScreenState
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(
-              height: 130,
+            const Spacer(
+              flex: 2,
+            ),
+            Image.asset(
+              "assets/welcomeFrame.png",
+              scale: 4,
+            ),
+            const Spacer(
+              flex: 2,
             ),
             const Text(
-              "Looking good, Aadil!",
+              "Looking Good, Aadil.",
               style: TextStyle(
                 fontSize: 32,
                 fontWeight: FontWeight.w900,
@@ -38,40 +45,31 @@ class _OnBoardingLookingGoodScreenState
               height: 20,
             ),
             Text(
-              "Let's see what we're working \nwith here. ",
+              "Let's see what we are working \nwith here.",
               textAlign: TextAlign.center,
               style: utils.mediumTitleTextStyle(
-                  color: Colors.black.withOpacity(0.8)),
+                color: Colors.black.withOpacity(0.8),
+              ),
             ),
-            const Spacer(
-              flex: 3,
-            ),
-            Container(
-              width: 150,
-              height: 150,
-              color: Colors.grey[300],
-            ),
-            const Spacer(
-              flex: 4,
-            ),
+            const Spacer(),
             Align(
               alignment: Alignment.center,
-              child: utils.bigButton(
+              child: utils.gradientBigButton(
                   onTap: () {
                     Navigator.pushNamed(
                         context, onBoardingAddPhotosScreenRoute);
                   },
-                  width: MediaQuery.of(context).size.width * 0.7,
+                  width: MediaQuery.of(context).size.width * 0.9,
                   height: 55.0,
                   containerColor: blueColor,
                   textColor: Colors.white,
                   shadowColors: Colors.white,
                   text: "Complete your visible profile",
                   fontSize: 15,
-                  borderRadius: 30.0),
+                  borderRadius: 10.0),
             ),
             const SizedBox(
-              height: 30,
+              height: 50,
             ),
           ],
         ),
