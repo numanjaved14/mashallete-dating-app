@@ -61,34 +61,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             const SizedBox(
               height: 20,
             ),
-            // Align(
-            //   alignment: Alignment.centerLeft,
-            //   child: Text(
-            //     "INTERESTS",
-            //     style: utils.extraSmallHeadingTextStyle(color: Colors.grey),
-            //   ),
-            // ),
-            // const SizedBox(
-            //   height: 10,
-            // ),
-            // Wrap(
-            //   alignment: WrapAlignment.center,
-            //   children: [
-            //     for (int i = 0; i < arts.length; i++)
-            //       utils.interestsHomeWidget(
-            //         text: arts[i],
-            //         selected: false,
-            //         onTap: () {},
-            //       ),
-            //   ],
-            // ),
-            // const SizedBox(
-            //   height: 30,
-            // ),
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                "ABOUT",
+                "ABOUT ME",
                 style: utils.extraSmallHeadingTextStyle(color: Colors.grey),
               ),
             ),
@@ -102,7 +78,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             ),
             utils.editProfileWidget(
               title: "About Me",
-              body: "Lorem Ipsum Dolor Sit",
+              body: "I have passion for art and I am looking to meet...",
               margin: 0.0,
               onTap: () {
                 Navigator.pushNamed(context, aboutMeEditScreenRoute);
@@ -121,7 +97,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                "THE PROMPTS",
+                "PROMPTS",
                 style: utils.extraSmallHeadingTextStyle(color: Colors.grey),
               ),
             ),
@@ -151,10 +127,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 Navigator.pushNamed(context, promptQuestionScreenRoute);
               },
             ),
-            utils.line(),
-            const SizedBox(
-              height: 40,
-            ),
+            SizedBox(height: 20),
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
@@ -169,27 +142,55 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             utils.line(),
             utils.editProfileWidget(title: "Gender", body: "Male"),
             utils.line(),
-            utils.editProfileWidget(title: "Children", body: "Lorem Ipsum"),
+            utils.editProfileWidget(title: "Children", body: "Don't have any"),
             utils.line(),
-            utils.editProfileWidget(title: "Sect", body: "Lorem Ipsum"),
+            utils.editProfileWidget(title: "Sect", body: "Sunni"),
             utils.line(),
             utils.editProfileWidget(
-                title: "Religious Practice",
-                body: "Lorem Ipsum",
+                title: "Religiousness", body: "Very Religious"),
+            utils.line(),
+            utils.editProfileWidget(
+                title: "Diet", body: "Not filled out yet", isColorBlue: true),
+            utils.line(),
+            utils.editProfileWidget(
+                title: "Alcohol",
+                body: "Not filled out yet",
                 isColorBlue: true),
             utils.line(),
-            utils.editProfileWidget(title: "Diet", body: "Lorem Ipsum"),
+            utils.editProfileWidget(
+                title: "Smoking",
+                body: "Not filled out yet",
+                isColorBlue: true),
             utils.line(),
             utils.editProfileWidget(
-                title: "Alcohol", body: "Lorem Ipsum", isColorBlue: true),
+                title: "Education",
+                body: "Not filled out yet",
+                isColorBlue: true),
             utils.line(),
-            utils.editProfileWidget(title: "Smoking", body: "Lorem Ipsum"),
+            utils.editProfileWidget(
+                title: "Profession",
+                body: "Not filled out yet",
+                isColorBlue: true),
             utils.line(),
-            utils.editProfileWidget(title: "Education", body: "Lorem Ipsum"),
+            utils.editProfileWidget(
+                title: "Languages",
+                body: "Not filled out yet",
+                isColorBlue: true),
             utils.line(),
-            utils.editProfileWidget(title: "Profession", body: "Lorem Ipsum"),
+            utils.editProfileWidget(
+                title: "Have you ever been married?",
+                body: "Not filled out yet",
+                isColorBlue: true),
             utils.line(),
-            utils.editProfileWidget(title: "Language(s)", body: "Lorem Ipsum"),
+            utils.editProfileWidget(
+                title: "Want kids?",
+                body: "Not filled out yet",
+                isColorBlue: true),
+            utils.line(),
+            utils.editProfileWidget(
+                title: "Willing to relocate?",
+                body: "Not filled out yet",
+                isColorBlue: true),
             utils.line(),
             const SizedBox(
               height: 40,

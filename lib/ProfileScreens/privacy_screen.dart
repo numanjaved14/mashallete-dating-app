@@ -1,3 +1,4 @@
+import 'package:dating_app/Constants/app_constants.dart';
 import 'package:dating_app/Utilities/app_utils.dart';
 import 'package:flutter/material.dart';
 
@@ -44,7 +45,7 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
                 ),
                 Text(
                   "Privacy",
-                  style: utils.mediumHeadingTextStyle(),
+                  style: utils.mediumHeadingTextStyle(color: blueColor),
                 ),
                 Container(
                   width: 20,
@@ -63,6 +64,7 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
                   val1 = value;
                   setState(() {});
                 }),
+            utils.line(width: MediaQuery.of(context).size.width),
             utils.privacyWidget(
                 text2: "You'll see message content in notifications.",
                 text1: "Show Message Preview",
@@ -72,6 +74,7 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
                   val2 = value;
                   setState(() {});
                 }),
+            utils.line(width: MediaQuery.of(context).size.width),
             utils.privacyWidget(
                 text2: "You will only be shown to people you like.",
                 text1: "Stealth Mode",
@@ -81,6 +84,7 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
                   val3 = value;
                   setState(() {});
                 }),
+            utils.line(width: MediaQuery.of(context).size.width),
             utils.privacyWidget(
                 text2: "Prevent others from seeing if you're online.",
                 text1: "Hide Online Status",
@@ -90,6 +94,7 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
                   val4 = value;
                   setState(() {});
                 }),
+            utils.line(width: MediaQuery.of(context).size.width),
             utils.privacyWidget(
                 text2: "Hide your location on your profile.",
                 text1: "Hide Location",
@@ -99,6 +104,7 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
                   val5 = value;
                   setState(() {});
                 }),
+            utils.line(width: MediaQuery.of(context).size.width),
             utils.privacyWidget(
                 text2:
                     "You will only be shown to people who are \nwithin your set preference parameters.",

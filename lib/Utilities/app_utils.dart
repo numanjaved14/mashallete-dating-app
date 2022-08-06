@@ -1377,7 +1377,7 @@ class AppUtils {
                 text2,
                 style: TextStyle(
                   fontFamily: "ProximaNova",
-                  fontSize: width > 400 ? 16 : 14,
+                  fontSize: width > 400 ? 15 : 13,
                 ),
               ),
             ],

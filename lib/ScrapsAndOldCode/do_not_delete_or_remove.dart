@@ -288,3 +288,28 @@
 //     ),
 //   ],
 // ),
+
+// Align(
+//   alignment: Alignment.centerLeft,
+//   child: Text(
+//     "INTERESTS",
+//     style: utils.extraSmallHeadingTextStyle(color: Colors.grey),
+//   ),
+// ),
+// const SizedBox(
+//   height: 10,
+// ),
+// Wrap(
+//   alignment: WrapAlignment.center,
+//   children: [
+//     for (int i = 0; i < arts.length; i++)
+//       utils.interestsHomeWidget(
+//         text: arts[i],
+//         selected: false,
+//         onTap: () {},
+//       ),
+//   ],
+// ),
+// const SizedBox(
+//   height: 30,
+// ),

@@ -46,15 +46,16 @@ class _ProfileEditTabBarScreenState extends State<ProfileEditTabBarScreen>
                       onTap: () {
                         Navigator.pop(context);
                       },
-                      child: Text(
-                        "Cancel",
-                        style: utils.smallHeadingTextStyle(),
+                      child: Icon(
+                        Icons.arrow_back_ios,
+                        size: 20,
                       ),
                     ),
                     const Text(
-                      "Usama",
+                      "Usama's Profile",
                       style: TextStyle(
-                        fontSize: 22,
+                        fontSize: 19,
+                        color: blueColor,
                         fontFamily: "ProximaNova",
                         fontWeight: FontWeight.bold,
                       ),
@@ -63,9 +64,9 @@ class _ProfileEditTabBarScreenState extends State<ProfileEditTabBarScreen>
                       onTap: () {
                         Navigator.pop(context);
                       },
-                      child: Text(
-                        "Done",
-                        style: utils.smallHeadingTextStyle(color: blueColor),
+                      child: Icon(
+                        Icons.check,
+                        size: 20,
                       ),
                     ),
                   ],
