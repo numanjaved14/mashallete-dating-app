@@ -226,7 +226,7 @@ class AppUtils {
                   Colors.grey.withOpacity(0.5),
                   Colors.grey.withOpacity(0.5),
                 ])
-              : LinearGradient(colors: [
+              : const LinearGradient(colors: [
                   blueColor,
                   purpleColor,
                 ]),

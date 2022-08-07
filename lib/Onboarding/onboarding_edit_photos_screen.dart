@@ -61,7 +61,7 @@ class _EditPhotosScreenState extends State<EditPhotosScreen> {
               const SizedBox(
                 height: 20,
               ),
-              Container(
+              SizedBox(
                 width: 400,
                 height: 400,
                 child: Stack(
@@ -71,14 +71,14 @@ class _EditPhotosScreenState extends State<EditPhotosScreen> {
                       height: 400,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
-                        image: DecorationImage(
+                        image: const DecorationImage(
                             image: AssetImage(
                               "assets/background.png",
                             ),
                             fit: BoxFit.cover),
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: 400,
                       height: 400,
                       child: Column(
@@ -89,7 +89,7 @@ class _EditPhotosScreenState extends State<EditPhotosScreen> {
                         ],
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: 400,
                       height: 400,
                       child: Row(

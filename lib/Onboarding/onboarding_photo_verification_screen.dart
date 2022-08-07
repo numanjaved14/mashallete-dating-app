@@ -60,7 +60,7 @@ class _OnBoardingPhotoVerificationScreenState
                 fontFamily: "ProximaNova",
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Align(
@@ -68,7 +68,7 @@ class _OnBoardingPhotoVerificationScreenState
               child: Container(
                 height: 500,
                 decoration: BoxDecoration(
-                    image: DecorationImage(
+                    image: const DecorationImage(
                       image: AssetImage(
                         "assets/background.png",
                       ),

@@ -127,7 +127,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 Navigator.pushNamed(context, promptQuestionScreenRoute);
               },
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Align(
               alignment: Alignment.centerLeft,
               child: Text(

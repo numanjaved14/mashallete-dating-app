@@ -46,7 +46,7 @@ class _ProfileEditTabBarScreenState extends State<ProfileEditTabBarScreen>
                       onTap: () {
                         Navigator.pop(context);
                       },
-                      child: Icon(
+                      child: const Icon(
                         Icons.arrow_back_ios,
                         size: 20,
                       ),
@@ -64,7 +64,7 @@ class _ProfileEditTabBarScreenState extends State<ProfileEditTabBarScreen>
                       onTap: () {
                         Navigator.pop(context);
                       },
-                      child: Icon(
+                      child: const Icon(
                         Icons.check,
                         size: 20,
                       ),

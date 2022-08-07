@@ -159,7 +159,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Text(
+                      const Text(
                         "Usama",
                         style: TextStyle(
                           fontSize: 17,
@@ -178,7 +178,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                   onTap: () {
                     optionsDialog(width);
                   },
-                  child: Icon(
+                  child: const Icon(
                     Icons.keyboard_control_sharp,
                     size: 30,
                   ),
@@ -917,7 +917,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                     thankYouDialog();
                                   },
                                   child: Container(
-                                    margin: EdgeInsets.only(right: 10),
+                                    margin: const EdgeInsets.only(right: 10),
                                     width: MediaQuery.of(context).size.width *
                                         0.85,
                                     height: 50,

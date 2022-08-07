@@ -134,7 +134,7 @@ class _OnBoardingAddPhotosScreenState extends State<OnBoardingAddPhotosScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Row(
-                            children: [
+                            children: const [
                               Text(
                                 "Tip: ",
                                 style: TextStyle(
@@ -155,7 +155,7 @@ class _OnBoardingAddPhotosScreenState extends State<OnBoardingAddPhotosScreen> {
                               ),
                             ],
                           ),
-                          Text(
+                          const Text(
                             "personality in your photos as",
                             style: TextStyle(
                               fontSize: 16,
@@ -164,7 +164,7 @@ class _OnBoardingAddPhotosScreenState extends State<OnBoardingAddPhotosScreen> {
                               color: Colors.black,
                             ),
                           ),
-                          Text(
+                          const Text(
                             "well!",
                             style: TextStyle(
                               fontSize: 16,
