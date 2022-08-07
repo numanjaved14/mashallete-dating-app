@@ -110,6 +110,7 @@ class _EditPhotosScreenState extends State<EditPhotosScreen> {
               ),
               utils.gradientBigButton(
                 width: double.infinity,
+                shadowColors: Colors.white,
                 textColor: Colors.white,
                 borderRadius: 10.0,
                 height: 50.0,

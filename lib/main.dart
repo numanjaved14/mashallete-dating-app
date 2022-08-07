@@ -26,7 +26,6 @@ import 'Authentication/splash_screen.dart';
 import 'ChatScreens/chat_box_screen.dart';
 import 'Constants/app_constants.dart';
 import 'GroundRules/ground_rule_one_screen.dart';
-import 'GroundRules/ground_rule_two_screen.dart';
 import 'HomeScreens/home_screen.dart';
 import 'HomeScreens/view_profile_screen.dart';
 import 'Onboarding/onboarding_edit_photos_screen.dart';
@@ -39,9 +38,18 @@ import 'Onboarding/onboarding_photo_verification_screen.dart';
 import 'Onboarding/onboarding_thank_you_screen.dart';
 import 'Onboarding/onboarding_welcome_screen.dart';
 import 'ProfileScreens/about_me_edit_screen.dart';
+import 'ProfileScreens/alcohol_screen.dart';
 import 'ProfileScreens/delete_account_screen.dart';
+import 'ProfileScreens/education_screen.dart';
+import 'ProfileScreens/have_children_screen.dart';
 import 'ProfileScreens/help_and_support_screen.dart';
+import 'ProfileScreens/married_screen.dart';
 import 'ProfileScreens/premium_access_screen.dart';
+import 'ProfileScreens/profession_screen.dart';
+import 'ProfileScreens/sect_screen.dart';
+import 'ProfileScreens/smoking_screen.dart';
+import 'ProfileScreens/want_kids_screen.dart';
+import 'ProfileScreens/willing_to_relocate_screen.dart';
 
 Future<void> main() async {
   runApp(const MyApp());
@@ -120,13 +128,23 @@ class _MyAppState extends State<MyApp> {
         onBoardingThankYouScreenRoute: (context) =>
             const OnBoardingThankYouScreen(),
         groundRuleOneScreenRoute: (context) => const GroundRuleOneScreen(),
-        groundRuleTwoScreenRoute: (context) => const GroundRuleTwoScreen(),
+        sectScreenRoute: (context) => const SectScreen(),
+        // groundRuleTwoScreenRoute: (context) => const GroundRuleTwoScreen(),
         aboutMeEditScreenRoute: (context) => const AboutMeEditScreen(),
+        haveChildrenScreenRoute: (context) => const HaveChildrenScreen(),
         editPhotosScreenRoute: (context) => const EditPhotosScreen(),
         editTaglineScreenRoute: (context) => const EditTaglineScreen(),
         promptQuestionScreenRoute: (context) => const PromptQuestionScreen(),
         promptAnswerScreenRoute: (context) => const PromptAnswerScreen(),
+        professionScreenRoute: (context) => const ProfessionScreen(),
         editInterestScreenRoute: (context) => const EditInterestScreen(),
+        wantKidsScreenRoute: (context) => const WantKidsScreen(),
+        educationScreenRoute: (context) => const EducationScreen(),
+        smokingScreenRoute: (context) => const SmokingScreen(),
+        alcoholScreenRoute: (context) => const AlcoholScreen(),
+        marriedScreenRoute: (context) => const MarriedScreen(),
+        willingToRelocateScreenRoute: (context) =>
+            const WillingToRelocateScreen(),
         onBoardingMenWomenScreenRoute: (context) =>
             const OnBoardingMenWomenScreen(),
         videoCallingScreenRoute: (context) => const VideoCallingScreen(),

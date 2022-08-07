@@ -142,32 +142,51 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             utils.line(),
             utils.editProfileWidget(title: "Gender", body: "Male"),
             utils.line(),
-            utils.editProfileWidget(title: "Children", body: "Don't have any"),
+            utils.editProfileWidget(
+                title: "Children",
+                body: "Don't have any",
+                onTap: () {
+                  Navigator.pushNamed(context, haveChildrenScreenRoute);
+                }),
             utils.line(),
-            utils.editProfileWidget(title: "Sect", body: "Sunni"),
+            utils.editProfileWidget(
+                title: "Sect",
+                body: "Sunni",
+                onTap: () {
+                  Navigator.pushNamed(context, sectScreenRoute);
+                }),
             utils.line(),
             utils.editProfileWidget(
                 title: "Religiousness", body: "Very Religious"),
             utils.line(),
             utils.editProfileWidget(
-                title: "Diet", body: "Not filled out yet", isColorBlue: true),
-            utils.line(),
-            utils.editProfileWidget(
+                onTap: () {
+                  Navigator.pushNamed(context, alcoholScreenRoute);
+                },
                 title: "Alcohol",
                 body: "Not filled out yet",
                 isColorBlue: true),
             utils.line(),
             utils.editProfileWidget(
+                onTap: () {
+                  Navigator.pushNamed(context, smokingScreenRoute);
+                },
                 title: "Smoking",
                 body: "Not filled out yet",
                 isColorBlue: true),
             utils.line(),
             utils.editProfileWidget(
+                onTap: () {
+                  Navigator.pushNamed(context, educationScreenRoute);
+                },
                 title: "Education",
                 body: "Not filled out yet",
                 isColorBlue: true),
             utils.line(),
             utils.editProfileWidget(
+                onTap: () {
+                  Navigator.pushNamed(context, professionScreenRoute);
+                },
                 title: "Profession",
                 body: "Not filled out yet",
                 isColorBlue: true),
@@ -178,16 +197,25 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 isColorBlue: true),
             utils.line(),
             utils.editProfileWidget(
+                onTap: () {
+                  Navigator.pushNamed(context, marriedScreenRoute);
+                },
                 title: "Have you ever been married?",
                 body: "Not filled out yet",
                 isColorBlue: true),
             utils.line(),
             utils.editProfileWidget(
                 title: "Want kids?",
+                onTap: () {
+                  Navigator.pushNamed(context, wantKidsScreenRoute);
+                },
                 body: "Not filled out yet",
                 isColorBlue: true),
             utils.line(),
             utils.editProfileWidget(
+                onTap: () {
+                  Navigator.pushNamed(context, willingToRelocateScreenRoute);
+                },
                 title: "Willing to relocate?",
                 body: "Not filled out yet",
                 isColorBlue: true),

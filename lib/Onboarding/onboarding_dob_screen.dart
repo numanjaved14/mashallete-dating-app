@@ -467,7 +467,8 @@ class _OnBoardingDateOfBirthScreenState
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height,
                   child: BlurryContainer(
-                    color: Colors.white.withOpacity(0.5),
+                    color: Colors.black.withOpacity(0.3),
+                    blur: 27,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,

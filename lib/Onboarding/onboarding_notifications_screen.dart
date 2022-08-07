@@ -250,7 +250,8 @@ class _OnBoardingNotificationsScreenState
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height,
                   child: BlurryContainer(
-                    color: Colors.white.withOpacity(0.5),
+                    color: Colors.black.withOpacity(0.3),
+                    blur: 27,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -296,9 +297,11 @@ class _OnBoardingNotificationsScreenState
                                 height: 10,
                               ),
                               Text(
-                                "When you disable notifications, you'll miss new likes and matches from other matches.",
-                                style: utils.smallTitleTextStyle(
+                                "When you disable notifications, you'll miss new \nlikes and matches from other matches.",
+                                style: TextStyle(
+                                  fontSize: 14,
                                   color: Colors.black.withOpacity(0.8),
+                                  fontFamily: "ProximaNova",
                                 ),
                                 textAlign: TextAlign.center,
                               ),

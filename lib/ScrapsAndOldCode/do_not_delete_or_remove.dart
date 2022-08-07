@@ -644,3 +644,48 @@
 
 // deleteAccountScreenRoute: (context) => const DeleteAccountScreen(),
 // groundRuleThreeScreenRoute: (context) => const GroundRuleThreeScreen(),
+
+// utils.editProfileWidget(
+//     title: "Diet", body: "Not filled out yet", isColorBlue: true),
+// utils.line(),
+
+// CircularPercentIndicator(
+//   radius: width > 400 ? 81.0 : 76.0,
+//   lineWidth: 6.0,
+//   percent: 0.75,
+//   startAngle: 180.0,
+//   progressColor: blueColor,
+// ),
+// Positioned(
+//   bottom: 0,
+//   child: Container(
+//     width: width > 400 ? 52 : 46,
+//     height: width > 400 ? 43 : 38,
+//     decoration: BoxDecoration(
+//       color: Colors.white,
+//       borderRadius: BorderRadius.circular(30),
+//     ),
+//     child: Center(
+//       child: Container(
+//         width: width > 400 ? 46 : 40,
+//         height: width > 400 ? 38 : 33,
+//         decoration: BoxDecoration(
+//           color: blueColor,
+//           borderRadius: BorderRadius.circular(20),
+//         ),
+//         child: const Center(
+//           child: Text(
+//             "75%",
+//             style: TextStyle(
+//               fontSize: 16,
+//               fontFamily: "ProximaNova",
+//               fontWeight: FontWeight.bold,
+//               height: 1,
+//               color: Colors.white,
+//             ),
+//           ),
+//         ),
+//       ),
+//     ),
+//   ),
+// ),

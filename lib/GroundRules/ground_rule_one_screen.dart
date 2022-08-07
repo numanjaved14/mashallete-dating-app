@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dating_app/Constants/app_constants.dart';
 import 'package:dating_app/Utilities/app_utils.dart';
 import 'package:flutter/material.dart';
@@ -10,10 +11,25 @@ class GroundRuleOneScreen extends StatefulWidget {
 }
 
 class _GroundRuleOneScreenState extends State<GroundRuleOneScreen> {
+  final List<String> imgList = [
+    'assets/rules1.png',
+    'assets/rules2.png',
+  ];
+  var _current = 0;
+
+  List<T> map<T>(List list, Function handler) {
+    List<T> result = [];
+    for (var i = 0; i < list.length; i++) {
+      result.add(handler(i, list[i]));
+    }
+    return result;
+  }
+
+  CarouselController crouselController = CarouselController();
+
   var utils = AppUtils();
   @override
   Widget build(BuildContext context) {
-    var width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
@@ -22,91 +38,118 @@ class _GroundRuleOneScreenState extends State<GroundRuleOneScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.3,
+              height: MediaQuery.of(context).size.height * 0.25,
+            ),
+            CarouselSlider(
+              carouselController: crouselController,
+              options: CarouselOptions(
+                  initialPage: 0,
+                  reverse: false,
+                  disableCenter: true,
+                  viewportFraction: 1.0,
+                  enableInfiniteScroll: false,
+                  scrollDirection: Axis.horizontal,
+                  onPageChanged: (index, reason) {
+                    setState(() {
+                      _current = index;
+                    });
+                  }),
+              items: imgList.map((imgUrl) {
+                return Builder(
+                  builder: (BuildContext context) {
+                    return Image.asset(
+                      imgUrl,
+                      scale: 4,
+                    );
+                  },
+                );
+              }).toList(),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.08,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Container(
-                  width: 70,
-                  height: 70,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: blueColor,
-                      width: 3,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: map<Widget>(
+                imgList,
+                (index, url) {
+                  return Container(
+                    width: 15.0,
+                    height: 15.0,
+                    margin: const EdgeInsets.symmetric(
+                        vertical: 10.0, horizontal: 5.0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: _current == index ? blueColor : Colors.grey[400],
                     ),
-                  ),
-                  child: Center(
-                    child: Image.asset(
-                      "assets/time.png",
-                      scale: 2,
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  width: 15,
-                ),
-                Container(
-                  width: 52,
-                  height: 52,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: Colors.grey.withOpacity(0.6),
-                      width: 2,
-                    ),
-                  ),
-                  child: Center(
-                    child: Image.asset(
-                      "assets/warning.png",
-                      scale: 3,
-                      color: Colors.grey.withOpacity(0.6),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 25,
-            ),
-            const Text(
-              "No Inactive Profiles",
-              style: TextStyle(
-                fontSize: 32,
-                fontWeight: FontWeight.w600,
-                fontFamily: "ProximaNova",
+                  );
+                },
               ),
             ),
             const SizedBox(
               height: 10,
             ),
-            const Text(
-              "If you are inactive for more than 10 days. Your profile will be invisible until you log back in.",
-              style: TextStyle(
-                fontSize: 17,
-                height: 1.5,
-                fontFamily: "ProximaNova",
+            Center(
+              child: Text(
+                _current == 0 ? "No Inactive Profiles" : "Expiring Matches",
+                style: const TextStyle(
+                  fontSize: 33,
+                  fontWeight: FontWeight.w800,
+                  fontFamily: "ProximaNova",
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Center(
+              child: Column(
+                children: [
+                  Text(
+                    "If you are inactive for more",
+                    style: utils.xMediumTitleTextStyle(),
+                    textAlign: TextAlign.center,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "than ",
+                        style: utils.xMediumTitleTextStyle(),
+                      ),
+                      Text(
+                        "10 days, ",
+                        style: utils.xMediumHeadingTextStyle(),
+                      ),
+                      Text(
+                        "your profile will ",
+                        style: utils.xMediumTitleTextStyle(),
+                      ),
+                    ],
+                  ),
+                  Text(
+                    "be invisible until you log back \nin.",
+                    style: utils.xMediumTitleTextStyle(),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
               ),
             ),
             SizedBox(
-              height: width > 415
-                  ? MediaQuery.of(context).size.height * 0.37
-                  : MediaQuery.of(context).size.height * 0.33,
+              height: MediaQuery.of(context).size.height * 0.1,
             ),
-            Align(
-              alignment: Alignment.center,
-              child: utils.bigButton(
-                  onTap: () {
-                    Navigator.pushNamed(context, groundRuleTwoScreenRoute);
-                  },
-                  width: MediaQuery.of(context).size.width * 0.9,
-                  height: 55.0,
-                  containerColor: blueColor,
-                  textColor: Colors.white,
-                  text: "I understand",
-                  fontSize: 15,
-                  borderRadius: 30.0),
+            utils.gradientBigButton(
+              width: double.infinity,
+              textColor: _current == 0 ? Colors.black : Colors.white,
+              borderRadius: 10.0,
+              height: 50.0,
+              shadowColors: Colors.white,
+              enabled: _current == 0 ? true : false,
+              text: "I Understand",
+              fontWeight: FontWeight.w900,
+              onTap: () {
+                Navigator.pushNamed(context, bottomNavigationBarScreenRoute);
+              },
             ),
           ],
         ),

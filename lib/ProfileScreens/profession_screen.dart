@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 
-import '../Constants/app_constants.dart';
 import '../Utilities/app_utils.dart';
 
-class PromptAnswerScreen extends StatefulWidget {
-  const PromptAnswerScreen({Key? key}) : super(key: key);
+class ProfessionScreen extends StatefulWidget {
+  const ProfessionScreen({Key? key}) : super(key: key);
 
   @override
-  State<PromptAnswerScreen> createState() => _PromptAnswerScreenState();
+  State<ProfessionScreen> createState() => _ProfessionScreenState();
 }
 
-class _PromptAnswerScreenState extends State<PromptAnswerScreen> {
+class _ProfessionScreenState extends State<ProfessionScreen> {
   var utils = AppUtils();
   @override
   Widget build(BuildContext context) {
@@ -40,7 +39,7 @@ class _PromptAnswerScreenState extends State<PromptAnswerScreen> {
                 GestureDetector(
                   onTap: () {},
                   child: Text(
-                    "Edit Prompt",
+                    "Profession",
                     style: utils.mediumHeadingTextStyle(),
                   ),
                 ),
@@ -58,37 +57,9 @@ class _PromptAnswerScreenState extends State<PromptAnswerScreen> {
             const SizedBox(
               height: 20,
             ),
-            Image.asset(
-              "assets/promptComma2.png",
-              scale: 4,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "My comfort food is..",
-                  style: utils.largeHeadingTextStyle(color: blueColor),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(context, promptQuestionScreenRoute);
-                  },
-                  child: Image.asset(
-                    "assets/reloadArrow.png",
-                    scale: 4,
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 10,
-            ),
             utils.otpTextField(
               width: MediaQuery.of(context).size.width * 0.9,
-              hintText: "Enter your prompt answer..",
+              hintText: "i.e. Business Analyst",
               alignText: TextAlign.left,
               hintSize: 20.0,
               fontSize: 20.0,
