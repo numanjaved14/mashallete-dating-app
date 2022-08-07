@@ -152,23 +152,6 @@ class _LandingScreenState extends State<LandingScreen> {
               const SizedBox(
                 height: 20,
               ),
-              // Align(
-              //   alignment: Alignment.center,
-              //   child: utils.bigButton(
-              //       onTap: () {
-              //         Navigator.pushNamed(context, onBoardingPhoneScreenRoute);
-              //       },
-              //       width: MediaQuery.of(context).size.width * 0.7,
-              //       height: 55.0,
-              //       containerColor: blueColor,
-              //       textColor: Colors.white,
-              //       text: "Create Account",
-              //       fontSize: 15,
-              //       borderRadius: 30.0),
-              // ),
-              // const SizedBox(
-              //   height: 20,
-              // ),
             ],
           ),
         ),

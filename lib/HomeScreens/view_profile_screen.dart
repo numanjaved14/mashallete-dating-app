@@ -235,61 +235,6 @@ class _ViewProfileScreenState extends State<ViewProfileScreen> {
                 ),
               ),
             ),
-            // Align(
-            //   alignment: Alignment.bottomCenter,
-            //   child: Container(
-            //     width: double.infinity,
-            //     padding: const EdgeInsets.symmetric(horizontal: 20),
-            //     height: 100,
-            //     child: Row(
-            //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //       children: [
-            //         Container(
-            //           width: 70,
-            //           height: 70,
-            //           decoration: BoxDecoration(
-            //             color: Colors.white,
-            //             boxShadow: [
-            //               BoxShadow(
-            //                   color: Colors.grey.withOpacity(0.4),
-            //                   offset: const Offset(0, 1),
-            //                   blurRadius: 6),
-            //             ],
-            //             shape: BoxShape.circle,
-            //           ),
-            //           child: const Center(
-            //             child: Icon(
-            //               Icons.close,
-            //               color: Colors.grey,
-            //               size: 40,
-            //             ),
-            //           ),
-            //         ),
-            //         Container(
-            //           width: 70,
-            //           height: 70,
-            //           decoration: BoxDecoration(
-            //             color: Colors.white,
-            //             boxShadow: [
-            //               BoxShadow(
-            //                   color: Colors.grey.withOpacity(0.4),
-            //                   offset: const Offset(0, 1),
-            //                   blurRadius: 6),
-            //             ],
-            //             shape: BoxShape.circle,
-            //           ),
-            //           child: Center(
-            //             child: Icon(
-            //               CupertinoIcons.heart_fill,
-            //               color: Colors.red.withOpacity(0.4),
-            //               size: 40,
-            //             ),
-            //           ),
-            //         ),
-            //       ],
-            //     ),
-            //   ),
-            // )
           ],
         ),
       ),

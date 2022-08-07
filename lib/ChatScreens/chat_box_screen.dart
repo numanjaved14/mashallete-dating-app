@@ -545,22 +545,6 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
       ),
     );
   }
-  //
-  // Widget _buildNewTransition(
-  //   BuildContext context,
-  //   Animation<double> animation,
-  //   Animation<double> secondaryAnimation,
-  //   Widget child,
-  // ) {
-  //   return ScaleTransition(
-  //     scale: CurvedAnimation(
-  //       parent: animation,
-  //       curve: Curves.ease,
-  //       reverseCurve: Curves.bounceIn,
-  //     ),
-  //     child: child,
-  //   );
-  // }
 
   optionsDialog(width) {
     showGeneralDialog(

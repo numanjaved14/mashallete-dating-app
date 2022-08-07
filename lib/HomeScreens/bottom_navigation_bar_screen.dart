@@ -16,11 +16,7 @@ class BottomNavigationBarScreen extends StatefulWidget {
 
 class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
   int _selectedIndex = 0;
-  // final List _widgetOptions = [
-  //   const HomeScreen(),
-  //   const LikedProfilesScreen(),
-  //   const ChatScreen(),
-  // ];
+
   PageController? _pageController;
 
   @override

@@ -114,48 +114,6 @@ class _LoginWithPhoneNumberScreenState
                 Navigator.pushNamed(context, loginWithOtpScreenRoute);
               },
             ),
-
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //   children: [
-            //     Row(
-            //       children: const [
-            //         Icon(
-            //           Icons.lock,
-            //           color: blueColor,
-            //         ),
-            //         SizedBox(
-            //           width: 5,
-            //         ),
-            //         Text(
-            //           "We'll never share this with anyone",
-            //           style: TextStyle(
-            //             fontSize: 15,
-            //             fontWeight: FontWeight.w700,
-            //             color: blueColor,
-            //           ),
-            //         ),
-            //       ],
-            //     ),
-            //     GestureDetector(
-            //       onTap: () {
-            //         Navigator.pushNamed(context, loginWithOtpScreenRoute);
-            //       },
-            //       child: Container(
-            //         width: 60,
-            //         height: 60,
-            //         decoration: const BoxDecoration(
-            //           color: blueColor,
-            //           shape: BoxShape.circle,
-            //         ),
-            //         child: const Icon(
-            //           Icons.arrow_forward_ios_outlined,
-            //           color: Colors.white,
-            //         ),
-            //       ),
-            //     ),
-            //   ],
-            // ),
             const SizedBox(
               height: 30,
             ),

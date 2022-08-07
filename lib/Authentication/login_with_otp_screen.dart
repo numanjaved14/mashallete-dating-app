@@ -73,15 +73,7 @@ class _LoginWithOtpScreenState extends State<LoginWithOtpScreen> {
             const SizedBox(
               height: 55,
             ),
-            // SizedBox(
-            //   width: MediaQuery.of(context).size.width,
-            //   child: Pinput(
-            //     focusedPinTheme: utils.focusedPinTheme,
-            //     defaultPinTheme: utils.defaultPinTheme,
-            //     length: 4,
-            //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            //   ),
-            // ),
+
             Row(
               children: [
                 utils.otpTextField(

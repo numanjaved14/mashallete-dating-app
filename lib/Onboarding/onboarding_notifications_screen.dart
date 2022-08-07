@@ -65,25 +65,7 @@ class _OnBoardingNotificationsScreenState
                   const SizedBox(
                     height: 25,
                   ),
-                  // utils.bigButton(
-                  //     width: MediaQuery.of(context).size.width * 0.9,
-                  //     containerColor: Colors.grey[200],
-                  //     text: "Enable Notifications",
-                  //     fontWeight: FontWeight.w500,
-                  //     height: 50.0,
-                  //     shadowColors: Colors.white,
-                  //     borderRadius: 20.0),
-                  // const SizedBox(
-                  //   height: 16,
-                  // ),
-                  // utils.bigButton(
-                  //     width: MediaQuery.of(context).size.width * 0.9,
-                  //     containerColor: Colors.grey[200],
-                  //     text: "Disable Notifications",
-                  //     shadowColors: Colors.white,
-                  //     fontWeight: FontWeight.w500,
-                  //     height: 50.0,
-                  //     borderRadius: 20.0),
+
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -197,25 +179,7 @@ class _OnBoardingNotificationsScreenState
                       const SizedBox(
                         height: 25,
                       ),
-                      // utils.bigButton(
-                      //     width: MediaQuery.of(context).size.width * 0.9,
-                      //     containerColor: Colors.grey[200],
-                      //     text: "Enable Notifications",
-                      //     fontWeight: FontWeight.w500,
-                      //     height: 50.0,
-                      //     shadowColors: Colors.white,
-                      //     borderRadius: 20.0),
-                      // const SizedBox(
-                      //   height: 16,
-                      // ),
-                      // utils.bigButton(
-                      //     width: MediaQuery.of(context).size.width * 0.9,
-                      //     containerColor: Colors.grey[200],
-                      //     text: "Disable Notifications",
-                      //     shadowColors: Colors.white,
-                      //     fontWeight: FontWeight.w500,
-                      //     height: 50.0,
-                      //     borderRadius: 20.0),
+
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [

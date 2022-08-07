@@ -129,10 +129,7 @@ class _MyAppState extends State<MyApp> {
         editInterestScreenRoute: (context) => const EditInterestScreen(),
         onBoardingMenWomenScreenRoute: (context) =>
             const OnBoardingMenWomenScreen(),
-        // helpAndSupportScreenRoute: (context) => const HelpAndSupportScreen(),
         videoCallingScreenRoute: (context) => const VideoCallingScreen(),
-        // deleteAccountScreenRoute: (context) => const DeleteAccountScreen(),
-        // groundRuleThreeScreenRoute: (context) => const GroundRuleThreeScreen(),
         preferencesScreenRoute: (context) => const PreferencesScreen(),
         chatBoxScreenRoute: (context) => const ChatBoxScreen(),
         privacyScreenRoute: (context) => const PrivacyScreen(),
