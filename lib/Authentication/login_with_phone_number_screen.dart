@@ -52,7 +52,7 @@ class _LoginWithPhoneNumberScreenState
               children: [
                 GestureDetector(
                   onTap: () {
-                    thankYouDialog();
+                    phones();
                   },
                   child: Container(
                     width: 50,
@@ -123,7 +123,7 @@ class _LoginWithPhoneNumberScreenState
     );
   }
 
-  thankYouDialog() {
+  phones() {
     showGeneralDialog(
       context: context,
       barrierLabel: 'Dialog',

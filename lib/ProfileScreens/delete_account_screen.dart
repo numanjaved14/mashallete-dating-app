@@ -253,7 +253,7 @@ class _DeleteAccountScreenState extends State<DeleteAccountScreen> {
                 ],
               ),
               SizedBox(
-                height: width > 415 ? 165 : 30,
+                height: width > 415 ? 60 : 30,
               ),
               Align(
                 alignment: Alignment.center,
@@ -261,13 +261,14 @@ class _DeleteAccountScreenState extends State<DeleteAccountScreen> {
                     onTap: () {},
                     width: MediaQuery.of(context).size.width * 0.9,
                     height: 55.0,
-                    containerColor:
-                        val == null ? Colors.grey.withOpacity(0.2) : redColor,
+                    containerColor: val == null
+                        ? Colors.grey.withOpacity(0.2)
+                        : darkRedColor,
                     textColor: val == null ? Colors.black : Colors.white,
                     shadowColors: Colors.white,
                     text: "Submit & Delete Account ",
                     fontSize: 16,
-                    borderRadius: 30.0),
+                    borderRadius: 7.0),
               ),
             ],
           ),

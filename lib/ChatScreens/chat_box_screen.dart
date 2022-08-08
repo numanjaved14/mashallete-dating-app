@@ -959,7 +959,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                   Navigator.pop(context);
                 },
                 child: Container(
-                  height: MediaQuery.of(context).size.width * 0.82,
+                  height: MediaQuery.of(context).size.width * 0.72,
                   width: double.infinity,
                   color: Colors.transparent,
                 ),
@@ -971,57 +971,70 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                     GestureDetector(
                       onTap: () {},
                       child: Container(
-                        width: MediaQuery.of(context).size.width,
-                        height: 220,
+                        padding: const EdgeInsets.symmetric(horizontal: 25),
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        height: 280,
                         decoration: BoxDecoration(
                           color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                offset: const Offset(0, 1),
+                                blurRadius: 10)
+                          ],
                           borderRadius: BorderRadius.circular(20),
                         ),
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 15, right: 20),
-                          child: Column(
-                            children: [
-                              const SizedBox(
-                                height: 20,
-                              ),
-                              Text(
+                        child: Column(
+                          children: [
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            Image.asset(
+                              "assets/heartBroken.png",
+                              scale: 4,
+                            ),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            const Align(
+                              alignment: Alignment.center,
+                              child: Text(
                                 "Thank you!",
-                                style: utils.xMediumHeadingTextStyle(),
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w600,
+                                  fontFamily: "ProximaNova",
+                                ),
                               ),
-                              const SizedBox(
-                                height: 15,
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              "To ensure Mashalatte maintains a safe \nenviroment, out team will review your report \nand take action as soon as possible.",
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.black.withOpacity(0.8),
+                                fontFamily: "ProximaNova",
                               ),
-                              Text(
-                                "Our team will review your report as \nsoon as possible.",
-                                textAlign: TextAlign.center,
-                                style: utils.mediumTitleTextStyle(),
-                              ),
-                              const SizedBox(
-                                height: 35,
-                              ),
-                              GestureDetector(
+                              textAlign: TextAlign.center,
+                            ),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            utils.bigButton(
                                 onTap: () {
                                   Navigator.pop(context);
                                 },
-                                child: Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.5,
-                                  height: 50,
-                                  decoration: BoxDecoration(
-                                    color: blueColor,
-                                    borderRadius: BorderRadius.circular(35),
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      "Dismiss",
-                                      style: utils.smallHeadingTextStyle(
-                                          color: Colors.white),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
+                                width: MediaQuery.of(context).size.width * 0.7,
+                                height: 45.0,
+                                containerColor: blueColor,
+                                textColor: Colors.white,
+                                shadowColors: Colors.white,
+                                text: "Dismiss",
+                                fontSize: 16,
+                                borderRadius: 8.0),
+                          ],
                         ),
                       ),
                     ),
@@ -1083,101 +1096,100 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                         child: Column(
                           children: [
                             const SizedBox(
-                              height: 30,
+                              height: 10,
                             ),
-                            Container(
-                              width: 64,
-                              height: 64,
-                              decoration: BoxDecoration(
-                                  image: const DecorationImage(
-                                    image: AssetImage("assets/boy.png"),
-                                    fit: BoxFit.cover,
+                            SizedBox(
+                              height: 90,
+                              width: double.infinity,
+                              child: Stack(
+                                alignment: Alignment.center,
+                                children: [
+                                  Positioned(
+                                    left: 0,
+                                    right: 50,
+                                    child: Container(
+                                      width: 100,
+                                      height: 100,
+                                      decoration: const BoxDecoration(
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                            "assets/redHeartBroken.png",
+                                          ),
+                                        ),
+                                        shape: BoxShape.circle,
+                                      ),
+                                    ),
                                   ),
-                                  shape: BoxShape.circle,
-                                  boxShadow: [
-                                    BoxShadow(
-                                        color: Colors.grey.withOpacity(0.2),
-                                        offset: const Offset(0, 1),
-                                        blurRadius: 15)
-                                  ]),
-                            ),
-                            const SizedBox(
-                              height: 15,
+                                  Positioned(
+                                    right: 0,
+                                    left: 50,
+                                    child: Container(
+                                      width: 60,
+                                      height: 60,
+                                      decoration: const BoxDecoration(
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                            "assets/background.png",
+                                          ),
+                                          fit: BoxFit.cover,
+                                        ),
+                                        shape: BoxShape.circle,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                             Text(
                               "Are you sure you want to \nunmatch with Sana?",
                               style: utils.mediumHeadingTextStyle(),
                               textAlign: TextAlign.center,
                             ),
-                            const SizedBox(
-                              height: 35,
+                            SizedBox(
+                              height: 10,
                             ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                GestureDetector(
-                                  onTap: () {
-                                    Navigator.pop(context);
-                                  },
-                                  child: Container(
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.3,
-                                    height: 50,
-                                    decoration: BoxDecoration(
-                                      color: Colors.grey.withOpacity(0.2),
-                                      borderRadius: BorderRadius.circular(35),
-                                    ),
-                                    child: const Center(
-                                      child: Text(
-                                        "Cancel",
-                                        style: TextStyle(
-                                          fontSize: 14,
-                                          fontFamily: "ProximaNova",
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                const SizedBox(
-                                  width: 20,
-                                ),
-                                GestureDetector(
-                                  onTap: () {
-                                    Navigator.pop(context);
-                                  },
-                                  child: Container(
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.3,
-                                    height: 50,
-                                    decoration: BoxDecoration(
-                                      color: redColor,
-                                      borderRadius: BorderRadius.circular(35),
-                                    ),
-                                    child: const Center(
-                                      child: Text(
-                                        "Yes, Unmatch",
-                                        style: TextStyle(
-                                          fontSize: 14,
-                                          color: Colors.white,
-                                          fontFamily: "ProximaNova",
-                                          fontWeight: FontWeight.w700,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
+                            const Text(
+                              "This cannot be undone.",
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.grey,
+                                fontFamily: "ProximaNova",
+                              ),
                             ),
                             const SizedBox(
                               height: 25,
                             ),
-                            const Text("This cannot be undone.",
-                                style: TextStyle(
-                                  fontSize: 13,
-                                  color: Colors.grey,
-                                  fontFamily: "ProximaNova",
-                                ))
+                            Align(
+                              alignment: Alignment.center,
+                              child: utils.bigButton(
+                                  onTap: () {
+                                    Navigator.pop(context);
+                                  },
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.8,
+                                  height: 55.0,
+                                  containerColor: darkRedColor,
+                                  textColor: Colors.white,
+                                  shadowColors: Colors.white,
+                                  text: "Unmatch with Sana",
+                                  fontSize: 16,
+                                  borderRadius: 7.0),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              "Nevermind",
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.black.withOpacity(0.8),
+                                fontWeight: FontWeight.bold,
+                                fontFamily: "ProximaNova",
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 20,
+                            ),
                           ],
                         ),
                       ),
@@ -1626,7 +1638,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                   Navigator.pop(context);
                 },
                 child: Container(
-                  height: MediaQuery.of(context).size.width * 0.76,
+                  height: MediaQuery.of(context).size.width * 0.66,
                   width: double.infinity,
                   color: Colors.transparent,
                 ),
@@ -1640,7 +1652,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                       onTap: () {},
                       child: Container(
                         width: MediaQuery.of(context).size.width,
-                        height: 260,
+                        height: 320,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(20),
@@ -1696,7 +1708,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                 ),
                               ),
                               const Text(
-                                "Incoming Video Call from Omer",
+                                "Incoming video chat from Omer",
                                 style: TextStyle(
                                   fontSize: 22,
                                   fontFamily: "ProximaNova",
@@ -1704,67 +1716,44 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                 ),
                               ),
                               const SizedBox(
-                                height: 35,
+                                height: 20,
                               ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  GestureDetector(
-                                    onTap: () {
-                                      Navigator.pop(context);
-                                    },
-                                    child: Container(
-                                      width: MediaQuery.of(context).size.width *
-                                          0.32,
-                                      height: 50,
-                                      decoration: BoxDecoration(
-                                        color: redColor,
-                                        borderRadius: BorderRadius.circular(35),
-                                      ),
-                                      child: const Center(
-                                        child: Text(
-                                          "Decline",
-                                          style: TextStyle(
-                                            fontSize: 14,
-                                            fontFamily: "ProximaNova",
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    width: 20,
-                                  ),
-                                  GestureDetector(
+                              Align(
+                                alignment: Alignment.center,
+                                child: utils.bigButton(
                                     onTap: () {
                                       Navigator.pop(context);
                                       Navigator.pushNamed(
                                           context, videoCallingScreenRoute);
                                     },
-                                    child: Container(
-                                      width: MediaQuery.of(context).size.width *
-                                          0.32,
-                                      height: 50,
-                                      decoration: BoxDecoration(
-                                        color: blueColor,
-                                        borderRadius: BorderRadius.circular(35),
-                                      ),
-                                      child: const Center(
-                                        child: Text(
-                                          "Accept",
-                                          style: TextStyle(
-                                            fontSize: 14,
-                                            fontFamily: "ProximaNova",
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.8,
+                                    height: 55.0,
+                                    containerColor: blueColor,
+                                    textColor: Colors.white,
+                                    shadowColors: Colors.white,
+                                    text: "Start Video Chat",
+                                    fontSize: 16,
+                                    borderRadius: 7.0),
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              Align(
+                                alignment: Alignment.center,
+                                child: utils.bigButton(
+                                    onTap: () {
+                                      Navigator.pop(context);
+                                    },
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.8,
+                                    height: 55.0,
+                                    containerColor: darkRedColor,
+                                    textColor: Colors.white,
+                                    shadowColors: Colors.white,
+                                    text: "Decline",
+                                    fontSize: 16,
+                                    borderRadius: 7.0),
                               ),
                               const SizedBox(
                                 height: 20,

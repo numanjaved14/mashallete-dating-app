@@ -53,6 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       height: 70,
                     ),
                     Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         GestureDetector(
@@ -75,22 +76,14 @@ class _HomeScreenState extends State<HomeScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Image.asset(
-                              "assets/cupHeart.png",
-                              scale: 2,
-                            ),
-                            const Text(
-                              "Mashalatte",
-                              style: TextStyle(
-                                fontSize: 24,
-                                fontWeight: FontWeight.w700,
-                                color: blueColor,
-                                fontFamily: "ProximaNova",
-                              ),
+                              "assets/mashalatteText.png",
+                              scale: 30,
                             ),
                           ],
                         ),
                         Container(
                           width: 30,
+                          child: Icon(CupertinoIcons.arrow_turn_up_left),
                         )
                       ],
                     ),

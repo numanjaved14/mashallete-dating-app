@@ -80,7 +80,7 @@ class _OnBoardingPhoneScreenState extends State<OnBoardingPhoneScreen> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    thankYouDialog();
+                    phones();
                   },
                   child: Container(
                     width: 50,
@@ -175,7 +175,7 @@ class _OnBoardingPhoneScreenState extends State<OnBoardingPhoneScreen> {
     );
   }
 
-  thankYouDialog() {
+  phones() {
     showGeneralDialog(
       context: context,
       barrierLabel: 'Dialog',

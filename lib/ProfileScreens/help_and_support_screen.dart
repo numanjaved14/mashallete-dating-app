@@ -252,11 +252,11 @@ class _HelpAndSupportScreenState extends State<HelpAndSupportScreen> {
                 ],
               ),
               SizedBox(
-                height: width > 415 ? 165 : 30,
+                height: width > 415 ? 60 : 30,
               ),
               Align(
                 alignment: Alignment.center,
-                child: utils.bigButton(
+                child: utils.gradientBigButton(
                     onTap: () {
                       thankYouDialog();
                     },
@@ -268,7 +268,7 @@ class _HelpAndSupportScreenState extends State<HelpAndSupportScreen> {
                     shadowColors: Colors.white,
                     text: "Submit",
                     fontSize: 16,
-                    borderRadius: 30.0),
+                    borderRadius: 7.0),
               ),
             ],
           ),
@@ -292,7 +292,7 @@ class _HelpAndSupportScreenState extends State<HelpAndSupportScreen> {
                   Navigator.pop(context);
                 },
                 child: Container(
-                  height: MediaQuery.of(context).size.width * 0.82,
+                  height: MediaQuery.of(context).size.width * 0.72,
                   width: double.infinity,
                   color: Colors.transparent,
                 ),
@@ -304,57 +304,70 @@ class _HelpAndSupportScreenState extends State<HelpAndSupportScreen> {
                     GestureDetector(
                       onTap: () {},
                       child: Container(
-                        width: MediaQuery.of(context).size.width,
-                        height: 220,
+                        padding: const EdgeInsets.symmetric(horizontal: 25),
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        height: 280,
                         decoration: BoxDecoration(
                           color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                offset: const Offset(0, 1),
+                                blurRadius: 10)
+                          ],
                           borderRadius: BorderRadius.circular(20),
                         ),
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 15, right: 20),
-                          child: Column(
-                            children: [
-                              const SizedBox(
-                                height: 20,
-                              ),
-                              Text(
+                        child: Column(
+                          children: [
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            Image.asset(
+                              "assets/heartBroken.png",
+                              scale: 4,
+                            ),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            const Align(
+                              alignment: Alignment.center,
+                              child: Text(
                                 "Thank you!",
-                                style: utils.xMediumHeadingTextStyle(),
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w600,
+                                  fontFamily: "ProximaNova",
+                                ),
                               ),
-                              const SizedBox(
-                                height: 15,
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              "To ensure Mashalatte maintains a safe \nenviroment, out team will review your report \nand take action as soon as possible.",
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.black.withOpacity(0.8),
+                                fontFamily: "ProximaNova",
                               ),
-                              Text(
-                                "Our team will review your report as \nsoon as possible.",
-                                textAlign: TextAlign.center,
-                                style: utils.mediumTitleTextStyle(),
-                              ),
-                              const SizedBox(
-                                height: 35,
-                              ),
-                              GestureDetector(
+                              textAlign: TextAlign.center,
+                            ),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            utils.bigButton(
                                 onTap: () {
                                   Navigator.pop(context);
                                 },
-                                child: Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.5,
-                                  height: 50,
-                                  decoration: BoxDecoration(
-                                    color: blueColor,
-                                    borderRadius: BorderRadius.circular(35),
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      "Dismiss",
-                                      style: utils.smallHeadingTextStyle(
-                                          color: Colors.white),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
+                                width: MediaQuery.of(context).size.width * 0.7,
+                                height: 45.0,
+                                containerColor: blueColor,
+                                textColor: Colors.white,
+                                shadowColors: Colors.white,
+                                text: "Dismiss",
+                                fontSize: 16,
+                                borderRadius: 8.0),
+                          ],
                         ),
                       ),
                     ),
