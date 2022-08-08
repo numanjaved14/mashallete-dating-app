@@ -10,8 +10,17 @@ class LikedProfilesScreen extends StatefulWidget {
   State<LikedProfilesScreen> createState() => _LikedProfilesScreenState();
 }
 
-class _LikedProfilesScreenState extends State<LikedProfilesScreen> {
+class _LikedProfilesScreenState extends State<LikedProfilesScreen>
+    with TickerProviderStateMixin {
   var utils = AppUtils();
+  late TabController _controller;
+  var selectedIndex = 0;
+  @override
+  void initState() {
+    super.initState();
+    _controller = TabController(length: 2, vsync: this);
+  }
+
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -19,152 +28,130 @@ class _LikedProfilesScreenState extends State<LikedProfilesScreen> {
       backgroundColor: Colors.white,
       body: Stack(
         children: [
-          SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Column(
-                children: [
-                  const SizedBox(
-                    height: 70,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(context, profileScreenRoute);
-                        },
-                        child: Container(
-                          decoration: const BoxDecoration(
-                              image: DecorationImage(
-                                  image: AssetImage(
-                                    "assets/boy.png",
-                                  ),
-                                  fit: BoxFit.cover),
-                              shape: BoxShape.circle),
-                          height: 32,
-                          width: 32,
-                        ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              children: [
+                const SizedBox(
+                  height: 70,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, profileScreenRoute);
+                      },
+                      child: Container(
+                        decoration: const BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage(
+                                  "assets/boy.png",
+                                ),
+                                fit: BoxFit.cover),
+                            shape: BoxShape.circle),
+                        height: 32,
+                        width: 32,
                       ),
-                      const Text(
-                        "Likes",
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.w700,
-                          color: blueColor,
-                          fontFamily: "ProximaNova",
-                        ),
+                    ),
+                    const Text(
+                      "Likes",
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.w700,
+                        color: blueColor,
+                        fontFamily: "ProximaNova",
                       ),
-                      Container(
-                        width: 30,
-                      )
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.2),
-                            offset: const Offset(0, 1),
-                            blurRadius: 3,
-                          ),
-                        ]),
-                    child: Column(
-                      children: [
-                        utils.imageBigContainer(
-                            image: "assets/background.png", top: true),
-                        const SizedBox(
-                          height: 15,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                children: [
-                                  Text(
-                                    "Usama Majid,",
-                                    style: utils.xxLargeHeadingTextStyle(),
-                                  ),
-                                  const SizedBox(
-                                    width: 3,
-                                  ),
-                                  Text(
-                                    "22",
-                                    style: utils.xMediumTitleTextStyle(
-                                        height: 1.7),
+                    ),
+                    Container(
+                      width: 30,
+                    )
+                  ],
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                TabBar(
+                  controller: _controller,
+                  unselectedLabelStyle: const TextStyle(color: Colors.grey),
+                  unselectedLabelColor: Colors.grey,
+                  labelColor: blueColor,
+                  onTap: (val) {
+                    selectedIndex = val;
+                    setState(() {});
+                  },
+                  indicatorColor: blueColor,
+                  tabs: [
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 10.0),
+                      child: Text(
+                        "Liked You",
+                        style: utils.smallTitleTextStyle(),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 10.0),
+                      child: Text(
+                        "Liked",
+                        style: utils.smallTitleTextStyle(),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Expanded(
+                    child: TabBarView(
+                  controller: _controller,
+                  children: [
+                    SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            width: double.infinity,
+                            child: Wrap(
+                              alignment: WrapAlignment.spaceBetween,
+                              children: [
+                                for (int i = 0; i < 6; i++)
+                                  utils.blurredImageContainer(
+                                    width: width,
+                                    image: "assets/boy.png",
+                                    name: "Aadil,",
+                                    age: "22",
+                                    blurred: i == 0 ? false : true,
                                   )
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  const Icon(
-                                    Icons.location_on,
-                                    color: blueColor,
-                                    size: 15,
-                                  ),
-                                  const SizedBox(
-                                    width: 5,
-                                  ),
-                                  Text(
-                                    "2 mi, US ",
-                                    style: utils.mediumTitleTextStyle(
-                                        color: blueColor),
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 15,
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 12),
-                          child: Text(
-                            "I have passion for art and I'm looking to meet new people in the city!",
-                            style: TextStyle(
-                              fontSize: 17,
-                              wordSpacing: 1.5,
-                              fontFamily: "ProximaNova",
+                              ],
                             ),
                           ),
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  SizedBox(
-                    width: double.infinity,
-                    child: Wrap(
-                      alignment: WrapAlignment.spaceBetween,
-                      children: [
-                        for (int i = 0; i < 6; i++)
-                          utils.blurredImageContainer(
-                            width: width,
-                            image: "assets/boy.png",
-                            name: "Aadil,",
-                            age: "22",
-                          )
-                      ],
+                    SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            width: double.infinity,
+                            child: Wrap(
+                              alignment: WrapAlignment.spaceBetween,
+                              children: [
+                                for (int i = 0; i < 6; i++)
+                                  utils.blurredImageContainer(
+                                    width: width,
+                                    image: "assets/boy.png",
+                                    name: "Aadil,",
+                                    blurred: false,
+                                    age: "22",
+                                  )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 40,
-                  ),
-                ],
-              ),
+                  ],
+                ))
+              ],
             ),
           ),
           Positioned(

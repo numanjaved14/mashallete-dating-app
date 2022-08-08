@@ -2274,14 +2274,14 @@ class AppUtils {
     );
   }
 
-  blurredImageContainer({image, name, age, width}) {
+  blurredImageContainer({image, name, age, width, blurred}) {
     return Container(
-      width: width > 400 ? 190 : 170,
-      height: width > 400 ? 280 : 260,
-      margin: const EdgeInsets.only(bottom: 10),
+      width: width > 415 ? 185 : 165,
+      height: width > 415 ? 260 : 240,
+      margin: const EdgeInsets.only(bottom: 20),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.4),
@@ -2295,57 +2295,56 @@ class AppUtils {
           Stack(
             children: [
               Container(
-                width: width > 400 ? 190 : 170,
-                height: width > 400 ? 230 : 210,
+                width: width > 415 ? 185 : 165,
+                height: width > 415 ? 260 : 240,
                 decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.only(
-                        topRight: Radius.circular(10),
-                        topLeft: Radius.circular(10)),
+                    borderRadius: BorderRadius.circular(15),
                     image: DecorationImage(
                       image: AssetImage(image),
                       fit: BoxFit.cover,
                     )),
               ),
+              blurred == true
+                  ? Positioned(
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      child: SizedBox(
+                        width: width > 415 ? 185 : 165,
+                        height: width > 415 ? 260 : 240,
+                        child: BlurryContainer(
+                          color: Colors.black.withOpacity(0.04),
+                          blur: 10,
+                          elevation: 0,
+                          borderRadius: BorderRadius.circular(15),
+                          height: 230,
+                          child: Container(),
+                        ),
+                      ),
+                    )
+                  : Container(),
               Positioned(
-                top: 0,
-                left: 0,
-                right: 0,
-                child: SizedBox(
-                  width: width > 400 ? 190 : 170,
-                  height: width > 400 ? 230 : 210,
-                  child: BlurryContainer(
-                    color: Colors.black.withOpacity(0.04),
-                    blur: 3,
-                    elevation: 0,
-                    borderRadius: const BorderRadius.only(
-                        topRight: Radius.circular(10),
-                        topLeft: Radius.circular(10)),
-                    height: 230,
-                    child: Container(),
-                  ),
-                ),
-              ),
+                  bottom: 15,
+                  left: 10,
+                  child: Row(
+                    children: [
+                      Text(
+                        name,
+                        style: mediumHeadingTextStyle(color: Colors.white),
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        age,
+                        style: const TextStyle(
+                            fontSize: 19,
+                            fontFamily: "ProximaNova",
+                            color: Colors.white),
+                      ),
+                    ],
+                  ))
             ],
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Row(
-                children: [
-                  Text(
-                    name,
-                    style: mediumHeadingTextStyle(),
-                  ),
-                  const SizedBox(
-                    width: 5,
-                  ),
-                  Text(
-                    age,
-                    style: mediumTitleTextStyle(),
-                  )
-                ],
-              ),
-            ),
           ),
         ],
       ),
