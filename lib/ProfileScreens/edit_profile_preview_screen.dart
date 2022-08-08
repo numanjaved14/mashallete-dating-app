@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../Constants/app_constants.dart';
 import '../Utilities/app_utils.dart';
 
 class PreviewEditProfileScreen extends StatefulWidget {
@@ -44,157 +43,145 @@ class _PreviewEditProfileScreenState extends State<PreviewEditProfileScreen> {
         child: Column(
           children: [
             const SizedBox(
+              height: 20,
+            ),
+            utils.imageBigHomeContainer(
+              image: "assets/background.png",
+              top: true,
+              name: "Usama Majid",
+              age: 21,
+              profession: "Software Developer",
+              country: "Pakistani",
+              flagImage: "assets/pakistan.png",
+            ),
+            const SizedBox(
               height: 30,
             ),
-            utils.imageBigContainer(image: "assets/background.png", top: true),
-            const SizedBox(
-              height: 15,
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                "Always live life to the fullest.",
+                style: utils.largeHeadingTextStyle(),
+              ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            const SizedBox(
+              height: 40,
+            ),
+            const Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                "The Basics",
+                style: TextStyle(
+                    fontSize: 17,
+                    fontFamily: "ProximaNova",
+                    fontWeight: FontWeight.w900,
+                    letterSpacing: 0.1),
+                textAlign: TextAlign.start,
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            SizedBox(
+              width: MediaQuery.of(context).size.width,
+              child: Wrap(
+                alignment: WrapAlignment.start,
                 children: [
-                  Row(
-                    children: [
-                      Text(
-                        "Aadil Nasir,",
-                        style: utils.xxLargeHeadingTextStyle(),
-                      ),
-                      const SizedBox(
-                        width: 3,
-                      ),
-                      Text(
-                        "22",
-                        style: utils.xMediumTitleTextStyle(height: 1.7),
-                      )
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      const Icon(
-                        Icons.location_on,
-                        color: blueColor,
-                        size: 15,
-                      ),
-                      const SizedBox(
-                        width: 5,
-                      ),
-                      Text(
-                        "2 mi, US ",
-                        style: utils.mediumTitleTextStyle(color: blueColor),
-                      ),
-                    ],
-                  )
+                  utils.homeWidget(name: "5'6", image: "assets/ruler.png"),
+                  utils.homeWidget(
+                      name: "Bachelors at University of Chicago",
+                      image: "assets/graduateHat.png"),
+                  utils.homeWidget(
+                      name: "Los Angeles, CA", image: "assets/infoHome.png"),
+                  utils.homeWidget(
+                      name: "Developer", image: "assets/profession.png"),
                 ],
               ),
             ),
             const SizedBox(
               height: 15,
             ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10),
+            utils.imageBigContainer(
+                image: "assets/background.png", top: false, bottom: false),
+            const SizedBox(
+              height: 40,
+            ),
+            const Align(
+              alignment: Alignment.centerLeft,
               child: Text(
-                "I have passion for art and I'm looking to meet new people in the city!",
+                "My Interests",
                 style: TextStyle(
-                  fontSize: 17,
-                  fontFamily: "ProximaNova",
-                  wordSpacing: 1.5,
-                ),
+                    fontSize: 17,
+                    fontFamily: "ProximaNova",
+                    fontWeight: FontWeight.w900,
+                    letterSpacing: 0.1),
+                textAlign: TextAlign.start,
               ),
             ),
             const SizedBox(
-              height: 20,
+              height: 10,
             ),
-            utils.personalInfoWidget(
-              text1: "5'6\"",
-              image1: "assets/ruler.png",
-              image2: "assets/graduateHat.png",
-              text2: "Bachelors at University of Chicago",
-              image3: "assets/profession.png",
-              text3: "Finance Professional",
-              image4: "assets/infoHome.png",
-              text4: "Los Angeles, CA",
+            SizedBox(
+              width: MediaQuery.of(context).size.width,
+              child: Wrap(
+                alignment: WrapAlignment.start,
+                children: [
+                  utils.infoInterestWidget(
+                    name: "Art Galleries",
+                    image: "assets/art.png",
+                  ),
+                  utils.infoInterestWidget(
+                    name: "Movies",
+                    image: "assets/infoVideoCamera.png",
+                  ),
+                  utils.infoInterestWidget(
+                    name: "Music",
+                    image: "assets/musicNote.png",
+                  ),
+                  utils.infoInterestWidget(
+                    name: "Gaming",
+                    image: "assets/console.png",
+                  ),
+                  utils.infoInterestWidget(
+                    name: "Photography",
+                    image: "assets/infoCamera.png",
+                  ),
+                  utils.infoInterestWidget(
+                    name: "History",
+                    image: "assets/historyBook.png",
+                  ),
+                ],
+              ),
             ),
-            const SizedBox(
-              height: 30,
-            ),
-            utils.imageBigContainer(
-                image: "assets/background.png", top: false, bottom: false),
             const SizedBox(
               height: 30,
             ),
             utils.aboutPersonScreen(
-                name: "USAMA",
-                about:
-                    "Hi, My name is Usama and I am a professional flutter developer and I have experience in developing iOS and android applications."),
+                name: "My comfort food is...", answer: "Chaat or Tacos"),
+            const SizedBox(
+              height: 20,
+            ),
+            utils.promptTitleWidget(
+                promptTitle: "About Sana",
+                promptBody:
+                    "Hey there, I'm out here looking for my soulmate! \n \nI love being outdoors and I love history. \n \nI don't want to give away everything so don't be afraid to start a conversation."),
             const SizedBox(
               height: 30,
             ),
-            utils.promptTitleWidget(
-                promptTitle: "PROMPT TITLE...",
-                promptBody:
-                    "This is the first prompt body.This is the first prompt body.This is the first prompt body."),
+            utils.aboutPersonScreen(
+                name: "I'm likely famous for...",
+                answer: "Dancing in my kitchen"),
             const SizedBox(
-              height: 20,
+              height: 30,
             ),
             utils.imageBigContainer(
                 image: "assets/background.png", top: false, bottom: false),
             const SizedBox(
-              height: 15,
-            ),
-            utils.passionsWidget(
-              title: "AADIL'S PASSIONS",
-              widget: Wrap(
-                alignment: WrapAlignment.center,
-                children: [
-                  for (int i = 0; i < arts.length; i++)
-                    utils.interestsHomeWidget(
-                      text: arts[i],
-                      selected: false,
-                      onTap: () {},
-                    ),
-                ],
-              ),
-            ),
-            const SizedBox(
               height: 20,
-            ),
-            utils.imageBigContainer(
-                image: "assets/background.png", top: false, bottom: false),
-            const SizedBox(
-              height: 10,
-            ),
-            utils.promptTitleWidget(
-                promptTitle: "PROMPT TITLE...",
-                promptBody:
-                    "This is the first prompt body.This is the first prompt body.This is the first prompt body."),
-            const SizedBox(
-              height: 20,
-            ),
-            utils.imageBigContainer(
-                image: "assets/background.png", bottom: true),
-            const SizedBox(
-              height: 25,
-            ),
-            GestureDetector(
-              onTap: _scrollToTop,
-              child: Text(
-                "BACK TO THE TOP",
-                style: utils.smallHeadingTextStyle(color: blueColor),
-              ),
-            ),
-            const SizedBox(
-              height: 65,
             ),
           ],
         ),
       ),
     );
-  }
-
-  void _scrollToTop() {
-    _scrollController.animateTo(0,
-        duration: const Duration(seconds: 1), curve: Curves.easeInBack);
   }
 }

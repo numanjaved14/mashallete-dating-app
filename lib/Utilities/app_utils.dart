@@ -94,6 +94,15 @@ class AppUtils {
     );
   }
 
+  xLargeHeadingTextStyle({color}) {
+    return TextStyle(
+      fontSize: 27,
+      fontWeight: FontWeight.w900,
+      fontFamily: "ProximaNova",
+      color: color,
+    );
+  }
+
   largeHeadingTextStyle({color}) {
     return TextStyle(
       fontSize: 26,
@@ -1932,19 +1941,9 @@ class AppUtils {
   imageBigContainer({image, top, bottom}) {
     return Container(
       width: double.infinity,
-      height: 400,
+      height: 430,
       decoration: BoxDecoration(
-        borderRadius: top == true
-            ? const BorderRadius.only(
-                topRight: Radius.circular(20),
-                topLeft: Radius.circular(20),
-              )
-            : bottom == true
-                ? const BorderRadius.only(
-                    bottomRight: Radius.circular(20),
-                    bottomLeft: Radius.circular(20),
-                  )
-                : BorderRadius.zero,
+        borderRadius: BorderRadius.circular(20.0),
         color: Colors.red,
         image: DecorationImage(
           image: AssetImage(
@@ -1952,6 +1951,86 @@ class AppUtils {
           ),
           fit: BoxFit.cover,
         ),
+      ),
+    );
+  }
+
+  imageBigHomeContainer(
+      {image, top, bottom, name, age, profession, country, flagImage}) {
+    return Container(
+      width: double.infinity,
+      height: 600,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        image: DecorationImage(
+          image: AssetImage(
+            image,
+          ),
+          fit: BoxFit.cover,
+        ),
+      ),
+      padding: const EdgeInsets.all(15.0),
+      child: Column(
+        children: [
+          const SizedBox(
+            height: 450,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text(
+                "$name,",
+                style: xxLargeHeadingTextStyle(color: Colors.white),
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              Text(
+                "$age",
+                style: xLargeHeadingTextStyle(color: Colors.white),
+              ),
+            ],
+          ),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              profession,
+              style: mediumTitleTextStyle(color: Colors.white),
+            ),
+          ),
+          const SizedBox(
+            height: 5,
+          ),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Container(
+              width: 100,
+              height: 40,
+              decoration: BoxDecoration(
+                color: Colors.black.withOpacity(0.3),
+                borderRadius: BorderRadius.circular(30.0),
+              ),
+              child: Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      flagImage,
+                      scale: 30,
+                    ),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      country,
+                      style: mediumTitleBoldTextStyle(color: Colors.white),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          )
+        ],
       ),
     );
   }
@@ -2035,8 +2114,9 @@ class AppUtils {
     );
   }
 
-  aboutPersonScreen({name, about}) {
+  aboutPersonScreen({name, answer}) {
     return Container(
+      height: 150,
       width: double.infinity,
       padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
@@ -2047,29 +2127,24 @@ class AppUtils {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Icon(
-                CupertinoIcons.heart_fill,
-                size: 20,
-                color: blueColor,
-              ),
-              const SizedBox(
-                width: 5,
-              ),
               Text(
-                "ABOUT $name",
+                name,
                 style: mediumHeadingTextStyle(color: blueColor),
+              ),
+              Image.asset(
+                "assets/purpleComma.png",
+                scale: 3,
               ),
             ],
           ),
-          const SizedBox(
-            height: 15,
-          ),
           Text(
-            about,
+            answer,
             style: const TextStyle(
-              fontSize: 17,
-              wordSpacing: 2.0,
+              fontSize: 26,
+              fontWeight: FontWeight.w900,
               fontFamily: "ProximaNova",
             ),
           ),
@@ -2079,23 +2154,14 @@ class AppUtils {
   }
 
   promptTitleWidget({promptTitle, promptBody}) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
-      padding: const EdgeInsets.all(15),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
-              Image.asset(
-                "assets/promptComma.png",
-                scale: 3,
-                color: Colors.black,
-              ),
-              const SizedBox(
-                width: 8,
-              ),
               Text(
                 promptTitle,
                 style: const TextStyle(
@@ -2103,6 +2169,7 @@ class AppUtils {
                     fontFamily: "ProximaNova",
                     fontWeight: FontWeight.w900,
                     letterSpacing: 0.1),
+                textAlign: TextAlign.start,
               ),
             ],
           ),
@@ -2327,6 +2394,62 @@ class AppUtils {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  homeWidget({image, name}) {
+    return Container(
+      margin: const EdgeInsets.only(right: 5, top: 5, bottom: 5),
+      decoration: BoxDecoration(
+        border: Border.all(color: blueColor.withOpacity(0.3)),
+        borderRadius: BorderRadius.circular(30.0),
+      ),
+      padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 10),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset(
+            image,
+            scale: 4,
+          ),
+          const SizedBox(
+            width: 5,
+          ),
+          Text(
+            name,
+            style: smallTitleTextStyle(color: Colors.black),
+          ),
+        ],
+      ),
+    );
+  }
+
+  infoInterestWidget({image, name}) {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.black.withOpacity(0.3)),
+        borderRadius: BorderRadius.circular(30.0),
+      ),
+      padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 10),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset(
+            image,
+            scale: 30,
+          ),
+          const SizedBox(
+            width: 5,
+          ),
+          Text(
+            name,
+            style: smallTitleTextStyle(color: Colors.black),
+          ),
+        ],
       ),
     );
   }

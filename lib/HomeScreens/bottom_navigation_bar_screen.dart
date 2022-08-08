@@ -1,6 +1,4 @@
-import 'package:dating_app/Constants/app_constants.dart';
 import 'package:dating_app/ChatScreens/chat_screen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'home_screen.dart';
@@ -63,10 +61,10 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
                 width: 26,
                 height: 26,
                 child: Image.asset(
-                  "assets/homeBottomBar.png",
-                  color: _selectedIndex == 0
-                      ? blueColor
-                      : blueColor.withOpacity(0.4),
+                  _selectedIndex == 0
+                      ? "assets/bottomIcon1.png"
+                      : "assets/bottomIcon2.png",
+                  scale: 5,
                 ),
               ),
               label: '',
@@ -76,10 +74,10 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
                 width: 26,
                 height: 26,
                 child: Image.asset(
-                  "assets/heartBottomBar.png",
-                  color: _selectedIndex == 1
-                      ? blueColor
-                      : blueColor.withOpacity(0.4),
+                  _selectedIndex == 1
+                      ? "assets/bottomIcon4.png"
+                      : "assets/bottomIcon3.png",
+                  scale: 5,
                 ),
               ),
               label: '',
@@ -88,12 +86,11 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
               icon: SizedBox(
                 width: 26,
                 height: 26,
-                child: Icon(
-                  CupertinoIcons.chat_bubble_fill,
-                  size: 26,
-                  color: _selectedIndex == 2
-                      ? blueColor
-                      : blueColor.withOpacity(0.4),
+                child: Image.asset(
+                  _selectedIndex == 2
+                      ? "assets/bottomIcon6.png"
+                      : "assets/bottomIcon5.png",
+                  scale: 5,
                 ),
               ),
               label: '',
