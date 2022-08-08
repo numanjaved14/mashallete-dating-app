@@ -77,7 +77,7 @@ class _HeightScreenState extends State<HeightScreen> {
                     scale: 3,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 utils.otpTextField(

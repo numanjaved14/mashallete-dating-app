@@ -78,7 +78,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           "assets/heartProfileIcon.png",
                           scale: 4,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 5,
                         ),
                         Text(
@@ -102,7 +102,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               "assets/profileIncompleteIcon.png",
                               scale: 4,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 5,
                             ),
                             Text(
@@ -113,7 +113,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ],
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       Container(
@@ -128,14 +128,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                         child: Column(
                           children: [
-                            SizedBox(
+                            const SizedBox(
                               height: 20,
                             ),
                             Image.asset(
                               "assets/appIcon.png",
                               scale: 6,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
                             Text(
@@ -143,7 +143,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               style: utils.mediumHeadingTextStyle(
                                   color: purpleColor),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
                             Text(
@@ -153,7 +153,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               ),
                               textAlign: TextAlign.center,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
                             utils.bigButton(

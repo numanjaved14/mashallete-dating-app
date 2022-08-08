@@ -81,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ],
                         ),
-                        Container(
+                        const SizedBox(
                           width: 30,
                           child: Icon(CupertinoIcons.arrow_turn_up_left),
                         )

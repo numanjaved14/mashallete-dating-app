@@ -1145,7 +1145,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                               style: utils.mediumHeadingTextStyle(),
                               textAlign: TextAlign.center,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
                             const Text(
@@ -1175,7 +1175,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                   fontSize: 16,
                                   borderRadius: 7.0),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
                             Text(

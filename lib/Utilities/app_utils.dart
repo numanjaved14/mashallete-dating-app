@@ -1251,7 +1251,7 @@ class AppUtils {
                         text,
                         style: mediumTitleTextStyle(color: Colors.black),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
                       Text(
