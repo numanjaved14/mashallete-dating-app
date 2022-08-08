@@ -83,14 +83,13 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
                   unselectedLabelColor: Colors.grey,
                   labelColor: blueColor,
                   onTap: (val) {
-                    print(val);
                     selectedIndex = val;
                     setState(() {});
                   },
                   indicatorColor: blueColor,
                   tabs: [
                     Container(
-                      padding: EdgeInsets.only(bottom: 10),
+                      padding: const EdgeInsets.only(bottom: 10),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -98,11 +97,11 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
                             "Your Turn",
                             style: utils.smallTitleTextStyle(),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 5,
                           ),
                           Container(
-                            padding: EdgeInsets.symmetric(
+                            padding: const EdgeInsets.symmetric(
                                 horizontal: 15, vertical: 5),
                             decoration: BoxDecoration(
                                 color: selectedIndex == 0
@@ -123,7 +122,7 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
                       ),
                     ),
                     Container(
-                      padding: EdgeInsets.only(bottom: 10),
+                      padding: const EdgeInsets.only(bottom: 10),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -131,11 +130,11 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
                             "All Conversations",
                             style: utils.smallTitleTextStyle(),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 5,
                           ),
                           Container(
-                            padding: EdgeInsets.symmetric(
+                            padding: const EdgeInsets.symmetric(
                                 horizontal: 15, vertical: 5),
                             decoration: BoxDecoration(
                                 color: selectedIndex == 1
@@ -183,14 +182,14 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
                               ),
                               child: Row(
                                 children: [
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 10,
                                   ),
                                   Image.asset(
                                     "assets/heartCircle.png",
                                     scale: 3,
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 10,
                                   ),
                                   Column(
@@ -202,7 +201,7 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
                                         "You have 2 likes!",
                                         style: utils.mediumTitleTextStyle(),
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 5,
                                       ),
                                       Text(
@@ -275,14 +274,14 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
                               ),
                               child: Row(
                                 children: [
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 10,
                                   ),
                                   Image.asset(
                                     "assets/heartCircle.png",
                                     scale: 3,
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 10,
                                   ),
                                   Column(
@@ -294,7 +293,7 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
                                         "You have 2 likes!",
                                         style: utils.mediumTitleTextStyle(),
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 5,
                                       ),
                                       Text(

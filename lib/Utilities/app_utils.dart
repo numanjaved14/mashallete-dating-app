@@ -1477,7 +1477,7 @@ class AppUtils {
               ),
             ),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 7),
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
               decoration: BoxDecoration(
                   color: color, borderRadius: BorderRadius.circular(30.0)),
               child: Row(
