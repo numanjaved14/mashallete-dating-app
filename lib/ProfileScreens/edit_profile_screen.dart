@@ -138,7 +138,12 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             utils.editProfileWidget(title: "Full Name", body: "Aadil Nazir"),
             utils.line(),
             utils.editProfileWidget(
-                title: "Height", body: "Not filled out yet", isColorBlue: true),
+                onTap: () {
+                  Navigator.pushNamed(context, heightScreenRoute);
+                },
+                title: "Height",
+                body: "Not filled out yet",
+                isColorBlue: true),
             utils.line(),
             utils.editProfileWidget(title: "Gender", body: "Male"),
             utils.line(),
@@ -176,49 +181,58 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 isColorBlue: true),
             utils.line(),
             utils.editProfileWidget(
-                onTap: () {
-                  Navigator.pushNamed(context, educationScreenRoute);
-                },
-                title: "Education",
-                body: "Not filled out yet",
-                isColorBlue: true),
+              onTap: () {
+                Navigator.pushNamed(context, educationScreenRoute);
+              },
+              title: "Education",
+              body: "Not filled out yet",
+              isColorBlue: true,
+            ),
             utils.line(),
             utils.editProfileWidget(
-                onTap: () {
-                  Navigator.pushNamed(context, professionScreenRoute);
-                },
-                title: "Profession",
-                body: "Not filled out yet",
-                isColorBlue: true),
+              onTap: () {
+                Navigator.pushNamed(context, professionScreenRoute);
+              },
+              title: "Profession",
+              body: "Not filled out yet",
+              isColorBlue: true,
+            ),
             utils.line(),
             utils.editProfileWidget(
-                title: "Languages",
-                body: "Not filled out yet",
-                isColorBlue: true),
+              onTap: () {
+                Navigator.pushNamed(context, languagesScreenRoute);
+              },
+              title: "Languages",
+              body: "Not filled out yet",
+              isColorBlue: true,
+            ),
             utils.line(),
             utils.editProfileWidget(
-                onTap: () {
-                  Navigator.pushNamed(context, marriedScreenRoute);
-                },
-                title: "Have you ever been married?",
-                body: "Not filled out yet",
-                isColorBlue: true),
+              onTap: () {
+                Navigator.pushNamed(context, marriedScreenRoute);
+              },
+              title: "Have you ever been married?",
+              body: "Not filled out yet",
+              isColorBlue: true,
+            ),
             utils.line(),
             utils.editProfileWidget(
-                title: "Want kids?",
-                onTap: () {
-                  Navigator.pushNamed(context, wantKidsScreenRoute);
-                },
-                body: "Not filled out yet",
-                isColorBlue: true),
+              title: "Want kids?",
+              onTap: () {
+                Navigator.pushNamed(context, wantKidsScreenRoute);
+              },
+              body: "Not filled out yet",
+              isColorBlue: true,
+            ),
             utils.line(),
             utils.editProfileWidget(
-                onTap: () {
-                  Navigator.pushNamed(context, willingToRelocateScreenRoute);
-                },
-                title: "Willing to relocate?",
-                body: "Not filled out yet",
-                isColorBlue: true),
+              onTap: () {
+                Navigator.pushNamed(context, willingToRelocateScreenRoute);
+              },
+              title: "Willing to relocate?",
+              body: "Not filled out yet",
+              isColorBlue: true,
+            ),
             utils.line(),
             const SizedBox(
               height: 40,

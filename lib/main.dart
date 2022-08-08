@@ -42,7 +42,9 @@ import 'ProfileScreens/alcohol_screen.dart';
 import 'ProfileScreens/delete_account_screen.dart';
 import 'ProfileScreens/education_screen.dart';
 import 'ProfileScreens/have_children_screen.dart';
+import 'ProfileScreens/height_screen.dart';
 import 'ProfileScreens/help_and_support_screen.dart';
+import 'ProfileScreens/languages_screen.dart';
 import 'ProfileScreens/married_screen.dart';
 import 'ProfileScreens/premium_access_screen.dart';
 import 'ProfileScreens/profession_screen.dart';
@@ -129,8 +131,8 @@ class _MyAppState extends State<MyApp> {
             const OnBoardingThankYouScreen(),
         groundRuleOneScreenRoute: (context) => const GroundRuleOneScreen(),
         sectScreenRoute: (context) => const SectScreen(),
-        // groundRuleTwoScreenRoute: (context) => const GroundRuleTwoScreen(),
         aboutMeEditScreenRoute: (context) => const AboutMeEditScreen(),
+        heightScreenRoute: (context) => const HeightScreen(),
         haveChildrenScreenRoute: (context) => const HaveChildrenScreen(),
         editPhotosScreenRoute: (context) => const EditPhotosScreen(),
         editTaglineScreenRoute: (context) => const EditTaglineScreen(),
@@ -152,6 +154,7 @@ class _MyAppState extends State<MyApp> {
         chatBoxScreenRoute: (context) => const ChatBoxScreen(),
         privacyScreenRoute: (context) => const PrivacyScreen(),
         profileViewScreenRoute: (context) => const ViewProfileScreen(),
+        languagesScreenRoute: (context) => const LanguagesScreen(),
         editProfileTabBarScreenRoute: (context) =>
             const ProfileEditTabBarScreen(),
         bottomNavigationBarScreenRoute: (context) =>
