@@ -1214,7 +1214,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
     );
   }
 
-  enableCallOptionsDialog(width) {
+  notAcceptingCallsDialog(width) {
     showGeneralDialog(
       context: context,
       barrierLabel: 'Dialog',
@@ -1229,9 +1229,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                   Navigator.pop(context);
                 },
                 child: Container(
-                  height: width > 400
-                      ? MediaQuery.of(context).size.width * 0.62
-                      : MediaQuery.of(context).size.width * 0.52,
+                  height: MediaQuery.of(context).size.width * 0.52,
                   width: double.infinity,
                   color: Colors.transparent,
                 ),
@@ -1244,7 +1242,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                       onTap: () {},
                       child: Container(
                         width: MediaQuery.of(context).size.width,
-                        height: 390,
+                        height: 315,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(20),
@@ -1269,13 +1267,12 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                         width: 70,
                                         height: 70,
                                         decoration: BoxDecoration(
-                                          color: purpleColor.withOpacity(0.4),
+                                          color: purpleColor.withOpacity(0.3),
                                           shape: BoxShape.circle,
                                         ),
                                         child: Image.asset(
-                                          "assets/videoIcon.png",
+                                          "assets/noVideo.png",
                                           scale: 4,
-                                          color: purpleColor,
                                         ),
                                       ),
                                     ),
@@ -1286,130 +1283,61 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                         width: 70,
                                         height: 70,
                                         decoration: const BoxDecoration(
-                                          color: extraLightBlueColor,
                                           shape: BoxShape.circle,
-                                        ),
-                                        child: Image.asset(
-                                          "assets/audioIcon.png",
-                                          scale: 4,
-                                          color: blueColor,
+                                          image: DecorationImage(
+                                            image: AssetImage(
+                                              "assets/background.png",
+                                            ),
+                                            fit: BoxFit.cover,
+                                          ),
                                         ),
                                       ),
                                     ),
                                   ],
                                 ),
                               ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: const [
-                                  Text(
-                                    "Ready for a live call with ",
-                                    style: TextStyle(
-                                      fontSize: 22,
-                                      fontWeight: FontWeight.w500,
-                                      fontFamily: "ProximaNova",
-                                    ),
-                                  ),
-                                  Text(
-                                    "Omer?",
-                                    style: TextStyle(
-                                      fontSize: 22,
-                                      fontFamily: "ProximaNova",
-                                      fontWeight: FontWeight.w900,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(
-                                height: 25,
-                              ),
-                              Text(
-                                "This option remains private until you're both \nready. Once you're ready, you'll both be able to call \neach other when you'er both online.",
-                                textAlign: TextAlign.center,
+                              const Text(
+                                "Sana is not accepting video calls\nyet!",
                                 style: TextStyle(
-                                  fontSize: width > 400 ? 15 : 13,
-                                  color: Colors.black.withOpacity(0.5),
+                                  fontSize: 22,
                                   fontFamily: "ProximaNova",
-                                  height: 1.5,
+                                  fontWeight: FontWeight.w900,
                                 ),
+                                textAlign: TextAlign.center,
                               ),
                               const SizedBox(
-                                height: 35,
+                                height: 10,
                               ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  GestureDetector(
-                                    onTap: () {
-                                      Navigator.pop(context);
-                                      videoCallEnabled = true;
-                                      setState(() {});
-                                    },
-                                    child: Container(
-                                      width: MediaQuery.of(context).size.width *
-                                          0.38,
-                                      height: 50,
-                                      decoration: BoxDecoration(
-                                        color: purpleColor,
-                                        borderRadius: BorderRadius.circular(35),
-                                      ),
-                                      child: const Center(
-                                        child: Text(
-                                          "Enable Video Call",
-                                          style: TextStyle(
-                                            fontSize: 14,
-                                            fontFamily: "ProximaNova",
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      Navigator.pop(context);
-                                    },
-                                    child: Container(
-                                      width: MediaQuery.of(context).size.width *
-                                          0.38,
-                                      height: 50,
-                                      decoration: BoxDecoration(
-                                        color: blueColor,
-                                        borderRadius: BorderRadius.circular(35),
-                                      ),
-                                      child: const Center(
-                                        child: Text(
-                                          "Enable Audio Call",
-                                          style: TextStyle(
-                                            fontSize: 14,
-                                            fontFamily: "ProximaNova",
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
+                              const Text(
+                                "Get to know people a little bit better before\nrequesting video calls.",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontFamily: "ProximaNova",
+                                  fontWeight: FontWeight.w400,
+                                ),
+                                textAlign: TextAlign.center,
                               ),
                               const SizedBox(
                                 height: 20,
                               ),
-                              GestureDetector(
-                                onTap: () {
-                                  Navigator.pop(context);
-                                },
-                                child: Text(
-                                  "I'm not ready yet",
-                                  style: TextStyle(
-                                    fontSize: width > 400 ? 16 : 14,
-                                    fontFamily: "ProximaNova",
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.red,
-                                  ),
-                                ),
+                              Align(
+                                alignment: Alignment.center,
+                                child: utils.bigButton(
+                                    onTap: () {
+                                      Navigator.pop(context);
+                                    },
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.8,
+                                    height: 55.0,
+                                    containerColor: blueColor,
+                                    textColor: Colors.white,
+                                    shadowColors: Colors.white,
+                                    text: "Sounds Good",
+                                    fontSize: 16,
+                                    borderRadius: 7.0),
+                              ),
+                              const SizedBox(
+                                height: 15,
                               ),
                             ],
                           ),
@@ -1451,7 +1379,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                   Navigator.pop(context);
                 },
                 child: Container(
-                  height: MediaQuery.of(context).size.width * 0.72,
+                  height: MediaQuery.of(context).size.width * 0.52,
                   width: double.infinity,
                   color: Colors.transparent,
                 ),
@@ -1464,7 +1392,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                       onTap: () {},
                       child: Container(
                         width: MediaQuery.of(context).size.width,
-                        height: 300,
+                        height: 350,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(20),
@@ -1489,7 +1417,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                         width: 70,
                                         height: 70,
                                         decoration: BoxDecoration(
-                                          color: purpleColor.withOpacity(0.4),
+                                          color: purpleColor.withOpacity(0.3),
                                           shape: BoxShape.circle,
                                         ),
                                         child: Image.asset(
@@ -1520,83 +1448,63 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                 ),
                               ),
                               const Text(
-                                "Omer wants to video chat!",
+                                "Do you want to send a video\nchat request to Sana?",
                                 style: TextStyle(
                                   fontSize: 22,
                                   fontFamily: "ProximaNova",
                                   fontWeight: FontWeight.w900,
                                 ),
+                                textAlign: TextAlign.center,
                               ),
                               const SizedBox(
-                                height: 35,
+                                height: 10,
                               ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  GestureDetector(
-                                    onTap: () {
-                                      Navigator.pop(context);
-                                    },
-                                    child: Container(
-                                      width: MediaQuery.of(context).size.width *
-                                          0.32,
-                                      height: 50,
-                                      decoration: BoxDecoration(
-                                        color: Colors.grey.withOpacity(0.2),
-                                        borderRadius: BorderRadius.circular(35),
-                                      ),
-                                      child: const Center(
-                                        child: Text(
-                                          "Not yet",
-                                          style: TextStyle(
-                                            fontSize: 14,
-                                            fontFamily: "ProximaNova",
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.black,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    width: 20,
-                                  ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      Navigator.pop(context);
-                                      incomingVideoCallDialog();
-                                    },
-                                    child: Container(
-                                      width: MediaQuery.of(context).size.width *
-                                          0.32,
-                                      height: 50,
-                                      decoration: BoxDecoration(
-                                        color: blueColor,
-                                        borderRadius: BorderRadius.circular(35),
-                                      ),
-                                      child: const Center(
-                                        child: Text(
-                                          "Enable",
-                                          style: TextStyle(
-                                            fontSize: 14,
-                                            fontFamily: "ProximaNova",
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
+                              const Text(
+                                "Once she accepts it, you two can start video \nchatting.",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontFamily: "ProximaNova",
+                                  fontWeight: FontWeight.w400,
+                                ),
+                                textAlign: TextAlign.center,
                               ),
                               const SizedBox(
                                 height: 20,
                               ),
-                              Text(
-                                "This can always be enabled later down below.",
-                                style: utils.extraSmallTitleTextStyle(
-                                  color: Colors.grey,
+                              Align(
+                                alignment: Alignment.center,
+                                child: utils.bigButton(
+                                    onTap: () {
+                                      Navigator.pop(context);
+                                      incomingVideoCallDialog();
+                                    },
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.8,
+                                    height: 55.0,
+                                    containerColor: blueColor,
+                                    textColor: Colors.white,
+                                    shadowColors: Colors.white,
+                                    text: "Send Video Chat Request",
+                                    fontSize: 16,
+                                    borderRadius: 7.0),
+                              ),
+                              const SizedBox(
+                                height: 15,
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.pop(context);
+                                },
+                                child: const Text(
+                                  "Not now",
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
+                              ),
+                              const SizedBox(
+                                height: 10,
                               ),
                             ],
                           ),
@@ -1744,6 +1652,8 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                                 child: utils.bigButton(
                                     onTap: () {
                                       Navigator.pop(context);
+                                      notAcceptingCallsDialog(
+                                          MediaQuery.of(context).size.width);
                                     },
                                     width:
                                         MediaQuery.of(context).size.width * 0.8,

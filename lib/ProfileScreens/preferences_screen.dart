@@ -43,7 +43,7 @@ class _PreferencesScreenState extends State<PreferencesScreen> {
                 ),
                 Text(
                   "Preferences",
-                  style: utils.mediumHeadingTextStyle(),
+                  style: utils.mediumHeadingTextStyle(color: blueColor),
                 ),
                 Container(
                   width: 20,
@@ -53,39 +53,14 @@ class _PreferencesScreenState extends State<PreferencesScreen> {
             const SizedBox(
               height: 50,
             ),
-            Text(
-              "ACCOUNT",
-              style: utils.extraSmallHeadingTextStyle(),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Phone Number",
-                  style: utils.smallTitleTextStyle(),
-                ),
-                Text(
-                  "(5555)-5555-5555",
-                  style: utils.smallTitleTextStyle(),
-                ),
-              ],
-            ),
+            utils.preferencesRowWidget(
+                text: "Phone Number", text2: "(5555)-5555-5555"),
             const SizedBox(
               height: 20,
             ),
             utils.line(width: double.infinity),
             const SizedBox(
-              height: 20,
-            ),
-            Text(
-              "FILTERS",
-              style: utils.extraSmallHeadingTextStyle(),
-            ),
-            const SizedBox(
-              height: 15,
+              height: 40,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -116,7 +91,7 @@ class _PreferencesScreenState extends State<PreferencesScreen> {
                     min: 14.0,
                     max: 100.0,
                     activeColor: blueColor,
-                    inactiveColor: Colors.grey[500],
+                    inactiveColor: Colors.grey[300],
                     value: _value,
                     onChanged: (value) {
                       setState(() {
@@ -127,10 +102,6 @@ class _PreferencesScreenState extends State<PreferencesScreen> {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 20,
-            ),
-            utils.line(width: double.infinity),
             const SizedBox(
               height: 20,
             ),
@@ -170,33 +141,24 @@ class _PreferencesScreenState extends State<PreferencesScreen> {
                 },
               ),
             ),
-            utils.line(width: double.infinity),
             const SizedBox(
-              height: 5,
+              height: 20,
             ),
-            utils.preferencesWidget(text: "Ethnicity", text2: "Open to All"),
+            utils.preferencesRowWidget(text: "Ethnicity", text2: "Open to All"),
             const SizedBox(
-              height: 5,
-            ),
-            utils.line(width: double.infinity),
-            const SizedBox(
-              height: 5,
-            ),
-            utils.preferencesWidget(text: "Flavor", text2: "Choose"),
-            const SizedBox(
-              height: 5,
+              height: 10,
             ),
             utils.line(width: double.infinity),
             const SizedBox(
-              height: 5,
+              height: 10,
             ),
-            utils.preferencesWidget(text: "Verified only", text2: "Yes"),
+            utils.preferencesRowWidget(text: "Flavor", text2: "Choose"),
             const SizedBox(
-              height: 5,
+              height: 10,
             ),
             utils.line(width: double.infinity),
             const SizedBox(
-              height: 15,
+              height: 10,
             ),
             GestureDetector(
               onTap: () {

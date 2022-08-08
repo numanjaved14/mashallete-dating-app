@@ -2288,4 +2288,46 @@ class AppUtils {
       ),
     );
   }
+
+  preferencesRowWidget({iconContainerColor, image, text, onTap, scale, text2}) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: double.infinity,
+        color: Colors.white,
+        height: 50,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  text,
+                  style: smallHeadingTextStyle(),
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                Text(
+                  text2,
+                  style: smallTitleTextStyle(),
+                ),
+              ],
+            ),
+            const Spacer(),
+            const Icon(
+              Icons.arrow_forward_ios_outlined,
+              color: Colors.black,
+              size: 17,
+            ),
+            const SizedBox(
+              width: 20,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }

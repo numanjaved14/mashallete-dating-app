@@ -689,3 +689,225 @@
 //     ),
 //   ),
 // ),
+
+// enableCallOptionsDialog(width) {
+//   showGeneralDialog(
+//     context: context,
+//     barrierLabel: 'Dialog',
+//     transitionDuration: const Duration(milliseconds: 20),
+//     pageBuilder: (_, __, ___) {
+//       return Scaffold(
+//         backgroundColor: Colors.white60.withOpacity(0.3),
+//         body: Column(
+//           children: [
+//             GestureDetector(
+//               onTap: () {
+//                 Navigator.pop(context);
+//               },
+//               child: Container(
+//                 height: width > 400
+//                     ? MediaQuery.of(context).size.width * 0.62
+//                     : MediaQuery.of(context).size.width * 0.52,
+//                 width: double.infinity,
+//                 color: Colors.transparent,
+//               ),
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.symmetric(horizontal: 20.0),
+//               child: Column(
+//                 children: [
+//                   GestureDetector(
+//                     onTap: () {},
+//                     child: Container(
+//                       width: MediaQuery.of(context).size.width,
+//                       height: 390,
+//                       decoration: BoxDecoration(
+//                         color: Colors.white,
+//                         borderRadius: BorderRadius.circular(20),
+//                       ),
+//                       child: Padding(
+//                         padding: const EdgeInsets.only(left: 15, right: 20),
+//                         child: Column(
+//                           children: [
+//                             const SizedBox(
+//                               height: 20,
+//                             ),
+//                             SizedBox(
+//                               height: 100,
+//                               width: double.infinity,
+//                               child: Stack(
+//                                 alignment: Alignment.center,
+//                                 children: [
+//                                   Positioned(
+//                                     left: 0,
+//                                     right: 50,
+//                                     child: Container(
+//                                       width: 70,
+//                                       height: 70,
+//                                       decoration: BoxDecoration(
+//                                         color: purpleColor.withOpacity(0.4),
+//                                         shape: BoxShape.circle,
+//                                       ),
+//                                       child: Image.asset(
+//                                         "assets/videoIcon.png",
+//                                         scale: 4,
+//                                         color: purpleColor,
+//                                       ),
+//                                     ),
+//                                   ),
+//                                   Positioned(
+//                                     right: 0,
+//                                     left: 50,
+//                                     child: Container(
+//                                       width: 70,
+//                                       height: 70,
+//                                       decoration: const BoxDecoration(
+//                                         color: extraLightBlueColor,
+//                                         shape: BoxShape.circle,
+//                                       ),
+//                                       child: Image.asset(
+//                                         "assets/audioIcon.png",
+//                                         scale: 4,
+//                                         color: blueColor,
+//                                       ),
+//                                     ),
+//                                   ),
+//                                 ],
+//                               ),
+//                             ),
+//                             Row(
+//                               mainAxisAlignment: MainAxisAlignment.center,
+//                               children: const [
+//                                 Text(
+//                                   "Ready for a live call with ",
+//                                   style: TextStyle(
+//                                     fontSize: 22,
+//                                     fontWeight: FontWeight.w500,
+//                                     fontFamily: "ProximaNova",
+//                                   ),
+//                                 ),
+//                                 Text(
+//                                   "Omer?",
+//                                   style: TextStyle(
+//                                     fontSize: 22,
+//                                     fontFamily: "ProximaNova",
+//                                     fontWeight: FontWeight.w900,
+//                                   ),
+//                                 ),
+//                               ],
+//                             ),
+//                             const SizedBox(
+//                               height: 25,
+//                             ),
+//                             Text(
+//                               "This option remains private until you're both \nready. Once you're ready, you'll both be able to call \neach other when you'er both online.",
+//                               textAlign: TextAlign.center,
+//                               style: TextStyle(
+//                                 fontSize: width > 400 ? 15 : 13,
+//                                 color: Colors.black.withOpacity(0.5),
+//                                 fontFamily: "ProximaNova",
+//                                 height: 1.5,
+//                               ),
+//                             ),
+//                             const SizedBox(
+//                               height: 35,
+//                             ),
+//                             Row(
+//                               mainAxisAlignment:
+//                                   MainAxisAlignment.spaceAround,
+//                               children: [
+//                                 GestureDetector(
+//                                   onTap: () {
+//                                     Navigator.pop(context);
+//                                     videoCallEnabled = true;
+//                                     setState(() {});
+//                                   },
+//                                   child: Container(
+//                                     width: MediaQuery.of(context).size.width *
+//                                         0.38,
+//                                     height: 50,
+//                                     decoration: BoxDecoration(
+//                                       color: purpleColor,
+//                                       borderRadius: BorderRadius.circular(35),
+//                                     ),
+//                                     child: const Center(
+//                                       child: Text(
+//                                         "Enable Video Call",
+//                                         style: TextStyle(
+//                                           fontSize: 14,
+//                                           fontFamily: "ProximaNova",
+//                                           fontWeight: FontWeight.bold,
+//                                           color: Colors.white,
+//                                         ),
+//                                       ),
+//                                     ),
+//                                   ),
+//                                 ),
+//                                 GestureDetector(
+//                                   onTap: () {
+//                                     Navigator.pop(context);
+//                                   },
+//                                   child: Container(
+//                                     width: MediaQuery.of(context).size.width *
+//                                         0.38,
+//                                     height: 50,
+//                                     decoration: BoxDecoration(
+//                                       color: blueColor,
+//                                       borderRadius: BorderRadius.circular(35),
+//                                     ),
+//                                     child: const Center(
+//                                       child: Text(
+//                                         "Enable Audio Call",
+//                                         style: TextStyle(
+//                                           fontSize: 14,
+//                                           fontFamily: "ProximaNova",
+//                                           fontWeight: FontWeight.bold,
+//                                           color: Colors.white,
+//                                         ),
+//                                       ),
+//                                     ),
+//                                   ),
+//                                 ),
+//                               ],
+//                             ),
+//                             const SizedBox(
+//                               height: 20,
+//                             ),
+//                             GestureDetector(
+//                               onTap: () {
+//                                 Navigator.pop(context);
+//                               },
+//                               child: Text(
+//                                 "I'm not ready yet",
+//                                 style: TextStyle(
+//                                   fontSize: width > 400 ? 16 : 14,
+//                                   fontFamily: "ProximaNova",
+//                                   fontWeight: FontWeight.bold,
+//                                   color: Colors.red,
+//                                 ),
+//                               ),
+//                             ),
+//                           ],
+//                         ),
+//                       ),
+//                     ),
+//                   ),
+//                 ],
+//               ),
+//             ),
+//             GestureDetector(
+//               onTap: () {
+//                 Navigator.pop(context);
+//               },
+//               child: Container(
+//                 height: MediaQuery.of(context).size.width * 0.6,
+//                 width: double.infinity,
+//                 color: Colors.transparent,
+//               ),
+//             ),
+//           ],
+//         ),
+//       );
+//     },
+//   );
+// }
