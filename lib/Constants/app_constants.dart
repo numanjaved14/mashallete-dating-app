@@ -57,6 +57,7 @@ const alcoholScreenRoute = "/alcoholScreenRoute";
 const sectScreenRoute = "/sectScreenRoute";
 const haveChildrenScreenRoute = "/haveChildrenScreenRoute";
 const heightScreenRoute = "/heightScreenRoute";
+const likesScreenRoute = "/likesScreenRoute";
 const marriedScreenRoute = "/marriedScreenRoute";
 const languagesScreenRoute = "/languagesScreenRoute";
 const willingToRelocateScreenRoute = "/willingToRelocateScreenRoute";

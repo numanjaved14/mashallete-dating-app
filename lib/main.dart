@@ -24,6 +24,7 @@ import 'package:page_transition/page_transition.dart';
 import 'Authentication/landing_page.dart';
 import 'Authentication/splash_screen.dart';
 import 'ChatScreens/chat_box_screen.dart';
+import 'ChatScreens/likes_screen.dart';
 import 'Constants/app_constants.dart';
 import 'GroundRules/ground_rule_one_screen.dart';
 import 'HomeScreens/home_screen.dart';
@@ -133,6 +134,7 @@ class _MyAppState extends State<MyApp> {
         sectScreenRoute: (context) => const SectScreen(),
         aboutMeEditScreenRoute: (context) => const AboutMeEditScreen(),
         heightScreenRoute: (context) => const HeightScreen(),
+        likesScreenRoute: (context) => const LikesScreen(),
         haveChildrenScreenRoute: (context) => const HaveChildrenScreen(),
         editPhotosScreenRoute: (context) => const EditPhotosScreen(),
         editTaglineScreenRoute: (context) => const EditTaglineScreen(),

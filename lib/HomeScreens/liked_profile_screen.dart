@@ -176,11 +176,10 @@ class _LikedProfilesScreenState extends State<LikedProfilesScreen> {
                 Navigator.pushNamed(context, premiumAccessScreenRoute);
               },
               child: Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                padding: const EdgeInsets.only(right: 10, top: 5, bottom: 5),
                 height: 70,
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: purpleColor,
                   boxShadow: [
                     BoxShadow(
                       color: Colors.grey.withOpacity(0.4),
@@ -188,11 +187,25 @@ class _LikedProfilesScreenState extends State<LikedProfilesScreen> {
                       blurRadius: 3,
                     ),
                   ],
-                  borderRadius: BorderRadius.circular(50),
+                  borderRadius: BorderRadius.circular(15),
                 ),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                    Image.asset(
+                      "assets/mashalattePremium.png",
+                      scale: 3,
+                      color: Colors.white,
+                    ),
+                    Text(
+                      "Upgrade to premium to \nview all of your likes",
+                      style: utils.smallHeadingTextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                    SizedBox(
+                      width: width > 400 ? 20 : 10,
+                    ),
                     Container(
                       width: 100,
                       height: 30,
@@ -212,14 +225,6 @@ class _LikedProfilesScreenState extends State<LikedProfilesScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(
-                      width: width > 400 ? 20 : 10,
-                    ),
-                    Text(
-                      "Upgrade to premium for unlimited \naccess, swipes and likes.",
-                      style:
-                          utils.extraSmallHeadingTextStyle(color: purpleColor),
-                    )
                   ],
                 ),
               ),

@@ -197,6 +197,9 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                       const SizedBox(
                         height: 20,
                       ),
+                      const SizedBox(
+                        height: 20,
+                      ),
                       Text(
                         "Today 2:58 PM",
                         style: utils.smallTitleTextStyle(),

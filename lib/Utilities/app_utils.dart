@@ -1429,7 +1429,15 @@ class AppUtils {
     );
   }
 
-  newChatWidget({image, senderName, lastMessage, time, onTap}) {
+  newChatWidget(
+      {image,
+      senderName,
+      lastMessage,
+      time,
+      onTap,
+      color,
+      textColor,
+      messageTextColor}) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -1437,6 +1445,7 @@ class AppUtils {
         height: 70,
         margin: const EdgeInsets.only(bottom: 20),
         child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
               width: 70,
@@ -1462,26 +1471,31 @@ class AppUtils {
                     lastMessage,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: smallHeadingTextStyle(color: blueColor),
+                    style: mediumTitleTextStyle(color: messageTextColor),
                   ),
                 ],
               ),
             ),
-            Row(
-              children: [
-                const Icon(
-                  Icons.timer_sharp,
-                  color: blueColor,
-                  size: 19,
-                ),
-                const SizedBox(
-                  width: 5,
-                ),
-                Text(
-                  time,
-                  style: smallHeadingTextStyle(color: blueColor),
-                ),
-              ],
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 7),
+              decoration: BoxDecoration(
+                  color: color, borderRadius: BorderRadius.circular(30.0)),
+              child: Row(
+                children: [
+                  Image.asset(
+                    "assets/hourGlass.png",
+                    scale: 3,
+                    color: textColor,
+                  ),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  Text(
+                    time,
+                    style: smallHeadingTextStyle(color: textColor),
+                  ),
+                ],
+              ),
             ),
             const SizedBox(
               width: 10,
