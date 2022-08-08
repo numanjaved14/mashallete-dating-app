@@ -1208,7 +1208,15 @@ class AppUtils {
     );
   }
 
-  generalRow({iconContainerColor, image, text, context, onTap, scale}) {
+  generalRow(
+      {iconContainerColor,
+      image,
+      text,
+      context,
+      onTap,
+      scale,
+      premium,
+      text2}) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -1217,6 +1225,9 @@ class AppUtils {
         color: Colors.white,
         height: 50,
         child: Row(
+          crossAxisAlignment: premium == true
+              ? CrossAxisAlignment.start
+              : CrossAxisAlignment.center,
           children: [
             const SizedBox(
               width: 20,
@@ -1228,15 +1239,32 @@ class AppUtils {
             const SizedBox(
               width: 20,
             ),
-            Text(
-              text,
-              style: smallHeadingTextStyle(color: Colors.black),
-            ),
+            premium == false
+                ? Text(
+                    text,
+                    style: mediumTitleTextStyle(color: Colors.black),
+                  )
+                : Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        text,
+                        style: mediumTitleTextStyle(color: Colors.black),
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        text2,
+                        style: mediumTitleTextStyle(color: Colors.red),
+                      ),
+                    ],
+                  ),
             const Spacer(),
             const Icon(
               Icons.arrow_forward_ios_outlined,
-              color: Colors.grey,
-              size: 20,
+              color: Colors.black,
+              size: 17,
             ),
             const SizedBox(
               width: 20,

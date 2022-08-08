@@ -10,6 +10,7 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  bool premiumUser = true;
   var utils = AppUtils();
   @override
   Widget build(BuildContext context) {
@@ -54,6 +55,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             const SizedBox(
               height: 10,
             ),
+
             const Text(
               "Usama",
               style: TextStyle(
@@ -63,8 +65,119 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 color: Colors.black,
               ),
             ),
-            const SizedBox(
-              height: 60,
+            premiumUser == true
+                ? GestureDetector(
+                    onTap: () {
+                      premiumUser = !premiumUser;
+                      setState(() {});
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          "assets/heartProfileIcon.png",
+                          scale: 4,
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          "Premium User",
+                          style: utils.mediumTitleTextStyle(color: purpleColor),
+                        ),
+                      ],
+                    ),
+                  )
+                : Column(
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          premiumUser = !premiumUser;
+                          setState(() {});
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              "assets/profileIncompleteIcon.png",
+                              scale: 4,
+                            ),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            Text(
+                              "Profile Incomplete",
+                              style: utils.mediumTitleTextStyle(
+                                  color: darkRedColor),
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.9,
+                        height: 280,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20.0),
+                          border: Border.all(
+                            color: purpleColor,
+                            width: 0.5,
+                          ),
+                        ),
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Image.asset(
+                              "assets/appIcon.png",
+                              scale: 6,
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              "Get Premium",
+                              style: utils.mediumHeadingTextStyle(
+                                  color: purpleColor),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              "Mashalatte users that have premium end up \ngoing on 30% more matches!",
+                              style: utils.smallTitleTextStyle(
+                                color: Colors.black.withOpacity(0.7),
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            utils.bigButton(
+                              width: MediaQuery.of(context).size.width * 0.8,
+                              textColor: Colors.white,
+                              borderRadius: 10.0,
+                              height: 50.0,
+                              text: "Upgrade to Premium",
+                              containerColor: purpleColor,
+                              shadowColors: Colors.white,
+                              fontWeight: FontWeight.w900,
+                              onTap: () {
+                                Navigator.pushNamed(
+                                    context, premiumAccessScreenRoute);
+                              },
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+
+            SizedBox(
+              height: premiumUser == false ? 20 : 40,
             ),
             utils.generalRow(
               context: context,
@@ -74,7 +187,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
               },
               text: "Edit Profile",
               image: "assets/person.png",
-              scale: 2.0,
+              scale: 4.0,
+              premium: !premiumUser,
+              text2: "70% complete",
+            ),
+            SizedBox(
+              height: premiumUser == false ? 0 : 5,
             ),
             utils.line(width: double.infinity),
             const SizedBox(
@@ -88,6 +206,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               },
               text: "Privacy Settings",
               image: "assets/lockOpen.png",
+              premium: false,
               scale: 4.0,
             ),
             utils.line(width: double.infinity),
@@ -103,6 +222,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               },
               text: "Preferences",
               image: "assets/settings.png",
+              premium: false,
             ),
             utils.line(width: double.infinity),
             const SizedBox(
@@ -130,7 +250,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 Navigator.pushNamed(context, helpAndSupportScreenRoute);
               },
               text: "Help and Support",
-              image: "assets/support.png",
+              image: "assets/helpAndSupportIcon.png",
+              premium: false,
             ),
           ],
         ),
