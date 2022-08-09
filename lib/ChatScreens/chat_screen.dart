@@ -22,7 +22,6 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    var width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
@@ -168,7 +167,8 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
                           ),
                           GestureDetector(
                             onTap: () {
-                              Navigator.pushNamed(context, likesScreenRoute);
+                              Navigator.pushNamed(
+                                  context, likedProfilesScreenRoute);
                             },
                             child: Container(
                               width: MediaQuery.of(context).size.width * 0.9,
@@ -260,7 +260,8 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
                           ),
                           GestureDetector(
                             onTap: () {
-                              Navigator.pushNamed(context, likesScreenRoute);
+                              Navigator.pushNamed(
+                                  context, likedProfilesScreenRoute);
                             },
                             child: Container(
                               width: MediaQuery.of(context).size.width * 0.9,
@@ -378,69 +379,69 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
               ],
             ),
           ),
-          Positioned(
-            left: 35,
-            right: width > 400 ? 35 : 20,
-            bottom: width > 400 ? 30 : 20,
-            child: GestureDetector(
-              onTap: () {
-                Navigator.pushNamed(context, premiumAccessScreenRoute);
-              },
-              child: Container(
-                padding: const EdgeInsets.only(right: 10, top: 5, bottom: 5),
-                height: 70,
-                decoration: BoxDecoration(
-                  color: purpleColor,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.4),
-                      offset: const Offset(0, 1),
-                      blurRadius: 3,
-                    ),
-                  ],
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Image.asset(
-                      "assets/mashalattePremium.png",
-                      scale: 3,
-                      color: Colors.white,
-                    ),
-                    Text(
-                      "Upgrade to premium to \nview all of your likes",
-                      style: utils.smallHeadingTextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                    SizedBox(
-                      width: width > 400 ? 20 : 10,
-                    ),
-                    Container(
-                      width: 100,
-                      height: 30,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(25),
-                        border: Border.all(
-                          color: purpleColor.withOpacity(0.3),
-                        ),
-                      ),
-                      child: Center(
-                        child: Text(
-                          "Learn More",
-                          style: utils.extraSmallHeadingTextStyle(
-                            color: purpleColor,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
+          // Positioned(
+          //   left: 35,
+          //   right: width > 400 ? 35 : 20,
+          //   bottom: width > 400 ? 30 : 20,
+          //   child: GestureDetector(
+          //     onTap: () {
+          //       Navigator.pushNamed(context, premiumAccessScreenRoute);
+          //     },
+          //     child: Container(
+          //       padding: const EdgeInsets.only(right: 10, top: 5, bottom: 5),
+          //       height: 70,
+          //       decoration: BoxDecoration(
+          //         color: purpleColor,
+          //         boxShadow: [
+          //           BoxShadow(
+          //             color: Colors.grey.withOpacity(0.4),
+          //             offset: const Offset(0, 1),
+          //             blurRadius: 3,
+          //           ),
+          //         ],
+          //         borderRadius: BorderRadius.circular(15),
+          //       ),
+          //       child: Row(
+          //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //         children: [
+          //           Image.asset(
+          //             "assets/mashalattePremium.png",
+          //             scale: 3,
+          //             color: Colors.white,
+          //           ),
+          //           Text(
+          //             "Upgrade to premium to \nview all of your likes",
+          //             style: utils.smallHeadingTextStyle(
+          //               color: Colors.white,
+          //             ),
+          //           ),
+          //           SizedBox(
+          //             width: width > 400 ? 20 : 10,
+          //           ),
+          //           Container(
+          //             width: 100,
+          //             height: 30,
+          //             decoration: BoxDecoration(
+          //               color: Colors.white,
+          //               borderRadius: BorderRadius.circular(25),
+          //               border: Border.all(
+          //                 color: purpleColor.withOpacity(0.3),
+          //               ),
+          //             ),
+          //             child: Center(
+          //               child: Text(
+          //                 "Learn More",
+          //                 style: utils.extraSmallHeadingTextStyle(
+          //                   color: purpleColor,
+          //                 ),
+          //               ),
+          //             ),
+          //           ),
+          //         ],
+          //       ),
+          //     ),
+          //   ),
+          // ),
         ],
       ),
     );

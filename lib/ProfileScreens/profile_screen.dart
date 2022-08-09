@@ -34,7 +34,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 child: const Align(
                   alignment: Alignment.centerLeft,
                   child: Icon(
-                    Icons.arrow_back_ios,
+                    Icons.home,
                     color: Colors.black,
                     size: 25,
                   ),

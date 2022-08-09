@@ -14,8 +14,8 @@ class PreferencesScreen extends StatefulWidget {
 class _PreferencesScreenState extends State<PreferencesScreen> {
   var _value = 16.0;
   var utils = AppUtils();
-  var minValue = 10.0;
-  var maxValue = 20.0;
+  var minValue = 18.0;
+  var maxValue = 50.0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -129,8 +129,8 @@ class _PreferencesScreenState extends State<PreferencesScreen> {
                 activeColor: blueColor,
                 trackColor: Colors.grey.withOpacity(0.3),
                 maxValue: maxValue,
-                min: 1.0,
-                max: 100.0,
+                min: 18.0,
+                max: 50.0,
                 onMinChanged: (minVal) {
                   minValue = minVal;
                   setState(() {});
@@ -152,7 +152,12 @@ class _PreferencesScreenState extends State<PreferencesScreen> {
             const SizedBox(
               height: 10,
             ),
-            utils.preferencesRowWidget(text: "Flavor", text2: "Choose"),
+            utils.preferencesRowWidget(
+                text: "Sect",
+                text2: "Choose",
+                onTap: () {
+                  Navigator.pushNamed(context, sectScreenRoute);
+                }),
             const SizedBox(
               height: 10,
             ),

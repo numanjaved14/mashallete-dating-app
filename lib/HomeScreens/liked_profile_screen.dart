@@ -124,6 +124,9 @@ class _LikedProfilesScreenState extends State<LikedProfilesScreen>
                               ],
                             ),
                           ),
+                          const SizedBox(
+                            height: 100,
+                          ),
                         ],
                       ),
                     ),
@@ -145,6 +148,9 @@ class _LikedProfilesScreenState extends State<LikedProfilesScreen>
                                   )
                               ],
                             ),
+                          ),
+                          const SizedBox(
+                            height: 100,
                           ),
                         ],
                       ),
@@ -185,7 +191,9 @@ class _LikedProfilesScreenState extends State<LikedProfilesScreen>
                       color: Colors.white,
                     ),
                     Text(
-                      "Upgrade to premium to \nview all of your likes",
+                      selectedIndex == 0
+                          ? "Upgrade to premium to \nview all of your likes"
+                          : "Upgrade to premium to \nmessage your likes",
                       style: utils.smallHeadingTextStyle(
                         color: Colors.white,
                       ),

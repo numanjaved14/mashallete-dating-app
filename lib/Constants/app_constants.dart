@@ -73,6 +73,7 @@ const editProfileTabBarScreenRoute = "/editProfileTabBarScreenRoute";
 const helpAndSupportScreenRoute = "/helpAndSupportScreenRoute";
 const profileViewScreenRoute = "/profileViewScreenRoute";
 const onBoardingInterestsScreenRoute = "/onBoardingInterestsScreenRoute";
+const likedProfilesScreenRoute = "/likedProfilesScreenRoute";
 const onBoardingLocationScreenRoute = "/onBoardingLocationScreenRoute";
 const welcomeNameScreenRoute = "/welcomeNameScreenRoute";
 const onBoardingLookingForScreenRoute = "/onBoardingLookingForScreenRoute";

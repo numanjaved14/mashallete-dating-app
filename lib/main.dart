@@ -28,6 +28,7 @@ import 'ChatScreens/likes_screen.dart';
 import 'Constants/app_constants.dart';
 import 'GroundRules/ground_rule_one_screen.dart';
 import 'HomeScreens/home_screen.dart';
+import 'HomeScreens/liked_profile_screen.dart';
 import 'HomeScreens/view_profile_screen.dart';
 import 'Onboarding/onboarding_edit_photos_screen.dart';
 import 'Onboarding/onboarding_ethnicity_screen.dart';
@@ -102,6 +103,7 @@ class _MyAppState extends State<MyApp> {
       },
       routes: {
         splashRoute: (context) => const SplashScreen(),
+        likedProfilesScreenRoute: (context) => const LikedProfilesScreen(),
         onBoardingInterestsScreenRoute: (context) =>
             const OnBoardingInterestsScreen(),
         landingScreenRoute: (context) => const LandingScreen(),

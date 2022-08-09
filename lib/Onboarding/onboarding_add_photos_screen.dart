@@ -156,7 +156,7 @@ class _OnBoardingAddPhotosScreenState extends State<OnBoardingAddPhotosScreen> {
                             ],
                           ),
                           const Text(
-                            "personality in your photos as",
+                            "personality in your photos.",
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w500,
@@ -164,15 +164,15 @@ class _OnBoardingAddPhotosScreenState extends State<OnBoardingAddPhotosScreen> {
                               color: Colors.black,
                             ),
                           ),
-                          const Text(
-                            "well!",
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              fontFamily: "ProximaNova",
-                              color: Colors.black,
-                            ),
-                          ),
+                          // const Text(
+                          //   "well!",
+                          //   style: TextStyle(
+                          //     fontSize: 16,
+                          //     fontWeight: FontWeight.w500,
+                          //     fontFamily: "ProximaNova",
+                          //     color: Colors.black,
+                          //   ),
+                          // ),
                         ],
                       ),
                     ],

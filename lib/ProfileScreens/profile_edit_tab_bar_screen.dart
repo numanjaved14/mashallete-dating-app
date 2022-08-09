@@ -60,15 +60,18 @@ class _ProfileEditTabBarScreenState extends State<ProfileEditTabBarScreen>
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: const Icon(
-                        Icons.check,
-                        size: 20,
-                      ),
+                    Container(
+                      width: 20,
                     ),
+                    // GestureDetector(
+                    //   onTap: () {
+                    //     Navigator.pop(context);
+                    //   },
+                    //   child: const Icon(
+                    //     Icons.check,
+                    //     size: 20,
+                    //   ),
+                    // ),
                   ],
                 ),
               ),

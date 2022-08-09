@@ -235,7 +235,19 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             ),
             utils.line(),
             const SizedBox(
-              height: 40,
+              height: 30,
+            ),
+            utils.gradientBigButton(
+              width: double.infinity,
+              textColor: Colors.white,
+              borderRadius: 10.0,
+              height: 50.0,
+              text: "Save",
+              fontWeight: FontWeight.w900,
+              onTap: () {},
+            ),
+            const SizedBox(
+              height: 100,
             ),
           ],
         ),

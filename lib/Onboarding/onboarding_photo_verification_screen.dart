@@ -22,90 +22,92 @@ class _OnBoardingPhotoVerificationScreenState
 
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(
-              height: 100,
-            ),
-            Row(
-              children: [
-                Container(
-                  width: MediaQuery.of(context).size.width * 0.75,
-                  height: 7,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      gradient: linearGradientBlue),
-                ),
-                Container(
-                  width: 0,
-                  height: 7,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.grey[200],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(
+                height: 100,
+              ),
+              Row(
+                children: [
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.75,
+                    height: 7,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        gradient: linearGradientBlue),
                   ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 45,
-            ),
-            const Text(
-              "Let's make sure you're real with a selfie!",
-              style: TextStyle(
-                fontSize: 27,
-                fontWeight: FontWeight.w600,
-                fontFamily: "ProximaNova",
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Align(
-              alignment: Alignment.center,
-              child: Container(
-                height: 500,
-                decoration: BoxDecoration(
-                    image: const DecorationImage(
-                      image: AssetImage(
-                        "assets/background.png",
-                      ),
-                      fit: BoxFit.cover,
+                  Container(
+                    width: 0,
+                    height: 7,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.grey[200],
                     ),
-                    borderRadius: BorderRadius.circular(20.0)),
-                width: width > 414
-                    ? MediaQuery.of(context).size.width
-                    : MediaQuery.of(context).size.width * 0.8,
+                  ),
+                ],
               ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            GestureDetector(
-              onTap: () {
-                Navigator.pushNamed(context, onBoardingThankYouScreenRoute);
-              },
-              child: Align(
+              const SizedBox(
+                height: 45,
+              ),
+              const Text(
+                "Let's make sure you're real with a selfie!",
+                style: TextStyle(
+                  fontSize: 27,
+                  fontWeight: FontWeight.w600,
+                  fontFamily: "ProximaNova",
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Align(
                 alignment: Alignment.center,
                 child: Container(
-                  width: 70,
-                  height: 70,
+                  height: 500,
                   decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: Colors.grey.withOpacity(0.5),
-                      width: 3,
+                      image: const DecorationImage(
+                        image: AssetImage(
+                          "assets/background.png",
+                        ),
+                        fit: BoxFit.cover,
+                      ),
+                      borderRadius: BorderRadius.circular(20.0)),
+                  width: width > 414
+                      ? MediaQuery.of(context).size.width
+                      : MediaQuery.of(context).size.width * 0.8,
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, onBoardingThankYouScreenRoute);
+                },
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Container(
+                    width: 70,
+                    height: 70,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                        color: Colors.grey.withOpacity(0.5),
+                        width: 3,
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-          ],
+              const SizedBox(
+                height: 30,
+              ),
+            ],
+          ),
         ),
       ),
     );

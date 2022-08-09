@@ -22,8 +22,8 @@ class _OnBoardingInterestsScreenState extends State<OnBoardingInterestsScreen> {
     "Sushi",
     "Hockey",
     "Basketball",
-    "Slam Poetry"
-        "Home Workout",
+    "Slam Poetry",
+    "Home Workout",
     "Manga",
     "Makeup",
     "Aquarium",
@@ -242,6 +242,15 @@ class _OnBoardingInterestsScreenState extends State<OnBoardingInterestsScreen> {
                   const SizedBox(
                     height: 25,
                   ),
+                  Text(
+                    "Choose up to 10 interests to make yourself stand out",
+                    style: utils.smallTitleTextStyle(
+                      color: Colors.black,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 25,
+                  ),
                   Wrap(
                     children: [
                       for (int i = 0; i < arts.length; i++)
@@ -249,8 +258,14 @@ class _OnBoardingInterestsScreenState extends State<OnBoardingInterestsScreen> {
                           text: arts[i],
                           selected: selected1[i],
                           onTap: () {
-                            if (selected1[i] == false) {
-                              selected1[i] = true;
+                            if (selected1.where((item) => item == true).length <
+                                10) {
+                              if (selected1[i] == false) {
+                                selected1[i] = true;
+                              } else {
+                                selected1[i] = false;
+                              }
+                              setState(() {});
                             } else {
                               selected1[i] = false;
                             }
@@ -313,7 +328,8 @@ class _OnBoardingInterestsScreenState extends State<OnBoardingInterestsScreen> {
                             context, onBoardingLookingGoodScreenRoute);
                       },
                       width: MediaQuery.of(context).size.width * 0.35,
-                      text: "Continue",
+                      text:
+                          "Continue (${selected1.where((item) => item == true).length}/10)",
                       containerColor: blueColor,
                       textColor: Colors.white,
                       borderRadius: 8.0,

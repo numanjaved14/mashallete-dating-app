@@ -21,8 +21,8 @@ class _EditInterestScreenState extends State<EditInterestScreen> {
     "Sushi",
     "Hockey",
     "Basketball",
-    "Slam Poetry"
-        "Home Workout",
+    "Slam Poetry",
+    "Home Workout",
     "Manga",
     "Makeup",
     "Aquarium",

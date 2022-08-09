@@ -114,7 +114,7 @@ class _OnBoardingLookingForScreenState
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text(
-                  "Skip for now",
+                  " ",
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w700,

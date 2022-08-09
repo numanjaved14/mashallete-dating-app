@@ -221,7 +221,7 @@ class _LoginWithPhoneNumberScreenState
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      "Region 1",
+                                      "Canada",
                                       textAlign: TextAlign.center,
                                       style: utils.smallTitleTextStyle(),
                                     ),
@@ -260,7 +260,7 @@ class _LoginWithPhoneNumberScreenState
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      "Region 2",
+                                      "Pakistan",
                                       textAlign: TextAlign.center,
                                       style: utils.smallTitleTextStyle(),
                                     ),
@@ -299,7 +299,7 @@ class _LoginWithPhoneNumberScreenState
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      "Region 3",
+                                      "India",
                                       textAlign: TextAlign.center,
                                       style: utils.smallTitleTextStyle(),
                                     ),
@@ -338,7 +338,7 @@ class _LoginWithPhoneNumberScreenState
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      "Region 4",
+                                      "Bangladesh",
                                       textAlign: TextAlign.center,
                                       style: utils.smallTitleTextStyle(),
                                     ),

@@ -95,7 +95,7 @@ class _OnBoardingReligiousScreenState extends State<OnBoardingReligiousScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text("Somewhat Religious"),
+                  const Text("Religious"),
                   Container(
                     width: 20,
                     height: 20,
@@ -124,7 +124,7 @@ class _OnBoardingReligiousScreenState extends State<OnBoardingReligiousScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text("Just Practicing"),
+                  const Text("Somewhat Religious"),
                   Container(
                     width: 20,
                     height: 20,
@@ -172,7 +172,7 @@ class _OnBoardingReligiousScreenState extends State<OnBoardingReligiousScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text(
-                  "Skip for now",
+                  " ",
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w700,

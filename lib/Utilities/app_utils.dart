@@ -927,13 +927,13 @@ class AppUtils {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Image.asset(
-              "assets/like.png",
-              scale: 35,
-            ),
-            const SizedBox(
-              width: 5,
-            ),
+            // Image.asset(
+            //   "assets/like.png",
+            //   scale: 35,
+            // ),
+            // const SizedBox(
+            //   width: 5,
+            // ),
             Text(
               text,
               style: TextStyle(

@@ -27,7 +27,6 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Center(
           child: Image.asset(
             "assets/mashalatteSplash.png",
-            scale: 3,
           ),
         ),
       ),
