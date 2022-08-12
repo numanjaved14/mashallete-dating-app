@@ -117,9 +117,11 @@ class _LoginWithPhoneNumberScreenState
               text: "Continue",
               enabled: phoneNumberController.text.isEmpty ? true : false,
               fontWeight: FontWeight.w900,
-              onTap: () {
-                Navigator.pushNamed(context, loginWithOtpScreenRoute);
-              },
+              onTap: phoneNumberController.text.isEmpty
+                  ? () {}
+                  : () {
+                      Navigator.pushNamed(context, loginWithOtpScreenRoute);
+                    },
             ),
             const SizedBox(
               height: 30,
@@ -239,7 +241,7 @@ class _LoginWithPhoneNumberScreenState
                                     Row(
                                       children: [
                                         Image.asset(
-                                          "assets/united-states-of-america.png",
+                                          "assets/canada.png",
                                           scale: 30,
                                         ),
                                         const SizedBox(
@@ -280,14 +282,14 @@ class _LoginWithPhoneNumberScreenState
                                     Row(
                                       children: [
                                         Image.asset(
-                                          "assets/united-states-of-america.png",
+                                          "assets/pakistan.png",
                                           scale: 30,
                                         ),
                                         const SizedBox(
                                           width: 5,
                                         ),
                                         Text(
-                                          "+1",
+                                          "+92",
                                           textAlign: TextAlign.center,
                                           style: utils.smallTitleTextStyle(),
                                         ),
@@ -321,14 +323,14 @@ class _LoginWithPhoneNumberScreenState
                                     Row(
                                       children: [
                                         Image.asset(
-                                          "assets/united-states-of-america.png",
+                                          "assets/indian-flag.png",
                                           scale: 30,
                                         ),
                                         const SizedBox(
                                           width: 5,
                                         ),
                                         Text(
-                                          "+1",
+                                          "+91",
                                           textAlign: TextAlign.center,
                                           style: utils.smallTitleTextStyle(),
                                         ),
@@ -362,14 +364,14 @@ class _LoginWithPhoneNumberScreenState
                                     Row(
                                       children: [
                                         Image.asset(
-                                          "assets/united-states-of-america.png",
+                                          "assets/bangladesh.png",
                                           scale: 30,
                                         ),
                                         const SizedBox(
                                           width: 5,
                                         ),
                                         Text(
-                                          "+1",
+                                          "+880",
                                           textAlign: TextAlign.center,
                                           style: utils.smallTitleTextStyle(),
                                         ),
