@@ -208,12 +208,24 @@ class _OnBoardingPhoneVerificationScreenState
                   ],
                 ),
                 utils.gradientBigButton(
-                  onTap: () {
-                    Navigator.pushNamed(context, onBoardingNameScreenRoute);
-                  },
+                  onTap: pin1Controller.text.isEmpty ||
+                          pin2Controller.text.isEmpty ||
+                          pin3Controller.text.isEmpty ||
+                          pin4Controller.text.isEmpty
+                      ? () {}
+                      : () {
+                          Navigator.pushNamed(
+                              context, onBoardingNameScreenRoute);
+                        },
                   width: MediaQuery.of(context).size.width * 0.3,
                   text: "Continue",
                   containerColor: blueColor,
+                  enabled: pin1Controller.text.isEmpty ||
+                          pin2Controller.text.isEmpty ||
+                          pin3Controller.text.isEmpty ||
+                          pin4Controller.text.isEmpty
+                      ? true
+                      : false,
                   textColor: Colors.white,
                   borderRadius: 8.0,
                   shadowColors: Colors.white,

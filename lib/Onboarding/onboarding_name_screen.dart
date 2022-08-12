@@ -69,6 +69,9 @@ class _OnBoardingNameScreenState extends State<OnBoardingNameScreen> {
             ),
             utils.otpTextField(
               controller: firstNameController,
+              onChanged: (val) {
+                setState(() {});
+              },
               width: MediaQuery.of(context).size.width * 0.9,
               hintText: "First Name (Required)",
               alignText: TextAlign.left,
@@ -116,15 +119,18 @@ class _OnBoardingNameScreenState extends State<OnBoardingNameScreen> {
                   ],
                 ),
                 utils.gradientBigButton(
-                  onTap: () {
-                    Navigator.pushNamed(
-                        context, onBoardingDateOfBirthScreenRoute);
-                  },
+                  onTap: firstNameController.text.isEmpty
+                      ? () {}
+                      : () {
+                          Navigator.pushNamed(
+                              context, onBoardingDateOfBirthScreenRoute);
+                        },
                   width: MediaQuery.of(context).size.width * 0.3,
                   text: "Continue",
                   containerColor: blueColor,
                   textColor: Colors.white,
                   borderRadius: 8.0,
+                  enabled: firstNameController.text.isEmpty ? true : false,
                   shadowColors: Colors.white,
                 )
               ],

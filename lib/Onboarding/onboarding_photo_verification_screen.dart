@@ -67,7 +67,7 @@ class _OnBoardingPhotoVerificationScreenState
               Align(
                 alignment: Alignment.center,
                 child: Container(
-                  height: 500,
+                  height: MediaQuery.of(context).size.height * 0.6,
                   decoration: BoxDecoration(
                       image: const DecorationImage(
                         image: AssetImage(

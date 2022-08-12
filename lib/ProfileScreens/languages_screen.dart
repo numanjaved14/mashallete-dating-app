@@ -248,17 +248,73 @@ class _LanguagesScreenState extends State<LanguagesScreen> {
               ],
             ),
             const Spacer(),
-            utils.gradientBigButton(
-              width: double.infinity,
-              textColor: Colors.white,
-              borderRadius: 10.0,
-              height: 50.0,
-              shadowColors: Colors.white,
-              text: "Save",
-              fontWeight: FontWeight.w900,
-              onTap: () {
-                Navigator.pop(context);
-              },
+            // utils.gradientBigButton(
+            //   width: double.infinity,
+            //   textColor: Colors.white,
+            //   borderRadius: 10.0,
+            //   height: 50.0,
+            //   shadowColors: Colors.white,
+            //   text: "Save",
+            //   fontWeight: FontWeight.w900,
+            //   onTap: () {
+            //     Navigator.pop(context);
+            //   },
+            // ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text(
+                    "Skip for now",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700,
+                      fontFamily: "ProximaNova",
+                      color: blueColor,
+                    ),
+                  ),
+                ),
+                utils.gradientBigButton(
+                  onTap: val1 == false &&
+                          val2 == false &&
+                          val3 == false &&
+                          val4 == false &&
+                          val5 == false &&
+                          val6 == false &&
+                          val7 == false
+                      ? () {}
+                      : () {
+                          Navigator.pop(context);
+                          setState(() {});
+                        },
+                  width: MediaQuery.of(context).size.width * 0.35,
+                  text: "Save",
+                  containerColor: blueColor,
+                  textColor: Colors.white,
+                  borderRadius: 8.0,
+                  fontSize: 14.0,
+                  enabled: val1 == true
+                      ? false
+                      : val2 == true
+                          ? false
+                          : val4 == true
+                              ? false
+                              : val5 == true
+                                  ? false
+                                  : val6 == true
+                                      ? false
+                                      : val7 == true
+                                          ? false
+                                          : val3 == true
+                                              ? false
+                                              : true,
+                  height: 50.0,
+                  shadowColors: Colors.white,
+                )
+              ],
             ),
             const SizedBox(
               height: 30,

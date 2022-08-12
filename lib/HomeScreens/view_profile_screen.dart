@@ -65,26 +65,14 @@ class _ViewProfileScreenState extends State<ViewProfileScreen> {
                           ),
                         ),
                         GestureDetector(
-                          onTap: () {
-                            Navigator.pushNamed(
-                                context, profileViewScreenRoute);
-                          },
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              const Text(
-                                "Usama's Profile",
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  fontFamily: "ProximaNova",
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              Text(
-                                "5:00 minutes left to respond",
-                                style: utils.smallTitleTextStyle(),
-                              ),
-                            ],
+                          onTap: () {},
+                          child: const Text(
+                            "Usama's Profile",
+                            style: TextStyle(
+                              fontSize: 17,
+                              fontFamily: "ProximaNova",
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                         GestureDetector(

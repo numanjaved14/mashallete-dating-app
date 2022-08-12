@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../Constants/app_constants.dart';
 import '../Utilities/app_utils.dart';
 
 class HeightScreen extends StatefulWidget {
@@ -10,6 +11,7 @@ class HeightScreen extends StatefulWidget {
 }
 
 class _HeightScreenState extends State<HeightScreen> {
+  var controller = TextEditingController();
   var utils = AppUtils();
   @override
   Widget build(BuildContext context) {
@@ -69,6 +71,10 @@ class _HeightScreenState extends State<HeightScreen> {
                   keyboardType: TextInputType.number,
                   fontSize: 30.0,
                   bottomPadding: 0.0,
+                  controller: controller,
+                  onChanged: (val) {
+                    setState(() {});
+                  },
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 8.0),
@@ -81,6 +87,9 @@ class _HeightScreenState extends State<HeightScreen> {
                   width: 10,
                 ),
                 utils.otpTextField(
+                  onChanged: (val) {
+                    setState(() {});
+                  },
                   width: MediaQuery.of(context).size.width * 0.1,
                   hintText: "5",
                   alignText: TextAlign.center,
@@ -99,18 +108,54 @@ class _HeightScreenState extends State<HeightScreen> {
               ],
             ),
             const Spacer(),
-            utils.gradientBigButton(
-              width: double.infinity,
-              textColor: Colors.white,
-              borderRadius: 10.0,
-              height: 50.0,
-              shadowColors: Colors.white,
-              text: "Save",
-              fontWeight: FontWeight.w900,
-              onTap: () {
-                Navigator.pop(context);
-              },
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text(
+                    "Skip for now",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700,
+                      fontFamily: "ProximaNova",
+                      color: blueColor,
+                    ),
+                  ),
+                ),
+                utils.gradientBigButton(
+                  onTap: controller.text.isEmpty
+                      ? () {}
+                      : () {
+                          Navigator.pop(context);
+                          setState(() {});
+                        },
+                  width: MediaQuery.of(context).size.width * 0.35,
+                  text: "Save",
+                  containerColor: blueColor,
+                  textColor: Colors.white,
+                  borderRadius: 8.0,
+                  fontSize: 14.0,
+                  enabled: controller.text.isEmpty ? true : false,
+                  height: 50.0,
+                  shadowColors: Colors.white,
+                )
+              ],
             ),
+            // utils.gradientBigButton(
+            //   width: double.infinity,
+            //   textColor: Colors.white,
+            //   borderRadius: 10.0,
+            //   height: 50.0,
+            //   shadowColors: Colors.white,
+            //   text: "Save",
+            //   fontWeight: FontWeight.w900,
+            //   onTap: () {
+            //     Navigator.pop(context);
+            //   },
+            // ),
             const SizedBox(
               height: 30,
             ),

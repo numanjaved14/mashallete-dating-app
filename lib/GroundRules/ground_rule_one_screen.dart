@@ -38,7 +38,7 @@ class _GroundRuleOneScreenState extends State<GroundRuleOneScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.25,
+              height: MediaQuery.of(context).size.height * 0.20,
             ),
             CarouselSlider(
               carouselController: crouselController,
@@ -66,7 +66,7 @@ class _GroundRuleOneScreenState extends State<GroundRuleOneScreen> {
               }).toList(),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.08,
+              height: MediaQuery.of(context).size.height * 0.04,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -136,7 +136,7 @@ class _GroundRuleOneScreenState extends State<GroundRuleOneScreen> {
               ),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.1,
+              height: MediaQuery.of(context).size.height * 0.16,
             ),
             utils.gradientBigButton(
               width: double.infinity,
@@ -147,9 +147,12 @@ class _GroundRuleOneScreenState extends State<GroundRuleOneScreen> {
               enabled: _current == 0 ? true : false,
               text: "I Understand",
               fontWeight: FontWeight.w900,
-              onTap: () {
-                Navigator.pushNamed(context, bottomNavigationBarScreenRoute);
-              },
+              onTap: _current == 0
+                  ? () {}
+                  : () {
+                      Navigator.pushNamed(
+                          context, bottomNavigationBarScreenRoute);
+                    },
             ),
           ],
         ),

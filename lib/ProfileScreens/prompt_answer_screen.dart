@@ -11,6 +11,7 @@ class PromptAnswerScreen extends StatefulWidget {
 }
 
 class _PromptAnswerScreenState extends State<PromptAnswerScreen> {
+  var controller = TextEditingController();
   var utils = AppUtils();
   @override
   Widget build(BuildContext context) {
@@ -87,26 +88,65 @@ class _PromptAnswerScreenState extends State<PromptAnswerScreen> {
               height: 10,
             ),
             utils.otpTextField(
-              width: MediaQuery.of(context).size.width * 0.9,
-              hintText: "Enter your prompt answer..",
-              alignText: TextAlign.left,
-              hintSize: 20.0,
-              fontSize: 20.0,
-              bottomPadding: 0.0,
-            ),
+                onChanged: (val) {
+                  setState(() {});
+                },
+                width: MediaQuery.of(context).size.width * 0.9,
+                hintText: "Enter your prompt answer..",
+                alignText: TextAlign.left,
+                hintSize: 20.0,
+                fontSize: 20.0,
+                bottomPadding: 0.0,
+                controller: controller),
             const Spacer(),
-            utils.gradientBigButton(
-              width: double.infinity,
-              textColor: Colors.white,
-              borderRadius: 10.0,
-              height: 50.0,
-              shadowColors: Colors.white,
-              text: "Save",
-              fontWeight: FontWeight.w900,
-              onTap: () {
-                Navigator.pop(context);
-              },
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text(
+                    "Skip for now",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700,
+                      fontFamily: "ProximaNova",
+                      color: blueColor,
+                    ),
+                  ),
+                ),
+                utils.gradientBigButton(
+                  onTap: controller.text.isEmpty
+                      ? () {}
+                      : () {
+                          Navigator.pop(context);
+                          setState(() {});
+                        },
+                  width: MediaQuery.of(context).size.width * 0.35,
+                  text: "Save",
+                  containerColor: blueColor,
+                  textColor: Colors.white,
+                  borderRadius: 8.0,
+                  fontSize: 14.0,
+                  enabled: controller.text.isEmpty ? true : false,
+                  height: 50.0,
+                  shadowColors: Colors.white,
+                )
+              ],
             ),
+            // utils.gradientBigButton(
+            //   width: double.infinity,
+            //   textColor: Colors.white,
+            //   borderRadius: 10.0,
+            //   height: 50.0,
+            //   shadowColors: Colors.white,
+            //   text: "Save",
+            //   fontWeight: FontWeight.w900,
+            //   onTap: () {
+            //     Navigator.pop(context);
+            //   },
+            // ),
             const SizedBox(
               height: 30,
             ),

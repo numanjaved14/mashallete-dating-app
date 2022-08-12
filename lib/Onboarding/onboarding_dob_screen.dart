@@ -106,7 +106,7 @@ class _OnBoardingDateOfBirthScreenState
                             setState(() {});
                           },
                           width: MediaQuery.of(context).size.width * 0.16,
-                          hintText: " Month",
+                          hintText: "MM",
                           focusNode: focusNode1,
                           keyboardType: TextInputType.number,
                           fontSize: 22.0,
@@ -121,7 +121,7 @@ class _OnBoardingDateOfBirthScreenState
                           focusNode: focusNode2,
                           maxLength: 2,
                           width: MediaQuery.of(context).size.width * 0.16,
-                          hintText: " Day",
+                          hintText: "DD",
                           onChanged: (val) {
                             if (dayController.text.length == 2) {
                               focusNode3!.requestFocus();
@@ -149,7 +149,7 @@ class _OnBoardingDateOfBirthScreenState
                           keyboardType: TextInputType.number,
                           width: MediaQuery.of(context).size.width * 0.33,
                           alignText: TextAlign.start,
-                          hintText: " Year",
+                          hintText: "YYYY",
                           fontSize: 22.0,
                           bottomPadding: 0.0,
                           hintSize: 22.0),
@@ -237,14 +237,23 @@ class _OnBoardingDateOfBirthScreenState
                         ],
                       ),
                       utils.gradientBigButton(
-                        onTap: () {
-                          clicked = true;
-                          setState(() {});
-                        },
+                        onTap: monthController.text.isEmpty ||
+                                yearController.text.isEmpty ||
+                                dayController.text.isEmpty
+                            ? () {}
+                            : () {
+                                clicked = true;
+                                setState(() {});
+                              },
                         width: MediaQuery.of(context).size.width * 0.3,
                         text: "Continue",
                         containerColor: blueColor,
                         textColor: Colors.white,
+                        enabled: monthController.text.isEmpty ||
+                                yearController.text.isEmpty ||
+                                dayController.text.isEmpty
+                            ? true
+                            : false,
                         borderRadius: 8.0,
                         shadowColors: Colors.white,
                       )
@@ -444,14 +453,23 @@ class _OnBoardingDateOfBirthScreenState
                             ],
                           ),
                           utils.gradientBigButton(
-                            onTap: () {
-                              clicked = true;
-                              setState(() {});
-                            },
+                            onTap: monthController.text.isEmpty ||
+                                    yearController.text.isEmpty ||
+                                    dayController.text.isEmpty
+                                ? () {}
+                                : () {
+                                    clicked = true;
+                                    setState(() {});
+                                  },
                             width: MediaQuery.of(context).size.width * 0.3,
                             text: "Continue",
                             containerColor: blueColor,
                             textColor: Colors.white,
+                            enabled: monthController.text.isEmpty ||
+                                    yearController.text.isEmpty ||
+                                    dayController.text.isEmpty
+                                ? true
+                                : false,
                             borderRadius: 8.0,
                             shadowColors: Colors.white,
                           )

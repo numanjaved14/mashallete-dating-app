@@ -27,6 +27,7 @@ class _PremiumAccessScreenState extends State<PremiumAccessScreen> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   GestureDetector(
@@ -40,7 +41,7 @@ class _PremiumAccessScreenState extends State<PremiumAccessScreen> {
                     ),
                   ),
                   Text(
-                    "Mashalatte Premium",
+                    "mashalatte Premium",
                     style: utils.smallHeadingTextStyle(color: Colors.white),
                   ),
                   const SizedBox(
@@ -49,8 +50,8 @@ class _PremiumAccessScreenState extends State<PremiumAccessScreen> {
                 ],
               ),
             ),
-            const SizedBox(
-              height: 110,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.1,
             ),
             Image.asset(
               "assets/appIcon.png",
@@ -616,7 +617,7 @@ class _PremiumAccessScreenState extends State<PremiumAccessScreen> {
               ),
             ),
             const SizedBox(
-              height: 30,
+              height: 20,
             ),
             Text(
               "Recurring billing. Cancel anytime.",
@@ -673,6 +674,9 @@ class _PremiumAccessScreenState extends State<PremiumAccessScreen> {
               onTap: () {
                 Navigator.pop(context);
               },
+            ),
+            const SizedBox(
+              height: 30,
             ),
           ],
         ),

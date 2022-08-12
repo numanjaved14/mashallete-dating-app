@@ -90,11 +90,11 @@ class _OnBoardingEthnicityScreenState extends State<OnBoardingEthnicityScreen> {
               ],
             ),
             const SizedBox(
-              height: 20,
+              height: 10,
             ),
             utils.line(width: MediaQuery.of(context).size.width),
             const SizedBox(
-              height: 20,
+              height: 10,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -125,11 +125,11 @@ class _OnBoardingEthnicityScreenState extends State<OnBoardingEthnicityScreen> {
               ],
             ),
             const SizedBox(
-              height: 20,
+              height: 10,
             ),
             utils.line(width: MediaQuery.of(context).size.width),
             const SizedBox(
-              height: 20,
+              height: 10,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -173,14 +173,23 @@ class _OnBoardingEthnicityScreenState extends State<OnBoardingEthnicityScreen> {
                   ),
                 ),
                 utils.gradientBigButton(
-                  onTap: () {
-                    Navigator.pushNamed(
-                        context, onBoardingReligiousScreenRoute);
-                  },
+                  onTap: val1 == false && val2 == false && val3 == false
+                      ? () {}
+                      : () {
+                          Navigator.pushNamed(
+                              context, onBoardingReligiousScreenRoute);
+                        },
                   width: MediaQuery.of(context).size.width * 0.35,
                   text: "Continue",
                   containerColor: blueColor,
                   textColor: Colors.white,
+                  enabled: val1 == true
+                      ? false
+                      : val2 == true
+                          ? false
+                          : val3 == true
+                              ? false
+                              : true,
                   borderRadius: 8.0,
                   fontSize: 14.0,
                   height: 50.0,

@@ -90,7 +90,7 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
                     Container(
                       padding: const EdgeInsets.only(bottom: 10),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
                             "Your Turn",
@@ -123,7 +123,7 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
                     Container(
                       padding: const EdgeInsets.only(bottom: 10),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
                             "All Conversations",

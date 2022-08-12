@@ -149,17 +149,41 @@ class _WantKidsScreenState extends State<WantKidsScreen> {
               ),
             ),
             const Spacer(),
-            utils.gradientBigButton(
-              width: double.infinity,
-              textColor: Colors.white,
-              borderRadius: 10.0,
-              height: 50.0,
-              text: "Save",
-              shadowColors: Colors.white,
-              fontWeight: FontWeight.w900,
-              onTap: () {
-                Navigator.pop(context);
-              },
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text(
+                    "Skip for now",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700,
+                      fontFamily: "ProximaNova",
+                      color: blueColor,
+                    ),
+                  ),
+                ),
+                utils.gradientBigButton(
+                  onTap: selected == 0
+                      ? () {}
+                      : () {
+                          Navigator.pop(context);
+                          setState(() {});
+                        },
+                  width: MediaQuery.of(context).size.width * 0.35,
+                  text: "Save",
+                  containerColor: blueColor,
+                  textColor: Colors.white,
+                  borderRadius: 8.0,
+                  fontSize: 14.0,
+                  enabled: selected == 0 ? true : false,
+                  height: 50.0,
+                  shadowColors: Colors.white,
+                )
+              ],
             ),
             const SizedBox(
               height: 30,

@@ -123,7 +123,7 @@ class _OnBoardingAddPhotosScreenState extends State<OnBoardingAddPhotosScreen> {
               SizedBox(
                 height: width > 415
                     ? MediaQuery.of(context).size.height * 0.3
-                    : MediaQuery.of(context).size.height * 0.20,
+                    : MediaQuery.of(context).size.height * 0.15,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -164,15 +164,6 @@ class _OnBoardingAddPhotosScreenState extends State<OnBoardingAddPhotosScreen> {
                               color: Colors.black,
                             ),
                           ),
-                          // const Text(
-                          //   "well!",
-                          //   style: TextStyle(
-                          //     fontSize: 16,
-                          //     fontWeight: FontWeight.w500,
-                          //     fontFamily: "ProximaNova",
-                          //     color: Colors.black,
-                          //   ),
-                          // ),
                         ],
                       ),
                     ],

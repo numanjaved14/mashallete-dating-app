@@ -14,6 +14,8 @@ class LoginWithPhoneNumberScreen extends StatefulWidget {
 class _LoginWithPhoneNumberScreenState
     extends State<LoginWithPhoneNumberScreen> {
   var phoneNumberController = TextEditingController();
+  var countryCode = "+1";
+
   var utils = AppUtils();
   @override
   Widget build(BuildContext context) {
@@ -63,7 +65,7 @@ class _LoginWithPhoneNumberScreenState
                     ),
                     child: Center(
                       child: Text(
-                        "+1",
+                        countryCode,
                         style: utils.mediumTitleTextStyle(
                           color: Colors.black,
                         ),
@@ -76,14 +78,18 @@ class _LoginWithPhoneNumberScreenState
                 ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.7,
-                  child: const TextField(
+                  child: TextField(
+                    controller: phoneNumberController,
                     keyboardType: TextInputType.number,
-                    style: TextStyle(
+                    onChanged: (val) {
+                      setState(() {});
+                    },
+                    style: const TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.w900,
                       fontFamily: "ProximaNova",
                     ),
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       border: InputBorder.none,
                       hintText: "999 999 9999",
                       hintStyle: TextStyle(
@@ -109,6 +115,7 @@ class _LoginWithPhoneNumberScreenState
               shadowColors: Colors.white,
               height: 50.0,
               text: "Continue",
+              enabled: phoneNumberController.text.isEmpty ? true : false,
               fontWeight: FontWeight.w900,
               onTap: () {
                 Navigator.pushNamed(context, loginWithOtpScreenRoute);
@@ -175,6 +182,8 @@ class _LoginWithPhoneNumberScreenState
                               ),
                               GestureDetector(
                                 onTap: () {
+                                  countryCode = "+1";
+                                  setState(() {});
                                   Navigator.pop(context);
                                 },
                                 child: Row(
@@ -214,6 +223,8 @@ class _LoginWithPhoneNumberScreenState
                               ),
                               GestureDetector(
                                 onTap: () {
+                                  countryCode = "+1";
+                                  setState(() {});
                                   Navigator.pop(context);
                                 },
                                 child: Row(
@@ -253,6 +264,8 @@ class _LoginWithPhoneNumberScreenState
                               ),
                               GestureDetector(
                                 onTap: () {
+                                  countryCode = "+92";
+                                  setState(() {});
                                   Navigator.pop(context);
                                 },
                                 child: Row(
@@ -292,6 +305,8 @@ class _LoginWithPhoneNumberScreenState
                               ),
                               GestureDetector(
                                 onTap: () {
+                                  countryCode = "+91";
+                                  setState(() {});
                                   Navigator.pop(context);
                                 },
                                 child: Row(
@@ -331,6 +346,8 @@ class _LoginWithPhoneNumberScreenState
                               ),
                               GestureDetector(
                                 onTap: () {
+                                  countryCode = "+880";
+                                  setState(() {});
                                   Navigator.pop(context);
                                 },
                                 child: Row(

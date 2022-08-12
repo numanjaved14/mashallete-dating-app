@@ -123,15 +123,18 @@ class _OnBoardingMenWomenScreenState extends State<OnBoardingMenWomenScreen> {
                   ),
                 ),
                 utils.gradientBigButton(
-                  onTap: () {
-                    Navigator.pushNamed(
-                        context, onBoardingLookingForScreenRoute);
-                  },
+                  onTap: selected == 0
+                      ? () {}
+                      : () {
+                          Navigator.pushNamed(
+                              context, onBoardingLookingForScreenRoute);
+                        },
                   width: MediaQuery.of(context).size.width * 0.35,
                   text: "Continue",
                   containerColor: blueColor,
                   textColor: Colors.white,
                   borderRadius: 8.0,
+                  enabled: selected == 0 ? true : false,
                   fontSize: 14.0,
                   height: 50.0,
                   shadowColors: Colors.white,

@@ -57,6 +57,7 @@ class _LoginWithOtpScreenState extends State<LoginWithOtpScreen> {
               style: TextStyle(
                 fontSize: 28,
                 fontWeight: FontWeight.w600,
+                fontFamily: "ProximaNova",
               ),
             ),
             const SizedBox(
@@ -73,7 +74,6 @@ class _LoginWithOtpScreenState extends State<LoginWithOtpScreen> {
             const SizedBox(
               height: 55,
             ),
-
             Row(
               children: [
                 utils.otpTextField(
@@ -152,56 +152,26 @@ class _LoginWithOtpScreenState extends State<LoginWithOtpScreen> {
               textColor: Colors.white,
               containerColor: blueColor,
               borderRadius: 10.0,
+              enabled: pin1Controller.text.isEmpty ||
+                      pin2Controller.text.isEmpty ||
+                      pin3Controller.text.isEmpty ||
+                      pin4Controller.text.isEmpty
+                  ? true
+                  : false,
               shadowColors: Colors.white,
               height: 50.0,
               text: "Log In",
               fontWeight: FontWeight.w900,
-              onTap: () {
-                Navigator.pushNamed(context, bottomNavigationBarScreenRoute);
-              },
+              onTap: pin1Controller.text.isEmpty ||
+                      pin2Controller.text.isEmpty ||
+                      pin3Controller.text.isEmpty ||
+                      pin4Controller.text.isEmpty
+                  ? () {}
+                  : () {
+                      Navigator.pushNamed(
+                          context, bottomNavigationBarScreenRoute);
+                    },
             ),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //   children: [
-            //     Row(
-            //       children: const [
-            //         Icon(
-            //           Icons.lock,
-            //           color: blueColor,
-            //         ),
-            //         SizedBox(
-            //           width: 5,
-            //         ),
-            //         Text(
-            //           "We'll never share this with anyone",
-            //           style: TextStyle(
-            //             fontSize: 15,
-            //             fontWeight: FontWeight.w700,
-            //             fontFamily: "ProximaNova",
-            //             color: blueColor,
-            //           ),
-            //         ),
-            //       ],
-            //     ),
-            //     GestureDetector(
-            //       onTap: () {
-            //
-            //       },
-            //       child: Container(
-            //         width: 60,
-            //         height: 60,
-            //         decoration: const BoxDecoration(
-            //           color: blueColor,
-            //           shape: BoxShape.circle,
-            //         ),
-            //         child: const Icon(
-            //           Icons.arrow_forward_ios_outlined,
-            //           color: Colors.white,
-            //         ),
-            //       ),
-            //     ),
-            //   ],
-            // ),
             const SizedBox(
               height: 30,
             ),

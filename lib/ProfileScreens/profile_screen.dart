@@ -192,8 +192,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
               text2: "70% complete",
             ),
             SizedBox(
-              height: premiumUser == false ? 0 : 5,
+              height: premiumUser == false ? 10 : 0,
             ),
+
             utils.line(width: double.infinity),
             const SizedBox(
               height: 5,
@@ -209,6 +210,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
               premium: false,
               scale: 4.0,
             ),
+            const SizedBox(
+              height: 2,
+            ),
             utils.line(width: double.infinity),
             const SizedBox(
               height: 5,
@@ -223,6 +227,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
               text: "Preferences",
               image: "assets/settings.png",
               premium: false,
+            ),
+            const SizedBox(
+              height: 2,
             ),
             utils.line(width: double.infinity),
             const SizedBox(
@@ -252,6 +259,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
               text: "Help and Support",
               image: "assets/helpAndSupportIcon.png",
               premium: false,
+            ),
+            const SizedBox(
+              height: 30,
             ),
           ],
         ),

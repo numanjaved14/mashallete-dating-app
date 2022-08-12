@@ -49,7 +49,7 @@ class _LikesScreenState extends State<LikesScreen> {
                     Text(
                       "Likes",
                       style: TextStyle(
-                        fontSize: 24,
+                        fontSize: 20,
                         fontFamily: "ProximaNova",
                         fontWeight: FontWeight.w700,
                         color: blueColor,

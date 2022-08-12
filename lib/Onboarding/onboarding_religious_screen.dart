@@ -181,14 +181,17 @@ class _OnBoardingReligiousScreenState extends State<OnBoardingReligiousScreen> {
                   ),
                 ),
                 utils.gradientBigButton(
-                  onTap: () {
-                    Navigator.pushNamed(
-                        context, onBoardingInterestsScreenRoute);
-                  },
+                  onTap: selected == 0
+                      ? () {}
+                      : () {
+                          Navigator.pushNamed(
+                              context, onBoardingInterestsScreenRoute);
+                        },
                   width: MediaQuery.of(context).size.width * 0.35,
                   text: "Continue",
                   containerColor: blueColor,
                   textColor: Colors.white,
+                  enabled: selected == 0 ? true : false,
                   borderRadius: 8.0,
                   fontSize: 14.0,
                   height: 50.0,

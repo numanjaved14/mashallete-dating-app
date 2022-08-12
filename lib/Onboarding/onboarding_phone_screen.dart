@@ -13,6 +13,7 @@ class OnBoardingPhoneScreen extends StatefulWidget {
 
 class _OnBoardingPhoneScreenState extends State<OnBoardingPhoneScreen> {
   var phoneNumberController = TextEditingController();
+  var countryCode = "+1";
   var utils = AppUtils();
   @override
   Widget build(BuildContext context) {
@@ -91,7 +92,7 @@ class _OnBoardingPhoneScreenState extends State<OnBoardingPhoneScreen> {
                     ),
                     child: Center(
                       child: Text(
-                        "+1",
+                        countryCode,
                         style: utils.mediumTitleTextStyle(
                           color: Colors.black,
                         ),
@@ -104,14 +105,18 @@ class _OnBoardingPhoneScreenState extends State<OnBoardingPhoneScreen> {
                 ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.7,
-                  child: const TextField(
+                  child: TextField(
+                    controller: phoneNumberController,
+                    onChanged: (val) {
+                      setState(() {});
+                    },
                     keyboardType: TextInputType.number,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.w900,
                       fontFamily: "ProximaNova",
                     ),
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       border: InputBorder.none,
                       hintText: "999 999 9999",
                       hintStyle: TextStyle(
@@ -153,15 +158,18 @@ class _OnBoardingPhoneScreenState extends State<OnBoardingPhoneScreen> {
                   ],
                 ),
                 utils.gradientBigButton(
-                  onTap: () {
-                    Navigator.pushNamed(
-                        context, onBoardingPhoneVerificationScreenRoute);
-                  },
+                  onTap: phoneNumberController.text.isEmpty
+                      ? () {}
+                      : () {
+                          Navigator.pushNamed(
+                              context, onBoardingPhoneVerificationScreenRoute);
+                        },
                   width: MediaQuery.of(context).size.width * 0.3,
                   text: "Continue",
                   containerColor: blueColor,
                   textColor: Colors.white,
                   borderRadius: 8.0,
+                  enabled: phoneNumberController.text.isEmpty ? true : false,
                   shadowColors: Colors.white,
                 )
               ],
@@ -227,6 +235,8 @@ class _OnBoardingPhoneScreenState extends State<OnBoardingPhoneScreen> {
                               ),
                               GestureDetector(
                                 onTap: () {
+                                  countryCode = "+1";
+                                  setState(() {});
                                   Navigator.pop(context);
                                 },
                                 child: Row(
@@ -266,6 +276,8 @@ class _OnBoardingPhoneScreenState extends State<OnBoardingPhoneScreen> {
                               ),
                               GestureDetector(
                                 onTap: () {
+                                  countryCode = "+1";
+                                  setState(() {});
                                   Navigator.pop(context);
                                 },
                                 child: Row(
@@ -280,7 +292,7 @@ class _OnBoardingPhoneScreenState extends State<OnBoardingPhoneScreen> {
                                     Row(
                                       children: [
                                         Image.asset(
-                                          "assets/united-states-of-america.png",
+                                          "assets/canada.png",
                                           scale: 30,
                                         ),
                                         const SizedBox(
@@ -305,6 +317,8 @@ class _OnBoardingPhoneScreenState extends State<OnBoardingPhoneScreen> {
                               ),
                               GestureDetector(
                                 onTap: () {
+                                  countryCode = "+92";
+                                  setState(() {});
                                   Navigator.pop(context);
                                 },
                                 child: Row(
@@ -319,14 +333,14 @@ class _OnBoardingPhoneScreenState extends State<OnBoardingPhoneScreen> {
                                     Row(
                                       children: [
                                         Image.asset(
-                                          "assets/united-states-of-america.png",
+                                          "assets/pakistan.png",
                                           scale: 30,
                                         ),
                                         const SizedBox(
                                           width: 5,
                                         ),
                                         Text(
-                                          "+1",
+                                          "+92",
                                           textAlign: TextAlign.center,
                                           style: utils.smallTitleTextStyle(),
                                         ),
@@ -344,6 +358,8 @@ class _OnBoardingPhoneScreenState extends State<OnBoardingPhoneScreen> {
                               ),
                               GestureDetector(
                                 onTap: () {
+                                  countryCode = "+91";
+                                  setState(() {});
                                   Navigator.pop(context);
                                 },
                                 child: Row(
@@ -358,14 +374,14 @@ class _OnBoardingPhoneScreenState extends State<OnBoardingPhoneScreen> {
                                     Row(
                                       children: [
                                         Image.asset(
-                                          "assets/united-states-of-america.png",
+                                          "assets/indian-flag.png",
                                           scale: 30,
                                         ),
                                         const SizedBox(
                                           width: 5,
                                         ),
                                         Text(
-                                          "+1",
+                                          "+91",
                                           textAlign: TextAlign.center,
                                           style: utils.smallTitleTextStyle(),
                                         ),
@@ -383,6 +399,8 @@ class _OnBoardingPhoneScreenState extends State<OnBoardingPhoneScreen> {
                               ),
                               GestureDetector(
                                 onTap: () {
+                                  countryCode = "+880";
+                                  setState(() {});
                                   Navigator.pop(context);
                                 },
                                 child: Row(
@@ -397,14 +415,14 @@ class _OnBoardingPhoneScreenState extends State<OnBoardingPhoneScreen> {
                                     Row(
                                       children: [
                                         Image.asset(
-                                          "assets/united-states-of-america.png",
+                                          "assets/bangladesh.png",
                                           scale: 30,
                                         ),
                                         const SizedBox(
                                           width: 5,
                                         ),
                                         Text(
-                                          "+1",
+                                          "+880",
                                           textAlign: TextAlign.center,
                                           style: utils.smallTitleTextStyle(),
                                         ),

@@ -72,14 +72,12 @@ class _HomeScreenState extends State<HomeScreen> {
                             width: 32,
                           ),
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              "assets/mashalatteText.png",
-                              scale: 30,
-                            ),
-                          ],
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 10.0),
+                          child: Image.asset(
+                            "assets/mashalatteText.png",
+                            scale: 30,
+                          ),
                         ),
                         const SizedBox(
                           width: 30,
@@ -88,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
                     const SizedBox(
-                      height: 20,
+                      height: 10,
                     ),
                     Stack(
                       children: [
@@ -105,8 +103,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           top: 10,
                           left: 10,
                           child: Container(
-                            width: 100,
-                            height: 40,
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 5),
                             decoration: BoxDecoration(
                               color: blueColor,
                               borderRadius: BorderRadius.circular(30.0),
@@ -114,7 +112,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: Center(
                               child: Text(
                                 "New User",
-                                style: utils.mediumTitleTextStyle(
+                                style: utils.smallTitleTextStyle(
                                     color: Colors.white),
                               ),
                             ),
@@ -259,7 +257,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       alignment: Alignment.bottomCenter,
                       child: Container(
                         width: double.infinity,
-                        padding: const EdgeInsets.symmetric(horizontal: 90),
+                        padding: const EdgeInsets.symmetric(horizontal: 80),
                         height: 100,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -310,17 +308,17 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                     ),
-                    GestureDetector(
-                      onTap: _scrollToTop,
-                      child: const Text(
-                        "BACK TO THE TOP",
-                        style: TextStyle(
-                            fontSize: 16,
-                            fontFamily: "ProximaNova",
-                            fontWeight: FontWeight.w900,
-                            color: blueColor),
-                      ),
-                    ),
+                    // GestureDetector(
+                    //   onTap: _scrollToTop,
+                    //   child: const Text(
+                    //     "BACK TO THE TOP",
+                    //     style: TextStyle(
+                    //         fontSize: 16,
+                    //         fontFamily: "ProximaNova",
+                    //         fontWeight: FontWeight.w900,
+                    //         color: blueColor),
+                    //   ),
+                    // ),
                     const SizedBox(
                       height: 80,
                     ),
@@ -349,10 +347,5 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
     );
-  }
-
-  void _scrollToTop() {
-    _scrollController.animateTo(0,
-        duration: const Duration(seconds: 1), curve: Curves.easeInBack);
   }
 }

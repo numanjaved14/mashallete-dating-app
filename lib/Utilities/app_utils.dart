@@ -982,7 +982,7 @@ class AppUtils {
   addPhotosWidget({onTap, enabled, width}) {
     return GestureDetector(
       onTap: onTap,
-      child: width > 420
+      child: width > 415
           ? Container(
               width: 115,
               height: 135,
@@ -1058,9 +1058,9 @@ class AppUtils {
               ),
             )
           : Container(
-              width: 110,
-              height: 125,
-              margin: const EdgeInsets.only(right: 5, bottom: 15),
+              width: 105,
+              height: 120,
+              margin: const EdgeInsets.only(right: 5, bottom: 10),
               child: Stack(
                 children: [
                   Positioned(
@@ -1074,8 +1074,8 @@ class AppUtils {
                             radius: const Radius.circular(12),
                             strokeCap: StrokeCap.round,
                             child: Container(
-                              width: 100,
-                              height: 118,
+                              width: 95,
+                              height: 110,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(
                                   12,
@@ -1089,8 +1089,8 @@ class AppUtils {
                             ),
                           )
                         : Container(
-                            width: 105,
-                            height: 123,
+                            width: 100,
+                            height: 115,
                             decoration: BoxDecoration(
                               image: const DecorationImage(
                                   image: AssetImage("assets/background.png"),
@@ -1139,7 +1139,7 @@ class AppUtils {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: width > 400 ? 115 : 110,
+        width: width > 400 ? 110 : 105,
         height: width > 400 ? 135 : 125,
         margin: EdgeInsets.only(
             right: width > 400 ? 10 : 3, bottom: width > 400 ? 15 : 10),
@@ -1205,7 +1205,7 @@ class AppUtils {
                       child: const Center(
                           child: Icon(
                         Icons.close,
-                        color: blueColor,
+                        color: Colors.black,
                         size: 20,
                       )),
                     ),
@@ -1477,14 +1477,14 @@ class AppUtils {
               ),
             ),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
+              padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 5),
               decoration: BoxDecoration(
                   color: color, borderRadius: BorderRadius.circular(30.0)),
               child: Row(
                 children: [
                   Image.asset(
                     "assets/hourGlass.png",
-                    scale: 3,
+                    scale: 4,
                     color: textColor,
                   ),
                   const SizedBox(
@@ -1492,7 +1492,7 @@ class AppUtils {
                   ),
                   Text(
                     time,
-                    style: smallHeadingTextStyle(color: textColor),
+                    style: extraSmallTitleTextStyle(color: textColor),
                   ),
                 ],
               ),
@@ -1807,7 +1807,7 @@ class AppUtils {
             ),
           ),
           const SizedBox(
-            width: 5,
+            width: 15,
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -2134,7 +2134,7 @@ class AppUtils {
       width: double.infinity,
       padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
-        color: blueColor.withOpacity(0.07),
+        color: const Color(0xffF5F6FF),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Column(
@@ -2150,7 +2150,7 @@ class AppUtils {
               ),
               Image.asset(
                 "assets/purpleComma.png",
-                scale: 3,
+                scale: 4,
               ),
             ],
           ),
@@ -2441,7 +2441,7 @@ class AppUtils {
 
   infoInterestWidget({image, name}) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+      margin: const EdgeInsets.only(top: 5, bottom: 5, right: 10),
       decoration: BoxDecoration(
         border: Border.all(color: Colors.black.withOpacity(0.3)),
         borderRadius: BorderRadius.circular(30.0),

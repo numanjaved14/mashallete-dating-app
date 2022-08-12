@@ -66,6 +66,9 @@ class _OnBoardingLocationScreenState extends State<OnBoardingLocationScreen> {
                 height: 50,
                 child: TextFormField(
                   showCursor: false,
+                  onChanged: (val) {
+                    setState(() {});
+                  },
                   style: const TextStyle(
                     color: Colors.black,
                     fontSize: 22,
@@ -106,15 +109,18 @@ class _OnBoardingLocationScreenState extends State<OnBoardingLocationScreen> {
                   ),
                 ),
                 utils.gradientBigButton(
-                  onTap: () {
-                    Navigator.pushNamed(
-                        context, onBoardingEthnicityScreenRoute);
-                  },
+                  onTap: locationController.text.isEmpty
+                      ? () {}
+                      : () {
+                          Navigator.pushNamed(
+                              context, onBoardingEthnicityScreenRoute);
+                        },
                   width: MediaQuery.of(context).size.width * 0.35,
                   text: "Continue",
                   containerColor: blueColor,
                   textColor: Colors.white,
                   borderRadius: 8.0,
+                  enabled: locationController.text.isEmpty ? true : false,
                   fontSize: 14.0,
                   height: 50.0,
                   shadowColors: Colors.white,

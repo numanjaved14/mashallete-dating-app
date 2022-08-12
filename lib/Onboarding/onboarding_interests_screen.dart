@@ -313,20 +313,28 @@ class _OnBoardingInterestsScreenState extends State<OnBoardingInterestsScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
-                      "Skip for now",
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w700,
-                        fontFamily: "ProximaNova",
-                        color: blueColor,
-                      ),
-                    ),
-                    utils.gradientBigButton(
+                    GestureDetector(
                       onTap: () {
                         Navigator.pushNamed(
                             context, onBoardingLookingGoodScreenRoute);
                       },
+                      child: const Text(
+                        "Skip for now",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700,
+                          fontFamily: "ProximaNova",
+                          color: blueColor,
+                        ),
+                      ),
+                    ),
+                    utils.gradientBigButton(
+                      onTap: selected1.where((item) => item == true).isEmpty
+                          ? () {}
+                          : () {
+                              Navigator.pushNamed(
+                                  context, onBoardingLookingGoodScreenRoute);
+                            },
                       width: MediaQuery.of(context).size.width * 0.35,
                       text:
                           "Continue (${selected1.where((item) => item == true).length}/10)",
@@ -334,6 +342,9 @@ class _OnBoardingInterestsScreenState extends State<OnBoardingInterestsScreen> {
                       textColor: Colors.white,
                       borderRadius: 8.0,
                       fontSize: 14.0,
+                      enabled: selected1.where((item) => item == true).isEmpty
+                          ? true
+                          : false,
                       height: 50.0,
                       shadowColors: Colors.white,
                     )

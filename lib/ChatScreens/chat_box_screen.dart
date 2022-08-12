@@ -568,7 +568,9 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                 child: Container(
                   height: width > 415
                       ? MediaQuery.of(context).size.width * 1.63
-                      : MediaQuery.of(context).size.width * 1.43,
+                      : width < 376
+                          ? MediaQuery.of(context).size.width * 1.23
+                          : MediaQuery.of(context).size.width * 1.53,
                   width: double.infinity,
                   color: Colors.transparent,
                 ),
@@ -587,7 +589,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                         height: 55,
                         decoration: BoxDecoration(
                           color: Colors.white,
-                          borderRadius: BorderRadius.circular(35),
+                          borderRadius: BorderRadius.circular(10),
                         ),
                         child: Center(
                           child: Text(
@@ -610,7 +612,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                         height: 55,
                         decoration: BoxDecoration(
                           color: Colors.white,
-                          borderRadius: BorderRadius.circular(35),
+                          borderRadius: BorderRadius.circular(10),
                         ),
                         child: Center(
                           child: Text(
@@ -633,7 +635,7 @@ class _ChatBoxScreenState extends State<ChatBoxScreen> {
                         height: 55,
                         decoration: BoxDecoration(
                           color: Colors.white,
-                          borderRadius: BorderRadius.circular(35),
+                          borderRadius: BorderRadius.circular(10),
                         ),
                         child: Center(
                           child: Text(

@@ -53,44 +53,44 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
         ],
       ),
       bottomNavigationBar: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 60),
+        padding: const EdgeInsets.symmetric(horizontal: 50),
         child: BottomNavigationBar(
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: SizedBox(
-                width: 26,
-                height: 26,
+                width: 32,
+                height: 32,
                 child: Image.asset(
                   _selectedIndex == 0
                       ? "assets/bottomIcon1.png"
                       : "assets/bottomIcon2.png",
-                  scale: 5,
+                  scale: 4,
                 ),
               ),
               label: '',
             ),
             BottomNavigationBarItem(
               icon: SizedBox(
-                width: 26,
-                height: 26,
+                width: 32,
+                height: 32,
                 child: Image.asset(
                   _selectedIndex == 1
                       ? "assets/bottomIcon4.png"
                       : "assets/bottomIcon3.png",
-                  scale: 5,
+                  scale: 4,
                 ),
               ),
               label: '',
             ),
             BottomNavigationBarItem(
               icon: SizedBox(
-                width: 26,
-                height: 26,
+                width: 32,
+                height: 32,
                 child: Image.asset(
                   _selectedIndex == 2
                       ? "assets/bottomIcon6.png"
                       : "assets/bottomIcon5.png",
-                  scale: 5,
+                  scale: 4,
                 ),
               ),
               label: '',

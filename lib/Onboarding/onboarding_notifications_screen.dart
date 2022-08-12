@@ -65,7 +65,6 @@ class _OnBoardingNotificationsScreenState
                   const SizedBox(
                     height: 25,
                   ),
-
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -87,7 +86,6 @@ class _OnBoardingNotificationsScreenState
                       ),
                     ],
                   ),
-
                   const SizedBox(
                     height: 25,
                   ),
@@ -95,13 +93,18 @@ class _OnBoardingNotificationsScreenState
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text(
-                        "Skip for now",
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w700,
-                          fontFamily: "ProximaNova",
-                          color: blueColor,
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, welcomeNameScreenRoute);
+                        },
+                        child: const Text(
+                          "Skip for now",
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w700,
+                            fontFamily: "ProximaNova",
+                            color: blueColor,
+                          ),
                         ),
                       ),
                       utils.gradientBigButton(
@@ -125,7 +128,6 @@ class _OnBoardingNotificationsScreenState
                       )
                     ],
                   ),
-                  //
                   const SizedBox(
                     height: 30,
                   ),

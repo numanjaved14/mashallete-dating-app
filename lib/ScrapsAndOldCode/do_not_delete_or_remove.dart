@@ -1072,3 +1072,46 @@
 // const SizedBox(
 //   height: 45,
 // ),
+
+// Row(
+//   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//   children: [
+//     Row(
+//       children: const [
+//         Icon(
+//           Icons.lock,
+//           color: blueColor,
+//         ),
+//         SizedBox(
+//           width: 5,
+//         ),
+//         Text(
+//           "We'll never share this with anyone",
+//           style: TextStyle(
+//             fontSize: 15,
+//             fontWeight: FontWeight.w700,
+//             fontFamily: "ProximaNova",
+//             color: blueColor,
+//           ),
+//         ),
+//       ],
+//     ),
+//     GestureDetector(
+//       onTap: () {
+//
+//       },
+//       child: Container(
+//         width: 60,
+//         height: 60,
+//         decoration: const BoxDecoration(
+//           color: blueColor,
+//           shape: BoxShape.circle,
+//         ),
+//         child: const Icon(
+//           Icons.arrow_forward_ios_outlined,
+//           color: Colors.white,
+//         ),
+//       ),
+//     ),
+//   ],
+// ),

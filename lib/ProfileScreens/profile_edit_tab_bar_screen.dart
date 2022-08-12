@@ -75,35 +75,30 @@ class _ProfileEditTabBarScreenState extends State<ProfileEditTabBarScreen>
                   ],
                 ),
               ),
-              Container(
+              SizedBox(
                 width: double.infinity,
                 height: 35,
-                decoration: BoxDecoration(
-                    color: Colors.grey[200],
-                    borderRadius: BorderRadius.circular(5)),
                 child: TabBar(
                   controller: _controller,
-                  unselectedLabelStyle: const TextStyle(
-                    color: Colors.black,
-                    fontFamily: "ProximaNova",
-                  ),
-                  unselectedLabelColor: Colors.black,
-                  indicator: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5), // Creates border
-                      color: blueColor),
-                  tabs: const [
-                    Text(
-                      "Edit",
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontFamily: "ProximaNova",
+                  unselectedLabelStyle: const TextStyle(color: Colors.grey),
+                  unselectedLabelColor: Colors.grey,
+                  labelColor: blueColor,
+                  onTap: (val) {
+                    setState(() {});
+                  },
+                  tabs: [
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 10.0),
+                      child: Text(
+                        "Edit",
+                        style: utils.smallHeadingTextStyle(),
                       ),
                     ),
-                    Text(
-                      "Preview",
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontFamily: "ProximaNova",
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 10.0),
+                      child: Text(
+                        "Preview",
+                        style: utils.smallHeadingTextStyle(),
                       ),
                     ),
                   ],
