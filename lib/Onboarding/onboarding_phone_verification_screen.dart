@@ -1,9 +1,16 @@
+import 'package:dating_app/Database/firebasedatabase.dart';
+import 'package:dating_app/Onboarding/onboarding_name_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../Constants/app_constants.dart';
 import '../Utilities/app_utils.dart';
+import 'package:pinput/pinput.dart';
 
 class OnBoardingPhoneVerificationScreen extends StatefulWidget {
-  const OnBoardingPhoneVerificationScreen({Key? key}) : super(key: key);
+  final String phone;
+  final String codeDigits;
+  OnBoardingPhoneVerificationScreen(
+      {required this.phone, required this.codeDigits});
 
   @override
   State<OnBoardingPhoneVerificationScreen> createState() =>
@@ -12,6 +19,10 @@ class OnBoardingPhoneVerificationScreen extends StatefulWidget {
 
 class _OnBoardingPhoneVerificationScreenState
     extends State<OnBoardingPhoneVerificationScreen> {
+  final FocusNode pinOTPFocusNode = FocusNode();
+  String? verificationCode;
+  final GlobalKey<ScaffoldState> _scalfoldkey = GlobalKey<ScaffoldState>();
+
   var phoneNumberController = TextEditingController();
   var pin4Controller = TextEditingController();
   var pin3Controller = TextEditingController();
@@ -37,6 +48,8 @@ class _OnBoardingPhoneVerificationScreenState
     focusNode2 = FocusNode();
     focusNode3 = FocusNode();
     focusNode4 = FocusNode();
+    verificationPhone();
+
     super.initState();
   }
 
@@ -111,74 +124,32 @@ class _OnBoardingPhoneVerificationScreenState
             const SizedBox(
               height: 55,
             ),
-            Row(
-              children: [
-                utils.otpTextField(
-                    controller: pin1Controller,
-                    maxLength: 1,
-                    onChanged: (val) {
-                      if (pin1Controller.text.length == 1) {
-                        focusNode2!.requestFocus();
+            Container(
+              margin: EdgeInsets.only(left: 20, right: 20, bottom: 20, top: 20),
+              child: Pinput(
+                length: 6,
+                focusNode: pinOTPFocusNode,
+                controller: phoneNumberController,
+                onSubmitted: (pin) async {
+                  try {
+                    await FirebaseAuth.instance
+                        .signInWithCredential(PhoneAuthProvider.credential(
+                            verificationId: verificationCode!, smsCode: pin))
+                        .then((value) {
+                      if (value.user != null) {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (builder) => OnBoardingNameScreen()));
                       }
-                      setState(() {});
-                    },
-                    width: MediaQuery.of(context).size.width * 0.2,
-                    hintText: " ",
-                    focusNode: focusNode1,
-                    keyboardType: TextInputType.number,
-                    hintSize: 15.0),
-                const SizedBox(
-                  width: 10,
-                ),
-                utils.otpTextField(
-                    controller: pin2Controller,
-                    focusNode: focusNode2,
-                    maxLength: 1,
-                    width: MediaQuery.of(context).size.width * 0.2,
-                    hintText: " ",
-                    onChanged: (val) {
-                      if (pin2Controller.text.length == 1) {
-                        focusNode3!.requestFocus();
-                      }
-                      setState(() {});
-                    },
-                    keyboardType: TextInputType.number,
-                    hintSize: 15.0),
-                const SizedBox(
-                  width: 10,
-                ),
-                utils.otpTextField(
-                    controller: pin3Controller,
-                    focusNode: focusNode3,
-                    maxLength: 1,
-                    onChanged: (val) {
-                      if (pin3Controller.text.length == 1) {
-                        focusNode4!.requestFocus();
-                      }
-                      setState(() {});
-                    },
-                    keyboardType: TextInputType.number,
-                    width: MediaQuery.of(context).size.width * 0.2,
-                    hintText: " ",
-                    hintSize: 15.0),
-                const SizedBox(
-                  width: 10,
-                ),
-                utils.otpTextField(
-                    controller: pin4Controller,
-                    focusNode: focusNode4,
-                    maxLength: 1,
-                    onChanged: (val) {
-                      if (pin4Controller.text.length == 1) {
-                        focusNode4!.unfocus();
-                      }
-                      setState(() {});
-                    },
-                    keyboardType: TextInputType.number,
-                    width: MediaQuery.of(context).size.width * 0.2,
-                    hintText: " ",
-                    hintSize: 15.0),
-              ],
+                    });
+                  } catch (e) {
+                    FocusScope.of(context).unfocus();
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: Text("Invalide Code"),
+                      duration: Duration(seconds: 12),
+                    ));
+                  }
+                },
+              ),
             ),
             const SizedBox(
               height: 25,
@@ -208,24 +179,17 @@ class _OnBoardingPhoneVerificationScreenState
                   ],
                 ),
                 utils.gradientBigButton(
-                  onTap: pin1Controller.text.isEmpty ||
-                          pin2Controller.text.isEmpty ||
-                          pin3Controller.text.isEmpty ||
-                          pin4Controller.text.isEmpty
-                      ? () {}
-                      : () {
-                          Navigator.pushNamed(
-                              context, onBoardingNameScreenRoute);
-                        },
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (builder) => OnBoardingNameScreen(),
+                      ),
+                    );
+                  },
                   width: MediaQuery.of(context).size.width * 0.3,
                   text: "Continue",
                   containerColor: blueColor,
-                  enabled: pin1Controller.text.isEmpty ||
-                          pin2Controller.text.isEmpty ||
-                          pin3Controller.text.isEmpty ||
-                          pin4Controller.text.isEmpty
-                      ? true
-                      : false,
+                  enabled: phoneNumberController.text.isEmpty ? true : false,
                   textColor: Colors.white,
                   borderRadius: 8.0,
                   shadowColors: Colors.white,
@@ -239,5 +203,49 @@ class _OnBoardingPhoneVerificationScreenState
         ),
       ),
     );
+  }
+
+  void verificationPhone() async {
+    await FirebaseAuth.instance.verifyPhoneNumber(
+        phoneNumber: "${widget.codeDigits + widget.phone}",
+        verificationCompleted: (PhoneAuthCredential credential) async {
+          await FirebaseAuth.instance
+              .signInWithCredential(credential)
+              .then((value) {
+            if (value.user != null) {
+              // Customdialog.showDialogBox(context);
+              addPhone();
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (builder) => OnBoardingNameScreen(),
+                ),
+              );
+              // Customdialog.closeDialog(context);
+            } else {}
+          });
+        },
+        verificationFailed: (FirebaseException e) {
+          FocusScope.of(context).unfocus();
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: Text(e.message.toString()),
+            duration: Duration(seconds: 12),
+          ));
+        },
+        codeSent: (String VID, int? resentToken) {
+          setState(() {
+            verificationCode = VID;
+          });
+        },
+        codeAutoRetrievalTimeout: (String VID) {
+          setState(() {
+            verificationCode = VID;
+          });
+        },
+        timeout: Duration(seconds: 50));
+  }
+
+  void addPhone() async {
+    await Database().numberAdd();
+    // .then((value) => Customdialog.closeDialog(context));
   }
 }

@@ -119,8 +119,7 @@ class _MyAppState extends State<MyApp> {
             const OnBoardingLocationScreen(),
         onBoardingLookingForScreenRoute: (context) =>
             const OnBoardingLookingForScreen(),
-        onBoardingPhoneVerificationScreenRoute: (context) =>
-            const OnBoardingPhoneVerificationScreen(),
+       
         onBoardingPhoneScreenRoute: (context) => const OnBoardingPhoneScreen(),
         onBoardingNotificationsScreenRoute: (context) =>
             const OnBoardingNotificationsScreen(),
