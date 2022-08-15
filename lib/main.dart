@@ -18,6 +18,7 @@ import 'package:dating_app/ProfileScreens/profile_edit_tab_bar_screen.dart';
 import 'package:dating_app/ProfileScreens/profile_screen.dart';
 import 'package:dating_app/ProfileScreens/prompt_answer_screen.dart';
 import 'package:dating_app/ProfileScreens/prompt_questions_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:page_transition/page_transition.dart';
@@ -56,6 +57,8 @@ import 'ProfileScreens/want_kids_screen.dart';
 import 'ProfileScreens/willing_to_relocate_screen.dart';
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 

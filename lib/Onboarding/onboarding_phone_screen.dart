@@ -277,7 +277,9 @@ class _OnBoardingPhoneScreenState extends State<OnBoardingPhoneScreen> {
                               GestureDetector(
                                 onTap: () {
                                   countryCode = "+1";
-                                  setState(() {});
+                                  setState(() {
+                                    
+                                  });
                                   Navigator.pop(context);
                                 },
                                 child: Row(
