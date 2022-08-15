@@ -1,3 +1,5 @@
+import 'package:dating_app/Database/firebasedatabase.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../Constants/app_constants.dart';
@@ -122,8 +124,10 @@ class _OnBoardingNameScreenState extends State<OnBoardingNameScreen> {
                   onTap: firstNameController.text.isEmpty
                       ? () {}
                       : () {
-                          Navigator.pushNamed(
-                              context, onBoardingDateOfBirthScreenRoute);
+                          // Navigator.pushNamed(
+                          //     context, onBoardingDateOfBirthScreenRoute);
+                          addName(firstNameController.text,
+                              lastNameController.text);
                         },
                   width: MediaQuery.of(context).size.width * 0.3,
                   text: "Continue",
@@ -141,6 +145,14 @@ class _OnBoardingNameScreenState extends State<OnBoardingNameScreen> {
           ],
         ),
       ),
+    );
+  }
+
+  void addName(String firstName, String? lastName,) async {
+    await Database().updateName(
+      // uid: FirebaseAuth.instance.currentUser!.uid,
+      fullName: firstNameController.text,
+      lastName: lastNameController.text
     );
   }
 }

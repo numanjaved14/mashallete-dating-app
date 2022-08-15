@@ -35,4 +35,24 @@ class Database {
     }
     return res;
   }
+
+  //Name Update
+  Future<String> updateName(
+      {required String fullName, String? lastName}) async {
+    String res = 'Some error occured';
+    debugPrint(res);
+
+    try {
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(FirebaseAuth.instance.currentUser!.uid)
+          .update({'fullName': fullName, 'lastName': lastName});
+      res = 'sucess';
+      debugPrint(res);
+    } on FirebaseException catch (e) {
+      res = e.toString();
+      debugPrint(res);
+    }
+    return res;
+  }
 }
