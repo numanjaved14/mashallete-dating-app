@@ -8,7 +8,7 @@ class UserModel {
   String gender;
   String lookingfor;
   String phoneNumber;
-  final photoURL;
+  List<String> photoURL;
   List<String> ethninity;
   List<String> likes;
   String religion;

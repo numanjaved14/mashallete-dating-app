@@ -23,6 +23,7 @@ class _OnBoardingDateOfBirthScreenState
   var dayController = TextEditingController();
   var yearController = TextEditingController();
   var utils = AppUtils();
+  int? age;
   @override
   void dispose() {
     focusNode1!.dispose();
@@ -144,6 +145,8 @@ class _OnBoardingDateOfBirthScreenState
                           onChanged: (val) {
                             if (yearController.text.length == 4) {
                               focusNode3!.unfocus();
+                              age = int.parse(DateTime.now().year.toString()) -
+                                  int.parse(val);
                             }
                             setState(() {});
                           },
@@ -185,7 +188,7 @@ class _OnBoardingDateOfBirthScreenState
                                       ),
                                     ),
                                     Text(
-                                      "??? ",
+                                      age != null ? age.toString() : "???",
                                       style: TextStyle(
                                         fontSize: 14,
                                         fontWeight: FontWeight.w700,
@@ -194,7 +197,7 @@ class _OnBoardingDateOfBirthScreenState
                                       ),
                                     ),
                                     const Text(
-                                      "years old.",
+                                      " years old.",
                                       style: TextStyle(
                                         fontSize: 14,
                                         fontWeight: FontWeight.w700,
@@ -205,7 +208,7 @@ class _OnBoardingDateOfBirthScreenState
                                   ],
                                 )
                               : Row(
-                                  children: const [
+                                  children: [
                                     Text(
                                       "You are ",
                                       style: TextStyle(
@@ -216,7 +219,7 @@ class _OnBoardingDateOfBirthScreenState
                                       ),
                                     ),
                                     Text(
-                                      "26 ",
+                                      age != null ? age.toString() : "???",
                                       style: TextStyle(
                                         fontSize: 14,
                                         fontWeight: FontWeight.w700,
@@ -225,7 +228,7 @@ class _OnBoardingDateOfBirthScreenState
                                       ),
                                     ),
                                     Text(
-                                      "years old.",
+                                      " years old.",
                                       style: TextStyle(
                                         fontSize: 14,
                                         fontWeight: FontWeight.w700,
@@ -421,7 +424,7 @@ class _OnBoardingDateOfBirthScreenState
                                       ],
                                     )
                                   : Row(
-                                      children: const [
+                                      children: [
                                         Text(
                                           "You are ",
                                           style: TextStyle(
@@ -432,7 +435,7 @@ class _OnBoardingDateOfBirthScreenState
                                           ),
                                         ),
                                         Text(
-                                          "26 ",
+                                          "$age ",
                                           style: TextStyle(
                                             fontSize: 14,
                                             fontWeight: FontWeight.w700,
@@ -550,7 +553,7 @@ class _OnBoardingDateOfBirthScreenState
                                   containerColor: blueColor,
                                   textColor: Colors.white,
                                   shadowColors: Colors.white,
-                                  text: "I confirm that I am 26 years old.",
+                                  text: "I confirm that I am $age years old.",
                                   fontSize: 15,
                                   imageScale: 4.0,
                                   image: "assets/tick.png",

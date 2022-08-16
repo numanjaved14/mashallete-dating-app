@@ -20,7 +20,7 @@ class Database {
         dob: '',
         likes: [],
         phoneNumber: FirebaseAuth.instance.currentUser!.phoneNumber.toString(),
-        photoURL: '',
+        photoURL: [],
         latitude: 0,
         longitude: 0,
         location: '',

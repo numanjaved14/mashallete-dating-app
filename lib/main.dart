@@ -18,6 +18,7 @@ import 'package:dating_app/ProfileScreens/profile_edit_tab_bar_screen.dart';
 import 'package:dating_app/ProfileScreens/profile_screen.dart';
 import 'package:dating_app/ProfileScreens/prompt_answer_screen.dart';
 import 'package:dating_app/ProfileScreens/prompt_questions_screen.dart';
+import 'package:dating_app/image_upload_test.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -85,6 +86,7 @@ class _MyAppState extends State<MyApp> {
       title: 'MashaLatte',
       debugShowCheckedModeBanner: false,
       initialRoute: splashRoute,
+      // initialRoute: 'testRoute',
       onGenerateRoute: (settings) {
         switch (settings.name) {
           case helpAndSupportScreenRoute:
@@ -105,6 +107,7 @@ class _MyAppState extends State<MyApp> {
         }
       },
       routes: {
+        'testRoute': (context) => AddImage(),
         splashRoute: (context) => const SplashScreen(),
         likedProfilesScreenRoute: (context) => const LikedProfilesScreen(),
         onBoardingInterestsScreenRoute: (context) =>
@@ -119,7 +122,6 @@ class _MyAppState extends State<MyApp> {
             const OnBoardingLocationScreen(),
         onBoardingLookingForScreenRoute: (context) =>
             const OnBoardingLookingForScreen(),
-       
         onBoardingPhoneScreenRoute: (context) => const OnBoardingPhoneScreen(),
         onBoardingNotificationsScreenRoute: (context) =>
             const OnBoardingNotificationsScreen(),

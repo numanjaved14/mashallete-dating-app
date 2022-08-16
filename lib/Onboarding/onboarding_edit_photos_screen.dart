@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../Constants/app_constants.dart';
 import '../Utilities/app_utils.dart';
@@ -13,6 +16,8 @@ class EditPhotosScreen extends StatefulWidget {
 class _EditPhotosScreenState extends State<EditPhotosScreen> {
   var phoneNumberController = TextEditingController();
   var utils = AppUtils();
+  final picker = ImagePicker();
+  XFile? _image;
   List<bool> enabled = [false, false, false, false, false, false];
 
   @override
@@ -71,7 +76,8 @@ class _EditPhotosScreenState extends State<EditPhotosScreen> {
                       height: 400,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
-                        image: const DecorationImage(
+                        image: DecorationImage(
+                            // image: _image != null ? MemoryImage(_image!) : Container(),
                             image: AssetImage(
                               "assets/background.png",
                             ),
@@ -129,4 +135,35 @@ class _EditPhotosScreenState extends State<EditPhotosScreen> {
       ),
     );
   }
+
+  chooseImage() async {
+    final pickedFile = await pickImage(ImageSource.gallery);
+    setState(() {
+      _image = pickedFile!;
+    });
+    // if (pickedFile!.path == null) retrieveLostData();
+  }
+
+  pickImage(ImageSource source) async {
+    final ImagePicker _imagePicker = ImagePicker();
+    XFile? _file = await _imagePicker.pickImage(source: source);
+    if (_file != null) {
+      return await _file.readAsBytes();
+    }
+    print('No Image Selected');
+  }
+
+  // Future<void> retrieveLostData() async {
+  //   final LostDataResponse response = await picker.retrieveLostData();
+  //   if (response.isEmpty) {
+  //     return;
+  //   }
+  //   if (response.file != null) {
+  //     setState(() {
+  //       _image.add(File(response.file!.path));
+  //     });
+  //   } else {
+  //     print(response.file);
+  //   }
+  // }
 }
