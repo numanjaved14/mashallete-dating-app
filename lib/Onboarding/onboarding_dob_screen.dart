@@ -2,6 +2,7 @@ import 'package:blurrycontainer/blurrycontainer.dart';
 import 'package:flutter/material.dart';
 
 import '../Constants/app_constants.dart';
+import '../Database/firebasedatabase.dart';
 import '../Utilities/app_utils.dart';
 
 class OnBoardingDateOfBirthScreen extends StatefulWidget {
@@ -541,8 +542,7 @@ class _OnBoardingDateOfBirthScreenState
                               ),
                               utils.bigButtonWithPrefixIcon(
                                   onTap: () {
-                                    Navigator.pushNamed(context,
-                                        onBoardingNotificationsScreenRoute);
+                                    addData();
                                   },
                                   width:
                                       MediaQuery.of(context).size.width * 0.7,
@@ -580,5 +580,22 @@ class _OnBoardingDateOfBirthScreenState
               ],
             ),
           );
+  }
+
+  void addData() async {
+    String res = await Database().updateData(
+      key: 'dob',
+      value:
+          "${dayController.text} / ${monthController.text} / ${yearController.text}",
+    );
+    if (res == 'success') {
+      Navigator.pushNamed(context, onBoardingNotificationsScreenRoute);
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(res),
+        ),
+      );
+    }
   }
 }

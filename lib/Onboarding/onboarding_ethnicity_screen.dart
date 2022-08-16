@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../Constants/app_constants.dart';
+import '../Database/firebasedatabase.dart';
 import '../Utilities/app_utils.dart';
 
 class OnBoardingEthnicityScreen extends StatefulWidget {
@@ -204,5 +205,25 @@ class _OnBoardingEthnicityScreenState extends State<OnBoardingEthnicityScreen> {
         ),
       ),
     );
+  }
+
+  void addData() async {
+    String res = await Database().updateList(
+      key: 'ethninity',
+      value: [
+        val1 ? 'Pakistani' : '',
+        val2 ? 'Indian' : '',
+        val3 ? 'Bengali' : '',
+      ],
+    );
+    if (res == 'success') {
+      Navigator.pushNamed(context, onBoardingReligiousScreenRoute);
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(res),
+        ),
+      );
+    }
   }
 }

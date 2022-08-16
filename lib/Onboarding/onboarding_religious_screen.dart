@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../Constants/app_constants.dart';
+import '../Database/firebasedatabase.dart';
 import '../Utilities/app_utils.dart';
 
 class OnBoardingReligiousScreen extends StatefulWidget {
@@ -184,8 +185,7 @@ class _OnBoardingReligiousScreenState extends State<OnBoardingReligiousScreen> {
                   onTap: selected == 0
                       ? () {}
                       : () {
-                          Navigator.pushNamed(
-                              context, onBoardingInterestsScreenRoute);
+                          addData();
                         },
                   width: MediaQuery.of(context).size.width * 0.35,
                   text: "Continue",
@@ -206,5 +206,27 @@ class _OnBoardingReligiousScreenState extends State<OnBoardingReligiousScreen> {
         ),
       ),
     );
+  }
+
+  void addData() async {
+    String res = await Database().updateData(
+      key: 'religion',
+      value: selected == 1
+          ? 'Very Religious'
+          : selected == 2
+              ? 'Religious'
+              : selected == 3
+                  ? 'Somewhat Religious'
+                  : 'Not Religious',
+    );
+    if (res == 'success') {
+      Navigator.pushNamed(context, onBoardingInterestsScreenRoute);
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(res),
+        ),
+      );
+    }
   }
 }

@@ -9,9 +9,12 @@ class UserModel {
   String lookingfor;
   String phoneNumber;
   final photoURL;
-  final ethninity;
-  final likes;
+  List<String> ethninity;
+  List<String> likes;
   String religion;
+  String location;
+  double latitude;
+  double longitude;
   // String photoURL;
 
   UserModel({
@@ -26,6 +29,9 @@ class UserModel {
     required this.lookingfor,
     required this.phoneNumber,
     required this.religion,
+    required this.latitude,
+    required this.longitude,
+    required this.location,
   });
 
   ///Converting OBject into Json Object
@@ -40,7 +46,10 @@ class UserModel {
         'gender': gender,
         'lookingfor': lookingfor,
         'ethninity': ethninity,
-        'religion': religion
+        'religion': religion,
+        'latitude': latitude,
+        'longitude': longitude,
+        'location': location,
       };
 
   ///
@@ -48,16 +57,20 @@ class UserModel {
     var snapshot = snaps.data() as Map<String, dynamic>;
 
     return UserModel(
-        gender: snapshot['gender'],
-        fullName: snapshot['fullName'],
-        uid: snapshot['uid'],
-        lastname: snapshot['lastname'],
-        religion: snapshot['religion'],
-        photoURL: snapshot['photoURL'],
-        dob: snapshot['dob'],
-        phoneNumber: snapshot['phoneNumber'],
-        likes: snapshot['likes'],
-        ethninity: snapshot['ethninity'],
-        lookingfor: snapshot['lookingfor']);
+      gender: snapshot['gender'],
+      fullName: snapshot['fullName'],
+      uid: snapshot['uid'],
+      lastname: snapshot['lastname'],
+      religion: snapshot['religion'],
+      photoURL: snapshot['photoURL'],
+      dob: snapshot['dob'],
+      phoneNumber: snapshot['phoneNumber'],
+      likes: snapshot['likes'],
+      ethninity: snapshot['ethninity'],
+      lookingfor: snapshot['lookingfor'],
+      latitude: snapshot['latitude'],
+      longitude: snapshot['longitude'],
+      location: snapshot['location'],
+    );
   }
 }

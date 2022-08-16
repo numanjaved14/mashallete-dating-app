@@ -1,6 +1,7 @@
 import 'package:dating_app/Constants/app_constants.dart';
 import 'package:flutter/material.dart';
 
+import '../Database/firebasedatabase.dart';
 import '../Utilities/app_utils.dart';
 
 class OnBoardingLocationScreen extends StatefulWidget {
@@ -112,8 +113,7 @@ class _OnBoardingLocationScreenState extends State<OnBoardingLocationScreen> {
                   onTap: locationController.text.isEmpty
                       ? () {}
                       : () {
-                          Navigator.pushNamed(
-                              context, onBoardingEthnicityScreenRoute);
+                          addData();
                         },
                   width: MediaQuery.of(context).size.width * 0.35,
                   text: "Continue",
@@ -134,5 +134,21 @@ class _OnBoardingLocationScreenState extends State<OnBoardingLocationScreen> {
         ),
       ),
     );
+  }
+
+  void addData() async {
+    String res = await Database().updateData(
+      key: 'location',
+      value: locationController.text,
+    );
+    if (res == 'success') {
+      Navigator.pushNamed(context, onBoardingEthnicityScreenRoute);
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(res),
+        ),
+      );
+    }
   }
 }

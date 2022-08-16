@@ -2,6 +2,7 @@ import 'package:dating_app/Utilities/app_utils.dart';
 import 'package:flutter/material.dart';
 
 import '../Constants/app_constants.dart';
+import '../Database/firebasedatabase.dart';
 
 class OnBoardingMenWomenScreen extends StatefulWidget {
   const OnBoardingMenWomenScreen({Key? key}) : super(key: key);
@@ -126,8 +127,7 @@ class _OnBoardingMenWomenScreenState extends State<OnBoardingMenWomenScreen> {
                   onTap: selected == 0
                       ? () {}
                       : () {
-                          Navigator.pushNamed(
-                              context, onBoardingLookingForScreenRoute);
+                          addData();
                         },
                   width: MediaQuery.of(context).size.width * 0.35,
                   text: "Continue",
@@ -148,5 +148,21 @@ class _OnBoardingMenWomenScreenState extends State<OnBoardingMenWomenScreen> {
         ),
       ),
     );
+  }
+
+  void addData() async {
+    String res = await Database().updateData(
+      key: 'gender',
+      value: selected == 1 ? 'Man' : 'Woman',
+    );
+    if (res == 'success') {
+      Navigator.pushNamed(context, onBoardingLookingForScreenRoute);
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(res),
+        ),
+      );
+    }
   }
 }

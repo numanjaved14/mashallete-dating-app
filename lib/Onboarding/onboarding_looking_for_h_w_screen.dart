@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../Database/firebasedatabase.dart';
 import '../Utilities/app_utils.dart';
 import '../Constants/app_constants.dart';
 
@@ -126,8 +127,7 @@ class _OnBoardingLookingForScreenState
                   onTap: selected == 0
                       ? () {}
                       : () {
-                          Navigator.pushNamed(
-                              context, onBoardingLocationScreenRoute);
+                          addData();
                         },
                   width: MediaQuery.of(context).size.width * 0.35,
                   text: "Continue",
@@ -148,5 +148,21 @@ class _OnBoardingLookingForScreenState
         ),
       ),
     );
+  }
+
+  void addData() async {
+    String res = await Database().updateData(
+      key: 'lookingfor',
+      value: selected == 1 ? 'A Husband' : 'A Wife',
+    );
+    if (res == 'success') {
+      Navigator.pushNamed(context, onBoardingLocationScreenRoute);
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(res),
+        ),
+      );
+    }
   }
 }

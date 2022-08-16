@@ -124,8 +124,6 @@ class _OnBoardingNameScreenState extends State<OnBoardingNameScreen> {
                   onTap: firstNameController.text.isEmpty
                       ? () {}
                       : () {
-                          // Navigator.pushNamed(
-                          //     context, onBoardingDateOfBirthScreenRoute);
                           addName(firstNameController.text,
                               lastNameController.text);
                         },
@@ -148,11 +146,22 @@ class _OnBoardingNameScreenState extends State<OnBoardingNameScreen> {
     );
   }
 
-  void addName(String firstName, String? lastName,) async {
-    await Database().updateName(
-      // uid: FirebaseAuth.instance.currentUser!.uid,
-      fullName: firstNameController.text,
-      lastName: lastNameController.text
-    );
+  void addName(
+    String firstName,
+    String? lastName,
+  ) async {
+    String res = await Database().updateName(
+        // uid: FirebaseAuth.instance.currentUser!.uid,
+        fullName: firstNameController.text,
+        lastName: lastNameController.text);
+    if (res == 'success') {
+      Navigator.pushNamed(context, onBoardingDateOfBirthScreenRoute);
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(res),
+        ),
+      );
+    }
   }
 }
