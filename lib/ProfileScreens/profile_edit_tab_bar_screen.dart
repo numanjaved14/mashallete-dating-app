@@ -26,6 +26,8 @@ class _ProfileEditTabBarScreenState extends State<ProfileEditTabBarScreen>
   var utils = AppUtils();
   @override
   Widget build(BuildContext context) {
+    final snap =
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     return Scaffold(
         backgroundColor: Colors.white,
         body: Padding(
@@ -51,8 +53,8 @@ class _ProfileEditTabBarScreenState extends State<ProfileEditTabBarScreen>
                         size: 20,
                       ),
                     ),
-                    const Text(
-                      "Usama's Profile",
+                    Text(
+                      "${snap['fullName']}'s Profile",
                       style: TextStyle(
                         fontSize: 19,
                         color: blueColor,
@@ -110,9 +112,13 @@ class _ProfileEditTabBarScreenState extends State<ProfileEditTabBarScreen>
               Expanded(
                 child: TabBarView(
                   controller: _controller,
-                  children: const [
-                    EditProfileScreen(),
-                    PreviewEditProfileScreen(),
+                  children: [
+                    EditProfileScreen(
+                      snap: snap,
+                    ),
+                    PreviewEditProfileScreen(
+                      snap: snap,
+                    ),
                   ],
                 ),
               ),

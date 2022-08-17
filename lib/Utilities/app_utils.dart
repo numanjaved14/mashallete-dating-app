@@ -979,7 +979,7 @@ class AppUtils {
     );
   }
 
-  addPhotosWidget({onTap, enabled, width}) {
+  addPhotosWidget({onTap, enabled, width, image}) {
     return GestureDetector(
       onTap: onTap,
       child: width > 415
@@ -1960,7 +1960,7 @@ class AppUtils {
         borderRadius: BorderRadius.circular(20.0),
         color: Colors.red,
         image: DecorationImage(
-          image: AssetImage(
+          image: NetworkImage(
             image,
           ),
           fit: BoxFit.cover,
@@ -1977,9 +1977,7 @@ class AppUtils {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         image: DecorationImage(
-          image: AssetImage(
-            image,
-          ),
+          image: NetworkImage(image),
           fit: BoxFit.cover,
         ),
       ),

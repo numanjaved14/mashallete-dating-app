@@ -19,6 +19,7 @@ import 'package:dating_app/ProfileScreens/profile_screen.dart';
 import 'package:dating_app/ProfileScreens/prompt_answer_screen.dart';
 import 'package:dating_app/ProfileScreens/prompt_questions_screen.dart';
 import 'package:dating_app/image_upload_test.dart';
+import 'package:dating_app/test_crop.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -86,7 +87,7 @@ class _MyAppState extends State<MyApp> {
       title: 'MashaLatte',
       debugShowCheckedModeBanner: false,
       initialRoute: splashRoute,
-      // initialRoute: 'testRoute',
+      // home: CropScreen(),
       onGenerateRoute: (settings) {
         switch (settings.name) {
           case helpAndSupportScreenRoute:

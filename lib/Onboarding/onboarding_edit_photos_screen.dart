@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:image_crop/image_crop.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../Constants/app_constants.dart';
@@ -19,6 +20,20 @@ class _EditPhotosScreenState extends State<EditPhotosScreen> {
   final picker = ImagePicker();
   XFile? _image;
   List<bool> enabled = [false, false, false, false, false, false];
+
+  // Crop Image
+  final cropKey = GlobalKey<CropState>();
+  File? _file;
+  File? _sample;
+  File? _lastCropped;
+
+  @override
+  void dispose() {
+    super.dispose();
+    _file?.delete();
+    _sample?.delete();
+    _lastCropped?.delete();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -66,47 +81,65 @@ class _EditPhotosScreenState extends State<EditPhotosScreen> {
               const SizedBox(
                 height: 20,
               ),
-              SizedBox(
-                width: 400,
-                height: 400,
-                child: Stack(
-                  children: [
-                    Container(
-                      width: 400,
-                      height: 400,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        image: DecorationImage(
-                            // image: _image != null ? MemoryImage(_image!) : Container(),
-                            image: AssetImage(
-                              "assets/background.png",
+              InkWell(
+                onTap: () => _openImage(),
+                child: SizedBox(
+                  width: 400,
+                  height: 400,
+                  child: _sample != null
+                      ? Crop.file(_sample!, key: cropKey)
+                      : Stack(
+                          children: [
+                            Container(
+                              width: 400,
+                              height: 400,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                image: DecorationImage(
+                                    image: AssetImage(
+                                      "assets/background.png",
+                                    ),
+                                    fit: BoxFit.cover),
+                              ),
                             ),
-                            fit: BoxFit.cover),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 400,
-                      height: 400,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Container(width: 400, height: 1, color: Colors.white),
-                          Container(width: 400, height: 1, color: Colors.white),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      width: 400,
-                      height: 400,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Container(height: 400, width: 1, color: Colors.white),
-                          Container(height: 400, width: 1, color: Colors.white),
-                        ],
-                      ),
-                    ),
-                  ],
+                            SizedBox(
+                              width: 400,
+                              height: 400,
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Container(
+                                      width: 400,
+                                      height: 1,
+                                      color: Colors.white),
+                                  Container(
+                                      width: 400,
+                                      height: 1,
+                                      color: Colors.white),
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              width: 400,
+                              height: 400,
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Container(
+                                      height: 400,
+                                      width: 1,
+                                      color: Colors.white),
+                                  Container(
+                                      height: 400,
+                                      width: 1,
+                                      color: Colors.white),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
                 ),
               ),
               SizedBox(
@@ -123,7 +156,7 @@ class _EditPhotosScreenState extends State<EditPhotosScreen> {
                 text: "Done",
                 fontWeight: FontWeight.w900,
                 onTap: () {
-                  Navigator.pop(context);
+                  Navigator.pop(context, _sample);
                 },
               ),
               const SizedBox(
@@ -136,34 +169,49 @@ class _EditPhotosScreenState extends State<EditPhotosScreen> {
     );
   }
 
-  chooseImage() async {
-    final pickedFile = await pickImage(ImageSource.gallery);
+  Future<void> _openImage() async {
+    final pickedFile =
+        await ImagePicker().getImage(source: ImageSource.gallery);
+    final file = File(pickedFile!.path);
+    final sample = await ImageCrop.sampleImage(
+      file: file,
+      preferredSize: context.size!.longestSide.ceil(),
+    );
+
+    _sample?.delete();
+    _file?.delete();
+
     setState(() {
-      _image = pickedFile!;
+      _sample = sample;
+      _file = file;
     });
-    // if (pickedFile!.path == null) retrieveLostData();
   }
 
-  pickImage(ImageSource source) async {
-    final ImagePicker _imagePicker = ImagePicker();
-    XFile? _file = await _imagePicker.pickImage(source: source);
-    if (_file != null) {
-      return await _file.readAsBytes();
+  Future<void> _cropImage() async {
+    final scale = cropKey.currentState!.scale;
+    final area = cropKey.currentState!.area;
+    if (area == null) {
+      // cannot crop, widget is not setup
+      return;
     }
-    print('No Image Selected');
-  }
 
-  // Future<void> retrieveLostData() async {
-  //   final LostDataResponse response = await picker.retrieveLostData();
-  //   if (response.isEmpty) {
-  //     return;
-  //   }
-  //   if (response.file != null) {
-  //     setState(() {
-  //       _image.add(File(response.file!.path));
-  //     });
-  //   } else {
-  //     print(response.file);
-  //   }
-  // }
+    // scale up to use maximum possible number of pixels
+    // this will sample image in higher resolution to make cropped image larger
+    final sample = await ImageCrop.sampleImage(
+      file: _file!,
+      preferredSize: (2000 / scale).round(),
+    );
+
+    final file = await ImageCrop.cropImage(
+      file: sample,
+      area: area,
+    );
+
+    sample.delete();
+
+    _lastCropped?.delete();
+    _lastCropped = file;
+
+    debugPrint('$file');
+  }
 }

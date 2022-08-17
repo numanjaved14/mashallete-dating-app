@@ -3,7 +3,11 @@ import 'package:flutter/material.dart';
 import '../Utilities/app_utils.dart';
 
 class PreviewEditProfileScreen extends StatefulWidget {
-  const PreviewEditProfileScreen({Key? key}) : super(key: key);
+  var snap;
+  PreviewEditProfileScreen({
+    Key? key,
+    snap,
+  }) : super(key: key);
 
   @override
   State<PreviewEditProfileScreen> createState() =>
@@ -46,9 +50,9 @@ class _PreviewEditProfileScreenState extends State<PreviewEditProfileScreen> {
               height: 20,
             ),
             utils.imageBigHomeContainer(
-              image: "assets/background.png",
+              image: widget.snap['profilePhotoURL'],
               top: true,
-              name: "Usama Majid",
+              name: widget.snap['fullName'],
               age: 21,
               profession: "Software Developer",
               country: "Pakistani",
@@ -102,7 +106,9 @@ class _PreviewEditProfileScreenState extends State<PreviewEditProfileScreen> {
               height: 15,
             ),
             utils.imageBigContainer(
-                image: "assets/background.png", top: false, bottom: false),
+                image: widget.snap['profilePhotoURL'],
+                top: false,
+                bottom: false),
             const SizedBox(
               height: 40,
             ),
@@ -175,7 +181,9 @@ class _PreviewEditProfileScreenState extends State<PreviewEditProfileScreen> {
               height: 30,
             ),
             utils.imageBigContainer(
-                image: "assets/background.png", top: false, bottom: false),
+                image: widget.snap['profilePhotoURL'],
+                top: false,
+                bottom: false),
             const SizedBox(
               height: 20,
             ),

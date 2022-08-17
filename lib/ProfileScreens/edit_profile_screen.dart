@@ -4,7 +4,11 @@ import 'package:flutter/material.dart';
 import '../Constants/app_constants.dart';
 
 class EditProfileScreen extends StatefulWidget {
-  const EditProfileScreen({Key? key}) : super(key: key);
+  var snap;
+  EditProfileScreen({
+    Key? key,
+    this.snap,
+  }) : super(key: key);
 
   @override
   State<EditProfileScreen> createState() => _EditProfileScreenState();
@@ -36,6 +40,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               alignment: Alignment.centerLeft,
               child: Text(
                 "PHOTOS & VIDEOS",
+                // widget.snap['fullName'],
                 style: utils.extraSmallHeadingTextStyle(color: Colors.grey),
               ),
             ),
@@ -48,12 +53,39 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 alignment: Alignment.center,
                 child: Wrap(
                   children: [
-                    for (int i = 0; i < 6; i++)
-                      utils.addPhotosHomeWidget(
-                        width: width,
-                        onTap: () {},
-                        enabled: true,
+                    SizedBox(
+                      height: 350,
+                      width: MediaQuery.of(context).size.width,
+                      child: Stack(
+                        children: [
+                          Container(
+                            padding: EdgeInsets.all(4),
+                            child: GridView.builder(
+                                itemCount: widget.snap['photoURL'].length,
+                                gridDelegate:
+                                    SliverGridDelegateWithFixedCrossAxisCount(
+                                        crossAxisCount: 3),
+                                itemBuilder: (context, index) {
+                                  return Container(
+                                    margin: EdgeInsets.all(3),
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(20),
+                                        image: DecorationImage(
+                                            image: NetworkImage(
+                                                widget.snap['photoURL'][index]),
+                                            fit: BoxFit.cover)),
+                                  );
+                                }),
+                          ),
+                        ],
                       ),
+                    ),
+                    // for (int i = 0; i < 6; i++)
+                    //   utils.addPhotosHomeWidget(
+                    //     width: width,
+                    //     onTap: () {},
+                    //     enabled: true,
+                    //   ),
                   ],
                 ),
               ),
@@ -135,7 +167,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 style: utils.extraSmallHeadingTextStyle(color: Colors.grey),
               ),
             ),
-            utils.editProfileWidget(title: "Full Name", body: "Aadil Nazir"),
+            utils.editProfileWidget(
+                title: "Full Name",
+                body: "${widget.snap['fullName']} ${widget.snap['lastName']}"),
             utils.line(),
             utils.editProfileWidget(
                 onTap: () {
@@ -145,7 +179,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 body: "Not filled out yet",
                 isColorBlue: true),
             utils.line(),
-            utils.editProfileWidget(title: "Gender", body: "Male"),
+            utils.editProfileWidget(
+                title: "Gender", body: "${widget.snap['gender']}"),
             utils.line(),
             utils.editProfileWidget(
                 title: "Children",
@@ -162,7 +197,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 }),
             utils.line(),
             utils.editProfileWidget(
-                title: "Religiousness", body: "Very Religious"),
+                title: "Religiousness", body: "${widget.snap['religion']}"),
             utils.line(),
             utils.editProfileWidget(
                 onTap: () {
