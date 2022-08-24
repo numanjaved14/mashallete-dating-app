@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../Constants/app_constants.dart';
+import '../Database/firebasedatabase.dart';
 import '../Utilities/app_utils.dart';
 
 class WillingToRelocateScreen extends StatefulWidget {
@@ -171,7 +172,7 @@ class _WillingToRelocateScreenState extends State<WillingToRelocateScreen> {
                   onTap: selected == 0
                       ? () {}
                       : () {
-                          Navigator.pop(context);
+                          addData();
                           setState(() {});
                         },
                   width: MediaQuery.of(context).size.width * 0.35,
@@ -193,5 +194,25 @@ class _WillingToRelocateScreenState extends State<WillingToRelocateScreen> {
         ),
       ),
     );
+  }
+
+  void addData() async {
+    String res = await Database().updateData(
+      key: 'willingRelocate',
+      value: selected == 1
+          ? 'Yes'
+          : selected == 2
+              ? 'No'
+              : 'Maybe',
+    );
+    if (res == 'success') {
+      Navigator.pop(context);
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(res),
+        ),
+      );
+    }
   }
 }

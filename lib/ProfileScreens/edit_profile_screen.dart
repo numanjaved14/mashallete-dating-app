@@ -103,14 +103,18 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             utils.editProfileWidget(
               title: "Tagline",
               margin: 0.0,
-              body: "I have passion for art and I am looking to meet...",
+              body: widget.snap['tagline'] == ''
+                  ? "I have passion for art and I am looking to meet..."
+                  : widget.snap['tagline'],
               onTap: () {
                 Navigator.pushNamed(context, editTaglineScreenRoute);
               },
             ),
             utils.editProfileWidget(
               title: "About Me",
-              body: "I have passion for art and I am looking to meet...",
+              body: widget.snap['aboutMe'] == ''
+                  ? "I have passion for art and I am looking to meet..."
+                  : widget.snap['aboutMe'],
               margin: 0.0,
               onTap: () {
                 Navigator.pushNamed(context, aboutMeEditScreenRoute);
@@ -118,10 +122,13 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             ),
             utils.editProfileWidget(
                 title: "Interests",
-                body: "Acting, Art Galleries, Hockey",
+                body: widget.snap['likes'] == []
+                    ? "Acting, Art Galleries, Hockey"
+                    : '${widget.snap['likes'][0]}, ${widget.snap['likes'][1]}, ${widget.snap['likes'][2]}...',
                 margin: 0.0,
                 onTap: () {
-                  Navigator.pushNamed(context, editInterestScreenRoute);
+                  Navigator.pushNamed(context, editInterestScreenRoute,
+                      arguments: widget.snap['likesIndex`']);
                 }),
             const SizedBox(
               height: 30,
@@ -176,7 +183,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   Navigator.pushNamed(context, heightScreenRoute);
                 },
                 title: "Height",
-                body: "Not filled out yet",
+                body: widget.snap['heightFeet'] == ''
+                    ? "Not filled out yet"
+                    : '${widget.snap['heightFeet']}\' ${widget.snap['heightInch']}\'\'',
                 isColorBlue: true),
             utils.line(),
             utils.editProfileWidget(
@@ -184,7 +193,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             utils.line(),
             utils.editProfileWidget(
                 title: "Children",
-                body: "Don't have any",
+                body: widget.snap['haveChildren'] == ''
+                    ? "Don't have any"
+                    : widget.snap['haveChildren'],
                 onTap: () {
                   Navigator.pushNamed(context, haveChildrenScreenRoute);
                 }),

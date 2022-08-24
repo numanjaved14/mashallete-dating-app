@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../Constants/app_constants.dart';
+import '../Database/firebasedatabase.dart';
 import '../Utilities/app_utils.dart';
 
 class AboutMeEditScreen extends StatefulWidget {
@@ -12,6 +13,14 @@ class AboutMeEditScreen extends StatefulWidget {
 
 class _AboutMeEditScreenState extends State<AboutMeEditScreen> {
   var utils = AppUtils();
+  TextEditingController _aboutmeController = TextEditingController();
+
+  @override
+  void dispose() {
+    _aboutmeController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +55,7 @@ class _AboutMeEditScreenState extends State<AboutMeEditScreen> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.pop(context);
+                    addData();
                   },
                   child: Text(
                     "Done",
@@ -58,9 +67,10 @@ class _AboutMeEditScreenState extends State<AboutMeEditScreen> {
             const SizedBox(
               height: 30,
             ),
-            const TextField(
+            TextField(
+              controller: _aboutmeController,
               maxLines: 20,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText:
                     "Write more about yourself and what you're looking for...",
                 border: InputBorder.none,
@@ -70,5 +80,21 @@ class _AboutMeEditScreenState extends State<AboutMeEditScreen> {
         ),
       ),
     );
+  }
+
+  void addData() async {
+    String res = await Database().updateData(
+      key: 'aboutMe',
+      value: _aboutmeController.text,
+    );
+    if (res == 'success') {
+      Navigator.pop(context);
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(res),
+        ),
+      );
+    }
   }
 }

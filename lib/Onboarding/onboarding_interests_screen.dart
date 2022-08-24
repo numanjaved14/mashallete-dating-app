@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../Constants/app_constants.dart';
+import '../Database/firebasedatabase.dart';
 import '../Utilities/app_utils.dart';
 
 class OnBoardingInterestsScreen extends StatefulWidget {
@@ -332,8 +333,7 @@ class _OnBoardingInterestsScreenState extends State<OnBoardingInterestsScreen> {
                       onTap: selected1.where((item) => item == true).isEmpty
                           ? () {}
                           : () {
-                              Navigator.pushNamed(
-                                  context, onBoardingLookingGoodScreenRoute);
+                              addData();
                             },
                       width: MediaQuery.of(context).size.width * 0.35,
                       text:
@@ -359,5 +359,31 @@ class _OnBoardingInterestsScreenState extends State<OnBoardingInterestsScreen> {
         ],
       ),
     );
+  }
+
+  void addData() async {
+    List<String> selectedValue = [];
+    for (int i = 0; i <= selected1.length - 1; i++) {
+      if (selected1[i] == true) {
+        selectedValue.add(arts[i]);
+      }
+    }
+    String res = await Database().updateList(
+      key: 'likes',
+      value: selectedValue,
+    );
+    res = await Database().updateList(
+      key: 'likesIndex',
+      value: selected1,
+    );
+    if (res == 'success') {
+      Navigator.pushNamed(context, onBoardingLookingGoodScreenRoute);
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(res),
+        ),
+      );
+    }
   }
 }

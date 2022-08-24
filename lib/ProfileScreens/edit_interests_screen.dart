@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 
 import '../Constants/app_constants.dart';
+import '../Database/firebasedatabase.dart';
 import '../Utilities/app_utils.dart';
 
 class EditInterestScreen extends StatefulWidget {
-  const EditInterestScreen({Key? key}) : super(key: key);
+  const EditInterestScreen({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<EditInterestScreen> createState() => _EditInterestScreenState();
@@ -188,14 +191,19 @@ class _EditInterestScreenState extends State<EditInterestScreen> {
 
   @override
   void initState() {
-    for (int i = 0; i < arts.length; i++) {
-      selected1.add(false);
-    }
+    // for (int i = 0; i < arts.length; i++) {
+    //   selected1.add(false);
+    // }
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    final selectedIndex =
+        (ModalRoute.of(context)?.settings.arguments ?? <bool>[]) as List;
+
+    selected1 = selectedIndex;
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -228,7 +236,7 @@ class _EditInterestScreenState extends State<EditInterestScreen> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.pop(context);
+                      addData();
                     },
                     child: Text(
                       "Done(${selected1.where((item) => item == true).length})",
@@ -279,5 +287,31 @@ class _EditInterestScreenState extends State<EditInterestScreen> {
         ),
       ),
     );
+  }
+
+  void addData() async {
+    List<String> selectedValue = [];
+    for (int i = 0; i <= selected1.length - 1; i++) {
+      if (selected1[i] == true) {
+        selectedValue.add(arts[i]);
+      }
+    }
+    String res = await Database().updateList(
+      key: 'likes',
+      value: selectedValue,
+    );
+    res = await Database().updateList(
+      key: 'likesIndex',
+      value: selected1,
+    );
+    if (res == 'success') {
+      Navigator.pop(context);
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(res),
+        ),
+      );
+    }
   }
 }

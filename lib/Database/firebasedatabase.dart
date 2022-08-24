@@ -16,7 +16,21 @@ class Database {
         gender: '',
         fullName: '',
         uid: FirebaseAuth.instance.currentUser!.uid,
-        lastname: '',
+        aboutMe: '',
+        alcohol: '',
+        education: '',
+        everBeenMarried: '',
+        haveChildren: '',
+        heightFeet: '',
+        heigthInch: '',
+        languages: [],
+        likesIndex: [],
+        profession: '',
+        smoking: '',
+        tagline: '',
+        wantKids: '',
+        willingRelocate: '',
+        lastName: '',
         dob: '',
         likes: [],
         phoneNumber: FirebaseAuth.instance.currentUser!.phoneNumber.toString(),
@@ -29,7 +43,7 @@ class Database {
           .collection('users')
           .doc(FirebaseAuth.instance.currentUser!.uid)
           .set(
-            userModel.toJson(),
+            userModel.toMap(),
           );
       res = 'success';
       debugPrint(res);

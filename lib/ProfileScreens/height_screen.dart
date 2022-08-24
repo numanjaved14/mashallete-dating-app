@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../Constants/app_constants.dart';
+import '../Database/firebasedatabase.dart';
 import '../Utilities/app_utils.dart';
 
 class HeightScreen extends StatefulWidget {
@@ -11,8 +12,16 @@ class HeightScreen extends StatefulWidget {
 }
 
 class _HeightScreenState extends State<HeightScreen> {
-  var controller = TextEditingController();
+  var _heightFeetcontroller = TextEditingController();
+  var _heightInchcontroller = TextEditingController();
   var utils = AppUtils();
+  @override
+  void dispose() {
+    _heightFeetcontroller.dispose();
+    _heightFeetcontroller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,7 +80,7 @@ class _HeightScreenState extends State<HeightScreen> {
                   keyboardType: TextInputType.number,
                   fontSize: 30.0,
                   bottomPadding: 0.0,
-                  controller: controller,
+                  controller: _heightFeetcontroller,
                   onChanged: (val) {
                     setState(() {});
                   },
@@ -97,6 +106,7 @@ class _HeightScreenState extends State<HeightScreen> {
                   keyboardType: TextInputType.number,
                   fontSize: 30.0,
                   bottomPadding: 0.0,
+                  controller: _heightInchcontroller,
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 8.0),
@@ -126,10 +136,10 @@ class _HeightScreenState extends State<HeightScreen> {
                   ),
                 ),
                 utils.gradientBigButton(
-                  onTap: controller.text.isEmpty
+                  onTap: _heightFeetcontroller.text.isEmpty
                       ? () {}
                       : () {
-                          Navigator.pop(context);
+                          addData();
                           setState(() {});
                         },
                   width: MediaQuery.of(context).size.width * 0.35,
@@ -138,7 +148,7 @@ class _HeightScreenState extends State<HeightScreen> {
                   textColor: Colors.white,
                   borderRadius: 8.0,
                   fontSize: 14.0,
-                  enabled: controller.text.isEmpty ? true : false,
+                  enabled: _heightInchcontroller.text.isEmpty ? true : false,
                   height: 50.0,
                   shadowColors: Colors.white,
                 )
@@ -163,5 +173,26 @@ class _HeightScreenState extends State<HeightScreen> {
         ),
       ),
     );
+  }
+
+  void addData() async {
+    String res = await Database().updateData(
+      key: 'heightFeet',
+      value: _heightFeetcontroller.text,
+    );
+    res = await Database().updateData(
+      key: 'heightInch',
+      value:
+          _heightInchcontroller.text.isEmpty ? '' : _heightInchcontroller.text,
+    );
+    if (res == 'success') {
+      Navigator.pop(context);
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(res),
+        ),
+      );
+    }
   }
 }

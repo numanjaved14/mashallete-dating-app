@@ -1,6 +1,7 @@
 import 'package:dating_app/Constants/app_constants.dart';
 import 'package:flutter/material.dart';
 
+import '../Database/firebasedatabase.dart';
 import '../Utilities/app_utils.dart';
 
 class ProfessionScreen extends StatefulWidget {
@@ -11,7 +12,7 @@ class ProfessionScreen extends StatefulWidget {
 }
 
 class _ProfessionScreenState extends State<ProfessionScreen> {
-  var professionController = TextEditingController();
+  var _professionController = TextEditingController();
   var utils = AppUtils();
   @override
   Widget build(BuildContext context) {
@@ -63,7 +64,7 @@ class _ProfessionScreenState extends State<ProfessionScreen> {
               width: MediaQuery.of(context).size.width * 0.9,
               hintText: "i.e. Business Analyst",
               alignText: TextAlign.left,
-              controller: professionController,
+              controller: _professionController,
               onChanged: (val) {
                 setState(() {});
               },
@@ -102,10 +103,10 @@ class _ProfessionScreenState extends State<ProfessionScreen> {
                   ),
                 ),
                 utils.gradientBigButton(
-                  onTap: professionController.text.isEmpty
+                  onTap: _professionController.text.isEmpty
                       ? () {}
                       : () {
-                          Navigator.pop(context);
+                          addData();
                           setState(() {});
                         },
                   width: MediaQuery.of(context).size.width * 0.35,
@@ -114,7 +115,7 @@ class _ProfessionScreenState extends State<ProfessionScreen> {
                   textColor: Colors.white,
                   borderRadius: 8.0,
                   fontSize: 14.0,
-                  enabled: professionController.text.isEmpty ? true : false,
+                  enabled: _professionController.text.isEmpty ? true : false,
                   height: 50.0,
                   shadowColors: Colors.white,
                 )
@@ -127,5 +128,21 @@ class _ProfessionScreenState extends State<ProfessionScreen> {
         ),
       ),
     );
+  }
+
+  void addData() async {
+    String res = await Database().updateData(
+      key: 'profession',
+      value: _professionController.text,
+    );
+    if (res == 'success') {
+      Navigator.pop(context);
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(res),
+        ),
+      );
+    }
   }
 }

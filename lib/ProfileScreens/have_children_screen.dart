@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../Constants/app_constants.dart';
+import '../Database/firebasedatabase.dart';
 import '../Utilities/app_utils.dart';
 
 class HaveChildrenScreen extends StatefulWidget {
@@ -150,7 +151,7 @@ class _HaveChildrenScreenState extends State<HaveChildrenScreen> {
                   onTap: selected == 0
                       ? () {}
                       : () {
-                          Navigator.pop(context);
+                          addData();
                           setState(() {});
                         },
                   width: MediaQuery.of(context).size.width * 0.35,
@@ -172,5 +173,21 @@ class _HaveChildrenScreenState extends State<HaveChildrenScreen> {
         ),
       ),
     );
+  }
+
+  void addData() async {
+    String res = await Database().updateData(
+      key: 'haveChildren',
+      value: selected == 1 ? 'Yes' : 'No',
+    );
+    if (res == 'success') {
+      Navigator.pop(context);
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(res),
+        ),
+      );
+    }
   }
 }
