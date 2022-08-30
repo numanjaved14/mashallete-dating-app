@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dating_app/Utilities/app_utils.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../Constants/app_constants.dart';
@@ -15,11 +17,19 @@ class _LikedProfilesScreenState extends State<LikedProfilesScreen>
   var utils = AppUtils();
   late TabController _controller;
   var selectedIndex = 0;
+  List<Map<String, dynamic>> likedByUsers = [];
+
   @override
   void initState() {
     super.initState();
     _controller = TabController(length: 2, vsync: this);
   }
+
+  // @override
+  // void dispose() {
+  //   likedByUsers.clear();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -105,55 +115,138 @@ class _LikedProfilesScreenState extends State<LikedProfilesScreen>
                     child: TabBarView(
                   controller: _controller,
                   children: [
-                    SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            width: double.infinity,
-                            child: Wrap(
-                              alignment: WrapAlignment.spaceBetween,
-                              children: [
-                                for (int i = 0; i < 6; i++)
-                                  utils.blurredImageContainer(
-                                    width: width,
-                                    image: "assets/boy.png",
-                                    name: "Aadil,",
-                                    age: "22",
-                                    blurred: i == 0 ? false : true,
-                                  )
-                              ],
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 100,
-                          ),
-                        ],
-                      ),
+                    // SingleChildScrollView(
+                    //   child: Column(
+                    //     children: [
+                    //       SizedBox(
+                    //         width: double.infinity,
+                    //         child: Wrap(
+                    //           alignment: WrapAlignment.spaceBetween,
+                    //           children: [
+                    //             for (int i = 0; i < 6; i++)
+                    //               utils.blurredImageContainer(
+                    //                 width: width,
+                    //                 image: "assets/boy.png",
+                    //                 name: "Aadil,",
+                    //                 age: "22",
+                    //                 blurred: i == 0 ? false : true,
+                    //               )
+                    //           ],
+                    //         ),
+                    //       ),
+                    //       const SizedBox(
+                    //         height: 100,
+                    //       ),
+                    //     ],
+                    //   ),
+                    // ),
+                    SizedBox(
+                      height: double.infinity,
+                      width: double.infinity,
+                      child: StreamBuilder(
+                          stream: FirebaseFirestore.instance
+                              .collection('users')
+                              .doc(FirebaseAuth.instance.currentUser!.uid)
+                              .snapshots(),
+                          builder: (context,
+                              AsyncSnapshot<
+                                      DocumentSnapshot<Map<String, dynamic>>>
+                                  snapshot) {
+                            if (snapshot.hasData) {
+                              Map<String, dynamic> data =
+                                  snapshot.data!.data() as Map<String, dynamic>;
+                              data['likedBy']
+                                  .forEach((uid) => getUserData(uid));
+                              // for (int i = 0; i < data['likedBy'].length; i++) {
+                              //   getUserData(data['likedBy'][i]);
+                              // }
+                              return SingleChildScrollView(
+                                child: Column(
+                                  children: [
+                                    SizedBox(
+                                      width: double.infinity,
+                                      child: Wrap(
+                                        alignment: WrapAlignment.spaceBetween,
+                                        children: [
+                                          for (int i = 0;
+                                              i < likedByUsers.length;
+                                              i++)
+                                            utils.blurredImageContainer(
+                                              width: width,
+                                              image: likedByUsers[i]
+                                                  ['profilePhotoURL'],
+                                              name: likedByUsers[i]['fullName'],
+                                              blurred: false,
+                                              age: "22",
+                                            )
+                                        ],
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      height: 100,
+                                    ),
+                                  ],
+                                ),
+                              );
+                            }
+                            return Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          }),
                     ),
-                    SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            width: double.infinity,
-                            child: Wrap(
-                              alignment: WrapAlignment.spaceBetween,
-                              children: [
-                                for (int i = 0; i < 6; i++)
-                                  utils.blurredImageContainer(
-                                    width: width,
-                                    image: "assets/boy.png",
-                                    name: "Aadil,",
-                                    blurred: false,
-                                    age: "22",
-                                  )
-                              ],
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 100,
-                          ),
-                        ],
-                      ),
+                    SizedBox(
+                      height: double.infinity,
+                      width: double.infinity,
+                      child: StreamBuilder(
+                          stream: FirebaseFirestore.instance
+                              .collection('users')
+                              .doc(FirebaseAuth.instance.currentUser!.uid)
+                              .snapshots(),
+                          builder: (context,
+                              AsyncSnapshot<
+                                      DocumentSnapshot<Map<String, dynamic>>>
+                                  snapshot) {
+                            if (snapshot.hasData) {
+                              Map<String, dynamic> data =
+                                  snapshot.data!.data() as Map<String, dynamic>;
+                              data['likedTo']
+                                  .forEach((uid) => getUserData(uid));
+                              // for (int i = 0; i < data['likedBy'].length; i++) {
+                              //   getUserData(data['likedBy'][i]);
+                              // }
+                              return SingleChildScrollView(
+                                child: Column(
+                                  children: [
+                                    SizedBox(
+                                      width: double.infinity,
+                                      child: Wrap(
+                                        alignment: WrapAlignment.spaceBetween,
+                                        children: [
+                                          for (int i = 0;
+                                              i < likedByUsers.length;
+                                              i++)
+                                            utils.blurredImageContainer(
+                                              width: width,
+                                              image: likedByUsers[i]
+                                                  ['profilePhotoURL'],
+                                              name: likedByUsers[i]['fullName'],
+                                              blurred: false,
+                                              age: "22",
+                                            )
+                                        ],
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      height: 100,
+                                    ),
+                                  ],
+                                ),
+                              );
+                            }
+                            return Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          }),
                     ),
                   ],
                 ))
@@ -245,5 +338,16 @@ class _LikedProfilesScreenState extends State<LikedProfilesScreen>
         ],
       ),
     );
+  }
+
+  void getUserData(String uid) async {
+    var userSnap =
+        await FirebaseFirestore.instance.collection('users').doc(uid).get();
+    Map<String, dynamic> userData = userSnap.data()!;
+    likedByUsers.add(userData);
+    debugPrint(likedByUsers.toString());
+    // setState(() {
+    //   likedByUsers;
+    // });
   }
 }

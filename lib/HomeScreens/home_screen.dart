@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dating_app/Constants/app_constants.dart';
+import 'package:dating_app/Database/firebasedatabase.dart';
 import 'package:dating_app/Utilities/app_utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -119,11 +120,15 @@ class _HomeScreenState extends State<HomeScreen> {
                               Stack(
                                 children: [
                                   utils.imageBigHomeContainer(
-                                    image: "assets/background.png",
+                                    image: snapshot.data!.docs[index]
+                                        ['profilePhotoURL'],
                                     top: true,
-                                    name: "Usama Majid",
+                                    name: snapshot.data!.docs[index]['fullName']
+                                        .toString(),
                                     age: 21,
-                                    profession: "Software Developer",
+                                    profession: snapshot
+                                        .data!.docs[index]['profession']
+                                        .toString(),
                                     country: "Pakistani",
                                     flagImage: "assets/pakistan.png",
                                   ),
@@ -155,7 +160,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               Align(
                                 alignment: Alignment.centerLeft,
                                 child: Text(
-                                  "Always live life to the fullest.",
+                                  snapshot.data!.docs[index]['tagline']
+                                      .toString(),
                                   style: utils.largeHeadingTextStyle(),
                                 ),
                               ),
@@ -183,16 +189,20 @@ class _HomeScreenState extends State<HomeScreen> {
                                   alignment: WrapAlignment.start,
                                   children: [
                                     utils.homeWidget(
-                                        name: "5'6", image: "assets/ruler.png"),
+                                        name:
+                                            "${snapshot.data!.docs[index]['heightFeet']}'${snapshot.data!.docs[index]['heigthInch']}",
+                                        image: "assets/ruler.png"),
                                     utils.homeWidget(
                                         name:
-                                            "Bachelors at University of Chicago",
+                                            "${snapshot.data!.docs[index]['education']}",
                                         image: "assets/graduateHat.png"),
                                     utils.homeWidget(
-                                        name: "Los Angeles, CA",
+                                        name:
+                                            "${snapshot.data!.docs[index]['location']}",
                                         image: "assets/infoHome.png"),
                                     utils.homeWidget(
-                                        name: "Developer",
+                                        name:
+                                            "${snapshot.data!.docs[index]['profession']}",
                                         image: "assets/profession.png"),
                                   ],
                                 ),
@@ -201,7 +211,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 height: 15,
                               ),
                               utils.imageBigContainer(
-                                  image: "assets/background.png",
+                                  image: snapshot.data!.docs[index]['photoURL']
+                                      [0],
                                   top: false,
                                   bottom: false),
                               const SizedBox(
@@ -227,30 +238,80 @@ class _HomeScreenState extends State<HomeScreen> {
                                 child: Wrap(
                                   alignment: WrapAlignment.start,
                                   children: [
+                                    // snapshot.data!.docs[index]['likes'].forEach(
+                                    //   (likes) => utils.infoInterestWidget(
+                                    //     name: likes,
+                                    //   ),
+                                    // ),
                                     utils.infoInterestWidget(
-                                      name: "Art Galleries",
+                                      name: snapshot.data!.docs[index]['likes']
+                                          [0],
                                       image: "assets/art.png",
                                     ),
                                     utils.infoInterestWidget(
-                                      name: "Movies",
-                                      image: "assets/infoVideoCamera.png",
+                                      name: snapshot.data!.docs[index]['likes']
+                                          [1],
+                                      image: "assets/art.png",
                                     ),
                                     utils.infoInterestWidget(
-                                      name: "Music",
-                                      image: "assets/musicNote.png",
+                                      name: snapshot.data!.docs[index]['likes']
+                                          [2],
+                                      image: "assets/art.png",
                                     ),
                                     utils.infoInterestWidget(
-                                      name: "Gaming",
-                                      image: "assets/console.png",
+                                      name: snapshot.data!.docs[index]['likes']
+                                          [3],
+                                      image: "assets/art.png",
                                     ),
                                     utils.infoInterestWidget(
-                                      name: "Photography",
-                                      image: "assets/infoCamera.png",
+                                      name: snapshot.data!.docs[index]['likes']
+                                          [4],
+                                      image: "assets/art.png",
                                     ),
                                     utils.infoInterestWidget(
-                                      name: "History",
-                                      image: "assets/historyBook.png",
+                                      name: snapshot.data!.docs[index]['likes']
+                                          [5],
+                                      image: "assets/art.png",
                                     ),
+                                    utils.infoInterestWidget(
+                                      name: snapshot.data!.docs[index]['likes']
+                                          [6],
+                                      image: "assets/art.png",
+                                    ),
+                                    utils.infoInterestWidget(
+                                      name: snapshot.data!.docs[index]['likes']
+                                          [7],
+                                      image: "assets/art.png",
+                                    ),
+                                    utils.infoInterestWidget(
+                                      name: snapshot.data!.docs[index]['likes']
+                                          [8],
+                                      image: "assets/art.png",
+                                    ),
+                                    utils.infoInterestWidget(
+                                      name: snapshot.data!.docs[index]['likes']
+                                          [9],
+                                      image: "assets/art.png",
+                                    ), // utils.infoInterestWidget(
+                                    //   name: "Movies",
+                                    //   image: "assets/infoVideoCamera.png",
+                                    // ),
+                                    // utils.infoInterestWidget(
+                                    //   name: "Music",
+                                    //   image: "assets/musicNote.png",
+                                    // ),
+                                    // utils.infoInterestWidget(
+                                    //   name: "Gaming",
+                                    //   image: "assets/console.png",
+                                    // ),
+                                    // utils.infoInterestWidget(
+                                    //   name: "Photography",
+                                    //   image: "assets/infoCamera.png",
+                                    // ),
+                                    // utils.infoInterestWidget(
+                                    //   name: "History",
+                                    //   image: "assets/historyBook.png",
+                                    // ),
                                   ],
                                 ),
                               ),
@@ -264,9 +325,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                 height: 20,
                               ),
                               utils.promptTitleWidget(
-                                  promptTitle: "About Sana",
-                                  promptBody:
-                                      "Hey there, I'm out here looking for my soulmate! \n \nI love being outdoors and I love history. \n \nI don't want to give away everything so don't be afraid to start a conversation."),
+                                  promptTitle:
+                                      "About ${snapshot.data!.docs[index]['fullName']}",
+                                  promptBody: snapshot
+                                      .data!.docs[index]['aboutMe']
+                                      .toString()),
                               const SizedBox(
                                 height: 30,
                               ),
@@ -277,7 +340,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 height: 30,
                               ),
                               utils.imageBigContainer(
-                                  image: "assets/background.png",
+                                  image: snapshot.data!.docs[index]['photoURL']
+                                      [1],
                                   top: false,
                                   bottom: false),
                               const SizedBox(
@@ -316,25 +380,33 @@ class _HomeScreenState extends State<HomeScreen> {
                                           ),
                                         ),
                                       ),
-                                      Container(
-                                        width: 70,
-                                        height: 70,
-                                        decoration: BoxDecoration(
-                                          color: blueColor,
-                                          boxShadow: [
-                                            BoxShadow(
-                                                color: Colors.grey
-                                                    .withOpacity(0.4),
-                                                offset: const Offset(0, 1),
-                                                blurRadius: 6),
-                                          ],
-                                          shape: BoxShape.circle,
+                                      InkWell(
+                                        onTap: () => Database().likeProfile(
+                                          snapshot.data!.docs[index]['uid'],
+                                          FirebaseAuth
+                                              .instance.currentUser!.uid,
+                                          snapshot.data!.docs[index]['likedBy'],
                                         ),
-                                        child: const Center(
-                                          child: Icon(
-                                            CupertinoIcons.heart_fill,
-                                            color: Colors.white,
-                                            size: 40,
+                                        child: Container(
+                                          width: 70,
+                                          height: 70,
+                                          decoration: BoxDecoration(
+                                            color: blueColor,
+                                            boxShadow: [
+                                              BoxShadow(
+                                                  color: Colors.grey
+                                                      .withOpacity(0.4),
+                                                  offset: const Offset(0, 1),
+                                                  blurRadius: 6),
+                                            ],
+                                            shape: BoxShape.circle,
+                                          ),
+                                          child: const Center(
+                                            child: Icon(
+                                              CupertinoIcons.heart_fill,
+                                              color: Colors.white,
+                                              size: 40,
+                                            ),
                                           ),
                                         ),
                                       ),

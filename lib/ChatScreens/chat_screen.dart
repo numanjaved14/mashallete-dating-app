@@ -1,5 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dating_app/ChatScreens/chatpage.dart';
 import 'package:dating_app/Constants/app_constants.dart';
 import 'package:dating_app/Utilities/app_utils.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class ChatScreen extends StatefulWidget {
@@ -11,6 +14,8 @@ class ChatScreen extends StatefulWidget {
 
 class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
   var utils = AppUtils();
+
+  List<Map<String, dynamic>> likedByUsers = [];
 
   late TabController _controller;
   var selectedIndex = 0;
@@ -160,98 +165,149 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
                   controller: _controller,
                   children: [
                     SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.pushNamed(
-                                  context, likedProfilesScreenRoute);
-                            },
-                            child: Container(
-                              width: MediaQuery.of(context).size.width * 0.9,
-                              height: 100,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10.0),
-                                border: Border.all(
-                                  color: blueColor,
-                                  width: 0.5,
-                                ),
-                              ),
-                              child: Row(
-                                children: [
-                                  const SizedBox(
-                                    width: 10,
-                                  ),
-                                  Image.asset(
-                                    "assets/heartCircle.png",
-                                    scale: 3,
-                                  ),
-                                  const SizedBox(
-                                    width: 10,
-                                  ),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        "You have 2 likes!",
-                                        style: utils.mediumTitleTextStyle(),
-                                      ),
-                                      const SizedBox(
-                                        height: 5,
-                                      ),
-                                      Text(
-                                        "Like them back to start a conversation!",
-                                        style: utils.smallTitleTextStyle(
-                                            color: blueColor),
-                                      ),
-                                    ],
-                                  )
-                                ],
+                        child: Column(
+                      children: [
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(
+                                context, likedProfilesScreenRoute);
+                          },
+                          child: Container(
+                            width: MediaQuery.of(context).size.width * 0.9,
+                            height: 100,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10.0),
+                              border: Border.all(
+                                color: blueColor,
+                                width: 0.5,
                               ),
                             ),
+                            child: Row(
+                              children: [
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                Image.asset(
+                                  "assets/heartCircle.png",
+                                  scale: 3,
+                                ),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      "You have 2 likes!",
+                                      style: utils.mediumTitleTextStyle(),
+                                    ),
+                                    const SizedBox(
+                                      height: 5,
+                                    ),
+                                    Text(
+                                      "Like them back to start a conversation!",
+                                      style: utils.smallTitleTextStyle(
+                                          color: blueColor),
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
                           ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          utils.newChatWidget(
-                              image: "assets/boy.png",
-                              lastMessage: "Start the conversation",
-                              textColor: Colors.white,
-                              senderName: "Usama",
-                              time: "12:20",
-                              messageTextColor: blueColor,
-                              color: darkRedColor,
-                              onTap: () {
-                                Navigator.pushNamed(
-                                    context, chatBoxScreenRoute);
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        SizedBox(
+                          height: 400,
+                          width: double.infinity,
+                          child: StreamBuilder(
+                              stream: FirebaseFirestore.instance
+                                  .collection('users')
+                                  .doc(FirebaseAuth.instance.currentUser!.uid)
+                                  .snapshots(),
+                              builder: (context,
+                                  AsyncSnapshot<
+                                          DocumentSnapshot<
+                                              Map<String, dynamic>>>
+                                      snapshot) {
+                                if (snapshot.hasData) {
+                                  Map<String, dynamic> data = snapshot.data!
+                                      .data() as Map<String, dynamic>;
+                                  for (int i = 0;
+                                      i < data['likedTo'].length;
+                                      i++) {
+                                    getUserData(data['likedTo'][i]);
+                                  }
+                                  return ListView.builder(
+                                    itemCount: likedByUsers.length,
+                                    itemBuilder: (context, index) {
+                                      return utils.newChatWidget(
+                                          image: "assets/boy.png",
+                                          lastMessage: "Start the conversation",
+                                          textColor: Colors.white,
+                                          senderName: likedByUsers[index]
+                                              ['fullName'],
+                                          time: "12:20",
+                                          messageTextColor: blueColor,
+                                          color: darkRedColor,
+                                          onTap: () {
+                                            Navigator.of(context).push(
+                                              MaterialPageRoute(
+                                                builder: (context) => ChatPage(
+                                                  receiverName:
+                                                      likedByUsers[index]
+                                                          ['fullName'],
+                                                  receiverId:
+                                                      likedByUsers[index]
+                                                          ['uid'],
+                                                ),
+                                              ),
+                                            );
+                                          });
+                                    },
+                                  );
+                                }
+                                return Center(
+                                  child: CircularProgressIndicator(),
+                                );
                               }),
-                          utils.line(width: double.infinity),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          utils.newChatWidget(
-                              image: "assets/boy.png",
-                              lastMessage: "Start the conversation",
-                              textColor: Colors.white,
-                              senderName: "Usama",
-                              messageTextColor: blueColor,
-                              time: "12:20",
-                              color: darkRedColor,
-                              onTap: () {
-                                Navigator.pushNamed(
-                                    context, chatBoxScreenRoute);
-                              }),
-                          const SizedBox(
-                            height: 30,
-                          ),
-                        ],
-                      ),
-                    ),
+                        ),
+                        utils.newChatWidget(
+                            image: "assets/boy.png",
+                            lastMessage: "Start the conversation",
+                            textColor: Colors.white,
+                            senderName: "Usama",
+                            time: "12:20",
+                            messageTextColor: blueColor,
+                            color: darkRedColor,
+                            onTap: () {
+                              Navigator.pushNamed(context, chatBoxScreenRoute);
+                            }),
+                        utils.line(width: double.infinity),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        utils.newChatWidget(
+                            image: "assets/boy.png",
+                            lastMessage: "Start the conversation",
+                            textColor: Colors.white,
+                            senderName: "Usama",
+                            messageTextColor: blueColor,
+                            time: "12:20",
+                            color: darkRedColor,
+                            onTap: () {
+                              Navigator.pushNamed(context, chatBoxScreenRoute);
+                            }),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                      ],
+                    )),
                     SingleChildScrollView(
                       child: Column(
                         children: [
@@ -445,5 +501,16 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
         ],
       ),
     );
+  }
+
+  void getUserData(String uid) async {
+    var userSnap =
+        await FirebaseFirestore.instance.collection('users').doc(uid).get();
+    Map<String, dynamic> userData = userSnap.data()!;
+    likedByUsers.add(userData);
+    debugPrint(likedByUsers.toString());
+    // setState(() {
+    //   likedByUsers;
+    // });
   }
 }

@@ -2298,7 +2298,7 @@ class AppUtils {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
                     image: DecorationImage(
-                      image: AssetImage(image),
+                      image: NetworkImage(image),
                       fit: BoxFit.cover,
                     )),
               ),
@@ -2449,13 +2449,13 @@ class AppUtils {
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(
-            image,
-            scale: 30,
-          ),
-          const SizedBox(
-            width: 5,
-          ),
+          // Image.asset(
+          //   image,
+          //   scale: 30,
+          // ),
+          // const SizedBox(
+          //   width: 5,
+          // ),
           Text(
             name,
             style: smallTitleTextStyle(color: Colors.black),

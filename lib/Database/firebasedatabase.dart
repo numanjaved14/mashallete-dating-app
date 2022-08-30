@@ -10,6 +10,9 @@ class Database {
     try {
       //Add User to the database with modal
       UserModel userModel = UserModel(
+        likedTo: [],
+        likedBy: [],
+        age: '',
         religion: '',
         ethninity: [],
         lookingfor: '',
@@ -120,6 +123,34 @@ class Database {
     } on FirebaseException catch (e) {
       res = e.toString();
       debugPrint(res);
+    }
+    return res;
+  }
+
+  //Like Profile
+  Future<String> likeProfile(String profileId, String uid, List likes) async {
+    String res = "Some error occurred";
+    try {
+      if (likes.contains(uid)) {
+        // if the likes list contains the user uid, we need to remove it
+        FirebaseFirestore.instance.collection('users').doc(uid).update({
+          'likedTo': FieldValue.arrayRemove([profileId])
+        });
+        FirebaseFirestore.instance.collection('users').doc(profileId).update({
+          'likedBy': FieldValue.arrayRemove([uid])
+        });
+      } else {
+        // else we need to add uid to the likes array
+        FirebaseFirestore.instance.collection('users').doc(uid).update({
+          'likedTo': FieldValue.arrayUnion([profileId])
+        });
+        FirebaseFirestore.instance.collection('users').doc(profileId).update({
+          'likedBy': FieldValue.arrayUnion([uid])
+        });
+      }
+      res = 'success';
+    } catch (err) {
+      res = err.toString();
     }
     return res;
   }
