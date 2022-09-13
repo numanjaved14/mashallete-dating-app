@@ -591,6 +591,10 @@ class _OnBoardingDateOfBirthScreenState
       value:
           "${dayController.text} / ${monthController.text} / ${yearController.text}",
     );
+    res = await Database().updateData(
+      key: 'age',
+      value: "${age}",
+    );
     if (res == 'success') {
       Navigator.pushNamed(context, onBoardingNotificationsScreenRoute);
     } else {

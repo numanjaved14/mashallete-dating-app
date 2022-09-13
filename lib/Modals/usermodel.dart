@@ -28,6 +28,7 @@ class UserModel {
   List<String> likedBy;
   List<String> likedTo;
   String profession;
+  String profilePhotoURL;
   String religion;
   String smoking;
   String tagline;
@@ -60,6 +61,7 @@ class UserModel {
     required this.likedBy,
     required this.likedTo,
     required this.profession,
+    required this.profilePhotoURL,
     required this.religion,
     required this.smoking,
     required this.tagline,
@@ -94,6 +96,7 @@ class UserModel {
     List<String>? likedBy,
     List<String>? likedTo,
     String? profession,
+    String? profilePhotoURL,
     String? religion,
     String? smoking,
     String? tagline,
@@ -127,6 +130,7 @@ class UserModel {
       likedBy: likedBy ?? this.likedBy,
       likedTo: likedTo ?? this.likedTo,
       profession: profession ?? this.profession,
+      profilePhotoURL: profilePhotoURL ?? this.profilePhotoURL,
       religion: religion ?? this.religion,
       smoking: smoking ?? this.smoking,
       tagline: tagline ?? this.tagline,
@@ -163,6 +167,7 @@ class UserModel {
       'likedBy': likedBy,
       'likedTo': likedTo,
       'profession': profession,
+      'profilePhotoURL': profilePhotoURL,
       'religion': religion,
       'smoking': smoking,
       'tagline': tagline,
@@ -199,6 +204,7 @@ class UserModel {
       likedBy: List<String>.from(map['likedBy'] as List<String>),
       likedTo: List<String>.from(map['likedTo'] as List<String>),
       profession: map['profession'] as String,
+      profilePhotoURL: map['profilePhotoURL'] as String,
       religion: map['religion'] as String,
       smoking: map['smoking'] as String,
       tagline: map['tagline'] as String,
@@ -216,7 +222,7 @@ class UserModel {
 
   @override
   String toString() {
-    return 'UserModel(aboutMe: $aboutMe, alcohol: $alcohol, dob: $dob, education: $education, ethninity: $ethninity, everBeenMarried: $everBeenMarried, fullName: $fullName, gender: $gender, haveChildren: $haveChildren, heightFeet: $heightFeet, heigthInch: $heigthInch, languages: $languages, lastName: $lastName, latitude: $latitude, likes: $likes, likesIndex: $likesIndex, location: $location, longitude: $longitude, lookingfor: $lookingfor, phoneNumber: $phoneNumber, photoURL: $photoURL, likedBy: $likedBy, likedTo: $likedTo, profession: $profession, religion: $religion, smoking: $smoking, tagline: $tagline, uid: $uid, wantKids: $wantKids, willingRelocate: $willingRelocate, age: $age)';
+    return 'UserModel(aboutMe: $aboutMe, alcohol: $alcohol, dob: $dob, education: $education, ethninity: $ethninity, everBeenMarried: $everBeenMarried, fullName: $fullName, gender: $gender, haveChildren: $haveChildren, heightFeet: $heightFeet, heigthInch: $heigthInch, languages: $languages, lastName: $lastName, latitude: $latitude, likes: $likes, likesIndex: $likesIndex, location: $location, longitude: $longitude, lookingfor: $lookingfor, phoneNumber: $phoneNumber, photoURL: $photoURL, likedBy: $likedBy, likedTo: $likedTo, profession: $profession, profilePhotoURL: $profilePhotoURL, religion: $religion, smoking: $smoking, tagline: $tagline, uid: $uid, wantKids: $wantKids, willingRelocate: $willingRelocate, age: $age)';
   }
 
   @override
@@ -247,6 +253,7 @@ class UserModel {
         listEquals(other.likedBy, likedBy) &&
         listEquals(other.likedTo, likedTo) &&
         other.profession == profession &&
+        other.profilePhotoURL == profilePhotoURL &&
         other.religion == religion &&
         other.smoking == smoking &&
         other.tagline == tagline &&
@@ -282,6 +289,7 @@ class UserModel {
         likedBy.hashCode ^
         likedTo.hashCode ^
         profession.hashCode ^
+        profilePhotoURL.hashCode ^
         religion.hashCode ^
         smoking.hashCode ^
         tagline.hashCode ^

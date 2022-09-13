@@ -27,6 +27,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  agora_uikit: ^1.0.3
   audio_wave: ^0.1.4
   audio_waveforms: ^0.1.4
   blurrycontainer: ^1.0.2
@@ -41,6 +42,7 @@ dependencies:
   firebase_storage: ^10.3.5
   flutter:
     sdk: flutter
+  flutter_riverpod: ^1.0.4
   form_field_validator: ^1.1.0
   google_fonts: ^3.0.1
   image_crop: ^0.4.1

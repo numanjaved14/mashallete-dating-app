@@ -102,7 +102,7 @@ class _OnBoardingPhoneVerificationScreenState
             Row(
               children: [
                 Text(
-                  "Sent to 5555 5555 5555. ",
+                  "Sent to ${widget.codeDigits} ${widget.phone}. ",
                   style: utils.mediumTitleTextStyle(color: Colors.black),
                 ),
                 GestureDetector(
@@ -144,7 +144,7 @@ class _OnBoardingPhoneVerificationScreenState
                   } catch (e) {
                     FocusScope.of(context).unfocus();
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                      content: Text("Invalide Code"),
+                      content: Text("Invalid Code"),
                       duration: Duration(seconds: 12),
                     ));
                   }

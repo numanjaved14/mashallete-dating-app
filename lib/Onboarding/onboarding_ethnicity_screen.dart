@@ -177,8 +177,7 @@ class _OnBoardingEthnicityScreenState extends State<OnBoardingEthnicityScreen> {
                   onTap: val1 == false && val2 == false && val3 == false
                       ? () {}
                       : () {
-                          Navigator.pushNamed(
-                              context, onBoardingReligiousScreenRoute);
+                          addData();
                         },
                   width: MediaQuery.of(context).size.width * 0.35,
                   text: "Continue",
@@ -208,12 +207,16 @@ class _OnBoardingEthnicityScreenState extends State<OnBoardingEthnicityScreen> {
   }
 
   void addData() async {
+    String v1, v2, v3;
+    v1 = val1 ? 'Pakistani' : '';
+    v2 = val2 ? 'Indian' : '';
+    v3 = val3 ? 'Bengali' : '';
     String res = await Database().updateList(
       key: 'ethninity',
       value: [
-        val1 ? 'Pakistani' : '',
-        val2 ? 'Indian' : '',
-        val3 ? 'Bengali' : '',
+        v1,
+        v2,
+        v3,
       ],
     );
     if (res == 'success') {

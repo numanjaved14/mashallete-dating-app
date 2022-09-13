@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dating_app/Constants/app_constants.dart';
 import 'package:dating_app/Database/firebasedatabase.dart';
@@ -18,16 +16,21 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   late ScrollController _scrollController;
 
-  List arts = [
-    "90s Kid",
-    "Self Care",
-    "Hot Yoga",
-    "Writing",
-    "Meditation",
-  ];
+  // List arts = [
+  //   "90s Kid",
+  //   "Self Care",
+  //   "Hot Yoga",
+  //   "Writing",
+  //   "Meditation",
+  // ];
   var utils = AppUtils();
+  var userData = {};
+  bool _isLoading = false;
+
   @override
   void initState() {
+    getData();
+
     _scrollController = ScrollController()..addListener(() {});
 
     super.initState();
@@ -87,13 +90,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                           context, profileScreenRoute);
                                     },
                                     child: Container(
-                                      decoration: const BoxDecoration(
-                                          image: DecorationImage(
-                                              image: AssetImage(
-                                                "assets/boy.png",
-                                              ),
-                                              fit: BoxFit.cover),
-                                          shape: BoxShape.circle),
+                                      decoration: _isLoading
+                                          ? const BoxDecoration(
+                                              color: Colors.white)
+                                          : BoxDecoration(
+                                              image: DecorationImage(
+                                                  image: NetworkImage(
+                                                    userData['profilePhotoURL'],
+                                                  ),
+                                                  fit: BoxFit.cover),
+                                              shape: BoxShape.circle),
                                       height: 32,
                                       width: 32,
                                     ),
@@ -278,21 +284,22 @@ class _HomeScreenState extends State<HomeScreen> {
                                           [6],
                                       image: "assets/art.png",
                                     ),
-                                    utils.infoInterestWidget(
-                                      name: snapshot.data!.docs[index]['likes']
-                                          [7],
-                                      image: "assets/art.png",
-                                    ),
-                                    utils.infoInterestWidget(
-                                      name: snapshot.data!.docs[index]['likes']
-                                          [8],
-                                      image: "assets/art.png",
-                                    ),
-                                    utils.infoInterestWidget(
-                                      name: snapshot.data!.docs[index]['likes']
-                                          [9],
-                                      image: "assets/art.png",
-                                    ), // utils.infoInterestWidget(
+                                    // utils.infoInterestWidget(
+                                    //   name: snapshot.data!.docs[index]['likes']
+                                    //       [7],
+                                    //   image: "assets/art.png",
+                                    // ),
+                                    // utils.infoInterestWidget(
+                                    //   name: snapshot.data!.docs[index]['likes']
+                                    //       [8],
+                                    //   image: "assets/art.png",
+                                    // ),
+                                    // utils.infoInterestWidget(
+                                    //   name: snapshot.data!.docs[index]['likes']
+                                    //       [9],
+                                    //   image: "assets/art.png",
+                                    // ),
+                                    // utils.infoInterestWidget(
                                     //   name: "Movies",
                                     //   image: "assets/infoVideoCamera.png",
                                     // ),
@@ -461,5 +468,25 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
     );
+  }
+
+  getData() async {
+    setState(() {
+      _isLoading = true;
+    });
+    try {
+      var userSnap = await FirebaseFirestore.instance
+          .collection('users')
+          .doc(FirebaseAuth.instance.currentUser!.uid)
+          .get();
+
+      userData = userSnap.data()!;
+      setState(() {});
+    } on FirebaseException catch (e) {
+      debugPrint(e.toString());
+    }
+    setState(() {
+      _isLoading = false;
+    });
   }
 }

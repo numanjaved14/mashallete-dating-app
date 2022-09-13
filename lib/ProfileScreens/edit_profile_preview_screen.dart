@@ -6,7 +6,7 @@ class PreviewEditProfileScreen extends StatefulWidget {
   var snap;
   PreviewEditProfileScreen({
     Key? key,
-    snap,
+    required this.snap,
   }) : super(key: key);
 
   @override
@@ -54,7 +54,7 @@ class _PreviewEditProfileScreenState extends State<PreviewEditProfileScreen> {
               top: true,
               name: widget.snap['fullName'],
               age: 21,
-              profession: "Software Developer",
+              profession: widget.snap['profession'],
               country: "Pakistani",
               flagImage: "assets/pakistan.png",
             ),
@@ -64,7 +64,7 @@ class _PreviewEditProfileScreenState extends State<PreviewEditProfileScreen> {
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                "Always live life to the fullest.",
+                widget.snap['tagline'],
                 style: utils.largeHeadingTextStyle(),
               ),
             ),
@@ -91,14 +91,19 @@ class _PreviewEditProfileScreenState extends State<PreviewEditProfileScreen> {
               child: Wrap(
                 alignment: WrapAlignment.start,
                 children: [
-                  utils.homeWidget(name: "5'6", image: "assets/ruler.png"),
                   utils.homeWidget(
-                      name: "Bachelors at University of Chicago",
+                      name:
+                          "${widget.snap['heightFeet']}'${widget.snap['heightInch']}",
+                      image: "assets/ruler.png"),
+                  utils.homeWidget(
+                      name: "${widget.snap['education']}",
                       image: "assets/graduateHat.png"),
                   utils.homeWidget(
-                      name: "Los Angeles, CA", image: "assets/infoHome.png"),
+                      name: "${widget.snap['location']}",
+                      image: "assets/infoHome.png"),
                   utils.homeWidget(
-                      name: "Developer", image: "assets/profession.png"),
+                      name: "${widget.snap['profession']}",
+                      image: "assets/profession.png"),
                 ],
               ),
             ),
@@ -106,9 +111,7 @@ class _PreviewEditProfileScreenState extends State<PreviewEditProfileScreen> {
               height: 15,
             ),
             utils.imageBigContainer(
-                image: widget.snap['profilePhotoURL'],
-                top: false,
-                bottom: false),
+                image: widget.snap['photoURL'][0], top: false, bottom: false),
             const SizedBox(
               height: 40,
             ),
@@ -133,27 +136,27 @@ class _PreviewEditProfileScreenState extends State<PreviewEditProfileScreen> {
                 alignment: WrapAlignment.start,
                 children: [
                   utils.infoInterestWidget(
-                    name: "Art Galleries",
+                    name: '${widget.snap['likes'][0]}',
                     image: "assets/art.png",
                   ),
                   utils.infoInterestWidget(
-                    name: "Movies",
+                    name: '${widget.snap['likes'][1]}',
                     image: "assets/infoVideoCamera.png",
                   ),
                   utils.infoInterestWidget(
-                    name: "Music",
+                    name: '${widget.snap['likes'][2]}',
                     image: "assets/musicNote.png",
                   ),
                   utils.infoInterestWidget(
-                    name: "Gaming",
+                    name: '${widget.snap['likes'][3]}',
                     image: "assets/console.png",
                   ),
                   utils.infoInterestWidget(
-                    name: "Photography",
+                    name: '${widget.snap['likes'][4]}',
                     image: "assets/infoCamera.png",
                   ),
                   utils.infoInterestWidget(
-                    name: "History",
+                    name: '${widget.snap['likes'][5]}',
                     image: "assets/historyBook.png",
                   ),
                 ],
@@ -168,9 +171,8 @@ class _PreviewEditProfileScreenState extends State<PreviewEditProfileScreen> {
               height: 20,
             ),
             utils.promptTitleWidget(
-                promptTitle: "About Sana",
-                promptBody:
-                    "Hey there, I'm out here looking for my soulmate! \n \nI love being outdoors and I love history. \n \nI don't want to give away everything so don't be afraid to start a conversation."),
+                promptTitle: "About '${widget.snap['fullName']}'",
+                promptBody: "'${widget.snap['aboutMe']}'"),
             const SizedBox(
               height: 30,
             ),
@@ -181,9 +183,7 @@ class _PreviewEditProfileScreenState extends State<PreviewEditProfileScreen> {
               height: 30,
             ),
             utils.imageBigContainer(
-                image: widget.snap['profilePhotoURL'],
-                top: false,
-                bottom: false),
+                image: widget.snap['photoURL'][1], top: false, bottom: false),
             const SizedBox(
               height: 20,
             ),

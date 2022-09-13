@@ -23,6 +23,7 @@ import 'package:dating_app/test_crop.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:page_transition/page_transition.dart';
 import 'Authentication/landing_page.dart';
 import 'Authentication/splash_screen.dart';
@@ -61,20 +62,19 @@ import 'ProfileScreens/willing_to_relocate_screen.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(const MyApp());
+  runApp(
+    const ProviderScope(
+      child: MyApp(),
+    ),
+  );
 }
 
-class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+class MyApp extends ConsumerWidget {
+  const MyApp({super.key});
 
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  @override
+  // @override
   void initState() {
-    super.initState();
+    // super.initState();
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
@@ -82,7 +82,8 @@ class _MyAppState extends State<MyApp> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    initState();
     return MaterialApp(
       title: 'MashaLatte',
       debugShowCheckedModeBanner: false,
@@ -177,3 +178,117 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
+
+// class MyApp extends StatefulWidget {
+//   const MyApp({Key? key}) : super(key: key);
+
+//   @override
+//   State<MyApp> createState() => _MyAppState();
+// }
+
+// class _MyAppState extends State<MyApp> {
+//   @override
+//   void initState() {
+//     super.initState();
+//     SystemChrome.setPreferredOrientations([
+//       DeviceOrientation.portraitUp,
+//       DeviceOrientation.portraitDown,
+//     ]);
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'MashaLatte',
+//       debugShowCheckedModeBanner: false,
+//       initialRoute: splashRoute,
+//       // home: CropScreen(),
+//       onGenerateRoute: (settings) {
+//         switch (settings.name) {
+//           case helpAndSupportScreenRoute:
+//             return PageTransition(
+//                 child: const HelpAndSupportScreen(),
+//                 type: PageTransitionType.bottomToTop);
+//           case premiumAccessScreenRoute:
+//             return PageTransition(
+//                 child: const PremiumAccessScreen(),
+//                 type: PageTransitionType.bottomToTop);
+//           case deleteAccountScreenRoute:
+//             return PageTransition(
+//               child: const DeleteAccountScreen(),
+//               type: PageTransitionType.bottomToTop,
+//             );
+//           default:
+//             return null;
+//         }
+//       },
+//       routes: {
+//         'testRoute': (context) => AddImage(),
+//         splashRoute: (context) => const SplashScreen(),
+//         likedProfilesScreenRoute: (context) => const LikedProfilesScreen(),
+//         onBoardingInterestsScreenRoute: (context) =>
+//             const OnBoardingInterestsScreen(),
+//         landingScreenRoute: (context) => const LandingScreen(),
+//         onBoardingReligiousScreenRoute: (context) =>
+//             const OnBoardingReligiousScreen(),
+//         welcomeNameScreenRoute: (context) => const WelcomeNameScreen(),
+//         onBoardingEthnicityScreenRoute: (context) =>
+//             const OnBoardingEthnicityScreen(),
+//         onBoardingLocationScreenRoute: (context) =>
+//             const OnBoardingLocationScreen(),
+//         onBoardingLookingForScreenRoute: (context) =>
+//             const OnBoardingLookingForScreen(),
+//         onBoardingPhoneScreenRoute: (context) => const OnBoardingPhoneScreen(),
+//         onBoardingNotificationsScreenRoute: (context) =>
+//             const OnBoardingNotificationsScreen(),
+//         onBoardingDateOfBirthScreenRoute: (context) =>
+//             const OnBoardingDateOfBirthScreen(),
+//         onBoardingNameScreenRoute: (context) => const OnBoardingNameScreen(),
+//         onBoardingLookingGoodScreenRoute: (context) =>
+//             const OnBoardingLookingGoodScreen(),
+//         onBoardingAddPhotosScreenRoute: (context) =>
+//             const OnBoardingAddPhotosScreen(),
+//         onBoardingPhotoVerificationScreenRoute: (context) =>
+//             const OnBoardingPhotoVerificationScreen(),
+//         onBoardingThankYouScreenRoute: (context) =>
+//             const OnBoardingThankYouScreen(),
+//         groundRuleOneScreenRoute: (context) => const GroundRuleOneScreen(),
+//         sectScreenRoute: (context) => const SectScreen(),
+//         aboutMeEditScreenRoute: (context) => const AboutMeEditScreen(),
+//         heightScreenRoute: (context) => const HeightScreen(),
+//         likesScreenRoute: (context) => const LikesScreen(),
+//         haveChildrenScreenRoute: (context) => const HaveChildrenScreen(),
+//         editPhotosScreenRoute: (context) => const EditPhotosScreen(),
+//         editTaglineScreenRoute: (context) => const EditTaglineScreen(),
+//         promptQuestionScreenRoute: (context) => const PromptQuestionScreen(),
+//         promptAnswerScreenRoute: (context) => const PromptAnswerScreen(),
+//         professionScreenRoute: (context) => const ProfessionScreen(),
+//         editInterestScreenRoute: (context) => const EditInterestScreen(),
+//         wantKidsScreenRoute: (context) => const WantKidsScreen(),
+//         educationScreenRoute: (context) => const EducationScreen(),
+//         smokingScreenRoute: (context) => const SmokingScreen(),
+//         alcoholScreenRoute: (context) => const AlcoholScreen(),
+//         marriedScreenRoute: (context) => const MarriedScreen(),
+//         willingToRelocateScreenRoute: (context) =>
+//             const WillingToRelocateScreen(),
+//         onBoardingMenWomenScreenRoute: (context) =>
+//             const OnBoardingMenWomenScreen(),
+//         videoCallingScreenRoute: (context) => const VideoCallingScreen(),
+//         preferencesScreenRoute: (context) => const PreferencesScreen(),
+//         chatBoxScreenRoute: (context) => const ChatBoxScreen(),
+//         privacyScreenRoute: (context) => const PrivacyScreen(),
+//         profileViewScreenRoute: (context) => const ViewProfileScreen(),
+//         languagesScreenRoute: (context) => const LanguagesScreen(),
+//         editProfileTabBarScreenRoute: (context) =>
+//             const ProfileEditTabBarScreen(),
+//         bottomNavigationBarScreenRoute: (context) =>
+//             const BottomNavigationBarScreen(),
+//         homeScreenRoute: (context) => const HomeScreen(),
+//         profileScreenRoute: (context) => const ProfileScreen(),
+//         loginWithPhoneNumberScreenRoute: (context) =>
+//             const LoginWithPhoneNumberScreen(),
+//         loginWithOtpScreenRoute: (context) => const LoginWithOtpScreen(),
+//       },
+//     );
+//   }
+// }

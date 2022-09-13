@@ -13,6 +13,7 @@ class Database {
         likedTo: [],
         likedBy: [],
         age: '',
+        profilePhotoURL: '',
         religion: '',
         ethninity: [],
         lookingfor: '',

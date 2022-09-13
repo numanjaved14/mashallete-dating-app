@@ -1,17 +1,20 @@
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dating_app/ChatAndCall/call/screens/call_screen.dart';
 import 'package:dating_app/ChatScreens/chatmodels.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:uuid/uuid.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 
+import '../ChatAndCall/call/controller/call_controller.dart';
 import '../Constants/app_constants.dart';
 import '../Utilities/app_utils.dart';
 import '../Utilities/constants.dart';
 import '../Utilities/customdialog.dart';
 
-class ChatPage extends StatefulWidget {
+class ChatPage extends ConsumerStatefulWidget {
   String receiverId;
   // String receiverimageLink;
   String receiverName;
@@ -33,10 +36,10 @@ class ChatPage extends StatefulWidget {
   ];
 
   @override
-  State<ChatPage> createState() => _ChatPageState();
+  _ChatPageState createState() => _ChatPageState();
 }
 
-class _ChatPageState extends State<ChatPage> {
+class _ChatPageState extends ConsumerState<ChatPage> {
   String groupChatId = "";
   ScrollController scrollController = ScrollController();
   final ImagePicker _picker = ImagePicker();
@@ -1346,7 +1349,8 @@ class _ChatPageState extends State<ChatPage> {
                                 child: utils.bigButton(
                                     onTap: () {
                                       Navigator.pop(context);
-                                      incomingVideoCallDialog();
+                                      makeCall(ref, context);
+                                      // incomingVideoCallDialog();
                                     },
                                     width:
                                         MediaQuery.of(context).size.width * 0.8,
@@ -1562,4 +1566,16 @@ class _ChatPageState extends State<ChatPage> {
       },
     );
   }
+}
+
+// void makeCall(WidgetRef ref, BuildContext context) {
+void makeCall(WidgetRef ref, BuildContext context) {
+  ref.read(callControllerProvider).makeCall(
+        context,
+        'name',
+        'uid',
+        'profilePic',
+        // isGroupChat,
+        false,
+      );
 }
