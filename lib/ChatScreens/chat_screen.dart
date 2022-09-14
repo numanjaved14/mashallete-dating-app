@@ -277,35 +277,35 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
                                 );
                               }),
                         ),
-                        utils.newChatWidget(
-                            image: "assets/boy.png",
-                            lastMessage: "Start the conversation",
-                            textColor: Colors.white,
-                            senderName: "Usama",
-                            time: "12:20",
-                            messageTextColor: blueColor,
-                            color: darkRedColor,
-                            onTap: () {
-                              Navigator.pushNamed(context, chatBoxScreenRoute);
-                            }),
-                        utils.line(width: double.infinity),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        utils.newChatWidget(
-                            image: "assets/boy.png",
-                            lastMessage: "Start the conversation",
-                            textColor: Colors.white,
-                            senderName: "Usama",
-                            messageTextColor: blueColor,
-                            time: "12:20",
-                            color: darkRedColor,
-                            onTap: () {
-                              Navigator.pushNamed(context, chatBoxScreenRoute);
-                            }),
-                        const SizedBox(
-                          height: 30,
-                        ),
+                        // utils.newChatWidget(
+                        //     image: "assets/boy.png",
+                        //     lastMessage: "Start the conversation",
+                        //     textColor: Colors.white,
+                        //     senderName: "Usama",
+                        //     time: "12:20",
+                        //     messageTextColor: blueColor,
+                        //     color: darkRedColor,
+                        //     onTap: () {
+                        //       Navigator.pushNamed(context, chatBoxScreenRoute);
+                        //     }),
+                        // utils.line(width: double.infinity),
+                        // const SizedBox(
+                        //   height: 20,
+                        // ),
+                        // utils.newChatWidget(
+                        //     image: "assets/boy.png",
+                        //     lastMessage: "Start the conversation",
+                        //     textColor: Colors.white,
+                        //     senderName: "Usama",
+                        //     messageTextColor: blueColor,
+                        //     time: "12:20",
+                        //     color: darkRedColor,
+                        //     onTap: () {
+                        //       Navigator.pushNamed(context, chatBoxScreenRoute);
+                        //     }),
+                        // const SizedBox(
+                        //   height: 30,
+                        // ),
                       ],
                     )),
                     SingleChildScrollView(
@@ -364,69 +364,69 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
                               ),
                             ),
                           ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          utils.newChatWidget(
-                              image: "assets/boy.png",
-                              lastMessage: "Start the conversation",
-                              textColor: Colors.white,
-                              senderName: "Usama",
-                              messageTextColor: blueColor,
-                              time: "12:20",
-                              color: darkRedColor,
-                              onTap: () {
-                                Navigator.pushNamed(
-                                    context, chatBoxScreenRoute);
-                              }),
-                          utils.line(width: double.infinity),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          utils.newChatWidget(
-                              image: "assets/boy.png",
-                              lastMessage: "Start the conversation",
-                              textColor: Colors.white,
-                              senderName: "Usama",
-                              time: "12:20",
-                              color: darkRedColor,
-                              onTap: () {
-                                Navigator.pushNamed(
-                                    context, chatBoxScreenRoute);
-                              }),
-                          utils.line(width: double.infinity),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          utils.newChatWidget(
-                              image: "assets/boy.png",
-                              lastMessage: "Start the conversation",
-                              textColor: blueColor,
-                              senderName: "Usama",
-                              time: "12:20",
-                              color: blueColor.withOpacity(0.1),
-                              onTap: () {
-                                Navigator.pushNamed(
-                                    context, chatBoxScreenRoute);
-                              }),
-                          utils.line(width: double.infinity),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          utils.newChatWidget(
-                              image: "assets/boy.png",
-                              lastMessage: "Typing..",
-                              textColor: blueColor,
-                              senderName: "Usama",
-                              time: "12:20",
-                              color: blueColor.withOpacity(0.1),
-                              onTap: () {
-                                Navigator.pushNamed(
-                                    context, chatBoxScreenRoute);
-                              }),
-                          const SizedBox(
-                            height: 30,
-                          ),
+                          // const SizedBox(
+                          //   height: 20,
+                          // ),
+                          // utils.newChatWidget(
+                          //     image: "assets/boy.png",
+                          //     lastMessage: "Start the conversation",
+                          //     textColor: Colors.white,
+                          //     senderName: "Usama",
+                          //     messageTextColor: blueColor,
+                          //     time: "12:20",
+                          //     color: darkRedColor,
+                          //     onTap: () {
+                          //       Navigator.pushNamed(
+                          //           context, chatBoxScreenRoute);
+                          //     }),
+                          // utils.line(width: double.infinity),
+                          // const SizedBox(
+                          //   height: 20,
+                          // ),
+                          // utils.newChatWidget(
+                          //     image: "assets/boy.png",
+                          //     lastMessage: "Start the conversation",
+                          //     textColor: Colors.white,
+                          //     senderName: "Usama",
+                          //     time: "12:20",
+                          //     color: darkRedColor,
+                          //     onTap: () {
+                          //       Navigator.pushNamed(
+                          //           context, chatBoxScreenRoute);
+                          //     }),
+                          // utils.line(width: double.infinity),
+                          // const SizedBox(
+                          //   height: 20,
+                          // ),
+                          // utils.newChatWidget(
+                          //     image: "assets/boy.png",
+                          //     lastMessage: "Start the conversation",
+                          //     textColor: blueColor,
+                          //     senderName: "Usama",
+                          //     time: "12:20",
+                          //     color: blueColor.withOpacity(0.1),
+                          //     onTap: () {
+                          //       Navigator.pushNamed(
+                          //           context, chatBoxScreenRoute);
+                          //     }),
+                          // utils.line(width: double.infinity),
+                          // const SizedBox(
+                          //   height: 20,
+                          // ),
+                          // utils.newChatWidget(
+                          //     image: "assets/boy.png",
+                          //     lastMessage: "Typing..",
+                          //     textColor: blueColor,
+                          //     senderName: "Usama",
+                          //     time: "12:20",
+                          //     color: blueColor.withOpacity(0.1),
+                          //     onTap: () {
+                          //       Navigator.pushNamed(
+                          //           context, chatBoxScreenRoute);
+                          //     }),
+                          // const SizedBox(
+                          //   height: 30,
+                          // ),
                         ],
                       ),
                     ),

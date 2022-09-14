@@ -1453,7 +1453,7 @@ class AppUtils {
               decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
-                      image: AssetImage(image), fit: BoxFit.cover)),
+                      image: NetworkImage(image), fit: BoxFit.cover)),
             ),
             const SizedBox(
               width: 15,

@@ -1,4 +1,7 @@
 import 'package:dating_app/ChatScreens/chat_screen.dart';
+import 'package:dating_app/HomeScreens/HomeMessageScreens/message_tab.dart';
+import 'package:dating_app/HomeScreens/LIkedProfileScreens/like_tab.dart';
+import 'package:dating_app/HomeScreens/LIkedProfileScreens/liked_by_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'home_screen.dart';
@@ -46,10 +49,12 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
         onPageChanged: (index) {
           setState(() => _selectedIndex = index);
         },
-        children: const <Widget>[
-          HomeScreen(),
-          LikedProfilesScreen(),
-          ChatScreen(),
+        children: <Widget>[
+          const HomeScreen(),
+          LikeTab(),
+          // LikedProfilesScreen(),
+          // const ChatScreen(),
+          MessageTab(),
         ],
       ),
       bottomNavigationBar: Padding(
