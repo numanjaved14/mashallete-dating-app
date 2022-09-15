@@ -31,7 +31,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               }
 
               if (snapshot.hasData && !snapshot.data!.exists) {
-                return const Text("Document does not exist");
+                return const Text("User does not exist");
               }
               if (snapshot.connectionState == ConnectionState.done) {
                 Map<String, dynamic> data =

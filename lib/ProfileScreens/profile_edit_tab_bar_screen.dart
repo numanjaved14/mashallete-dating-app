@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dating_app/Utilities/app_utils.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../Constants/app_constants.dart';
@@ -114,11 +116,11 @@ class _ProfileEditTabBarScreenState extends State<ProfileEditTabBarScreen>
                   controller: _controller,
                   children: [
                     EditProfileScreen(
-                      snap: snap,
-                    ),
+                        // snap: snap,
+                        ),
                     PreviewEditProfileScreen(
-                      snap: snap,
-                    ),
+                        // snap: snap,
+                        ),
                   ],
                 ),
               ),
