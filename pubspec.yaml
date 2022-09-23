@@ -30,7 +30,8 @@ dependencies:
   agora_rtc_engine: ^5.3.0
   agora_uikit: ^1.0.3
   audio_wave: ^0.1.4
-  audio_waveforms: ^0.1.4
+  audio_waveforms: ^0.1.5+1
+  audioplayers: ^1.0.1
   blurrycontainer: ^1.0.2
   carousel_slider: ^4.1.1
   cloud_firestore: ^3.4.4
@@ -44,11 +45,13 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_riverpod: ^1.0.4
+  flutter_sound: ^9.2.13
   form_field_validator: ^1.1.0
   google_fonts: ^3.0.1
   image_crop: ^0.4.1
   image_picker: ^0.8.5+3
   page_transition: ^2.0.9
+  path_provider: ^2.0.11
   percent_indicator: ^4.2.2
   permission_handler: ^10.0.0
   pinput: ^2.2.11

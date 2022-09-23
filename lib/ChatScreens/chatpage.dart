@@ -1,10 +1,17 @@
+import 'dart:async';
 import 'dart:io';
+import 'package:audio_wave/audio_wave.dart';
+import 'package:audio_waveforms/audio_waveforms.dart';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dating_app/ChatAndCall/call/screens/call_screen.dart';
 import 'package:dating_app/ChatScreens/chatmodels.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_sound/public/flutter_sound_recorder.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:uuid/uuid.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 
@@ -46,7 +53,162 @@ class _ChatPageState extends ConsumerState<ChatPage> {
   File? imageUrl;
   TextEditingController messageController = TextEditingController();
   String? imageLink;
+  String? audioLink;
   Object? val;
+//Audio File Code
+  FlutterSoundRecorder? _soundRecorder;
+  bool isRecorderInit = false;
+  bool isShowEmojiContainer = false;
+  bool isRecording = false;
+  FocusNode focusNode = FocusNode();
+  bool isShowSendButton = false;
+  late final RecorderController recorderController;
+  final AudioPlayer audioPlayer = AudioPlayer();
+
+  var videoCallEnabled = false;
+  Timer? timer;
+  late final PlayerController controller;
+  bool pause = false;
+  bool played = false;
+  bool send = false;
+
+  bool gif = false;
+  bool mic = false;
+  var utils = AppUtils();
+  var tempDir;
+  var path;
+
+  @override
+  void dispose() {
+    timer!.cancel();
+    super.dispose();
+  }
+
+  var heightFactor = [
+    0.3,
+    0.5,
+    0.6,
+    0.6,
+    0.7,
+    0.2,
+    0.2,
+    0.2,
+    0.1,
+    0.1,
+    0.1,
+    0.9,
+    0.9,
+    0.9,
+    0.1,
+    0.1,
+    0.1,
+    0.1,
+    0.1,
+    0.9,
+    0.9,
+    0.9,
+    0.9,
+    0.7,
+    0.7,
+    0.8,
+    0.5,
+    0.5,
+    0.9,
+    0.9,
+    0.1,
+    0.1,
+    0.9,
+    0.9,
+    0.9,
+    0.7,
+    0.8,
+    0.5,
+  ];
+  List colorFactor = [
+    purpleColor,
+    purpleColor,
+    purpleColor,
+    purpleColor,
+    purpleColor,
+    purpleColor,
+    purpleColor,
+    purpleColor,
+    purpleColor,
+    purpleColor,
+    purpleColor,
+    purpleColor,
+    purpleColor,
+    purpleColor,
+    purpleColor,
+    purpleColor,
+    purpleColor,
+    purpleColor,
+    purpleColor,
+    purpleColor,
+    purpleColor,
+    purpleColor,
+    purpleColor.withOpacity(0.4),
+    purpleColor.withOpacity(0.4),
+    purpleColor.withOpacity(0.4),
+    purpleColor.withOpacity(0.4),
+    purpleColor.withOpacity(0.4),
+    purpleColor.withOpacity(0.4),
+    purpleColor.withOpacity(0.4),
+    purpleColor.withOpacity(0.4),
+    purpleColor.withOpacity(0.4),
+    purpleColor.withOpacity(0.4),
+    purpleColor.withOpacity(0.4),
+    purpleColor.withOpacity(0.4),
+    purpleColor.withOpacity(0.4),
+    purpleColor.withOpacity(0.4),
+    purpleColor.withOpacity(0.4),
+    purpleColor.withOpacity(0.4),
+    purpleColor.withOpacity(0.4),
+    purpleColor.withOpacity(0.4),
+    purpleColor.withOpacity(0.4),
+  ];
+
+  void openAudio() async {
+    final status = await Permission.microphone.request();
+    if (status != PermissionStatus.granted) {
+      throw RecordingPermissionException('Mic permission not allowed!');
+    }
+    await _soundRecorder!.openRecorder();
+    isRecorderInit = true;
+  }
+
+  // void sendTextMessage() async {
+  //   if (isShowSendButton) {
+  //     ref.read(chatControllerProvider).sendTextMessage(
+  //           context,
+  //           _messageController.text.trim(),
+  //           widget.recieverUserId,
+  //           widget.isGroupChat,
+  //         );
+  //     setState(() {
+  //       _messageController.text = '';
+  //     });
+  //   } else {
+  //     var tempDir = await getTemporaryDirectory();
+  //     var path = '${tempDir.path}/flutter_sound.aac';
+  //     if (!isRecorderInit) {
+  //       return;
+  //     }
+  //     if (isRecording) {
+  //       await _soundRecorder!.stopRecorder();
+  //       sendFileMessage(File(path), MessageEnum.audio);
+  //     } else {
+  //       await _soundRecorder!.startRecorder(
+  //         toFile: path,
+  //       );
+  //     }
+
+  //     setState(() {
+  //       isRecording = !isRecording;
+  //     });
+  //   }
+  // }
+
   void addImage() async {
     final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
     setState(() {
@@ -76,6 +238,40 @@ class _ChatPageState extends ConsumerState<ChatPage> {
       });
     }).then((value) {
       Customdialog.closeDialog(context);
+      // FocusScope.of(context).unfocus();
+      messageController.clear();
+    });
+  }
+
+  void addAudio(File file) async {
+    // final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+    // setState(() {
+    //   imageUrl = File(image!.path);
+    // });
+    Customdialog.showDialogBox(context);
+    await uploadAudioToFirebase(file).then((value) {
+      var documentReference = firebaseFirestore
+          .collection('messages')
+          .doc(groupChatId)
+          .collection(groupChatId)
+          .doc(DateTime.now().millisecondsSinceEpoch.toString());
+      firebaseFirestore.runTransaction((transaction) async {
+        await transaction.set(
+          documentReference,
+          {
+            "senderId": firebaseAuth.currentUser!.uid,
+            "receiverId": widget.receiverId,
+            // "content": messageController.text,
+            "time": DateTime.now(),
+            'image': audioLink,
+            'timestamp': DateTime.now().millisecondsSinceEpoch.toString(),
+            // 'content': content,
+            'type': 1
+          },
+        );
+      });
+    }).then((value) {
+      Customdialog.closeDialog(context);
       FocusScope.of(context).unfocus();
       messageController.clear();
     });
@@ -84,6 +280,11 @@ class _ChatPageState extends ConsumerState<ChatPage> {
   @override
   void initState() {
     // TODO: implement initState
+    _soundRecorder = FlutterSoundRecorder();
+    recorderController = RecorderController();
+    controller = PlayerController();
+
+    openAudio();
     if (firebaseAuth.currentUser!.uid.hashCode <= widget.receiverId.hashCode) {
       groupChatId = "${firebaseAuth.currentUser!.uid}-${widget.receiverId}";
     } else {
@@ -109,268 +310,942 @@ class _ChatPageState extends ConsumerState<ChatPage> {
     super.initState();
   }
 
-  var utils = AppUtils();
-
   String myStatus = "";
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
+
     return Scaffold(
-        backgroundColor: Colors.white,
-        appBar: AppBar(
-          elevation: 0,
-          automaticallyImplyLeading: false,
-          backgroundColor: Colors.white,
-          flexibleSpace: SafeArea(
-            child: Container(
-              color: Colors.white,
-              padding: EdgeInsets.only(right: 16),
-              child: Row(
-                children: <Widget>[
-                  IconButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    icon: Icon(
-                      Icons.arrow_back_ios,
-                      color: Colors.black,
-                    ),
-                  ),
-                  SizedBox(
-                    width: 2,
-                  ),
-                  CircleAvatar(
-                    // backgroundImage: NetworkImage(widget.receiverimageLink),
-                    maxRadius: 20,
-                  ),
-                  SizedBox(
-                    width: 12,
-                  ),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Center(
-                          child: Text(
-                            widget.receiverName,
-                            style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w600,
-                                color: Colors.black),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 6,
-                        ),
-                        Text(
-                          myStatus,
-                          style: TextStyle(
-                              color: Colors.grey.shade600, fontSize: 13),
-                        ),
-                      ],
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      optionsDialog(MediaQuery.of(context).size.width);
-                    },
-                    child: const Icon(
-                      Icons.keyboard_control_sharp,
-                      size: 30,
-                    ),
-                  ),
-                ],
-              ),
+      backgroundColor: Colors.white,
+      // appBar: AppBar(
+      //   elevation: 0,
+      //   automaticallyImplyLeading: false,
+      //   backgroundColor: Colors.white,
+      //   flexibleSpace: SafeArea(
+      //     child: Container(
+      //       color: Colors.white,
+      //       padding: EdgeInsets.only(right: 16),
+      //       child: Row(
+      //         children: <Widget>[
+      //           IconButton(
+      //             onPressed: () {
+      //               Navigator.pop(context);
+      //             },
+      //             icon: Icon(
+      //               Icons.arrow_back_ios,
+      //               color: Colors.black,
+      //             ),
+      //           ),
+      //           SizedBox(
+      //             width: 2,
+      //           ),
+      //           CircleAvatar(
+      //             // backgroundImage: NetworkImage(widget.receiverimageLink),
+      //             maxRadius: 20,
+      //           ),
+      //           SizedBox(
+      //             width: 12,
+      //           ),
+      //           Expanded(
+      //             child: Column(
+      //               crossAxisAlignment: CrossAxisAlignment.start,
+      //               mainAxisAlignment: MainAxisAlignment.center,
+      //               children: <Widget>[
+      //                 Center(
+      //                   child: Text(
+      //                     widget.receiverName,
+      //                     style: TextStyle(
+      //                         fontSize: 16,
+      //                         fontWeight: FontWeight.w600,
+      //                         color: Colors.black),
+      //                   ),
+      //                 ),
+      //                 SizedBox(
+      //                   height: 6,
+      //                 ),
+      //                 Text(
+      //                   myStatus,
+      //                   style: TextStyle(
+      //                       color: Colors.grey.shade600, fontSize: 13),
+      //                 ),
+      //               ],
+      //             ),
+      //           ),
+      //           GestureDetector(
+      //             onTap: () {
+      //               optionsDialog(MediaQuery.of(context).size.width);
+      //             },
+      //             child: const Icon(
+      //               Icons.keyboard_control_sharp,
+      //               size: 30,
+      //             ),
+      //           ),
+      //         ],
+      //       ),
+      //     ),
+      //   ),
+      // ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const SizedBox(
+              height: 60,
             ),
-          ),
-        ),
-        body: Container(
-          child: Stack(
-            children: <Widget>[
-              StreamBuilder(
-                  stream: firebaseFirestore
-                      .collection("messages")
-                      .doc(groupChatId)
-                      .collection(groupChatId)
-                      .orderBy("timestamp", descending: false)
-                      .snapshots(),
-                  builder: (BuildContext context,
-                      AsyncSnapshot<QuerySnapshot> snapshot) {
-                    if (snapshot.hasData) {
-                      return snapshot.data!.docs == 0
-                          ? Center(child: Text("Empty "))
-                          : ListView.builder(
-                              controller: scrollController,
-                              itemCount: snapshot.data!.docs.length,
-                              shrinkWrap: true,
-                              padding: EdgeInsets.only(top: 10, bottom: 10),
-                              physics: NeverScrollableScrollPhysics(),
-                              itemBuilder: (context, index) {
-                                var ds = snapshot.data!.docs[index];
-                                return ds.get("type") == 0
-                                    ? Container(
-                                        padding: EdgeInsets.only(
-                                            left: 14,
-                                            right: 14,
-                                            // top: 10,
-                                            bottom: 10),
-                                        // child: Align(
-                                        //   alignment: (ds.get("senderId") ==
-                                        //           firebaseAuth.currentUser!.uid
-                                        //       ? Alignment.bottomRight
-                                        //       : Alignment.bottomLeft),
-                                        //   child: Container(
-                                        //     decoration: BoxDecoration(
-                                        //       borderRadius:
-                                        //           BorderRadius.circular(20),
-                                        //       color: (ds.get("senderId") ==
-                                        //               firebaseAuth
-                                        //                   .currentUser!.uid
-                                        //           ? Colors.grey.shade200
-                                        //           : Colors.blue[200]),
-                                        //     ),
-                                        //     padding: EdgeInsets.all(16),
-                                        //     child: Text(
-                                        //       ds.get("content"),
-                                        //       style: TextStyle(fontSize: 15),
-                                        //     ),
-                                        //   ),
-                                        // ),
-                                        child: ds.get("senderId") ==
-                                                firebaseAuth.currentUser!.uid
-                                            ? utils.myChatContainer(
-                                                context: context,
-                                                messageText: ds.get("content"))
-                                            : utils.otherPersonChatContainer(
-                                                context: context,
-                                                messageText: ds.get("content"),
-                                              ))
-                                    : ds.get("type") == 1
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Icon(
+                    Icons.arrow_back_ios,
+                    size: 25,
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, profileViewScreenRoute);
+                  },
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Text(
+                        widget.receiverName,
+                        style: const TextStyle(
+                          fontSize: 17,
+                          fontFamily: "ProximaNova",
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      // Text(
+                      //   "5:00 minutes left to respond",
+                      //   style: utils.smallTitleTextStyle(),
+                      // ),
+                    ],
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    optionsDialog(width);
+                  },
+                  child: const Icon(
+                    Icons.keyboard_control_sharp,
+                    size: 30,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            Expanded(
+              child: SizedBox(
+                width: double.infinity,
+                child: StreamBuilder(
+                    stream: firebaseFirestore
+                        .collection("messages")
+                        .doc(groupChatId)
+                        .collection(groupChatId)
+                        .orderBy("timestamp", descending: false)
+                        .snapshots(),
+                    builder: (BuildContext context,
+                        AsyncSnapshot<QuerySnapshot> snapshot) {
+                      if (snapshot.hasData) {
+                        return snapshot.data!.docs == 0
+                            ? Center(child: Text("Empty "))
+                            : SingleChildScrollView(
+                                child: ListView.builder(
+                                  // controller: scrollController,
+                                  itemCount: snapshot.data!.docs.length,
+                                  shrinkWrap: true,
+                                  padding: EdgeInsets.only(top: 10, bottom: 10),
+                                  physics: NeverScrollableScrollPhysics(),
+                                  itemBuilder: (context, index) {
+                                    var ds = snapshot.data!.docs[index];
+                                    return ds.get("type") == 0
                                         ? Container(
                                             padding: EdgeInsets.only(
                                                 left: 14,
                                                 right: 14,
-                                                top: 10,
                                                 bottom: 10),
-                                            child: Align(
-                                              alignment: (ds.get("senderId") ==
-                                                      firebaseAuth
-                                                          .currentUser!.uid
-                                                  ? Alignment.bottomRight
-                                                  : Alignment.bottomLeft),
-                                              child: Container(
-                                                height: MediaQuery.of(context)
-                                                        .size
-                                                        .height *
-                                                    0.2,
-                                                width: MediaQuery.of(context)
-                                                        .size
-                                                        .width *
-                                                    0.4,
-                                                decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(20),
-                                                  image: DecorationImage(
-                                                      image: NetworkImage(
-                                                        ds.get("image"),
-                                                      ),
-                                                      fit: BoxFit.fill),
-                                                  // color: (ds.get("senderId") == firebaseAuth.currentUser!.uid?Colors.grey.shade200:Colors.blue[200]),
+                                            child: ds.get("senderId") ==
+                                                    firebaseAuth
+                                                        .currentUser!.uid
+                                                ? utils.myChatContainer(
+                                                    context: context,
+                                                    messageText:
+                                                        ds.get("content"))
+                                                : utils
+                                                    .otherPersonChatContainer(
+                                                    context: context,
+                                                    messageText:
+                                                        ds.get("content"),
+                                                  ))
+                                        : ds.get("type") == 1
+                                            ? Container(
+                                                padding: EdgeInsets.only(
+                                                    left: 14,
+                                                    right: 14,
+                                                    top: 10,
+                                                    bottom: 10),
+                                                child: Align(
+                                                  alignment: (ds.get(
+                                                              "senderId") ==
+                                                          firebaseAuth
+                                                              .currentUser!.uid
+                                                      ? Alignment.bottomRight
+                                                      : Alignment.bottomLeft),
+                                                  child: Container(
+                                                    height:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .height *
+                                                            0.2,
+                                                    width:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width *
+                                                            0.4,
+                                                    decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              20),
+                                                      image: DecorationImage(
+                                                          image: NetworkImage(
+                                                            ds.get("image"),
+                                                          ),
+                                                          fit: BoxFit.fill),
+                                                      // color: (ds.get("senderId") == firebaseAuth.currentUser!.uid?Colors.grey.shade200:Colors.blue[200]),
+                                                    ),
+                                                    // padding: EdgeInsets.all(16),
+                                                  ),
                                                 ),
-                                                // padding: EdgeInsets.all(16),
-                                              ),
-                                            ),
-                                          )
-                                        : Container();
-                              },
-                            );
-                    } else if (snapshot.hasError) {
-                      return Center(child: Icon(Icons.error_outline));
-                    } else {
-                      return Center(child: CircularProgressIndicator());
-                    }
-                  }),
-              Align(
-                alignment: Alignment.bottomLeft,
-                child: Container(
-                  padding: EdgeInsets.only(left: 10, bottom: 10, top: 10),
-                  height: 60,
-                  width: double.infinity,
-                  color: Colors.white,
-                  child: Row(
-                    children: <Widget>[
-                      GestureDetector(
-                        onTap: wantsVideoCallDialog,
-                        child: Container(
-                          height: 30,
-                          width: 30,
-                          decoration: BoxDecoration(
-                            color: Colors.blue,
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                          child: Icon(
-                            Icons.video_call,
-                            color: Colors.white,
-                            size: 20,
-                          ),
-                        ),
+                                              )
+                                            : ds.get("image") == 2
+                                                ? ds.get("senderId") ==
+                                                        firebaseAuth
+                                                            .currentUser!.uid
+                                                    ? utils.audioMessageSent(
+                                                        context: context,
+                                                        icon: played
+                                                            ? Icons.pause
+                                                            : Icons.play_arrow,
+                                                        ontap: () async {
+                                                          setState(() {
+                                                            played = !played;
+                                                          });
+                                                          played
+                                                              ? await audioPlayer
+                                                                  .pause()
+                                                              : await audioPlayer
+                                                                  .play(UrlSource(
+                                                                      ds.get(
+                                                                          'content')));
+                                                        },
+
+                                                        // messageText: ds.get("content")
+                                                      )
+                                                    : utils
+                                                        .audioMessageReceived(
+                                                        context: context,
+                                                        icon: played
+                                                            ? Icons.pause
+                                                            : Icons.play_arrow,
+                                                        ontap: () async {
+                                                          setState(() {
+                                                            played = !played;
+                                                          });
+                                                          played
+                                                              ? await audioPlayer
+                                                                  .pause()
+                                                              : await audioPlayer
+                                                                  .play(UrlSource(
+                                                                      ds.get(
+                                                                          'content')));
+                                                        },
+                                                        // messageText: ds.get("content"),
+                                                      )
+                                                : Container();
+                                  },
+                                ),
+                              );
+                      } else if (snapshot.hasError) {
+                        return Center(child: Icon(Icons.error_outline));
+                      } else {
+                        return Center(child: CircularProgressIndicator());
+                      }
+                    }),
+                // child: SingleChildScrollView(
+                //   child: Column(
+                //     children: [
+                //       const SizedBox(
+                //         height: 20,
+                //       ),
+                //       const SizedBox(
+                //         height: 20,
+                //       ),
+                //       // Text(
+                //       //   "Today 2:58 PM",
+                //       //   style: utils.smallTitleTextStyle(),
+                //       // ),
+                //       utils.otherPersonChatContainer(
+                //           context: context,
+                //           messageText:
+                //               "Hi Umer how is it going. Hope you are doing well!"),
+                //       const SizedBox(
+                //         height: 5,
+                //       ),
+                //       utils.audioMessageReceived(
+                //           context: context, time: "12:20"),
+                //       const SizedBox(
+                //         height: 10,
+                //       ),
+                //       Text(
+                //         "Today 2:58 PM",
+                //         style: utils.smallTitleTextStyle(),
+                //       ),
+                //       utils.myChatContainer(
+                //           context: context,
+                //           messageText:
+                //               "Hi Umer how is it going. Hope you are doing well!"),
+                //       send == true
+                //           ? utils.audioMessageSent(
+                //               context: context, time: "2:30")
+                //           : Container(),
+                //       const SizedBox(
+                //         height: 20,
+                //       ),
+                //     ],
+                //   ),
+                // ),
+              ),
+            ),
+            gif == false && mic == false
+                ? Container(
+                    width: double.infinity,
+                    height: 50,
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    decoration: BoxDecoration(
+                      color: Colors.grey.withOpacity(0.1),
+                      borderRadius: BorderRadius.circular(
+                        30,
                       ),
-                      SizedBox(
-                        width: 5,
-                      ),
-                      GestureDetector(
-                        onTap: addImage,
-                        child: Container(
-                          height: 30,
-                          width: 30,
-                          decoration: BoxDecoration(
-                            color: Colors.blue,
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                          child: Icon(
-                            Icons.add,
-                            color: Colors.white,
-                            size: 20,
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 15,
-                      ),
-                      Expanded(
-                        child: TextField(
-                          controller: messageController,
-                          decoration: InputDecoration(
+                    ),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: TextField(
+                            controller: messageController,
+                            onChanged: (val) {
+                              setState(() {});
+                            },
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
                               hintText: "Message",
                               hintStyle: TextStyle(
                                 color: Colors.grey[600],
+                                fontSize: 16,
                                 fontFamily: "ProximaNova",
                               ),
-                              border: InputBorder.none),
+                            ),
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                        width: 15,
-                      ),
-                      FloatingActionButton(
-                        onPressed: () {
-                          sendMessage(messageController.text.trim(), 0);
-                        },
-                        child: Icon(
-                          Icons.send,
-                          color: Colors.white,
-                          size: 18,
+                        GestureDetector(
+                          onTap: () =>
+                              sendMessage(messageController.text.trim(), 0),
+                          child: Text(
+                            "Send",
+                            style: utils.smallHeadingTextStyle(
+                                color: messageController.text.isNotEmpty
+                                    ? blueColor
+                                    : Colors.grey),
+                          ),
                         ),
-                        backgroundColor: Colors.blue,
-                        elevation: 0,
+                      ],
+                    ),
+                  )
+                : gif == false && mic == true
+                    ? Container(
+                        width: double.infinity,
+                        height: 50,
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        decoration: BoxDecoration(
+                          color: pause == false
+                              ? purpleColor
+                              : Colors.grey.withOpacity(0.1),
+                          borderRadius: BorderRadius.circular(
+                            30,
+                          ),
+                        ),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            pause == true
+                                ? GestureDetector(
+                                    onTap: () async {
+                                      played = !played;
+                                      setState(() {});
+                                    },
+                                    child: Container(
+                                      width: 25,
+                                      margin: const EdgeInsets.only(right: 10),
+                                      height: 25,
+                                      decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          border: Border.all(
+                                            color: purpleColor,
+                                            width: 2,
+                                          )),
+                                      child: Icon(
+                                        played == true
+                                            ? Icons.pause
+                                            : Icons.play_arrow,
+                                        size: played == true ? 16 : 20,
+                                        color: purpleColor,
+                                      ),
+                                    ))
+                                : Container(),
+                            played == true
+                                ? Expanded(
+                                    child: AudioWave(
+                                      height: 22,
+                                      animationLoop: 1,
+                                      spacing: 2.5,
+                                      bars: [
+                                        for (int i = 0;
+                                            i < heightFactor.length;
+                                            i++)
+                                          AudioWaveBar(
+                                            color: colorFactor[i],
+                                            heightFactor: heightFactor[i],
+                                          ),
+                                      ],
+                                    ),
+                                  )
+                                : Expanded(
+                                    child: AudioWaveforms(
+                                      recorderController: recorderController,
+                                      waveStyle: WaveStyle(
+                                          extendWaveform: true,
+                                          middleLineColor: Colors.transparent,
+                                          waveColor: pause == false
+                                              ? Colors.white
+                                              : purpleColor,
+                                          spacing: 5.0),
+                                      size: const Size(double.infinity, 30.0),
+                                    ),
+                                  ),
+                            GestureDetector(
+                              onTap: () {
+                                pause = true;
+                                recorderController.pause();
+                                setState(() {});
+                              },
+                              child: pause == true
+                                  ? GestureDetector(
+                                      onTap: () async {
+                                        // send = true;
+                                        if (!isRecorderInit) {
+                                          return;
+                                        }
+                                        if (isRecording) {
+                                          await _soundRecorder!.stopRecorder();
+                                          addAudio(File(path));
+                                        } else {
+                                          await _soundRecorder!.startRecorder(
+                                            toFile: path,
+                                          );
+                                        }
+                                        mic = false;
+                                        recorderController.stop();
+                                        setState(() {});
+                                        setState(() {});
+                                      },
+                                      child: Text(
+                                        "Send",
+                                        style: utils.smallHeadingTextStyle(
+                                            color: lightBlueColor),
+                                      ),
+                                    )
+                                  : Container(
+                                      width: 25,
+                                      height: 25,
+                                      decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          border: Border.all(
+                                            color: Colors.white,
+                                            width: 2,
+                                          )),
+                                      child: const Icon(
+                                        Icons.stop,
+                                        size: 20,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                            ),
+                          ],
+                        ),
+                      )
+                    : Column(
+                        children: [
+                          Container(
+                            width: double.infinity,
+                            height: 100,
+                            padding: const EdgeInsets.symmetric(vertical: 10),
+                            child: SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
+                                children: [
+                                  for (int i = 0; i < 10; i++)
+                                    utils.gifContainer(
+                                      image: "assets/boy.png",
+                                    ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Row(
+                            children: [
+                              SizedBox(
+                                width: width > 400 ? 10 : 5,
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  gif = !gif;
+                                  mic = false;
+                                  setState(() {});
+                                },
+                                child: const Icon(
+                                  Icons.close,
+                                  size: 25,
+                                ),
+                              ),
+                              SizedBox(
+                                width: width > 400 ? 10 : 5,
+                              ),
+                              Container(
+                                height: 50,
+                                width: MediaQuery.of(context).size.width * 0.8,
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 20),
+                                decoration: BoxDecoration(
+                                  color: Colors.grey.withOpacity(0.1),
+                                  borderRadius: BorderRadius.circular(
+                                    30,
+                                  ),
+                                ),
+                                child: TextField(
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    hintText: "Search GIFs...",
+                                    hintStyle: TextStyle(
+                                      color: Colors.grey[600],
+                                      fontFamily: "ProximaNova",
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
-                    ],
+            const SizedBox(
+              height: 15,
+            ),
+            Row(
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    wantsVideoCallDialog();
+                  },
+                  child: Container(
+                    width: 60,
+                    height: 40,
+                    decoration: BoxDecoration(
+                      color: videoCallEnabled == true
+                          ? greenColor
+                          : Colors.grey.withOpacity(0.1),
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    child: videoCallEnabled == true
+                        ? Image.asset(
+                            "assets/videoIcon.png",
+                            color: Colors.white,
+                            scale: 5,
+                          )
+                        : Image.asset(
+                            "assets/videoIcon.png",
+                            color: blueColor,
+                            scale: 5,
+                          ),
                   ),
                 ),
-              ),
-            ],
-          ),
-        ));
+                const SizedBox(
+                  width: 10,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    addImage();
+                    // gif = !gif;
+                    // setState(() {});
+                  },
+                  child: Container(
+                    width: 60,
+                    height: 40,
+                    decoration: BoxDecoration(
+                      color: gif == true
+                          ? blueColor
+                          : Colors.grey.withOpacity(0.1),
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    child: Image.asset(
+                      "assets/pic.png",
+                      scale: 0.8,
+                      color: gif == true ? Colors.white : blueColor,
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                GestureDetector(
+                  onTap: () async {
+                    mic = !mic;
+                    if (mic == true) {
+                      pause = false;
+                      recorderController.record();
+                      tempDir = await getTemporaryDirectory();
+                      path = '${tempDir.path}/flutter-audio.aac';
+                    } else {
+                      recorderController.stop();
+                    }
+                    setState(() {});
+                  },
+                  child: Container(
+                    width: 60,
+                    height: 40,
+                    decoration: BoxDecoration(
+                      color: mic == false
+                          ? Colors.grey.withOpacity(0.1)
+                          : purpleColor,
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    child: Image.asset(
+                      "assets/microphone.png",
+                      scale: 1.5,
+                      color: mic == false ? blueColor : Colors.white,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+          ],
+        ),
+      ),
+      // body: Container(
+      //   child: Stack(
+      //     children: <Widget>[
+      //       isRecording
+      //           ? Positioned(
+      //               // bottom: 20,
+      //               top: MediaQuery.of(context).size.height * 0.8,
+      //               child: Expanded(
+      //                 child: Container(
+      //                   margin: EdgeInsets.symmetric(vertical: 10),
+      //                   decoration: BoxDecoration(
+      //                     borderRadius: BorderRadius.circular(20),
+      //                     color: Colors.black.withOpacity(0.3),
+      //                   ),
+      //                   child: Row(
+      //                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      //                     children: [
+      //                       GestureDetector(
+      //                         // onTap: addImage,
+      //                         child: Container(
+      //                           height: 30,
+      //                           width: 30,
+      //                           decoration: BoxDecoration(
+      //                             color: Colors.red,
+      //                             borderRadius: BorderRadius.circular(30),
+      //                           ),
+      //                           child: const Icon(
+      //                             Icons.cancel_outlined,
+      //                             color: Colors.white,
+      //                             size: 20,
+      //                           ),
+      //                         ),
+      //                       ),
+      //                       Padding(
+      //                         padding: const EdgeInsets.all(8.0),
+      //                         child: SizedBox(
+      //                           width:
+      //                               MediaQuery.of(context).size.width * 0.72,
+      //                           child: AudioWaveforms(
+      //                             recorderController: recorderController,
+      //                             waveStyle: WaveStyle(
+      //                                 extendWaveform: true,
+      //                                 middleLineColor: Colors.transparent,
+      //                                 waveColor: purpleColor,
+      //                                 spacing: 5.0),
+      //                             size: const Size(double.infinity, 30.0),
+      //                           ),
+      //                         ),
+      //                       ),
+      //                       GestureDetector(
+      //                         // onTap: addImage,
+      //                         child: Container(
+      //                           height: 30,
+      //                           width: 30,
+      //                           decoration: BoxDecoration(
+      //                             color: Colors.blue,
+      //                             borderRadius: BorderRadius.circular(30),
+      //                           ),
+      //                           child: const Icon(
+      //                             Icons.send,
+      //                             color: Colors.white,
+      //                             size: 20,
+      //                           ),
+      //                         ),
+      //                       ),
+      //                     ],
+      //                   ),
+      //                 ),
+      //               ),
+      //             )
+      //           : SizedBox(
+      //               height: 0,
+      //             ),
+      //       StreamBuilder(
+      //           stream: firebaseFirestore
+      //               .collection("messages")
+      //               .doc(groupChatId)
+      //               .collection(groupChatId)
+      //               .orderBy("timestamp", descending: false)
+      //               .snapshots(),
+      //           builder: (BuildContext context,
+      //               AsyncSnapshot<QuerySnapshot> snapshot) {
+      //             if (snapshot.hasData) {
+      //               return snapshot.data!.docs == 0
+      //                   ? Center(child: Text("Empty "))
+      //                   : ListView.builder(
+      //                       controller: scrollController,
+      //                       itemCount: snapshot.data!.docs.length,
+      //                       shrinkWrap: true,
+      //                       padding: EdgeInsets.only(top: 10, bottom: 10),
+      //                       physics: NeverScrollableScrollPhysics(),
+      //                       itemBuilder: (context, index) {
+      //                         var ds = snapshot.data!.docs[index];
+      //                         return ds.get("type") == 0
+      //                             ? Container(
+      //                                 padding: EdgeInsets.only(
+      //                                     left: 14, right: 14, bottom: 10),
+      //                                 child: ds.get("senderId") ==
+      //                                         firebaseAuth.currentUser!.uid
+      //                                     ? utils.myChatContainer(
+      //                                         context: context,
+      //                                         messageText: ds.get("content"))
+      //                                     : utils.otherPersonChatContainer(
+      //                                         context: context,
+      //                                         messageText: ds.get("content"),
+      //                                       ))
+      //                             : ds.get("type") == 1
+      //                                 ? Container(
+      //                                     padding: EdgeInsets.only(
+      //                                         left: 14,
+      //                                         right: 14,
+      //                                         top: 10,
+      //                                         bottom: 10),
+      //                                     child: Align(
+      //                                       alignment: (ds.get("senderId") ==
+      //                                               firebaseAuth
+      //                                                   .currentUser!.uid
+      //                                           ? Alignment.bottomRight
+      //                                           : Alignment.bottomLeft),
+      //                                       child: Container(
+      //                                         height: MediaQuery.of(context)
+      //                                                 .size
+      //                                                 .height *
+      //                                             0.2,
+      //                                         width: MediaQuery.of(context)
+      //                                                 .size
+      //                                                 .width *
+      //                                             0.4,
+      //                                         decoration: BoxDecoration(
+      //                                           borderRadius:
+      //                                               BorderRadius.circular(20),
+      //                                           image: DecorationImage(
+      //                                               image: NetworkImage(
+      //                                                 ds.get("image"),
+      //                                               ),
+      //                                               fit: BoxFit.fill),
+      //                                           // color: (ds.get("senderId") == firebaseAuth.currentUser!.uid?Colors.grey.shade200:Colors.blue[200]),
+      //                                         ),
+      //                                         // padding: EdgeInsets.all(16),
+      //                                       ),
+      //                                     ),
+      //                                   )
+      //                                 : Container();
+      //                       },
+      //                     );
+      //             } else if (snapshot.hasError) {
+      //               return Center(child: Icon(Icons.error_outline));
+      //             } else {
+      //               return Center(child: CircularProgressIndicator());
+      //             }
+      //           }),
+      //       Align(
+      //         alignment: Alignment.bottomLeft,
+      //         child: Container(
+      //           padding: EdgeInsets.only(left: 10, bottom: 10, top: 10),
+      //           height: 60,
+      //           width: double.infinity,
+      //           color: Colors.white,
+      //           child: Row(
+      //             children: <Widget>[
+      //               GestureDetector(
+      //                 onTap: wantsVideoCallDialog,
+      //                 child: Container(
+      //                   height: 30,
+      //                   width: 30,
+      //                   decoration: BoxDecoration(
+      //                     color: Colors.blue,
+      //                     borderRadius: BorderRadius.circular(30),
+      //                   ),
+      //                   child: Icon(
+      //                     Icons.video_call,
+      //                     color: Colors.white,
+      //                     size: 20,
+      //                   ),
+      //                 ),
+      //               ),
+      //               SizedBox(
+      //                 width: 5,
+      //               ),
+      //               GestureDetector(
+      //                 onTap: addImage,
+      //                 child: Container(
+      //                   height: 30,
+      //                   width: 30,
+      //                   decoration: BoxDecoration(
+      //                     color: Colors.blue,
+      //                     borderRadius: BorderRadius.circular(30),
+      //                   ),
+      //                   child: Icon(
+      //                     Icons.add,
+      //                     color: Colors.white,
+      //                     size: 20,
+      //                   ),
+      //                 ),
+      //               ),
+      //               SizedBox(
+      //                 width: 5,
+      //               ),
+      //               //       GestureDetector(
+      //               //   child: Icon(
+      //               //     isShowSendButton
+      //               //         ? Icons.send
+      //               //         : isRecording
+      //               //             ? Icons.close
+      //               //             : Icons.mic,
+      //               //     color: Colors.white,
+      //               //   ),
+      //               //   onTap: sendMessage('', 2),
+      //               // ),
+      //               GestureDetector(
+      //                 onTap: () {
+      //                   isRecording = !isRecording;
+      //                   if (isRecording == true) {
+      //                     // pause = false;
+
+      //                     recorderController.record();
+      //                   } else {
+      //                     recorderController.stop();
+      //                   }
+      //                   setState(() {});
+      //                 },
+      //                 child: Container(
+      //                   width: 60,
+      //                   height: 40,
+      //                   decoration: BoxDecoration(
+      //                     color: isRecording == false
+      //                         ? Colors.grey.withOpacity(0.1)
+      //                         : purpleColor,
+      //                     borderRadius: BorderRadius.circular(25),
+      //                   ),
+      //                   child: Image.asset(
+      //                     "assets/microphone.png",
+      //                     scale: 1.5,
+      //                     color:
+      //                         isRecording == false ? blueColor : Colors.white,
+      //                   ),
+      //                 ),
+      //               ),
+      //               // GestureDetector(
+      //               //   onTap: () {
+      //               //     isRecording = !isRecording;
+
+      //               //   },
+      //               //   child: Container(
+      //               //     height: 30,
+      //               //     width: 30,
+      //               //     decoration: BoxDecoration(
+      //               //       color: Colors.blue,
+      //               //       borderRadius: BorderRadius.circular(30),
+      //               //     ),
+      //               //     child: Icon(
+      //               //       Icons.mic,
+      //               //       color: Colors.white,
+      //               //       size: 20,
+      //               //     ),
+      //               //   ),
+      //               // ),
+      //               SizedBox(
+      //                 width: 15,
+      //               ),
+      //               Expanded(
+      //                 child: TextField(
+      //                   controller: messageController,
+      //                   decoration: InputDecoration(
+      //                       hintText: "Message",
+      //                       hintStyle: TextStyle(
+      //                         color: Colors.grey[600],
+      //                         fontFamily: "ProximaNova",
+      //                       ),
+      //                       border: InputBorder.none),
+      //                 ),
+      //               ),
+      //               SizedBox(
+      //                 width: 15,
+      //               ),
+      //               FloatingActionButton(
+      //                 onPressed: () {
+      //                   sendMessage(messageController.text.trim(), 0);
+      //                 },
+      //                 child: Icon(
+      //                   Icons.send,
+      //                   color: Colors.white,
+      //                   size: 18,
+      //                 ),
+      //                 backgroundColor: Colors.blue,
+      //                 elevation: 0,
+      //               ),
+      //             ],
+      //           ),
+      //         ),
+      //       ),
+      //     ],
+      //   ),
+      // )
+    );
   }
 
   void sendMessage(String content, int type) {
@@ -419,6 +1294,25 @@ class _ChatPageState extends ConsumerState<ChatPage> {
       String img = await uploadTask.snapshot.ref.getDownloadURL();
       setState(() {
         imageLink = img;
+      });
+    });
+  }
+
+  Future uploadAudioToFirebase(File file) async {
+    // File? fileName = imageUrl;
+    var uuid = Uuid();
+    firebase_storage.Reference firebaseStorageRef = firebase_storage
+        .FirebaseStorage.instance
+        .ref()
+        .child('messages/audios+${uuid.v4()}');
+
+    firebase_storage.UploadTask uploadTask = firebaseStorageRef.putFile(file);
+    firebase_storage.TaskSnapshot taskSnapshot =
+        await uploadTask.whenComplete(() async {
+      // print(fileName);
+      String aud = await uploadTask.snapshot.ref.getDownloadURL();
+      setState(() {
+        audioLink = aud;
       });
     });
   }

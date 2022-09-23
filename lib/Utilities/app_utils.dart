@@ -1593,20 +1593,20 @@ class AppUtils {
           crossAxisAlignment: CrossAxisAlignment.end,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Container(
-              width: 30,
-              height: 30,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/boy.png"),
-                  fit: BoxFit.cover,
-                ),
-                shape: BoxShape.circle,
-              ),
-            ),
-            const SizedBox(
-              width: 15,
-            ),
+            // Container(
+            //   width: 30,
+            //   height: 30,
+            //   decoration: const BoxDecoration(
+            //     image: DecorationImage(
+            //       image: AssetImage("assets/boy.png"),
+            //       fit: BoxFit.cover,
+            //     ),
+            //     shape: BoxShape.circle,
+            //   ),
+            // ),
+            // const SizedBox(
+            //   width: 15,
+            // ),
             Container(
               width: MediaQuery.of(context).size.width * 0.7,
               padding: const EdgeInsets.all(15),
@@ -1658,7 +1658,7 @@ class AppUtils {
     );
   }
 
-  audioMessageSent({context, time}) {
+  audioMessageSent({context, time, icon, ontap}) {
     return Align(
       alignment: Alignment.centerRight,
       child: Column(
@@ -1685,11 +1685,14 @@ class AppUtils {
                     color: Colors.white.withOpacity(0.2),
                     shape: BoxShape.circle,
                   ),
-                  child: const Center(
-                    child: Icon(
-                      Icons.pause,
-                      size: 15,
-                      color: Colors.white,
+                  child: Center(
+                    child: GestureDetector(
+                      onTap: ontap,
+                      child: Icon(
+                        icon,
+                        size: 15,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),
@@ -1787,7 +1790,7 @@ class AppUtils {
     );
   }
 
-  audioMessageReceived({context, time}) {
+  audioMessageReceived({context, time, icon, ontap}) {
     return Align(
       alignment: Alignment.centerLeft,
       child: Row(
@@ -1833,11 +1836,14 @@ class AppUtils {
                         color: blueColor,
                         shape: BoxShape.circle,
                       ),
-                      child: const Center(
-                        child: Icon(
-                          Icons.pause,
-                          size: 15,
-                          color: Colors.white,
+                      child: Center(
+                        child: GestureDetector(
+                          onTap: ontap,
+                          child: Icon(
+                            icon,
+                            size: 15,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ),
@@ -2251,7 +2257,7 @@ class AppUtils {
                   ),
                 ),
                 Text(
-                  body,
+                  body.toString(),
                   style: TextStyle(
                       fontSize: 15,
                       fontFamily: "ProximaNova",

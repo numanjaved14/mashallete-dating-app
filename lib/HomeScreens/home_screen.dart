@@ -79,65 +79,112 @@ class _HomeScreenState extends State<HomeScreen> {
                               const SizedBox(
                                 height: 70,
                               ),
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  GestureDetector(
-                                    onTap: () {
-                                      Navigator.pushNamed(
-                                          context, profileScreenRoute);
-                                    },
-                                    child: Container(
-                                      decoration: _isLoading
-                                          ? const BoxDecoration(
-                                              color: Colors.white)
-                                          : BoxDecoration(
-                                              image: DecorationImage(
-                                                  image: NetworkImage(
-                                                    userData['profilePhotoURL'],
-                                                  ),
-                                                  fit: BoxFit.cover),
-                                              shape: BoxShape.circle),
-                                      height: 32,
-                                      width: 32,
+                              index == 0
+                                  ? Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        GestureDetector(
+                                          onTap: () {
+                                            Navigator.pushNamed(
+                                                context, profileScreenRoute);
+                                          },
+                                          child: Container(
+                                            decoration: _isLoading
+                                                ? const BoxDecoration(
+                                                    color: Colors.white)
+                                                : BoxDecoration(
+                                                    image: DecorationImage(
+                                                        image: NetworkImage(
+                                                          userData[
+                                                              'profilePhotoURL'],
+                                                        ),
+                                                        fit: BoxFit.cover),
+                                                    shape: BoxShape.circle),
+                                            height: 32,
+                                            width: 32,
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              bottom: 10.0),
+                                          child: Image.asset(
+                                            "assets/mashalatteText.png",
+                                            scale: 30,
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          width: 30,
+                                          child: Icon(CupertinoIcons
+                                              .arrow_turn_up_left),
+                                        )
+                                      ],
+                                    )
+                                  : SizedBox(
+                                      height: 10,
                                     ),
-                                  ),
-                                  Padding(
-                                    padding:
-                                        const EdgeInsets.only(bottom: 10.0),
-                                    child: Image.asset(
-                                      "assets/mashalatteText.png",
-                                      scale: 30,
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    width: 30,
-                                    child:
-                                        Icon(CupertinoIcons.arrow_turn_up_left),
-                                  )
-                                ],
-                              ),
                               const SizedBox(
                                 height: 10,
                               ),
 
                               Stack(
                                 children: [
-                                  utils.imageBigHomeContainer(
-                                    image: snapshot.data!.docs[index]
-                                        ['profilePhotoURL'],
-                                    top: true,
-                                    name: snapshot.data!.docs[index]['fullName']
-                                        .toString(),
-                                    age: 21,
-                                    profession: snapshot
-                                        .data!.docs[index]['profession']
-                                        .toString(),
-                                    country: "Pakistani",
-                                    flagImage: "assets/pakistan.png",
-                                  ),
+                                  snapshot.data!.docs[index]['ethninity'][0] !=
+                                          ''
+                                      ? utils.imageBigHomeContainer(
+                                          image: snapshot.data!.docs[index]
+                                              ['profilePhotoURL'],
+                                          top: true,
+                                          name: snapshot
+                                              .data!.docs[index]['fullName']
+                                              .toString(),
+                                          age: 21,
+                                          profession: snapshot
+                                              .data!.docs[index]['profession']
+                                              .toString(),
+                                          country: snapshot.data!.docs[index]
+                                              ['ethninity'][0],
+                                          flagImage: "assets/pakistan.png",
+                                        )
+                                      : SizedBox(),
+                                  snapshot.data!.docs[index]['ethninity'][1] !=
+                                          ''
+                                      ? utils.imageBigHomeContainer(
+                                          image: snapshot.data!.docs[index]
+                                              ['profilePhotoURL'],
+                                          top: true,
+                                          name: snapshot
+                                              .data!.docs[index]['fullName']
+                                              .toString(),
+                                          age: 21,
+                                          profession: snapshot
+                                              .data!.docs[index]['profession']
+                                              .toString(),
+                                          country: snapshot.data!.docs[index]
+                                              ['ethninity'][1],
+                                          flagImage: "assets/indian-flag.png",
+                                        )
+                                      : SizedBox(),
+                                  snapshot.data!.docs[index]['ethninity'][2] !=
+                                          ''
+                                      ? utils.imageBigHomeContainer(
+                                          image: snapshot.data!.docs[index]
+                                              ['profilePhotoURL'],
+                                          top: true,
+                                          name: snapshot
+                                              .data!.docs[index]['fullName']
+                                              .toString(),
+                                          age: 21,
+                                          profession: snapshot
+                                              .data!.docs[index]['profession']
+                                              .toString(),
+                                          country: snapshot.data!.docs[index]
+                                              ['ethninity'][2],
+                                          flagImage: "assets/bangladesh.png",
+                                        )
+                                      : SizedBox(),
                                   Positioned(
                                     top: 10,
                                     left: 10,

@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dating_app/ChatScreens/chat_box_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -80,7 +81,9 @@ class _AllConversationsScreenState extends State<AllConversationsScreen> {
                                         onTap: () {
                                           Navigator.of(context).push(
                                             MaterialPageRoute(
-                                              builder: (context) => ChatPage(
+                                              builder: (context) =>
+                                                  // ChatBoxScreen(),
+                                                  ChatPage(
                                                 receiverName: allUsers[i]
                                                     ['fullName'],
                                                 receiverId: allUsers[i]['uid'],
